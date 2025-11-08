@@ -262,6 +262,8 @@ MonoBehaviour:
   lateralGrip: 1.39
   rb: {fileID: 478489745}
   centerOfMassOffset: {x: 0, y: 0, z: 0}
+  brakeDampingMultiplier: 4
+  handBrakeDampingMultiplier: 10
 --- !u!54 &478489745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -460,14 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3fa2c5f8a3eef42b42d4ef06fb321f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 478489743}
-  offset: {x: 0, y: 0, z: 0}
-  baseSmoothTime: 0.25
-  speedToSmoothTime: 0.02
-  minSmoothTime: 0.02
-  maxSmoothTime: 1
-  cameraHeight: 70
+  minimumCameraHeight: 40
   cameraFollowSpeed: 250
+  lookAheadMultipler: 1
+  lookAheadMaximum: 50
 --- !u!1001 &590137104
 PrefabInstance:
   m_ObjectHideFlags: 0
