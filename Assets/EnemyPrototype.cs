@@ -249,7 +249,13 @@ public class EnemyPrototype : MonoBehaviour
         }
 
         if (playerSpeed >= closeVanishSpeedThreshold)
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.AddXP(10); // Are we going to keep this? god knows. 
             Vanish();
+        }
+      
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -271,7 +277,11 @@ public class EnemyPrototype : MonoBehaviour
         }
 
         if (playerSpeed >= closeVanishSpeedThreshold)
+        {
+            Player player = other.gameObject.GetComponent<Player>();
+            player.AddXP(10); // Are we going to keep this? god knows. 
             Vanish();
+        }
     }
 
     private void Vanish()

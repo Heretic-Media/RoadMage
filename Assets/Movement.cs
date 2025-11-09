@@ -1,200 +1,224 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class TopDownCarController : MonoBehaviour
 {
-    [Header("Speeds (m/s)")]
-    public float maxForwardSpeed = 20f;       // forward top speed
-    public float maxReverseSpeed = 6f;        // reverse top speed (slower than forward)
+    [Header("Speed (m/s)")]
+    public float maxForwardSpeed = 18f;
+    public float maxReverseSpeed = 8f;
 
-    [Header("Longitudinal Forces")]
-    public float forwardAcceleration = 30f;   // forward acceleration (ForceMode.Acceleration)
-    public float reverseAcceleration = 12f;   // reverse acceleration (weaker -> feels slower)
-    public float brakeForce = 80f;            // strong braking when opposite throttle applied
-    public float engineBrakingDamping = 1f;   // linear damping applied when no throttle
-    public float handbrakeDamping = 6f;       // stronger damping with handbrake
+    [Header("Acceleration / Braking")]
+    public float acceleration = 25f;
+    public float reverseAcceleration = 18f;
+    public float brakeStrength = 55f;
+    public float idleDrag = 3f;
+    public float accelDrag = 0.5f;
+    public float brakeDrag = 5f;
 
     [Header("Steering")]
-    [Tooltip("Max steering rotation in degrees/sec at low speed")]
-    public float maxSteerDegPerSec = 160f;
-    [Range(0.1f, 1f), Tooltip("Factor applied to steering at top speed (smaller = less steering at high speed)")]
-    public float steerAtTopSpeedFactor = 0.35f;
+    public float maxSteerAnglePerSec = 140f;
+    [Range(0.1f, 1f)]
+    public float steerAtTopSpeedFactor = 0.4f;
+    public float steeringResponse = 10f;
 
-    [Header("Lateral / Traction")]
-    [Range(0f, 20f)]
-    public float lateralGrip = 8f;            // how quickly sideways velocity is removed (higher = less sliding)
+    [Header("Grip / Traction")]
+    [Tooltip("Base sideways grip. Higher = less slide.")]
+    public float baseLateralGrip = 14f;
+    [Tooltip("Extra grip when accelerating.")]
+    public float accelLateralGripBoost = 4f;
+    [Tooltip("Extra grip when braking.")]
+    public float brakeLateralGripBoost = 6f;
+    [Tooltip("Handbrake grip factor when NOT using drift mode.")]
+    public float handbrakeLateralGripFactor = 0.35f;
 
-    [Header("References / Tuning")]
+    [Header("Drift")]
+    public bool enableDrift = true;
+    [Tooltip("Lateral grip multiplier while drifting.")]
+    public float driftLateralGripFactor = 0.22f;
+    [Tooltip("Forward drag while drifting (keeps momentum, slight slowdown).")]
+    public float driftForwardDrag = 1.2f;
+    [Tooltip("Steering multiplier while drifting.")]
+    public float driftSteerMultiplier = 1.7f;
+    [Tooltip("Extra yaw torque while drifting to help kick the rear out.")]
+    public float driftYawBoost = 40f;
+    [Tooltip("Minimum speed needed before drift takes effect.")]
+    public float driftMinSpeed = 5f;
+
+    [Header("Input / Physics")]
+    public Key handbrakeKey = Key.Space;
     public Rigidbody rb;
-    public Vector3 centerOfMassOffset = Vector3.zero; // useful to lower CoM for stability
+    public Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
 
-    [Header("Braking Multipliers")]
-    public float brakeDampingMultiplier = 4f; // Linear braking, not handbrake 
-    public float handBrakeDampingMultiplier = 10f; // Stronger damping when handbrake is applied
-    
-
-    // runtime inputs
-    float steerInput;
-    float throttleInput;
+    float rawThrottleInput;
+    float rawSteerInput;
+    float steerInputSmoothed;
     bool handbrake;
 
-    void Start()
+    void Awake()
     {
-        if (rb == null) rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            // Keep roll/pitch locked, yaw free. Set center of mass for stability.
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            rb.centerOfMass += centerOfMassOffset;
-        }
+        if (!rb) rb = GetComponent<Rigidbody>();
+
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.centerOfMass += centerOfMassOffset;
     }
 
     void Update()
     {
-        // Read inputs using the new Input System (keyboard or gamepad)
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        // Throttle: W/up = forward, S/down = reverse. Gamepad left stick Y is prioritized when present.
-        throttleInput = 0f;
-        if (kb != null)
-        {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) throttleInput = 1f;
-            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) throttleInput = -1f;
-        }
+        float t = 0f;
+
         if (gp != null)
         {
-            throttleInput = gp.leftStick.y.ReadValue();
+            t = gp.rightTrigger.ReadValue() - gp.leftTrigger.ReadValue();
         }
-
-
-        // Steering: A/D or gamepad left stick X — only when moving forward
-        steerInput = 0f;
-        float localForward = 0f;
-        float localBackward = 0f;
-        if (rb != null)
+        else if (kb != null)
         {
-            Vector3 localVelForCheck = transform.InverseTransformDirection(rb.linearVelocity);
-
-            localForward = localVelForCheck.z;
-            localBackward = -localVelForCheck.z;
+            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) t += 1f;
+            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) t -= 1f;
         }
 
-        // Only allow steering when moving forward above threshold (1 m/s)
-        if (localForward > 1f || localBackward > 1f)
+        rawThrottleInput = Mathf.Clamp(t, -1f, 1f);
+
+        float s = 0f;
+
+        if (gp != null)
         {
-            if (kb != null)
-            {
-                if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) steerInput = -1f;
-                if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) steerInput = 1f;
-            }
-            if (gp != null)
-            {
-                steerInput = gp.leftStick.x.ReadValue();
-            }
+            s = gp.leftStick.x.ReadValue();
         }
-        else
+        else if (kb != null)
         {
-            // not moving forward: ensure no steering input
-            steerInput = 0f;
+            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) s -= 1f;
+            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) s += 1f;
         }
 
-        // Handbrake: Space or gamepad south button
-        handbrake = (kb != null && kb.spaceKey.isPressed) || (gp != null && gp.buttonSouth.isPressed);
+        rawSteerInput = Mathf.Clamp(s, -1f, 1f);
+
+        handbrake =
+            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+            (kb != null && kb[handbrakeKey].isPressed);
     }
 
     void FixedUpdate()
     {
-        if (rb == null) return;
+        if (!rb) return;
 
-        // Convert velocity into local space for easier logic
         Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
-        float forwardSpeed = localVel.z; // forward component (m/s), can be negative for reversing
+        float forwardSpeed = localVel.z;
+        float speedAbs = Mathf.Abs(forwardSpeed);
 
-        // --- Longitudinal behaviour (accel / reverse / brake) ---
-        if (throttleInput > 0.01f)
+        bool hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
+
+        bool isBraking =
+            (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
+            (forwardSpeed < -0.2f && rawThrottleInput > 0.1f);
+
+        bool drifting = enableDrift && handbrake && speedAbs > driftMinSpeed;
+
+        float targetDrag;
+
+        if (drifting)
         {
-            // accelerating forward
-            if (forwardSpeed < maxForwardSpeed)
-                rb.AddForce(transform.forward * throttleInput * forwardAcceleration, ForceMode.Acceleration);
+            targetDrag = driftForwardDrag;
         }
-        else if (throttleInput < -0.01f)
+        else
         {
-            // reversing or braking
-            // if currently moving forward and throttle is reverse, apply stronger brakeForce first
-            if (forwardSpeed > 0.5f)
+            if (!hasThrottle)
+                targetDrag = idleDrag;
+            else if (isBraking)
+                targetDrag = brakeDrag;
+            else
+                targetDrag = accelDrag;
+        }
+
+        rb.linearDamping = Mathf.Lerp(rb.linearDamping, targetDrag, Time.fixedDeltaTime * 8f);
+
+        if (hasThrottle && !drifting)
+        {
+            if (!isBraking)
             {
-                rb.AddForce(-transform.forward * Mathf.Abs(throttleInput) * brakeForce, ForceMode.Acceleration);
+                if (rawThrottleInput > 0f)
+                {
+                    if (forwardSpeed < maxForwardSpeed)
+                        rb.AddForce(transform.forward * (rawThrottleInput * acceleration), ForceMode.Acceleration);
+                }
+                else
+                {
+                    if (forwardSpeed > -maxReverseSpeed)
+                        rb.AddForce(transform.forward * (rawThrottleInput * reverseAcceleration), ForceMode.Acceleration);
+                }
             }
             else
             {
-                // apply reverse acceleration (weaker than forward)
-                if (forwardSpeed > -maxReverseSpeed)
-                    rb.AddForce(transform.forward * throttleInput * reverseAcceleration, ForceMode.Acceleration); // throttleInput is negative
+                rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Acceleration);
             }
         }
-        else
+        else if (!hasThrottle && !drifting)
         {
-            // no throttle: engine braking via linear damping
-            rb.linearDamping = Mathf.Lerp(rb.linearDamping, engineBrakingDamping, Time.fixedDeltaTime * brakeDampingMultiplier);
+            float brakeFactor = 6f * Time.fixedDeltaTime;
+            localVel.z = Mathf.MoveTowards(localVel.z, 0f, brakeFactor);
         }
 
-        // Handbrake increases damping for quick stops / slides
-        if (handbrake)
+        float lateralGrip = baseLateralGrip;
+
+        if (hasThrottle) lateralGrip += accelLateralGripBoost;
+        if (isBraking) lateralGrip += brakeLateralGripBoost;
+
+        if (drifting)
         {
-            rb.linearDamping = Mathf.Lerp(rb.linearDamping, handbrakeDamping, Time.fixedDeltaTime * handBrakeDampingMultiplier);
-
+            lateralGrip *= driftLateralGripFactor;
         }
-        else
+        else if (handbrake && !drifting)
         {
-            // reduce damping while accelerating
-            if (Mathf.Abs(throttleInput) > 0.01f)
-                rb.linearDamping = Mathf.Lerp(rb.linearDamping, 0f, Time.fixedDeltaTime * 8f);
+            lateralGrip *= handbrakeLateralGripFactor;
         }
 
-        // --- Lateral grip: reduce sideways velocity for traction ---
-        // localVel.x is the lateral velocity (m/s). Damp it toward zero to simulate tire grip.
-        float newLateral = Mathf.Lerp(localVel.x, 0f, lateralGrip * Time.fixedDeltaTime);
-        localVel.x = newLateral;
+        float lateral = localVel.x;
+        float lateralKill = lateralGrip * Time.fixedDeltaTime;
+        localVel.x = Mathf.MoveTowards(lateral, 0f, lateralKill);
 
-        // Keep vertical (y) world velocity component unchanged
-        Vector3 newWorldVel = transform.TransformDirection(new Vector3(localVel.x, 0f, localVel.z));
+        Vector3 newWorldVel = transform.TransformDirection(localVel);
         newWorldVel.y = rb.linearVelocity.y;
         rb.linearVelocity = newWorldVel;
 
-        // --- Speed capping: forward and reverse separately ---
-        // Recompute local forward speed after potential changes
         localVel = transform.InverseTransformDirection(rb.linearVelocity);
-        forwardSpeed = localVel.z;
+        forwardSpeed = Mathf.Clamp(localVel.z, -maxReverseSpeed, maxForwardSpeed);
+        localVel.z = forwardSpeed;
+        rb.linearVelocity = transform.TransformDirection(localVel);
 
-        if (forwardSpeed > maxForwardSpeed)
+        float minSteerSpeed = 1.5f;
+        float steerFactorBySpeed = Mathf.InverseLerp(minSteerSpeed, maxForwardSpeed, Mathf.Abs(forwardSpeed));
+        steerFactorBySpeed = Mathf.Clamp01(steerFactorBySpeed);
+
+        float highSpeedSteerScale = Mathf.Lerp(1f, steerAtTopSpeedFactor, steerFactorBySpeed);
+
+        steerInputSmoothed = Mathf.MoveTowards(
+            steerInputSmoothed,
+            rawSteerInput,
+            steeringResponse * Time.fixedDeltaTime
+        );
+
+        float steerThisFrame =
+            steerInputSmoothed *
+            maxSteerAnglePerSec *
+            highSpeedSteerScale *
+            steerFactorBySpeed;
+
+        if (forwardSpeed < -0.2f)
+            steerThisFrame *= -1f;
+
+        if (drifting)
         {
-            localVel.z = maxForwardSpeed;
-            Vector3 capped = transform.TransformDirection(localVel);
-            capped.y = rb.linearVelocity.y;
-            rb.linearVelocity = capped;
+            steerThisFrame *= driftSteerMultiplier;
+
+            rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
         }
-        else if (forwardSpeed < -maxReverseSpeed)
+
+        if (Mathf.Abs(steerThisFrame) > 0.01f)
         {
-            localVel.z = -maxReverseSpeed;
-            Vector3 capped = transform.TransformDirection(localVel);
-            capped.y = rb.linearVelocity.y;
-            rb.linearVelocity = capped;
-        }
-
-        // --- Steering: steering decreases with speed; inverted when reversing ---
-        float speedFactor = Mathf.Clamp01(Mathf.Abs(forwardSpeed) / Mathf.Max(0.01f, maxForwardSpeed));
-        float steerScale = Mathf.Lerp(1f, steerAtTopSpeedFactor, speedFactor); // reduce steering at high speed
-        float appliedSteer = steerInput * maxSteerDegPerSec * steerScale;
-
-        // Invert steering when reversing for realistic feel
-        if (forwardSpeed < -0.1f) appliedSteer = -appliedSteer;
-
-        if (Mathf.Abs(appliedSteer) > 0.01f)
-        {
-            Quaternion deltaRot = Quaternion.Euler(0f, appliedSteer * Time.fixedDeltaTime, 0f);
+            Quaternion deltaRot = Quaternion.Euler(0f, steerThisFrame * Time.fixedDeltaTime, 0f);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
     }
