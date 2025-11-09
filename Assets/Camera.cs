@@ -30,12 +30,16 @@ public class Follow_player : MonoBehaviour
     [Tooltip("The most the camera should look ahead of the player")]
     [SerializeField] private float lookAheadMaximum = 50f;
 
+    [Tooltip("The angle at which the camera looks at the player")]
+    [SerializeField] private float cameraAngle = 0f;
+
     private Transform player; // as long as the player is tagged we can find them in Start()
     private Vector3 lastPlayerPosition;
-
+    private Vector3 focusPosition; // focus position is what the camera is looking at
 
     void Start()
     {
+        
         if (player == null)
         {
             // if there are multiple player objects this needs re-writing
@@ -47,6 +51,8 @@ public class Follow_player : MonoBehaviour
             else
             {
                 player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+                lastPlayerPosition = player.position;
+                focusPosition = lastPlayerPosition;
             }
 
         }
@@ -77,14 +83,19 @@ public class Follow_player : MonoBehaviour
         }
 
         // where the camera needs to get to but the y component is 0
-        Vector3 horizontalFollow = (lastPlayerPosition + lookAhead - transform.position).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (lastPlayerPosition - transform.position).magnitude);
+        Vector3 horizontalFollow = (lastPlayerPosition + lookAhead - focusPosition).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (lastPlayerPosition + lookAhead - focusPosition).magnitude);
         horizontalFollow.y *= 0;
 
         // here we apply horizontal offset
-        transform.position += horizontalFollow;
+        focusPosition += horizontalFollow;
 
         // where the camera needs to get to vertically using its horizontal position to fill out the Vector3
-        Vector3 desiredCameraPos = new Vector3(transform.position.x, calculateZoom(playersVelocity.magnitude, minimumCameraHeight), transform.position.z);
+
+        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, Vector3.right) * Vector3.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
+
+        Vector3 desiredCameraPos = focusPosition + cameraOffset;
+
+        transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
 
         // here we apply vertical offset
         transform.position += (desiredCameraPos - transform.position).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (desiredCameraPos - transform.position).magnitude);
