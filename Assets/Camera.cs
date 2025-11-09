@@ -15,6 +15,9 @@ public class Follow_player : MonoBehaviour
     //[Tooltip("Maximum smooth time clamp")]
     //[SerializeField] private float maxSmoothTime = 1.0f;
 
+    [Tooltip("Multiplies the amount that the camera zooms out by due to velocity.")]
+    [SerializeField] private float zoomMultiplier = 0.5f;
+
     [Tooltip("Minimum Camera height above the player")]
     [SerializeField] private float minimumCameraHeight = 40f;
 
@@ -22,7 +25,7 @@ public class Follow_player : MonoBehaviour
     [SerializeField] private float cameraFollowSpeed = 100f;
 
     [Tooltip("This multiplies how much velocity should move the camera ahead of the player")]
-    [SerializeField] private float lookAheadMultipler = 1f;
+    [SerializeField] private float lookAheadMultipler = 0.5f;
 
     [Tooltip("The most the camera should look ahead of the player")]
     [SerializeField] private float lookAheadMaximum = 50f;
@@ -55,7 +58,7 @@ public class Follow_player : MonoBehaviour
         }
     }
 
-    float calculateZoom(float currentVelocity, float minOffset = 100f, float zoomMultiplier = 1.5f)
+    float calculateZoom(float currentVelocity, float minOffset = 100f)
     {
         return minOffset + currentVelocity * zoomMultiplier;
     }
