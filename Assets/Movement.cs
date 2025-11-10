@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
 {
+    [Header("Axis Locking")]
+    public bool lockAxis = false;
+
     [Header("Speed (m/s)")]
     public float maxForwardSpeed = 18f;
     public float maxReverseSpeed = 8f;
@@ -55,12 +58,25 @@ public class TopDownCarController : MonoBehaviour
     float steerInputSmoothed;
     bool handbrake;
 
+  
+
+    // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
     {
-        if (!rb) rb = GetComponent<Rigidbody>();
+        if (lockAxis)
+        {
+            if (!rb) rb = GetComponent<Rigidbody>();
 
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        rb.centerOfMass += centerOfMassOffset;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            rb.centerOfMass += centerOfMassOffset;
+        }
+
+        else if (!lockAxis)
+        {
+            if (!rb) rb = GetComponent<Rigidbody>();
+            rb.centerOfMass += centerOfMassOffset;
+        }
+        
     }
 
     void Update()
