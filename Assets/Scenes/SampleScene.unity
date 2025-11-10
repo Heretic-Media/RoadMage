@@ -462,12 +462,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3fa2c5f8a3eef42b42d4ef06fb321f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraAngle: 0
   zoomMultiplier: 0.5
   minimumCameraHeight: 40
   cameraFollowSpeed: 30
   lookAheadMultipler: 0.5
   lookAheadMaximum: 50
-  cameraAngle: 0
+  cameraSpeedSmoothingMultiplier: 0.25
 --- !u!1001 &590137104
 PrefabInstance:
   m_ObjectHideFlags: 0
