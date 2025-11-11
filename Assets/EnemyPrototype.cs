@@ -16,8 +16,8 @@ public class EnemyPrototype : MonoBehaviour
     [SerializeField] private float stopDistance = 0.5f;
 
     [Header("Spawn (Spawner)")]
-    [SerializeField] private GameObject enemyPrefab; // prefab to spawn when acting as a spawner
-    [SerializeField] private float spawnDelay = 0.5f; // initial spawn delay before first spawn (also used by enemy activation)
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private float spawnDelay = 0.5f;
     [SerializeField] private GameObject spawnEffect;
     [SerializeField] private bool spawnOnStart = true;
 
@@ -27,25 +27,24 @@ public class EnemyPrototype : MonoBehaviour
     [SerializeField] private float fixedInterval = 2f;
     [SerializeField] private float randomIntervalMin = 1f;
     [SerializeField] private float randomIntervalMax = 3f;
-    [SerializeField] private int maxActiveEnemies = 0; // 0 = unlimited
-    [SerializeField] private float spawnRadius = 0f; // spawn offset around spawner's position
+    [SerializeField] private int maxActiveEnemies = 0;
+    [SerializeField] private float spawnRadius = 0f;
 
     [Header("Ranged Attack (Enemy)")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed = 10f;
-    [SerializeField] private float fireRate = 1f; // shots per second
-    [SerializeField] private float shootingRange = 8f; // max distance to shoot from
-    [SerializeField] private float projectileLifetime = 5f; // seconds before spawned projectile is destroyed (<=0 disables)
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float shootingRange = 8f;
+    [SerializeField] private float projectileLifetime = 5f;
 
     [Header("Vanish / Close Combat (Enemy)")]
     [SerializeField] private GameObject vanishEffect;
-    [SerializeField] private float closeVanishSpeedThreshold = 2f; // player must be moving at least this fast to cause vanish on contact
+    [SerializeField] private float closeVanishSpeedThreshold = 0.5f; // Lowered from 2f to 0.5f
 
     private Rigidbody rb;
     private bool isActive = false;
     private float nextFireTime = 0f;
 
-    // Spawner state
     private Coroutine spawnCoroutine;
     private int activeCount = 0;
 
@@ -59,19 +58,35 @@ public class EnemyPrototype : MonoBehaviour
         rb.isKinematic = false;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        // Prevent enemy from falling over
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        // Optionally, set mass and drag for stability
+        rb.mass = 1f;
+        rb.linearDamping = 0.5f;
+        rb.angularDamping = 0.5f;
+
+        // Ensure collider is a sphere for better stability
+        Collider col = GetComponent<Collider>();
+        if (col != null && !(col is SphereCollider))
+        {
+            Destroy(col);
+            col = gameObject.AddComponent<SphereCollider>();
+        }
+
+        
     }
 
     private void Start()
     {
         if (isSpawner)
         {
-            // Start spawning optionally
             if (spawnOnStart)
                 StartSpawnerWithDelay(spawnDelay);
             return;
         }
 
-        // Enemy initialization
         if (target == null)
         {
             var player = GameObject.FindGameObjectWithTag("Player");
@@ -85,7 +100,6 @@ public class EnemyPrototype : MonoBehaviour
         StartCoroutine(ActivateAfterDelay(spawnDelay));
     }
 
-    // ---------- Spawner ----------
     public void StartSpawnerWithDelay(float delay)
     {
         if (!isSpawner) return;
@@ -133,16 +147,12 @@ public class EnemyPrototype : MonoBehaviour
         GameObject inst = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         activeCount++;
 
-        // If enemy has EnemyPrototype component, configure it so it acts as an enemy (not a spawner)
         var ep = inst.GetComponent<EnemyPrototype>();
         if (ep != null)
         {
             ep.isSpawner = false;
-            // transfer spawn/visual settings if desired
             ep.spawnEffect = spawnEffect;
-            // set projectile lifetime so projectiles from spawned enemies will be auto destroyed
             ep.projectileLifetime = Mathf.Max(0f, projectileLifetime);
-            // register for being notified when destroyed so spawner can decrement activeCount
             var tracker = inst.GetComponent<SpawnedEnemyTracker>();
             if (tracker == null) tracker = inst.AddComponent<SpawnedEnemyTracker>();
             tracker.Initialize(this);
@@ -157,7 +167,6 @@ public class EnemyPrototype : MonoBehaviour
         activeCount = Mathf.Max(0, activeCount - 1);
     }
 
-    // ---------- Enemy behavior ----------
     private IEnumerator ActivateAfterDelay(float delay)
     {
         isActive = false;
@@ -170,7 +179,7 @@ public class EnemyPrototype : MonoBehaviour
     private void FixedUpdate()
     {
         if (isSpawner)
-            return; // spawner doesn't act like enemy
+            return;
 
         if (!isActive || target == null || rb == null)
             return;
@@ -221,15 +230,12 @@ public class EnemyPrototype : MonoBehaviour
             projRb.interpolation = RigidbodyInterpolation.Interpolate;
         }
 
-        // Use linearVelocity when available (works in recent Unity versions)
         projRb.linearVelocity = dir * projectileSpeed;
 
-        // Ensure projectile disappears after projectileLifetime seconds (if > 0)
         if (projectileLifetime > 0f)
             Destroy(proj, projectileLifetime);
     }
 
-    // 3D collision handlers
     private void OnCollisionEnter(Collision collision)
     {
         if (isSpawner)
@@ -251,11 +257,10 @@ public class EnemyPrototype : MonoBehaviour
         if (playerSpeed >= closeVanishSpeedThreshold)
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            player.AddXP(10); // Are we going to keep this? god knows. 
+            player.AddXP(10);
+            player.AddScore(5);
             Vanish();
         }
-      
-      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -279,7 +284,7 @@ public class EnemyPrototype : MonoBehaviour
         if (playerSpeed >= closeVanishSpeedThreshold)
         {
             Player player = other.gameObject.GetComponent<Player>();
-            player.AddXP(10); // Are we going to keep this? god knows. 
+            player.AddXP(10);
             Vanish();
         }
     }
