@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,12 @@ public class TopDownCarController : MonoBehaviour
 {
     [Header("Axis Locking")]
     public bool lockAxis = false;
+    [Tooltip("Set to 0 to disable")]
+    public float uprightTorque = 5;
+    [Tooltip("Angle in degrees player must tilt to start correcting to upright")]
+    public float degreeThreshold = 15;
+    [Tooltip("Debugging to show when upright tilt is active")]
+    public bool tryingToUpright = false;
 
     [Header("Speed (m/s)")]
     public float maxForwardSpeed = 18f;
@@ -122,7 +129,18 @@ public class TopDownCarController : MonoBehaviour
     {
         if (!rb) return;
 
-        Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
+        var rotUp = Quaternion.FromToRotation(transform.up, Vector3.up);
+        if (Vector3.Dot(transform.up, Vector3.up) < Mathf.Cos(degreeThreshold * Mathf.Deg2Rad)) 
+        {
+            tryingToUpright = true;
+            rb.AddTorque(new Vector3(rotUp.x, rotUp.y, rotUp.z) * uprightTorque);
+        }
+        else
+        {
+            tryingToUpright = false;
+        }
+
+            Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
         float forwardSpeed = localVel.z;
         float speedAbs = Mathf.Abs(forwardSpeed);
 
