@@ -19,8 +19,9 @@ public class TopDownCarController : MonoBehaviour
     public float accelDrag = 0.5f;
     public float brakeDrag = 5f;
 
+    // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 140f;
+    public float maxSteerAnglePerSec = 220f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
     public float steerAtTopSpeedFactor = 0.4f;
     public float steeringResponse = 10f;
