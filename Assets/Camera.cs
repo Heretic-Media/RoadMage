@@ -3,8 +3,17 @@ using UnityEngine;
 
 public class Follow_player : MonoBehaviour
 {
-    [Tooltip("The angle at which the camera looks at the player")]
-    [SerializeField] private float cameraAngle = 0f;
+    //[Tooltip("Base smooth time used when player is stationary")]
+    //[SerializeField] private float baseSmoothTime = 0.25f;
+
+    //[Tooltip("How much the smoothTime increases per unit of player speed")]
+    //[SerializeField] private float speedToSmoothTime = 0.02f;
+
+    //[Tooltip("Minimum smooth time clamp")]
+    //[SerializeField] private float minSmoothTime = 0.02f;
+
+    //[Tooltip("Maximum smooth time clamp")]
+    //[SerializeField] private float maxSmoothTime = 1.0f;
 
     [Tooltip("Multiplies the amount that the camera zooms out by due to velocity.")]
     [SerializeField] private float zoomMultiplier = 0.5f;
@@ -12,8 +21,8 @@ public class Follow_player : MonoBehaviour
     [Tooltip("Minimum Camera height above the player")]
     [SerializeField] private float minimumCameraHeight = 40f;
 
-    [Tooltip("The maximum speed at which the camera moves")]
-    [SerializeField] private float cameraFollowSpeed = 30f;
+    [Tooltip("The speed at which the camera follows the player")]
+    [SerializeField] private float cameraFollowSpeed = 100f;
 
     [Tooltip("This multiplies how much velocity should move the camera ahead of the player")]
     [SerializeField] private float lookAheadMultipler = 0.5f;
@@ -21,17 +30,12 @@ public class Follow_player : MonoBehaviour
     [Tooltip("The most the camera should look ahead of the player")]
     [SerializeField] private float lookAheadMaximum = 50f;
 
-    [Tooltip("Used when smoothing slow constant movement. Higher values reduce the amount of smoothing. Lower values limit the camera's speed")]
-    [Range(0f, 1f)]
-    [SerializeField] private float cameraSpeedSmoothingMultiplier = 0.21f;
-
     private Transform player; // as long as the player is tagged we can find them in Start()
     private Vector3 lastPlayerPosition;
-    private Vector3 focusPosition; // focus position is what the camera is looking at
+
 
     void Start()
     {
-        
         if (player == null)
         {
             // if there are multiple player objects this needs re-writing
@@ -43,8 +47,6 @@ public class Follow_player : MonoBehaviour
             else
             {
                 player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-                lastPlayerPosition = player.position;
-                focusPosition = lastPlayerPosition;
             }
 
         }
@@ -75,24 +77,17 @@ public class Follow_player : MonoBehaviour
         }
 
         // where the camera needs to get to but the y component is 0
-        Vector3 horizontalFollow = (lastPlayerPosition + lookAhead - focusPosition).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (lastPlayerPosition + lookAhead - focusPosition).magnitude * cameraSpeedSmoothingMultiplier);
-        horizontalFollow.y = 0;
+        Vector3 horizontalFollow = (lastPlayerPosition + lookAhead - transform.position).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (lastPlayerPosition - transform.position).magnitude);
+        horizontalFollow.y *= 0;
 
         // here we apply horizontal offset
-        focusPosition += horizontalFollow;
+        transform.position += horizontalFollow;
 
         // where the camera needs to get to vertically using its horizontal position to fill out the Vector3
+        Vector3 desiredCameraPos = new Vector3(transform.position.x, calculateZoom(playersVelocity.magnitude, minimumCameraHeight), transform.position.z);
 
-        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, Vector3.right) * Vector3.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
-
-        Vector3 desiredCameraPos = focusPosition + cameraOffset;
-
-        transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
-
-        // here we apply the movement from this update
-        transform.position += (desiredCameraPos - transform.position);
-
-
+        // here we apply vertical offset
+        transform.position += (desiredCameraPos - transform.position).normalized * Mathf.Clamp(cameraFollowSpeed * Time.fixedDeltaTime, 0, (desiredCameraPos - transform.position).magnitude);
 
         lastPlayerPosition = player.position;
     }
