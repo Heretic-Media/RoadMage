@@ -1878,6 +1878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2912866701323411259, guid: 5c0447be829eca2499c79d4a6913ab67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07f40cd8269bbf6428ce3e6a70edc0e0, type: 2}
     - target: {fileID: 4866418920063709009, guid: 5c0447be829eca2499c79d4a6913ab67, type: 3}
       propertyPath: m_Name
       value: alpha level block
