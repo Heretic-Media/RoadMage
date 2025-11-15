@@ -172,3 +172,4 @@ MonoBehaviour:
   projectileLifetime: 5
   vanishEffect: {fileID: 0}
   closeVanishSpeedThreshold: 2
+  onHitCrySFXClip: {fileID: 8300000, guid: 452592a1bedcf614e90c471c066e001f, type: 3}
