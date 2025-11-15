@@ -443,6 +443,8 @@
 "Assets/EnemyPrototype.cs"
 "Assets/Movement.cs"
 "Assets/Player.cs"
+"Assets/Scripts/EnemyBehaviour.cs"
+"Assets/Scripts/EnemySpawner.cs"
 -langversion:9.0
 /deterministic
 /optimize+
