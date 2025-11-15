@@ -1,25 +1,44 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
+<<<<<<< HEAD
     m_FilePath: C:/Users/Ethan/Documents/Work/Github/RoadMage/Packages/manifest.json
+=======
+    m_FilePath: C:/Users/erbgo/documents/CGD/RoadMage/Packages/manifest.json
+>>>>>>> enemy
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638985485963732591
     m_Hash: 1630376530
   m_LockFileStatus:
     m_FilePath: C:/Users/Ethan/Documents/Work/Github/RoadMage/Packages/packages-lock.json
+=======
+      ticks: 638981244132101690
+    m_Hash: 1630376530
+  m_LockFileStatus:
+    m_FilePath: C:/Users/erbgo/documents/CGD/RoadMage/Packages/packages-lock.json
+>>>>>>> enemy
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638985485963742642
+=======
+      ticks: 638981244132101690
+>>>>>>> enemy
     m_Hash: 1325231849
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
+<<<<<<< HEAD
 m_ProjectPath: C:/Users/Ethan/Documents/Work/Github/RoadMage/Packages
+=======
+m_ProjectPath: C:/Users/erbgo/documents/CGD/RoadMage/Packages
+>>>>>>> enemy
 m_EditorVersion: 6000.1.9f1 (ed7b183fd33d)
 m_ResolvedPackages:
 - packageId: com.unity.2d.animation@11.0.0
@@ -27,7 +46,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 11.0.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.animation@a1db3619cb6f
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.animation@a1db3619cb6f
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.animation
   name: com.unity.2d.animation
   displayName: 2D Animation
@@ -289,7 +312,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.2.5
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.aseprite@fa26c8d7c7e6
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.aseprite@fa26c8d7c7e6
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.aseprite
   name: com.unity.2d.aseprite
   displayName: 2D Aseprite Importer
@@ -426,7 +453,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 10.1.1
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.psdimporter@5684369550c9
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.psdimporter@5684369550c9
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.psdimporter
   name: com.unity.2d.psdimporter
   displayName: 2D PSD Importer
@@ -532,6 +563,7 @@ m_ResolvedPackages:
     - 10.1.1
     - 11.0.0
     - 11.0.1
+    - 11.0.2
     - 12.0.0
     - 13.0.0
     - 13.0.1
@@ -629,7 +661,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.sprite@5eb30061d420
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.sprite@5eb30061d420
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.sprite
   name: com.unity.2d.sprite
   displayName: 2D Sprite
@@ -699,7 +735,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 11.0.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.spriteshape@8dceeebcc959
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.spriteshape@8dceeebcc959
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.spriteshape
   name: com.unity.2d.spriteshape
   displayName: 2D SpriteShape
@@ -899,7 +939,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.tilemap@089d78c497f7
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.tilemap@089d78c497f7
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.tilemap
   name: com.unity.2d.tilemap
   displayName: 2D Tilemap Editor
@@ -986,7 +1030,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 4.3.1
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.tilemap.extras@b9e908ce61f4
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.tilemap.extras@b9e908ce61f4
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.tilemap.extras
   name: com.unity.2d.tilemap.extras
   displayName: 2D Tilemap Extras
@@ -1137,7 +1185,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.10.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.collab-proxy@1e5e48aff19d
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.collab-proxy@1e5e48aff19d
+>>>>>>> enemy
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Unity Version Control
@@ -1324,7 +1376,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 3.0.36
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.ide.rider@4d374c7eb6db
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.ide.rider@4d374c7eb6db
+>>>>>>> enemy
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -1447,7 +1503,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.23
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13
+>>>>>>> enemy
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -1555,7 +1615,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.14.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.inputsystem@7fe8299111a7
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.inputsystem@7fe8299111a7
+>>>>>>> enemy
   assetPath: Packages/com.unity.inputsystem
   name: com.unity.inputsystem
   displayName: Input System
@@ -1712,7 +1776,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546
+>>>>>>> enemy
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
@@ -1802,7 +1870,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 17.1.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.render-pipelines.universal@2b88762731f8
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.render-pipelines.universal@2b88762731f8
+>>>>>>> enemy
   assetPath: Packages/com.unity.render-pipelines.universal
   name: com.unity.render-pipelines.universal
   displayName: Universal Render Pipeline
@@ -1964,7 +2036,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.5.1
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.test-framework@7056e7f856e9
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.test-framework@7056e7f856e9
+>>>>>>> enemy
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -2102,7 +2178,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.8.7
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.timeline@c58b4ee65782
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.timeline@c58b4ee65782
+>>>>>>> enemy
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -2290,7 +2370,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.ugui@57cef44123c7
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.ugui@57cef44123c7
+>>>>>>> enemy
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -2385,7 +2469,11 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.9.7
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.visualscripting@6279e2b7c485
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.visualscripting@6279e2b7c485
+>>>>>>> enemy
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -4931,7 +5019,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.5
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.ext.nunit@031a54704bff
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.ext.nunit@031a54704bff
+>>>>>>> enemy
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
@@ -5010,7 +5102,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.1.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.render-pipelines.core@90203779d2fe
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.render-pipelines.core@90203779d2fe
+>>>>>>> enemy
   assetPath: Packages/com.unity.render-pipelines.core
   name: com.unity.render-pipelines.core
   displayName: Scriptable Render Pipeline Core
@@ -5224,7 +5320,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.1.0
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.shadergraph@e5d3455aa133
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.shadergraph@e5d3455aa133
+>>>>>>> enemy
   assetPath: Packages/com.unity.shadergraph
   name: com.unity.shadergraph
   displayName: Shader Graph
@@ -5427,7 +5527,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 17.0.3
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.render-pipelines.universal-config@8dc1aab4af1d
+>>>>>>> enemy
   assetPath: Packages/com.unity.render-pipelines.universal-config
   name: com.unity.render-pipelines.universal-config
   displayName: Universal Render Pipeline Config
@@ -5525,7 +5629,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 10.0.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.2d.common@f525660c63bc
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.2d.common@f525660c63bc
+>>>>>>> enemy
   assetPath: Packages/com.unity.2d.common
   name: com.unity.2d.common
   displayName: 2D Common
@@ -5693,7 +5801,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.3.2
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.mathematics@8017b507cc74
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.mathematics@8017b507cc74
+>>>>>>> enemy
   assetPath: Packages/com.unity.mathematics
   name: com.unity.mathematics
   displayName: Mathematics
@@ -5784,7 +5896,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.5.1
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.collections@56bff8827a7e
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.collections@56bff8827a7e
+>>>>>>> enemy
   assetPath: Packages/com.unity.collections
   name: com.unity.collections
   displayName: Collections
@@ -5967,7 +6083,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 4.9.3
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.searcher@1e17ce91558d
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.searcher@1e17ce91558d
+>>>>>>> enemy
   assetPath: Packages/com.unity.searcher
   name: com.unity.searcher
   displayName: Searcher
@@ -6056,7 +6176,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.8.23
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.burst@6aff1dd08a0c
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.burst@6aff1dd08a0c
+>>>>>>> enemy
   assetPath: Packages/com.unity.burst
   name: com.unity.burst
   displayName: Burst
@@ -6279,7 +6403,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.1
   source: 2
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.rendering.light-transport@e647573c7d2a
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.rendering.light-transport@e647573c7d2a
+>>>>>>> enemy
   assetPath: Packages/com.unity.rendering.light-transport
   name: com.unity.rendering.light-transport
   displayName: Unity Light Transport Library
@@ -6375,7 +6503,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.11.4
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f
+>>>>>>> enemy
   assetPath: Packages/com.unity.nuget.mono-cecil
   name: com.unity.nuget.mono-cecil
   displayName: Mono Cecil
@@ -6459,7 +6591,11 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 3.1.0
   source: 1
+<<<<<<< HEAD
   resolvedPath: C:\Users\Ethan\Documents\Work\Github\RoadMage\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed
+=======
+  resolvedPath: C:\Users\erbgo\documents\CGD\RoadMage\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed
+>>>>>>> enemy
   assetPath: Packages/com.unity.test-framework.performance
   name: com.unity.test-framework.performance
   displayName: Performance testing API

@@ -31,9 +31,13 @@ public class EnemyPrototype : MonoBehaviour
     [SerializeField] private float spawnRadius = 0f;
 
     [Header("Ranged Attack (Enemy)")]
+    [Tooltip("The enemy will shoot this at the player")]
     [SerializeField] private GameObject projectilePrefab;
+    [Tooltip("The speed at which the projectile travels.")]
     [SerializeField] private float projectileSpeed = 10f;
+    [Tooltip("The enemy number of times an enemy can fire a shot every second.")]
     [SerializeField] private float fireRate = 1f;
+    [Tooltip("If the player is beyond this range, the enemy will not shoot.")]
     [SerializeField] private float shootingRange = 8f;
     [SerializeField] private float projectileLifetime = 5f;
 
@@ -137,6 +141,7 @@ public class EnemyPrototype : MonoBehaviour
     }
 
     private void SpawnEnemyInstance()
+    // will check but i think this function shouldnt be here
     {
         if (enemyPrefab == null) return;
 
@@ -228,6 +233,7 @@ public class EnemyPrototype : MonoBehaviour
             projRb = proj.AddComponent<Rigidbody>();
             projRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             projRb.interpolation = RigidbodyInterpolation.Interpolate;
+            projRb.useGravity = false;
         }
 
         projRb.linearVelocity = dir * projectileSpeed;
