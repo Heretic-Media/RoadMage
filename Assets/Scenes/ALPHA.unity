@@ -1157,6 +1157,50 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 3249992275038386196, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3f446f55f727a4941aacffee1864b0c8, type: 2}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: idleDrag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: handbrakeKey
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: driftYawBoost
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: maxYawVelocity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: baseLateralGrip
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: driftForwardDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: maxSteerAnglePerSec
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: driftSteerMultiplier
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: steerAtTopSpeedFactor
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: driftLateralGripFactor
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6006506757749974201, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7767622
