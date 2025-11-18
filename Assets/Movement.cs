@@ -24,7 +24,7 @@ public class TopDownCarController : MonoBehaviour
     public float reverseAcceleration = 30f;
     public float brakeStrength = 55f;
     public float idleDrag = 0.75f;
-    public float accelDrag = 0.5f;
+    public float accelDrag = 0.6f;
     public float brakeDrag = 5f;
     [Tooltip("Debugging to show when breaking")]
     public bool isBraking = false;
@@ -32,14 +32,14 @@ public class TopDownCarController : MonoBehaviour
 
     // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 90f; // was 140f, increased for tighter turns
+    public float maxSteerAnglePerSec = 220f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
-    public float steerAtTopSpeedFactor = 0.8f;
+    public float steerAtTopSpeedFactor = 0.6f;
     public float steeringResponse = 10f;
 
     [Header("Grip / Traction")]
     [Tooltip("Base sideways grip. Higher = less slide.")]
-    public float baseLateralGrip = 14f;
+    public float baseLateralGrip = 20f;
     [Tooltip("Extra grip when accelerating.")]
     public float accelLateralGripBoost = 4f;
     [Tooltip("Extra grip when braking.")]
@@ -52,13 +52,13 @@ public class TopDownCarController : MonoBehaviour
     [Tooltip("Lateral grip multiplier while drifting.")]
     public float driftLateralGripFactor = 1f;
     [Tooltip("Forward drag while drifting (keeps momentum, slight slowdown).")]
-    public float driftForwardDrag = 0.4f;
+    public float driftForwardDrag = 0.2f;
     [Tooltip("Steering multiplier while drifting.")]
-    public float driftSteerMultiplier = 0.6f;
+    public float driftSteerMultiplier = 0.4f;
     [Tooltip("Extra yaw torque while drifting to help kick the rear out.")]
     public float driftYawBoost = 6f;
     [Tooltip("Prevents extra yaw torque from building up")]
-    public float maxYawVelocity = 2f;
+    public float maxYawVelocity = 3f;
     [Tooltip("Minimum speed needed before drift takes effect.")]
     public float driftMinSpeed = 5f;
 
