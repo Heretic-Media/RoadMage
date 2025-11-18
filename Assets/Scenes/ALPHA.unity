@@ -1162,8 +1162,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 3f446f55f727a4941aacffee1864b0c8, type: 2}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: idleDrag
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: enableDrift
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: handbrakeKey
@@ -1188,6 +1196,10 @@ PrefabInstance:
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: maxSteerAnglePerSec
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: centerOfMassOffset.y
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: driftSteerMultiplier

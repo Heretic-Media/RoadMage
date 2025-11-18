@@ -16,14 +16,14 @@ public class TopDownCarController : MonoBehaviour
     public bool tryingToUpright = false;
 
     [Header("Speed (m/s)")]
-    public float maxForwardSpeed = 18f;
-    public float maxReverseSpeed = 8f;
+    public float maxForwardSpeed = 20f;
+    public float maxReverseSpeed = 10f;
 
     [Header("Acceleration / Braking")]
     public float acceleration = 25f;
-    public float reverseAcceleration = 18f;
+    public float reverseAcceleration = 30f;
     public float brakeStrength = 55f;
-    public float idleDrag = 3f;
+    public float idleDrag = 0.75f;
     public float accelDrag = 0.5f;
     public float brakeDrag = 5f;
     [Tooltip("Debugging to show when breaking")]
@@ -32,9 +32,9 @@ public class TopDownCarController : MonoBehaviour
 
     // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 220f; // was 140f, increased for tighter turns
+    public float maxSteerAnglePerSec = 90f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
-    public float steerAtTopSpeedFactor = 0.4f;
+    public float steerAtTopSpeedFactor = 0.8f;
     public float steeringResponse = 10f;
 
     [Header("Grip / Traction")]
@@ -50,15 +50,15 @@ public class TopDownCarController : MonoBehaviour
     [Header("Drift")]
     public bool enableDrift = true;
     [Tooltip("Lateral grip multiplier while drifting.")]
-    public float driftLateralGripFactor = 0.22f;
+    public float driftLateralGripFactor = 1f;
     [Tooltip("Forward drag while drifting (keeps momentum, slight slowdown).")]
-    public float driftForwardDrag = 1.2f;
+    public float driftForwardDrag = 0.4f;
     [Tooltip("Steering multiplier while drifting.")]
-    public float driftSteerMultiplier = 1.7f;
+    public float driftSteerMultiplier = 0.6f;
     [Tooltip("Extra yaw torque while drifting to help kick the rear out.")]
-    public float driftYawBoost = 40f;
+    public float driftYawBoost = 6f;
     [Tooltip("Prevents extra yaw torque from building up")]
-    public float maxYawVelocity = 5f;
+    public float maxYawVelocity = 2f;
     [Tooltip("Minimum speed needed before drift takes effect.")]
     public float driftMinSpeed = 5f;
 
