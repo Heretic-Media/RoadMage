@@ -44,7 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Vanish()
+    public void Vanish()
     {
         // here some logic for death fx can go
 

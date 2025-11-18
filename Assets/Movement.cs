@@ -2,10 +2,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePrefab;
+
+
     [Header("Axis Locking")]
     public bool lockAxis = false;
     [Tooltip("Set to 0 to disable")]
@@ -61,6 +65,12 @@ public class TopDownCarController : MonoBehaviour
     public float maxYawVelocity = 3f;
     [Tooltip("Minimum speed needed before drift takes effect.")]
     public float driftMinSpeed = 5f;
+
+    public bool enableDriftProjectiles = true;
+    public float driftTime = 0;
+    public float driftProjectileDelay = 1f;
+    public float driftProjectileRate = 0.5f;
+    private float timeSinceLastDriftProjectile = 0;
 
     [Header("Input / Physics")]
     public Key handbrakeKey = Key.LeftCtrl;
@@ -162,6 +172,12 @@ public class TopDownCarController : MonoBehaviour
         bool hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 
         bool drifting = enableDrift && drift && speedAbs > driftMinSpeed;
+
+        if (drifting)
+        {
+            driftTime += 1 * Time.deltaTime;
+        }
+        else { driftTime = 0; }
 
         isBraking =
             (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
@@ -267,7 +283,7 @@ public class TopDownCarController : MonoBehaviour
 
             if (Mathf.Abs(rb.angularVelocity.y) < maxYawVelocity)
             {
-                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Force);
+                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
             }
         }
 
@@ -276,5 +292,46 @@ public class TopDownCarController : MonoBehaviour
             Quaternion deltaRot = Quaternion.Euler(0f, steerThisFrame * Time.fixedDeltaTime, 0f);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
+
+        /// Drift Projectiles
+
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f) 
+        {
+            timeSinceLastDriftProjectile += Time.deltaTime;
+            if (timeSinceLastDriftProjectile >= driftProjectileRate)
+            {
+                timeSinceLastDriftProjectile = 0;
+
+                print("spawning drift projectile");
+                if (driftTime > driftProjectileDelay)
+                {
+                    SpawnProjectile(rb.linearVelocity.magnitude * 0.5f);
+                }
+                else
+                {
+                    SpawnProjectile(driftTime/driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
+                }
+            }
+        }
+    }
+
+    private void SpawnProjectile(float projectileSpeed)
+    {
+        if (projectilePrefab == null)
+            return;
+
+        Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
+        GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+
+        Vector3 dir = -transform.forward;
+        Rigidbody projRb = proj.GetComponent<Rigidbody>();
+        if (projRb == null)
+        {
+            projRb = proj.AddComponent<Rigidbody>();
+            projRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            projRb.interpolation = RigidbodyInterpolation.Interpolate;
+            projRb.useGravity = false;
+        }
+        projRb.linearVelocity = dir * projectileSpeed;
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Assets\EnemyPrototype.cs" />
     <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\Movement.cs" />
+    <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
   </ItemGroup>
