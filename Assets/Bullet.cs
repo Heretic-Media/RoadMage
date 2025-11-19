@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private AudioClip enemyOnHitSFXClip;
+
     void Start()
     {
 
@@ -20,6 +22,7 @@ public class Bullet : MonoBehaviour
             Player playerDetails = collision.gameObject.GetComponent<Player>();
             if (playerDetails != null)
             {
+                AudioSource.PlayClipAtPoint(enemyOnHitSFXClip, new Vector3(transform.position.x, 35, transform.position.z));
                 playerDetails.TakeDamage(10);
             }
             Destroy(this.gameObject);
