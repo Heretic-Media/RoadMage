@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b7d60dd958dff419c8884e5490e00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyOnHitSFXClip: {fileID: 8300000, guid: 877c23b46fd6038498c96def488499cc, type: 3}
 --- !u!135 &-1783851860014557036
 SphereCollider:
   m_ObjectHideFlags: 0

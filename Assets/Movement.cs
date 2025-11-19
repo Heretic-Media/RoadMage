@@ -84,6 +84,7 @@ public class TopDownCarController : MonoBehaviour
     bool handbrake;
     bool drift;
 
+    AudioSource audioSource;
   
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
@@ -102,7 +103,8 @@ public class TopDownCarController : MonoBehaviour
             if (!rb) rb = GetComponent<Rigidbody>();
             rb.centerOfMass += centerOfMassOffset;
         }
-        
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -168,6 +170,8 @@ public class TopDownCarController : MonoBehaviour
         Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
         float forwardSpeed = localVel.z;
         float speedAbs = Mathf.Abs(forwardSpeed);
+
+        audioSource.volume = speedAbs / 20;
 
         bool hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 

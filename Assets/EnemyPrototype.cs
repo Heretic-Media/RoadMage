@@ -45,6 +45,9 @@ public class EnemyPrototype : MonoBehaviour
     [SerializeField] private GameObject vanishEffect;
     [SerializeField] private float closeVanishSpeedThreshold = 0.5f; // Lowered from 2f to 0.5f
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip onHitCrySFXClip;
+
     private Rigidbody rb;
     private bool isActive = false;
     private float nextFireTime = 0f;
@@ -300,6 +303,7 @@ public class EnemyPrototype : MonoBehaviour
         if (vanishEffect != null)
             Instantiate(vanishEffect, transform.position, Quaternion.identity);
 
+        AudioSource.PlayClipAtPoint(onHitCrySFXClip, new Vector3(transform.position.x, 35, transform.position.z));
         Destroy(gameObject);
     }
 

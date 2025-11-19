@@ -1286,6 +1286,7 @@ MonoBehaviour:
   projectileLifetime: 5
   vanishEffect: {fileID: 0}
   closeVanishSpeedThreshold: 0.5
+  onHitCrySFXClip: {fileID: 0}
 --- !u!54 &1225265367
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1987,6 +1988,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3667936347072199575, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667936347072199575, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: c4eb75efe161100498d9fee7e926f3ed, type: 3}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c4eb75efe161100498d9fee7e926f3ed, type: 3}
+    - target: {fileID: 4449452302330907196, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8640058812781632503, guid: 3deacb6aa69664e4589ef1700678d2d5, type: 2}
+    - target: {fileID: 5586937300354102636, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586937300354102636, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: Mute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 090a7682e9a83504380859a0db183dfc, type: 3}
+    - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 090a7682e9a83504380859a0db183dfc, type: 3}
+    - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3203680773847715177, guid: 3deacb6aa69664e4589ef1700678d2d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
