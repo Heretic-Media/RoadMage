@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -109,6 +110,8 @@ public class Player : MonoBehaviour
     {
 
         Debug.Log("Player died.");
+
+        SceneManager.LoadScene("GameOver");
     }
 
     void UpdateAllUI()

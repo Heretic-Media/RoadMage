@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AlphaGarage : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class AlphaGarage : MonoBehaviour
             return;
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
+
+        if (mScript.enableDriftProjectiles)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+
         mScript.enableDriftProjectiles = true;
         Destroy(gameObject);
     }
