@@ -84,7 +84,7 @@ public class TopDownCarController : MonoBehaviour
     bool handbrake;
     bool drift;
 
-    AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
   
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
@@ -104,7 +104,10 @@ public class TopDownCarController : MonoBehaviour
             rb.centerOfMass += centerOfMassOffset;
         }
 
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()

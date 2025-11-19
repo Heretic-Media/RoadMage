@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     public Text levelText;
     public Text scoreText;
 
+    [SerializeField] private AudioSource hurtSound;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -73,6 +75,8 @@ public class Player : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;
 
         UpdateHealthUI();
+
+        hurtSound.Play();
 
         if (currentHealth <= 0)
         {

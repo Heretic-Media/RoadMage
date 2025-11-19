@@ -156,3 +156,4 @@ MonoBehaviour:
   closeVanishSpeedThreshold: 2
   meleeRange: 2
   attackCooldown: 0.5
+  deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}

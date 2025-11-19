@@ -17,6 +17,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("Time in seconds between melee attacks.")]
     [SerializeField] private float attackCooldown = 0.5f;
 
+    [Tooltip("Prefab spawned when this enemy dies.")]
+    [SerializeField] private GameObject deathCry;
+
     private GameObject playerObject;
 
     private Rigidbody rb;
@@ -47,6 +50,10 @@ public class EnemyBehaviour : MonoBehaviour
     public void Vanish()
     {
         // here some logic for death fx can go
+        if (deathCry != null)
+        {
+            Instantiate(deathCry);
+        }
 
         Destroy(gameObject);
     }
