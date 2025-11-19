@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 43.644
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 43.644
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 43.644
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7767622
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.9896188
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -126,30 +126,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockAxis: 0
+  uprightTorque: 250
+  degreeThreshold: 15
+  tryingToUpright: 0
   maxForwardSpeed: 20
   maxReverseSpeed: 10
   acceleration: 25
   reverseAcceleration: 30
   brakeStrength: 55
-  idleDrag: 3
-  accelDrag: 0.5
+  idleDrag: 0.75
+  accelDrag: 0.6
   brakeDrag: 5
-  maxSteerAnglePerSec: 140
-  steerAtTopSpeedFactor: 0.35
+  isBraking: 0
+  brakeFactor: 6
+  maxSteerAnglePerSec: 220
+  steerAtTopSpeedFactor: 0.6
   steeringResponse: 10
-  baseLateralGrip: 14
+  baseLateralGrip: 20
   accelLateralGripBoost: 4
   brakeLateralGripBoost: 6
   handbrakeLateralGripFactor: 0.35
   enableDrift: 1
-  driftLateralGripFactor: 0.22
-  driftForwardDrag: 1.2
-  driftSteerMultiplier: 1.7
-  driftYawBoost: 40
+  driftLateralGripFactor: 1
+  driftForwardDrag: 0.2
+  driftSteerMultiplier: 0.4
+  driftYawBoost: 6
+  maxYawVelocity: 3
   driftMinSpeed: 5
-  handbrakeKey: 1
-  rb: {fileID: 2384396360077417621}
-  centerOfMassOffset: {x: 0, y: 0, z: 0}
+  handbrakeKey: 55
+  driftKey: 1
+  rb: {fileID: 0}
+  centerOfMassOffset: {x: 0, y: -0.4, z: 0}
 --- !u!54 &2384396360077417621
 Rigidbody:
   m_ObjectHideFlags: 0

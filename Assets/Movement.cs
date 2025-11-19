@@ -1,34 +1,49 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePrefab;
+
+
     [Header("Axis Locking")]
     public bool lockAxis = false;
+    [Tooltip("Set to 0 to disable")]
+    public float uprightTorque = 250;
+    [Tooltip("Angle in degrees player must tilt to start correcting to upright")]
+    public float degreeThreshold = 15;
+    [Tooltip("Debugging to show when upright tilt is active")]
+    public bool tryingToUpright = false;
 
     [Header("Speed (m/s)")]
-    public float maxForwardSpeed = 18f;
-    public float maxReverseSpeed = 8f;
+    public float maxForwardSpeed = 20f;
+    public float maxReverseSpeed = 10f;
 
     [Header("Acceleration / Braking")]
     public float acceleration = 25f;
-    public float reverseAcceleration = 18f;
+    public float reverseAcceleration = 30f;
     public float brakeStrength = 55f;
-    public float idleDrag = 3f;
-    public float accelDrag = 0.5f;
+    public float idleDrag = 0.75f;
+    public float accelDrag = 0.6f;
     public float brakeDrag = 5f;
+    [Tooltip("Debugging to show when breaking")]
+    public bool isBraking = false;
+    public float brakeFactor = 6f;
 
     // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 220f; // was 140f, increased for tighter turns
+    public float maxSteerAnglePerSec = 280f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
-    public float steerAtTopSpeedFactor = 0.4f;
+    public float steerAtTopSpeedFactor = 0.6f;
     public float steeringResponse = 10f;
 
     [Header("Grip / Traction")]
     [Tooltip("Base sideways grip. Higher = less slide.")]
-    public float baseLateralGrip = 14f;
+    public float baseLateralGrip = 20f;
     [Tooltip("Extra grip when accelerating.")]
     public float accelLateralGripBoost = 4f;
     [Tooltip("Extra grip when braking.")]
@@ -39,18 +54,27 @@ public class TopDownCarController : MonoBehaviour
     [Header("Drift")]
     public bool enableDrift = true;
     [Tooltip("Lateral grip multiplier while drifting.")]
-    public float driftLateralGripFactor = 0.22f;
+    public float driftLateralGripFactor = 1f;
     [Tooltip("Forward drag while drifting (keeps momentum, slight slowdown).")]
-    public float driftForwardDrag = 1.2f;
+    public float driftForwardDrag = 0.2f;
     [Tooltip("Steering multiplier while drifting.")]
-    public float driftSteerMultiplier = 1.7f;
+    public float driftSteerMultiplier = 0.4f;
     [Tooltip("Extra yaw torque while drifting to help kick the rear out.")]
-    public float driftYawBoost = 40f;
+    public float driftYawBoost = 6f;
+    [Tooltip("Prevents extra yaw torque from building up")]
+    public float maxYawVelocity = 3f;
     [Tooltip("Minimum speed needed before drift takes effect.")]
     public float driftMinSpeed = 5f;
 
+    public bool enableDriftProjectiles = true;
+    public float driftTime = 0;
+    public float driftProjectileDelay = 1f;
+    public float driftProjectileRate = 0.5f;
+    private float timeSinceLastDriftProjectile = 0;
+
     [Header("Input / Physics")]
-    public Key handbrakeKey = Key.Space;
+    public Key handbrakeKey = Key.LeftCtrl;
+    public Key driftKey = Key.Space;
     public Rigidbody rb;
     public Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
 
@@ -58,6 +82,7 @@ public class TopDownCarController : MonoBehaviour
     float rawSteerInput;
     float steerInputSmoothed;
     bool handbrake;
+    bool drift;
 
     AudioSource audioSource;
   
@@ -116,13 +141,31 @@ public class TopDownCarController : MonoBehaviour
         rawSteerInput = Mathf.Clamp(s, -1f, 1f);
 
         handbrake =
-            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+            (gp != null && gp.leftShoulder.isPressed) ||
             (kb != null && kb[handbrakeKey].isPressed);
+
+        drift =
+            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+            (kb != null && kb[driftKey].isPressed);
     }
 
     void FixedUpdate()
     {
         if (!rb) return;
+
+        /// Keep rb upright
+        if (Vector3.Dot(transform.up, Vector3.up) < Mathf.Cos(degreeThreshold * Mathf.Deg2Rad))
+        {
+            tryingToUpright = true;
+
+            // Calculate torque axis using cross product
+            Vector3 torqueAxis = Vector3.Cross(transform.up, Vector3.up);
+            rb.AddTorque(torqueAxis * uprightTorque * Time.fixedDeltaTime);
+        }
+        else
+        {
+            tryingToUpright = false;
+        }
 
         Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
         float forwardSpeed = localVel.z;
@@ -132,31 +175,20 @@ public class TopDownCarController : MonoBehaviour
 
         bool hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 
-        bool isBraking =
-            (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
-            (forwardSpeed < -0.2f && rawThrottleInput > 0.1f);
-
-        bool drifting = enableDrift && handbrake && speedAbs > driftMinSpeed;
-
-        float targetDrag;
+        bool drifting = enableDrift && drift && speedAbs > driftMinSpeed;
 
         if (drifting)
         {
-            targetDrag = driftForwardDrag;
+            driftTime += 1 * Time.deltaTime;
         }
-        else
-        {
-            if (!hasThrottle)
-                targetDrag = idleDrag;
-            else if (isBraking)
-                targetDrag = brakeDrag;
-            else
-                targetDrag = accelDrag;
-        }
+        else { driftTime = 0; }
 
-        rb.linearDamping = Mathf.Lerp(rb.linearDamping, targetDrag, Time.fixedDeltaTime * 8f);
+        isBraking =
+            (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
+            (forwardSpeed < -0.2f && rawThrottleInput > 0.1f);
 
-        if (hasThrottle && !drifting)
+
+        if (hasThrottle && !handbrake)
         {
             if (!isBraking)
             {
@@ -176,12 +208,31 @@ public class TopDownCarController : MonoBehaviour
                 rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Acceleration);
             }
         }
-        else if (!hasThrottle && !drifting)
+        else if (handbrake)
         {
-            float brakeFactor = 6f * Time.fixedDeltaTime;
-            localVel.z = Mathf.MoveTowards(localVel.z, 0f, brakeFactor);
+            localVel.z = Mathf.MoveTowards(localVel.z, 0f, brakeFactor * Time.fixedDeltaTime);
         }
 
+        /// Drag
+        float targetDrag;
+
+        if (drifting)
+        {
+            targetDrag = driftForwardDrag;
+        }
+        else
+        {
+            if (!hasThrottle)
+                targetDrag = idleDrag;
+            else if (isBraking)
+                targetDrag = brakeDrag;
+            else
+                targetDrag = accelDrag;
+        }
+
+        rb.linearDamping = Mathf.Lerp(rb.linearDamping, targetDrag, Time.fixedDeltaTime * 8f);
+
+        /// Turning
         float lateralGrip = baseLateralGrip;
 
         if (hasThrottle) lateralGrip += accelLateralGripBoost;
@@ -234,7 +285,10 @@ public class TopDownCarController : MonoBehaviour
         {
             steerThisFrame *= driftSteerMultiplier;
 
-            rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
+            if (Mathf.Abs(rb.angularVelocity.y) < maxYawVelocity)
+            {
+                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
+            }
         }
 
         if (Mathf.Abs(steerThisFrame) > 0.01f)
@@ -242,5 +296,46 @@ public class TopDownCarController : MonoBehaviour
             Quaternion deltaRot = Quaternion.Euler(0f, steerThisFrame * Time.fixedDeltaTime, 0f);
             rb.MoveRotation(rb.rotation * deltaRot);
         }
+
+        /// Drift Projectiles
+
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f) 
+        {
+            timeSinceLastDriftProjectile += Time.deltaTime;
+            if (timeSinceLastDriftProjectile >= driftProjectileRate)
+            {
+                timeSinceLastDriftProjectile = 0;
+
+                print("spawning drift projectile");
+                if (driftTime > driftProjectileDelay)
+                {
+                    SpawnProjectile(rb.linearVelocity.magnitude * 0.5f);
+                }
+                else
+                {
+                    SpawnProjectile(driftTime/driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
+                }
+            }
+        }
+    }
+
+    private void SpawnProjectile(float projectileSpeed)
+    {
+        if (projectilePrefab == null)
+            return;
+
+        Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
+        GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+
+        Vector3 dir = -transform.forward;
+        Rigidbody projRb = proj.GetComponent<Rigidbody>();
+        if (projRb == null)
+        {
+            projRb = proj.AddComponent<Rigidbody>();
+            projRb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            projRb.interpolation = RigidbodyInterpolation.Interpolate;
+            projRb.useGravity = false;
+        }
+        projRb.linearVelocity = dir * projectileSpeed;
     }
 }

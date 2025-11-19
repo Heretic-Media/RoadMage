@@ -1944,6 +1944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 1116425551911790505, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1967894863689600172, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.46048
@@ -2057,9 +2061,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3249992275038386196, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3f446f55f727a4941aacffee1864b0c8, type: 2}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: lockAxis
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: uprightTorque
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: degreeThreshold
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: steeringResponse
