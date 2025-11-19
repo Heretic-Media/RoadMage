@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (GetEnemyCount() < maxEnemies)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            Instantiate(enemyPrefab, transform.position + new Vector3(1.5f, 0.52f, 0), Quaternion.identity);
         }
     }
 

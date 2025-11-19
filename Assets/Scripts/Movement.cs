@@ -302,7 +302,7 @@ public class TopDownCarController : MonoBehaviour
 
         /// Drift Projectiles
 
-        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f) 
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles) 
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
             if (timeSinceLastDriftProjectile >= driftProjectileRate)
