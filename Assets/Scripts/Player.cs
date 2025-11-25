@@ -12,9 +12,6 @@ public class Player : MonoBehaviour
     [Header("Thank you :) - Lewis")]
     [Space(25)]
 
-
-
-
     [Header("Health")]
     public float maxHealth = 100f;
     public float currentHealth;
@@ -41,8 +38,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] private AudioSource hurtSound;
 
+    private GameObject healthFuelGauge;
+
     void Start()
     {
+        healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
+        
         currentHealth = maxHealth;
         UpdateAllUI();
     }
@@ -124,16 +125,18 @@ public class Player : MonoBehaviour
 
     void UpdateHealthUI()
     {
-        if (healthBarFill != null)
-        {
-            float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;
-            healthBarFill.fillAmount = Mathf.Clamp01(t);
-        }
+        healthFuelGauge.GetComponent<DialBehaviour>().UpdateGauge(currentHealth / maxHealth);
+        
+        //if (healthBarFill != null)
+        //{
+        //    float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;
+        //    healthBarFill.fillAmount = Mathf.Clamp01(t);
+        //}
 
-        if (healthText != null)
-        {
-            healthText.text = $"{Mathf.CeilToInt(currentHealth)}/{Mathf.CeilToInt(maxHealth)}";
-        }
+        //if (healthText != null)
+        //{
+        //    healthText.text = $"{Mathf.CeilToInt(currentHealth)}/{Mathf.CeilToInt(maxHealth)}";
+        //}
     }
 
     void UpdateXPUI()
