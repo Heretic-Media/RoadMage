@@ -302,7 +302,7 @@ public class TopDownCarController : MonoBehaviour
             rb.MoveRotation(rb.rotation * deltaRot);
         }
 
-        // Drift Particles
+        /// Drift Particles
         if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && rawThrottleInput > 0f)
         {
             if (rawSteerInput > 0.5f && steerThisFrame > 30f)

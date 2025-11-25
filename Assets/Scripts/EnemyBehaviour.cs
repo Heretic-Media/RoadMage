@@ -58,7 +58,7 @@ public class EnemyBehaviour : MonoBehaviour
         // here some logic for death fx can go
         if (deathCry != null)
         {
-            Instantiate(deathCry);
+            Instantiate(deathCry, transform.position, transform.rotation);
         }
         
         // shake the camera
