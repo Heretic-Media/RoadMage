@@ -43,7 +43,6 @@ public class UIDialBehaviour : MonoBehaviour
         // this takes a value between 0f and 1f and moves the needle to reflect a reading of that
         
         targetRot = Quaternion.Euler(0f, 0f, rotationalOffset + bounds - (Mathf.Clamp(portionOfHealth, 0f, 1f) * bounds * 2));
-        print(-90f + (portionOfHealth * 180));
     }
 
     private void FixedUpdate()

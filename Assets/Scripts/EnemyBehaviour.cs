@@ -20,6 +20,12 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("Prefab spawned when this enemy dies.")]
     [SerializeField] private GameObject deathCry;
 
+    [Tooltip("Camera shake duration when this enemy dies.")]
+    [SerializeField] private float cameraShakeDuration = 0.1f;
+
+    [Tooltip("Camera shake magnitude when this enemy dies.")]
+    [SerializeField] private float cameraShakeMagnitude = 0.05f;
+
     private GameObject playerObject;
 
     private Rigidbody rb;
@@ -54,8 +60,18 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Instantiate(deathCry);
         }
+        
+        // shake the camera
+        if (GameObject.FindGameObjectWithTag("MainCamera") != null)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(cameraShakeDuration, cameraShakeMagnitude);
+        }
+        else
+        {
+            print("can't find camera");
+        }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
