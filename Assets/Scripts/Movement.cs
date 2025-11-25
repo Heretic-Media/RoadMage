@@ -85,7 +85,9 @@ public class TopDownCarController : MonoBehaviour
     bool drift;
 
     [SerializeField] private AudioSource audioSource;
-  
+    [SerializeField] private GameObject rightSparks;
+    [SerializeField] private GameObject leftSparks;
+
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
@@ -300,9 +302,30 @@ public class TopDownCarController : MonoBehaviour
             rb.MoveRotation(rb.rotation * deltaRot);
         }
 
+        // Drift Particles
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && rawThrottleInput > 0f)
+        {
+            if (rawSteerInput > 0.5f && steerThisFrame > 30f)
+            {
+                rightSparks.GetComponent<ParticleSystem>().Stop();
+                leftSparks.GetComponent<ParticleSystem>().Play();
+            }
+            else if (rawSteerInput < -0.5f && steerThisFrame < 30f)
+            {
+                rightSparks.GetComponent<ParticleSystem>().Play();
+                leftSparks.GetComponent<ParticleSystem>().Stop();
+            }
+
+        }
+        else
+        {
+            rightSparks.GetComponent<ParticleSystem>().Stop();
+            leftSparks.GetComponent<ParticleSystem>().Stop();
+        }
+
         /// Drift Projectiles
 
-        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles) 
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles)
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
             if (timeSinceLastDriftProjectile >= driftProjectileRate)
@@ -316,7 +339,7 @@ public class TopDownCarController : MonoBehaviour
                 }
                 else
                 {
-                    SpawnProjectile(driftTime/driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
+                    SpawnProjectile(driftTime / driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
                 }
             }
         }
