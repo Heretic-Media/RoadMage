@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - HealthFuelGauge
+  - HealthBar
   layers:
   - Default
   - TransparentFX

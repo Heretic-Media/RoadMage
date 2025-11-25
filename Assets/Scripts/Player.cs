@@ -39,11 +39,13 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource hurtSound;
 
     private GameObject healthFuelGauge;
+    private GameObject healthFuelBar;
 
     void Start()
     {
         healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
-        
+        healthFuelBar = GameObject.FindGameObjectWithTag("HealthBar");
+
         currentHealth = maxHealth;
         UpdateAllUI();
     }
@@ -125,7 +127,8 @@ public class Player : MonoBehaviour
 
     void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<DialBehaviour>().UpdateGauge(currentHealth / maxHealth);
+        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge(currentHealth / maxHealth);
+        healthFuelBar.GetComponent<UIBarBehaviour>().UpdateBar(currentHealth / maxHealth);
         
         //if (healthBarFill != null)
         //{

@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-public class DialBehaviour : MonoBehaviour
+public class UIDialBehaviour : MonoBehaviour
 {
     [Tooltip("The object the dial will use to point at the correct value.")]
     [SerializeField] private GameObject needleObject;
