@@ -63,10 +63,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
+    <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
+    <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
