@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8256743160111615743}
   - component: {fileID: 7150743939264503832}
+  - component: {fileID: 6524923744006610374}
   m_Layer: 0
   m_Name: EnemyDeathCry
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5767112977954557990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28168, y: -0.33304, z: -5.68862}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,11 +42,11 @@ AudioSource:
   m_GameObject: {fileID: 5767112977954557990}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8640058812781632503, guid: 8675ea587aec7c641805f1f098e12b6e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7d758f871000d0948b77f0eb1ec5dba3, type: 3}
   m_Resource: {fileID: 8300000, guid: 7d758f871000d0948b77f0eb1ec5dba3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -129,3 +130,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6524923744006610374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767112977954557990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0c33ba70625ef4c9242be22f0b0c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
