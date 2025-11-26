@@ -7,7 +7,7 @@ public class UI_MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("ALPHA");
+        SceneManager.LoadScene("ALPHA with assets");
     }
 
     public void QuitGame()
