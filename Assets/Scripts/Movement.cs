@@ -2,13 +2,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TopDownCarController : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
-
 
     [Header("Axis Locking")]
     public bool lockAxis = false;
@@ -34,9 +32,8 @@ public class TopDownCarController : MonoBehaviour
     public bool isBraking = false;
     public float brakeFactor = 6f;
 
-    // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 280f; // was 140f, increased for tighter turns
+    public float maxSteerAnglePerSec = 280f;
     [Range(0.1f, 1f)]
     public float steerAtTopSpeedFactor = 0.6f;
     public float steeringResponse = 10f;
@@ -78,6 +75,12 @@ public class TopDownCarController : MonoBehaviour
     public Rigidbody rb;
     public Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
 
+    [Header("World-Relative Settings")]
+    [Tooltip("The world direction that 'forward' input moves toward")]
+    public Vector3 worldForward = Vector3.forward;
+    [Tooltip("The world direction that 'right' input moves toward")]
+    public Vector3 worldRight = Vector3.right;
+
     float rawThrottleInput;
     float rawSteerInput;
     float steerInputSmoothed;
@@ -85,20 +88,16 @@ public class TopDownCarController : MonoBehaviour
     bool drift;
 
     [SerializeField] private AudioSource audioSource;
-  
 
-    // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
     {
         if (lockAxis)
         {
             if (!rb) rb = GetComponent<Rigidbody>();
-
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             rb.centerOfMass += centerOfMassOffset;
         }
-
-        else if (!lockAxis)
+        else
         {
             if (!rb) rb = GetComponent<Rigidbody>();
             rb.centerOfMass += centerOfMassOffset;
@@ -148,7 +147,7 @@ public class TopDownCarController : MonoBehaviour
             (kb != null && kb[handbrakeKey].isPressed);
 
         drift =
-            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+            (gp != null && gp.buttonSouth.isPressed) ||
             (kb != null && kb[driftKey].isPressed);
     }
 
@@ -156,12 +155,10 @@ public class TopDownCarController : MonoBehaviour
     {
         if (!rb) return;
 
-        /// Keep rb upright
+        // Keep rb upright
         if (Vector3.Dot(transform.up, Vector3.up) < Mathf.Cos(degreeThreshold * Mathf.Deg2Rad))
         {
             tryingToUpright = true;
-
-            // Calculate torque axis using cross product
             Vector3 torqueAxis = Vector3.Cross(transform.up, Vector3.up);
             rb.AddTorque(torqueAxis * uprightTorque * Time.fixedDeltaTime);
         }
@@ -170,141 +167,157 @@ public class TopDownCarController : MonoBehaviour
             tryingToUpright = false;
         }
 
-        Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
-        float forwardSpeed = localVel.z;
+
+        Vector3 inputDirection = (worldForward * rawThrottleInput + worldRight * rawSteerInput).normalized;
+        float inputMagnitude = new Vector2(rawThrottleInput, rawSteerInput).magnitude;
+        inputMagnitude = Mathf.Clamp01(inputMagnitude);
+
+
+        float forwardSpeed = Vector3.Dot(rb.linearVelocity, transform.forward);
         float speedAbs = Mathf.Abs(forwardSpeed);
 
-        audioSource.volume = speedAbs / 20;
+        if (audioSource != null)
+            audioSource.volume = speedAbs / 20f;
 
-        bool hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
-
+        bool hasInput = inputMagnitude > 0.05f;
         bool drifting = enableDrift && drift && speedAbs > driftMinSpeed;
 
         if (drifting)
         {
-            driftTime += 1 * Time.deltaTime;
+            driftTime += Time.fixedDeltaTime;
         }
-        else { driftTime = 0; }
+        else
+        {
+            driftTime = 0;
+        }
 
-        isBraking =
-            (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
-            (forwardSpeed < -0.2f && rawThrottleInput > 0.1f);
 
+        float targetAngle = transform.eulerAngles.y;
+        if (hasInput)
+        {
+            targetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
+        }
 
-        if (hasThrottle && !handbrake)
+        float currentAngle = transform.eulerAngles.y;
+        float angleDiff = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+        Vector3 velocityDir = rb.linearVelocity.normalized;
+        bool movingBackward = hasInput && Vector3.Dot(inputDirection, velocityDir) < -0.5f && speedAbs > 0.5f;
+
+        isBraking = movingBackward;
+
+      
+        if (hasInput && !handbrake)
         {
             if (!isBraking)
             {
-                if (rawThrottleInput > 0f)
+                if (forwardSpeed < maxForwardSpeed)
                 {
-                    if (forwardSpeed < maxForwardSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * acceleration), ForceMode.Acceleration);
-                }
-                else
-                {
-                    if (forwardSpeed > -maxReverseSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * reverseAcceleration), ForceMode.Acceleration);
+                    float accelForce = acceleration * inputMagnitude;
+                    rb.AddForce(transform.forward * accelForce, ForceMode.Acceleration);
                 }
             }
             else
             {
-                rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Acceleration);
+                rb.AddForce(-velocityDir * brakeStrength, ForceMode.Acceleration);
             }
         }
         else if (handbrake)
         {
+            Vector3 localVel = transform.InverseTransformDirection(rb.linearVelocity);
             localVel.z = Mathf.MoveTowards(localVel.z, 0f, brakeFactor * Time.fixedDeltaTime);
+            rb.linearVelocity = transform.TransformDirection(localVel);
         }
 
-        /// Drag
+        // Drag
         float targetDrag;
-
         if (drifting)
         {
             targetDrag = driftForwardDrag;
         }
+        else if (!hasInput)
+        {
+            targetDrag = idleDrag;
+        }
+        else if (isBraking)
+        {
+            targetDrag = brakeDrag;
+        }
         else
         {
-            if (!hasThrottle)
-                targetDrag = idleDrag;
-            else if (isBraking)
-                targetDrag = brakeDrag;
-            else
-                targetDrag = accelDrag;
+            targetDrag = accelDrag;
         }
 
         rb.linearDamping = Mathf.Lerp(rb.linearDamping, targetDrag, Time.fixedDeltaTime * 8f);
 
-        /// Turning
+        // Lateral grip
         float lateralGrip = baseLateralGrip;
-
-        if (hasThrottle) lateralGrip += accelLateralGripBoost;
+        if (hasInput) lateralGrip += accelLateralGripBoost;
         if (isBraking) lateralGrip += brakeLateralGripBoost;
 
         if (drifting)
         {
             lateralGrip *= driftLateralGripFactor;
         }
-        else if (handbrake && !drifting)
+        else if (handbrake)
         {
             lateralGrip *= handbrakeLateralGripFactor;
         }
 
-        float lateral = localVel.x;
+        Vector3 localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
+        float lateral = localVelocity.x;
         float lateralKill = lateralGrip * Time.fixedDeltaTime;
-        localVel.x = Mathf.MoveTowards(lateral, 0f, lateralKill);
+        localVelocity.x = Mathf.MoveTowards(lateral, 0f, lateralKill);
 
-        Vector3 newWorldVel = transform.TransformDirection(localVel);
+        Vector3 newWorldVel = transform.TransformDirection(localVelocity);
         newWorldVel.y = rb.linearVelocity.y;
         rb.linearVelocity = newWorldVel;
 
-        localVel = transform.InverseTransformDirection(rb.linearVelocity);
-        forwardSpeed = Mathf.Clamp(localVel.z, -maxReverseSpeed, maxForwardSpeed);
-        localVel.z = forwardSpeed;
-        rb.linearVelocity = transform.TransformDirection(localVel);
+     
+        localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
+        localVelocity.z = Mathf.Clamp(localVelocity.z, -maxReverseSpeed, maxForwardSpeed);
+        rb.linearVelocity = transform.TransformDirection(localVelocity);
 
-        float minSteerSpeed = 1.5f;
-        float steerFactorBySpeed = Mathf.InverseLerp(minSteerSpeed, maxForwardSpeed, Mathf.Abs(forwardSpeed));
-        steerFactorBySpeed = Mathf.Clamp01(steerFactorBySpeed);
-
-        float highSpeedSteerScale = Mathf.Lerp(1f, steerAtTopSpeedFactor, steerFactorBySpeed);
-
-        steerInputSmoothed = Mathf.MoveTowards(
-            steerInputSmoothed,
-            rawSteerInput,
-            steeringResponse * Time.fixedDeltaTime
-        );
-
-        float steerThisFrame =
-            steerInputSmoothed *
-            maxSteerAnglePerSec *
-            highSpeedSteerScale *
-            steerFactorBySpeed;
-
-        if (forwardSpeed < -0.2f)
-            steerThisFrame *= -1f;
-
-        if (drifting)
+        if (hasInput && !isBraking)
         {
-            steerThisFrame *= driftSteerMultiplier;
+            float minSteerSpeed = 1.5f;
+            float steerFactorBySpeed = Mathf.InverseLerp(minSteerSpeed, maxForwardSpeed, speedAbs);
+            steerFactorBySpeed = Mathf.Clamp01(steerFactorBySpeed);
 
-            if (Mathf.Abs(rb.angularVelocity.y) < maxYawVelocity)
+            float highSpeedSteerScale = Mathf.Lerp(1f, steerAtTopSpeedFactor, steerFactorBySpeed);
+
+            steerInputSmoothed = Mathf.MoveTowards(
+                steerInputSmoothed,
+                Mathf.Sign(angleDiff),
+                steeringResponse * Time.fixedDeltaTime
+            );
+
+            float steerThisFrame = steerInputSmoothed * maxSteerAnglePerSec * highSpeedSteerScale * steerFactorBySpeed;
+
+            if (drifting)
             {
-                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
+                steerThisFrame *= driftSteerMultiplier;
+
+                if (Mathf.Abs(rb.angularVelocity.y) < maxYawVelocity)
+                {
+                    rb.AddTorque(Vector3.up * Mathf.Sign(angleDiff) * driftYawBoost, ForceMode.Acceleration);
+                }
+            }
+
+            float maxRotThisFrame = Mathf.Abs(steerThisFrame) * Time.fixedDeltaTime;
+            float actualRotation = Mathf.Clamp(angleDiff, -maxRotThisFrame, maxRotThisFrame);
+
+            if (Mathf.Abs(actualRotation) > 0.01f)
+            {
+                Quaternion deltaRot = Quaternion.Euler(0f, actualRotation, 0f);
+                rb.MoveRotation(rb.rotation * deltaRot);
             }
         }
 
-        if (Mathf.Abs(steerThisFrame) > 0.01f)
+        // Drift Projectiles
+        if (drifting && inputMagnitude > 0.5f && enableDriftProjectiles)
         {
-            Quaternion deltaRot = Quaternion.Euler(0f, steerThisFrame * Time.fixedDeltaTime, 0f);
-            rb.MoveRotation(rb.rotation * deltaRot);
-        }
-
-        /// Drift Projectiles
-
-        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles) 
-        {
-            timeSinceLastDriftProjectile += Time.deltaTime;
+            timeSinceLastDriftProjectile += Time.fixedDeltaTime;
             if (timeSinceLastDriftProjectile >= driftProjectileRate)
             {
                 timeSinceLastDriftProjectile = 0;
@@ -316,7 +329,7 @@ public class TopDownCarController : MonoBehaviour
                 }
                 else
                 {
-                    SpawnProjectile(driftTime/driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
+                    SpawnProjectile(driftTime / driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
                 }
             }
         }
