@@ -1353,6 +1353,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Adobe.Substance.Connector.csproj">
+      <Project>{E6B73000-9AB7-11E4-F9EA-F4729E6130D3}</Project>
+      <Name>Adobe.Substance.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.Substance.csproj">
+      <Project>{3AA87471-BE8D-D0ED-1059-0A95F80C11D0}</Project>
+      <Name>Adobe.Substance</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.SubstanceEditor.csproj">
+      <Project>{6721168D-9800-E884-6A5B-5BF82494D3F1}</Project>
+      <Name>Adobe.SubstanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.Substance.Connector.Unity.csproj">
+      <Project>{C8ECF895-2459-321C-9523-1FB74642AAEF}</Project>
+      <Name>Adobe.Substance.Connector.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.Substance.Runtime.csproj">
+      <Project>{56E14942-D350-BA51-1952-5F50520DCD3E}</Project>
+      <Name>Adobe.Substance.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
