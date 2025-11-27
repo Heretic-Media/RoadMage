@@ -83,11 +83,20 @@ public class Follow_player : MonoBehaviour
 
         // where the camera needs to get to vertically using its horizontal position to fill out the Vector3
 
-        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, Vector3.right) * Vector3.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
+        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, -player.right) * player.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
 
         Vector3 desiredCameraPos = focusPosition + cameraOffset;
 
-        transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
+        Quaternion desiredCameraRot = Quaternion.Euler(90, player.rotation.eulerAngles.y, 0) * Quaternion.Euler(-cameraAngle, 0, 0);
+
+        //transform.eulerAngles = desiredCameraRot.eulerAngles;
+
+        float lerpAmount = 4f;
+
+        transform.eulerAngles = new Vector3(
+Mathf.LerpAngle(transform.eulerAngles.x, desiredCameraRot.eulerAngles.x, Time.deltaTime * lerpAmount),
+Mathf.LerpAngle(transform.eulerAngles.y, desiredCameraRot.eulerAngles.y, Time.deltaTime * lerpAmount),
+Mathf.LerpAngle(transform.eulerAngles.z, desiredCameraRot.eulerAngles.z, Time.deltaTime * lerpAmount));
 
         // here we apply the movement from this update
         transform.position += (desiredCameraPos - transform.position);
