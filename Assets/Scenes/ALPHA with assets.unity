@@ -3698,6 +3698,7 @@ MonoBehaviour:
   lookAheadMultipler: 0.5
   lookAheadMaximum: 50
   cameraSpeedSmoothingMultiplier: 0.21
+  relativeRotateCamera: 0
 --- !u!4 &525579128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5692490808511770953, guid: 8a54da5f96609d0438cc0caf507bf129, type: 3}
@@ -15578,6 +15579,10 @@ PrefabInstance:
     - target: {fileID: 1116425551911790505, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
       propertyPath: m_Name
       value: AudioHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116425551911790505, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1967894863689600172, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
       propertyPath: m_LocalPosition.x
