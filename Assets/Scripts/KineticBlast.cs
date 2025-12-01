@@ -15,8 +15,6 @@ public class KineticBlast : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = transform.parent.position;
-
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
 
         var kb = Keyboard.current;
@@ -33,7 +31,7 @@ public class KineticBlast : MonoBehaviour
             newProj.GetComponent<KineticBlastProjectile>().Initialize((int)forwardVel, 1.5f*playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
-        else
+        else if (attackCooldown > 0)
         {
             attackCooldown--;
         }
