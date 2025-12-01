@@ -34,8 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
     public int formationIndex = 0;
 
     // Patrol area bounds
-    [SerializeField] private Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
-    [SerializeField] private Vector3 patrolAreaMax = new Vector3(20, 0, 20);
+    [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
+    [SerializeField] protected Vector3 patrolAreaMax = new Vector3(20, 0, 20);
 
     private GameObject playerObject;
     private Rigidbody rb;
@@ -47,9 +47,9 @@ public class EnemyBehaviour : MonoBehaviour
     private const float patrolTargetInterval = 4f;
 
     [Tooltip("How far from the player enemies will try to stay when chasing (formation circle radius).")]
-    [SerializeField] private float formationRadius = 0.5f; 
+    [SerializeField] private float formationRadius = 0.5f;
 
-    void FindPlayer()
+    protected void FindPlayer()
     {
         if (playerObject == null)
         {
@@ -208,7 +208,7 @@ public class EnemyBehaviour : MonoBehaviour
         rb.linearVelocity = direction.normalized * movementSpeed;
     }
 
-    void PickNewPatrolTarget()
+    protected void PickNewPatrolTarget()
     {
         float x = Random.Range(patrolAreaMin.x, patrolAreaMax.x);
         float z = Random.Range(patrolAreaMin.z, patrolAreaMax.z);

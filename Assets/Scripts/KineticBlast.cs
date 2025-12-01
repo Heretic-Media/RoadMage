@@ -15,6 +15,8 @@ public class KineticBlast : MonoBehaviour
 
     private void FixedUpdate()
     {
+        transform.position = transform.parent.position;
+
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
 
         var kb = Keyboard.current;

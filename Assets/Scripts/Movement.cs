@@ -310,26 +310,5 @@ public class TopDownCarController : MonoBehaviour
             rightSparks.GetComponent<ParticleSystem>().Stop();
             leftSparks.GetComponent<ParticleSystem>().Stop();
         }
-
-        /// Drift Projectiles
-
-        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles)
-        {
-            timeSinceLastDriftProjectile += Time.deltaTime;
-            if (timeSinceLastDriftProjectile >= driftProjectileRate)
-            {
-                timeSinceLastDriftProjectile = 0;
-
-                print("spawning drift projectile");
-                if (driftTime > driftProjectileDelay)
-                {
-                    SpawnProjectile(rb.linearVelocity.magnitude * 0.5f);
-                }
-                else
-                {
-                    SpawnProjectile(driftTime / driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
-                }
-            }
-        }
     }
 }

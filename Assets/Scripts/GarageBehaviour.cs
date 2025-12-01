@@ -38,13 +38,7 @@ public class GarageBehaviour : MonoBehaviour
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
-        if (mScript.enableDriftProjectiles)
-        {
-            SceneManager.LoadScene("WinScreen");
-        }
-
         AccessUpgradeMenu();
-        mScript.enableDriftProjectiles = true;
         Destroy(gameObject);
     }
 

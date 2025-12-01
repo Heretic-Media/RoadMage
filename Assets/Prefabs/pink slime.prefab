@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2934565804938106850}
   - component: {fileID: 5121836764615864163}
   - component: {fileID: 9028276499795939048}
-  - component: {fileID: 7814602829805513924}
+  - component: {fileID: 5493471957248840776}
   m_Layer: 0
   m_Name: pink slime
   m_TagString: Enemy
@@ -140,7 +140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7814602829805513924
+--- !u!114 &5493471957248840776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6649110919336542559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6befa9997f917b94f8e8b44b73ce8733, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d7191036396de040a95eab974c753bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
@@ -157,7 +157,13 @@ MonoBehaviour:
   closeVanishSpeedThreshold: 2
   meleeRange: 2
   attackCooldown: 0.5
-  deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
+  deathCry: {fileID: 0}
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.05
+  formationIndex: 0
+  patrolAreaMin: {x: -20, y: 0, z: -20}
+  patrolAreaMax: {x: 20, y: 0, z: 20}
+  formationRadius: 0.5
 --- !u!1001 &3208535563036242370
 PrefabInstance:
   m_ObjectHideFlags: 0

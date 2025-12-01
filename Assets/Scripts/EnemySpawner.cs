@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int GetEnemyCount()
     {
-        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         
         return allEnemies.Length;
     }

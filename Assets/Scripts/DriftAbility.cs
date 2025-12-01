@@ -24,12 +24,14 @@ public class DriftAbility : MonoBehaviour
 
     void Start()
     {
-        carController = GetComponent<TopDownCarController>();
+        carController = transform.parent.GetComponent<TopDownCarController>();
     }
 
 
     void Update()
     {
+        transform.position = transform.parent.position;
+        
         if (carController.drifting)
         {
             driftTime += Time.deltaTime;
