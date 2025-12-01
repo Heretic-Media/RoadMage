@@ -156,7 +156,7 @@ MonoBehaviour:
   speed: 3
   stopDistance: 3
   enemyPrefab: {fileID: 0}
-  spawnDelay: 0.5
+  spawnDelay: 0.26
   spawnEffect: {fileID: 0}
   spawnOnStart: 1
   useRandomInterval: 1

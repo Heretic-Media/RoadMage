@@ -152,12 +152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6befa9997f917b94f8e8b44b73ce8733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 8
   visionDistance: 200
   closeVanishSpeedThreshold: 2
-  meleeRange: 2
+  meleeRange: 1
   attackCooldown: 0.5
   deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
+  formationIndex: 0
+  patrolAreaMin: {x: -20, y: 0, z: -20}
+  patrolAreaMax: {x: 20, y: 0, z: 20}
 --- !u!1001 &7128880154959266142
 PrefabInstance:
   m_ObjectHideFlags: 0
