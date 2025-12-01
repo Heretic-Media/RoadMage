@@ -79,7 +79,9 @@ public class TopDownCarController : MonoBehaviour
     public bool drifting;
 
     [SerializeField] private AudioSource audioSource;
-  
+    [SerializeField] private GameObject rightSparks;
+    [SerializeField] private GameObject leftSparks;
+
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
@@ -286,6 +288,48 @@ public class TopDownCarController : MonoBehaviour
         {
             Quaternion deltaRot = Quaternion.Euler(0f, steerThisFrame * Time.fixedDeltaTime, 0f);
             rb.MoveRotation(rb.rotation * deltaRot);
+        }
+
+        /// Drift Particles
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && rawThrottleInput > 0f)
+        {
+            if (rawSteerInput > 0.5f && steerThisFrame > 30f)
+            {
+                rightSparks.GetComponent<ParticleSystem>().Stop();
+                leftSparks.GetComponent<ParticleSystem>().Play();
+            }
+            else if (rawSteerInput < -0.5f && steerThisFrame < 30f)
+            {
+                rightSparks.GetComponent<ParticleSystem>().Play();
+                leftSparks.GetComponent<ParticleSystem>().Stop();
+            }
+
+        }
+        else
+        {
+            rightSparks.GetComponent<ParticleSystem>().Stop();
+            leftSparks.GetComponent<ParticleSystem>().Stop();
+        }
+
+        /// Drift Projectiles
+
+        if (drifting && Mathf.Abs(rawSteerInput) > 0.5f && enableDriftProjectiles)
+        {
+            timeSinceLastDriftProjectile += Time.deltaTime;
+            if (timeSinceLastDriftProjectile >= driftProjectileRate)
+            {
+                timeSinceLastDriftProjectile = 0;
+
+                print("spawning drift projectile");
+                if (driftTime > driftProjectileDelay)
+                {
+                    SpawnProjectile(rb.linearVelocity.magnitude * 0.5f);
+                }
+                else
+                {
+                    SpawnProjectile(driftTime / driftProjectileDelay * rb.linearVelocity.magnitude * 0.5f);
+                }
+            }
         }
     }
 }
