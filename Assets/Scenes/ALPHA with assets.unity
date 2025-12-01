@@ -11335,13 +11335,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277428387491563350, guid: c917d395cc144864680a838da14e8745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6329318729859575142, guid: 158c73211d594ef4094be3598a5277db, type: 3}
     - target: {fileID: 1581180019468105200, guid: c917d395cc144864680a838da14e8745, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3623578695955990267, guid: c917d395cc144864680a838da14e8745, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6169542337586072463, guid: c917d395cc144864680a838da14e8745, type: 3}
       propertyPath: eventSystem

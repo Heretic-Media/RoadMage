@@ -30,7 +30,7 @@ public class GlyphAbility : MonoBehaviour
 
     void Start()
     {
-        if (!rb) rb = GetComponent<Rigidbody>();
+       rb = GetComponentInParent<Rigidbody>();
 
         //glyphGuides.Add(null);
         //glyphGuides[0] = Instantiate(glyphGuidePrefab, rb.transform.position, Quaternion.identity);
@@ -123,6 +123,37 @@ public class GlyphAbility : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (goal != null)
+        {
+            if (IsPlayerInside(goal))
+            {
+                HandleGoalEnter();
+            }
+        }
+
+        if (area != null)
+        {
+            if (!IsPlayerInside(area))
+            {
+                HandleAreaExit();
+            }
+        }
+    }
+
+    bool IsPlayerInside(GameObject region)
+    {
+        Collider regionCollider = region.GetComponent<Collider>();
+        Collider playerCollider = rb.GetComponent<Collider>(); // parent collider
+
+        return Physics.ComputePenetration(
+            regionCollider, regionCollider.transform.position, regionCollider.transform.rotation,
+            playerCollider, playerCollider.transform.position, playerCollider.transform.rotation,
+            out _, out _
+        );
+    }
+
     private void resetGlyphCast() 
     {
         for (int i = 0; i < glyphGuides.Count; i++)
@@ -130,39 +161,40 @@ public class GlyphAbility : MonoBehaviour
             glyphGuides[i].SetActive(false);
         }
 
+        area = null;
+        goal = null;
+
         glyphCasted = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void HandleGoalEnter()
     {
-        if (goal != null && other == goal.GetComponent<Collider>())
+        goal.SetActive(false);
+        goalsHit++;
+        glyphIndex++;
+        if (glyphIndex < glyphGuides.Count)
         {
-            goal.SetActive(false);
-            goalsHit++;
-            glyphIndex++;
-            if (glyphIndex < glyphGuides.Count)
-            {
-                area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
-                goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
-            }
-            else
-            {
-                /// Cast glyph spell here
-                
-                /// 
-                resetGlyphCast();
-            }
+            area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
+            goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+        }
+        else
+        {
+            /// Cast glyph spell here
+
+            /// 
+            resetGlyphCast();
+
+            print("entered goal");
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void HandleAreaExit()
     {
-        if (area != null && other == area.GetComponent<Collider>())
-        {
-            //glyphGuides[glyphIndex].SetActive(false);
+        //glyphGuides[glyphIndex].SetActive(false);
 
-            /// Completely fail the cast and cancel
-            resetGlyphCast();
-        }
+        /// Completely fail the cast and cancel
+        resetGlyphCast();
+
+        print("exited area");
     }
 }
