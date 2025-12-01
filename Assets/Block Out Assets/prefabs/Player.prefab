@@ -77,6 +77,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -125,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ec20d8dd9879347900ca8edd567d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
   lockAxis: 0
   uprightTorque: 250
   degreeThreshold: 15
@@ -153,10 +158,15 @@ MonoBehaviour:
   driftYawBoost: 6
   maxYawVelocity: 3
   driftMinSpeed: 5
+  enableDriftProjectiles: 1
+  driftTime: 0
+  driftProjectileDelay: 1
+  driftProjectileRate: 0.5
   handbrakeKey: 55
   driftKey: 1
   rb: {fileID: 0}
   centerOfMassOffset: {x: 0, y: -0.4, z: 0}
+  audioSource: {fileID: 0}
 --- !u!54 &2384396360077417621
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -229,6 +239,7 @@ MonoBehaviour:
   xpText: {fileID: 0}
   levelText: {fileID: 0}
   scoreText: {fileID: 0}
+  hurtSound: {fileID: 0}
 --- !u!82 &4040909061393142705
 AudioSource:
   m_ObjectHideFlags: 0
@@ -238,7 +249,7 @@ AudioSource:
   m_GameObject: {fileID: 6345772802630221315}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8640058812781632503, guid: 3deacb6aa69664e4589ef1700678d2d5, type: 2}
+  OutputAudioMixerGroup: {fileID: -8640058812781632503, guid: 8675ea587aec7c641805f1f098e12b6e, type: 2}
   m_audioClip: {fileID: 8300000, guid: accc69163e5474f4eae92721a3c1d996, type: 3}
   m_Resource: {fileID: 8300000, guid: accc69163e5474f4eae92721a3c1d996, type: 3}
   m_PlayOnAwake: 1
