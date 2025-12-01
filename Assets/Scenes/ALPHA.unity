@@ -618,6 +618,24 @@ MonoBehaviour:
   castingKey: 20
   glyphCasted: 0
   goalsHit: 0
+--- !u!114 &147145799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147145780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04893175deaf51544925ac0ebef069bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7702195757065228278, guid: 7aa1fb0df9f477f4db03be5ab68de5e4, type: 3}
+  enableDriftProjectiles: 1
+  driftTime: 0
+  driftProjectileDelay: 0.5
+  driftProjectileCharge: 1
+  driftProjectileRate: 0.05
 --- !u!1001 &175359859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4721,6 +4739,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6345772802630221315, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 147145793}
+    - targetCorrespondingSourceObject: {fileID: 6345772802630221315, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 147145799}
   m_SourcePrefab: {fileID: 100100000, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
 --- !u!4 &8229042411473669556
 Transform:

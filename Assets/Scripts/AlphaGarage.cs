@@ -34,7 +34,7 @@ public class AlphaGarage : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
             return;
 
-        TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
+        DriftAbility mScript = collision.gameObject.GetComponent<DriftAbility>();
 
         if (mScript.enableDriftProjectiles)
         {
