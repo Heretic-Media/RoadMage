@@ -8,6 +8,7 @@ TagManager:
   - HealthFuelGauge
   - HealthBar
   - UpgradeUI
+  - PauseUI
   layers:
   - Default
   - TransparentFX
