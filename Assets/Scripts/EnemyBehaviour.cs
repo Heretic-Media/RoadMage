@@ -16,7 +16,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float closeVanishSpeedThreshold = 2f;
 
     [Tooltip("The distance in unit this enemy can damage the player from.")]
-    [SerializeField] private float meleeRange = 1f;
+    [SerializeField] private float meleeRange = 1.5f;
 
     [Tooltip("Time in seconds between melee attacks.")]
     [SerializeField] private float attackCooldown = 0.5f;
