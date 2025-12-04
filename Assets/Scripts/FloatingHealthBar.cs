@@ -12,11 +12,11 @@ public class FloatingHealthBar : MonoBehaviour
 
     void Update()
     {
-        //slider.value;
+        transform.rotation = Camera.main.transform.rotation;
     }
 
-    public void UpdateHealthBar() 
+    public void UpdateHealthBar(float currentValue, float maxValue) 
     {
-
+        slider.value = currentValue / maxValue;
     }
 }

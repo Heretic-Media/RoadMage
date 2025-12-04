@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3653610702988921518, guid: 572711048aed6f746ad47120e0214485, type: 3}
   enableDriftProjectiles: 1
+  projectileDamage: 1
   driftTime: 0
   driftProjectileDelay: 0.5
   driftProjectileCharge: 1

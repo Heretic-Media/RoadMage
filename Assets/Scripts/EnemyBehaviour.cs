@@ -6,6 +6,11 @@ public class EnemyBehaviour : MonoBehaviour
     public enum State { Patrolling, Chasing, Attacking }
     private State currentState = State.Patrolling;
 
+    [SerializeField] private float health = 3f;
+    [SerializeField] private float maxHealth = 3f;
+
+    [SerializeField] FloatingHealthBar healthBar;
+
     [Tooltip("Speed at which the enemy travels.")]
     [SerializeField] private float movementSpeed = 2f;
 
@@ -49,6 +54,84 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("How far from the player enemies will try to stay when chasing (formation circle radius).")]
     [SerializeField] private float formationRadius = 0.5f;
 
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
+    void Start()
+    {
+        FindPlayer();
+        PickNewPatrolTarget();
+        healthBar.UpdateHealthBar(health, maxHealth);
+    }
+
+    void FixedUpdate()
+    {
+        if (playerObject == null)
+        {
+            FindPlayer();
+            return;
+        }
+
+        switch (currentState)
+        {
+            case State.Patrolling:
+                Patrol();
+                if (VisionCheck())
+                    currentState = State.Chasing;
+                break;
+
+            case State.Chasing:
+                ChaseWithFormation();
+                if (!VisionCheck())
+                    currentState = State.Patrolling;
+                else if (MeleeCheck())
+                    currentState = State.Attacking;
+                break;
+
+            case State.Attacking:
+                rb.linearVelocity = Vector3.zero;
+                attackTimer += Time.fixedDeltaTime;
+                if (attackTimer > attackCooldown)
+                {
+                    attackTimer -= attackCooldown;
+                    AttackPlayer();
+                }
+                if (!MeleeCheck())
+                    currentState = State.Chasing;
+                break;
+        }
+    }
+
+    public void TakeDamage(float damageAmount) 
+    {
+        health -= damageAmount;
+        healthBar.UpdateHealthBar(health, maxHealth);
+        if (health <= 0f) 
+        {
+            Vanish();
+        }
+    }
+    public void Vanish()
+    {
+        if (deathCry != null)
+        {
+            Instantiate(deathCry, transform.position, transform.rotation);
+        }
+
+        // shake the camera
+        if (GameObject.FindGameObjectWithTag("MainCamera") != null)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(cameraShakeDuration, cameraShakeMagnitude);
+        }
+        else
+        {
+            print("can't find camera");
+        }
+
+        Destroy(gameObject);
+    }
+
     protected void FindPlayer()
     {
         if (playerObject == null)
@@ -64,26 +147,6 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
         rb = GetComponent<Rigidbody>();
-    }
-
-    public void Vanish()
-    {
-        if (deathCry != null)
-        {
-            Instantiate(deathCry, transform.position, transform.rotation);
-        }
-        
-        // shake the camera
-        if (GameObject.FindGameObjectWithTag("MainCamera") != null)
-        {
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(cameraShakeDuration, cameraShakeMagnitude);
-        }
-        else
-        {
-            print("can't find camera");
-        }
-
-            Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -134,12 +197,6 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        FindPlayer();
-        PickNewPatrolTarget();
-    }
-
     void AttackPlayer()
     {
         if (MeleeCheck())
@@ -152,45 +209,6 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
     }
-
-    void FixedUpdate()
-    {
-        if (playerObject == null)
-        {
-            FindPlayer();
-            return;
-        }
-
-        switch (currentState)
-        {
-            case State.Patrolling:
-                Patrol();
-                if (VisionCheck())
-                    currentState = State.Chasing;
-                break;
-
-            case State.Chasing:
-                ChaseWithFormation();
-                if (!VisionCheck())
-                    currentState = State.Patrolling;
-                else if (MeleeCheck())
-                    currentState = State.Attacking;
-                break;
-
-            case State.Attacking:
-                rb.linearVelocity = Vector3.zero;
-                attackTimer += Time.fixedDeltaTime;
-                if (attackTimer > attackCooldown)
-                {
-                    attackTimer -= attackCooldown;
-                    AttackPlayer();
-                }
-                if (!MeleeCheck())
-                    currentState = State.Chasing;
-                break;
-        }
-    }
-
     void Patrol()
     {
         patrolTargetTimeout -= Time.fixedDeltaTime;

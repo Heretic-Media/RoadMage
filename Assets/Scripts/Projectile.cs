@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour
     public bool despawnAfterTime = true;
     public float despawnTimer = 5;
 
+    [Tooltip("Projectile damage should be set on spawn")]
+    public float damage = 0;
+
     public float timeAlive = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,7 +20,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeAlive += 1 * Time.deltaTime;
+        timeAlive += Time.deltaTime;
 
         if (despawnAfterTime && timeAlive >= despawnTimer)
         {
@@ -39,8 +42,8 @@ public class Projectile : MonoBehaviour
                 /// This could instead deal damage to the enemy by calling a public function or changing a public variable
                 /// Then the enemy could be set to despawn once health is 0;
 
-                enemyDetails.Vanish();
-                print("enemy vanished");
+                enemyDetails.TakeDamage(damage);
+                print("enemy damaged");
             }
 
             if (despawnOnHit) 
