@@ -104,7 +104,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -125,7 +125,7 @@ MonoBehaviour:
   despawnOnHit: 1
   despawnAfterTime: 1
   despawnTimer: 3
-  damage: 0
+  damage: 1
   timeAlive: 0
 --- !u!1 &6132391412768088940
 GameObject:

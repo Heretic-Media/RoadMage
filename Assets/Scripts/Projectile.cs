@@ -29,14 +29,17 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    // Only deal damage and destroy bullet if it hits enemy (trigger or collision)
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            print(col.gameObject.name);
 
-            EnemyBehaviour enemyDetails = col.gameObject.GetComponent<EnemyBehaviour>();
+    /// Only deal damage and destroy bullet if it hits enemy (trigger or collision)
+    //private void OnTriggerEnter(Collider collision)
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            print(collision.gameObject.name);
+
+            EnemyBehaviour enemyDetails = collision.gameObject.GetComponent<EnemyBehaviour>();
             if (enemyDetails != null)
             {
                 /// This could instead deal damage to the enemy by calling a public function or changing a public variable
@@ -46,7 +49,7 @@ public class Projectile : MonoBehaviour
                 print("enemy damaged");
             }
 
-            if (despawnOnHit) 
+            if (despawnOnHit)
             {
                 Destroy(this.gameObject);
             }

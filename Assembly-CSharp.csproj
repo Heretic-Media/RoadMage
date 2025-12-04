@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />

@@ -149,29 +149,31 @@ public class EnemyBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Player"))
-            return;
+    /// Collision damage is now handled by the player in an ability
 
-        float playerSpeed = 0f;
-        if (collision.rigidbody != null)
-            playerSpeed = collision.rigidbody.linearVelocity.magnitude;
-        else
-        {
-            var prb = collision.gameObject.GetComponent<Rigidbody>();
-            if (prb != null)
-                playerSpeed = prb.linearVelocity.magnitude;
-        }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (!collision.gameObject.CompareTag("Player"))
+    //        return;
 
-        if (playerSpeed >= closeVanishSpeedThreshold)
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.AddXP(10);
-            player.AddScore(5);
-            Vanish();
-        }
-    }
+    //    float playerSpeed = 0f;
+    //    if (collision.rigidbody != null)
+    //        playerSpeed = collision.rigidbody.linearVelocity.magnitude;
+    //    else
+    //    {
+    //        var prb = collision.gameObject.GetComponent<Rigidbody>();
+    //        if (prb != null)
+    //            playerSpeed = prb.linearVelocity.magnitude;
+    //    }
+
+    //    if (playerSpeed >= closeVanishSpeedThreshold)
+    //    {
+    //        Player player = collision.gameObject.GetComponent<Player>();
+    //        player.AddXP(10);
+    //        player.AddScore(5);
+    //        Vanish();
+    //    }
+    //}
 
     private bool VisionCheck()
     {
