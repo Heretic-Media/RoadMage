@@ -3400,7 +3400,8 @@ MonoBehaviour:
   lookAheadMultipler: 0.5
   lookAheadMaximum: 50
   cameraSpeedSmoothingMultiplier: 0.21
-  relativeRotateCamera: 0
+  relativeRotateCamera: 1
+  lerpMultiplier: 0.5
 --- !u!4 &525579128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5692490808511770953, guid: 8a54da5f96609d0438cc0caf507bf129, type: 3}

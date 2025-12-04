@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.LightTransport;
 
 public class CameraBehaviour : MonoBehaviour
 {
@@ -29,6 +28,8 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] private float cameraSpeedSmoothingMultiplier = 0.21f;
 
     [SerializeField] private bool relativeRotateCamera = false;
+
+    [SerializeField] private float lerpMultiplier = 4f;
 
     private Vector3 shakeOffset = Vector3.zero; // here to store the offset being added to the camera's position by shake
     private Vector3 anchorPos; // where the camera should be before any offsets are applied
@@ -98,12 +99,10 @@ public class CameraBehaviour : MonoBehaviour
 
         if (relativeRotateCamera)
         {
-            float lerpAmount = 4f;
-
             transform.eulerAngles = new Vector3(
-    Mathf.LerpAngle(transform.eulerAngles.x, desiredCameraRot.eulerAngles.x, Time.deltaTime * lerpAmount),
-    Mathf.LerpAngle(transform.eulerAngles.y, desiredCameraRot.eulerAngles.y, Time.deltaTime * lerpAmount),
-    Mathf.LerpAngle(transform.eulerAngles.z, desiredCameraRot.eulerAngles.z, Time.deltaTime * lerpAmount));
+    Mathf.LerpAngle(transform.eulerAngles.x, desiredCameraRot.eulerAngles.x, Time.deltaTime * lerpMultiplier),
+    Mathf.LerpAngle(transform.eulerAngles.y, desiredCameraRot.eulerAngles.y, Time.deltaTime * lerpMultiplier),
+    Mathf.LerpAngle(transform.eulerAngles.z, desiredCameraRot.eulerAngles.z, Time.deltaTime * lerpMultiplier));
         }
         else 
         {
