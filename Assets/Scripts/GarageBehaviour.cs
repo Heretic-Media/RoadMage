@@ -46,5 +46,6 @@ public class GarageBehaviour : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         upgradeMenu.enabled = true;
+        upgradeMenu.GetComponent<UpgradeMenuBehaviour>().SelectDefault();
     }
 }

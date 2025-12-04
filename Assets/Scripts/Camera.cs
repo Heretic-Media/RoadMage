@@ -144,4 +144,10 @@ public class CameraBehaviour : MonoBehaviour
 
         shakeOffset = Vector3.zero;
     }
+
+    public void toggleCameraMode()
+    {
+        print("toggle called");
+        relativeRotateCamera = !relativeRotateCamera;
+    }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1193037507179168645}
   - component: {fileID: 902121021878132522}
   - component: {fileID: 8812975350743510125}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyMelee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531381191937858121}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.02
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -152,15 +152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6befa9997f917b94f8e8b44b73ce8733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 8
+  movementSpeed: 7
   visionDistance: 200
   closeVanishSpeedThreshold: 2
-  meleeRange: 1
+  meleeRange: 2
   attackCooldown: 0.5
   deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.05
   formationIndex: 0
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
+  formationRadius: 0.5
 --- !u!1001 &7128880154959266142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,10 +228,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8569360761483682369, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7728003447070774803, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -7575521708689237053, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -5712881897578682979, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: cc80645103951b9499d095374ddbc9f4, type: 2}
+    - target: {fileID: -3475402481478768965, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -3312015120146418374, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -241,14 +260,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: slime
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364796124396703906, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2341237370675266575, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 549482d715fadbc4bb55f95c2f2e7754, type: 2}
+    - target: {fileID: 2404040577925701905, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4282749242560659166, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 549482d715fadbc4bb55f95c2f2e7754, type: 2}
+    - target: {fileID: 6584461787307672293, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -8,11 +8,33 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Health healthObject = collision.gameObject.GetComponent<Health>();
+        //Health healthObject = collision.gameObject.GetComponent<Health>();
 
-        if (healthObject != null)
+        //if (healthObject != null)
+        //{
+        //    healthObject.health -= damage;
+        //}
+
+        // for now, this projectile instakills enemies
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            healthObject.health -= damage;
+            collision.gameObject.GetComponent<EnemyBehaviour>().Vanish();
+        }
+        else
+        {
+            print(collision.gameObject.name);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyBehaviour>().Vanish();
+        }
+        else
+        {
+            print(collision.gameObject.name);
         }
     }
 }

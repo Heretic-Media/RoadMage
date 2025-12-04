@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7150743939264503832}
   - component: {fileID: 7747598874143993735}
   m_Layer: 0
-  m_Name: EnemyDeathCry
+  m_Name: PinkEnemyDeathCry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4926,7 +4926,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3647934334599158454, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+  - {fileID: 2100000, guid: fa79d24c210fb1d4986e6e481dd700e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

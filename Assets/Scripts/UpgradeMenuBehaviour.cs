@@ -6,7 +6,12 @@ public class UpgradeMenuBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject defaultOption;
     [SerializeField] EventSystem eventSystem;
-    
+
+    public void SelectDefault()
+    {
+        defaultOption.GetComponent<Button>().Select();
+    }
+
     public void Unpause(GameObject upgradePrefab)
     {
         eventSystem.SetSelectedGameObject(defaultOption);
