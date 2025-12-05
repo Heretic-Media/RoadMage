@@ -14499,6 +14499,102 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &7538355511466780154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8335134832574950183}
+  - component: {fileID: 3660571884161847812}
+  - component: {fileID: 103407797736670246}
+  - component: {fileID: 1831299848085995082}
+  m_Layer: 6
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8335134832574950183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538355511466780154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6006506757749974201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3660571884161847812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538355511466780154}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.012215757, y: 0.011202529, z: 0.02563073}
+  m_Center: {x: -0.00041551172, y: 0.0063274913, z: 0.0027172912}
+--- !u!114 &103407797736670246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538355511466780154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  damageType: 0
+--- !u!54 &1831299848085995082
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538355511466780154}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &8678510924125524444
 GameObject:
   m_ObjectHideFlags: 0
@@ -19439,6 +19535,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9187704443760928746}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8335134832574950183}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e8103358a30b4949b80d2ce90108c7f, type: 3}
       insertIndex: -1
@@ -19478,7 +19577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ec20d8dd9879347900ca8edd567d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
   lockAxis: 0
   uprightTorque: 250
   degreeThreshold: 15
@@ -19507,17 +19605,18 @@ MonoBehaviour:
   driftYawBoost: 6
   maxYawVelocity: 3
   driftMinSpeed: 5
-  enableDriftProjectiles: 1
-  driftTime: 0
-  driftProjectileDelay: 1
-  driftProjectileRate: 0.5
   handbrakeKey: 55
   driftKey: 1
   rb: {fileID: 0}
   centerOfMassOffset: {x: 0, y: -0.4, z: 0}
+  rawThrottleInput: 0
+  rawSteerInput: 0
+  hasThrottle: 0
+  drifting: 0
   audioSource: {fileID: 0}
   rightSparks: {fileID: 5618691549822108386}
   leftSparks: {fileID: 705892913739421167}
+  playerAttack: {fileID: 103407797736670246}
 --- !u!54 &2384396360077417621
 Rigidbody:
   m_ObjectHideFlags: 0

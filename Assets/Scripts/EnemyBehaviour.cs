@@ -68,6 +68,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Vanish()
     {
+        /*
+        Player player = FindFirstObjectByType<Player>();
+        player.AddXP(10);
+        player.AddScore(5);
+        */
+
         if (deathCry != null)
         {
             Instantiate(deathCry, transform.position, transform.rotation);
@@ -86,7 +92,7 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
             return;
@@ -108,7 +114,7 @@ public class EnemyBehaviour : MonoBehaviour
             player.AddScore(5);
             Vanish();
         }
-    }
+    }*/
 
     private bool VisionCheck()
     {

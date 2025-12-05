@@ -82,6 +82,8 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] private GameObject rightSparks;
     [SerializeField] private GameObject leftSparks;
 
+    [SerializeField] private Damage playerAttack;
+
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
@@ -171,6 +173,7 @@ public class TopDownCarController : MonoBehaviour
         float speedAbs = Mathf.Abs(forwardSpeed);
 
         audioSource.volume = speedAbs / 20;
+        playerAttack.damage = (int)speedAbs;
 
         hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 

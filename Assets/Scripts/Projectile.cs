@@ -4,9 +4,9 @@ public class Projectile : MonoBehaviour
 {
     public bool despawnOnHit = true;
     public bool despawnAfterTime = true;
-    public float despawnTimer = 5;
+    public int despawnTimer = 60;
 
-    public float timeAlive = 0;
+    public int timeAlive = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,20 +14,30 @@ public class Projectile : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        timeAlive += 1 * Time.deltaTime;
+        timeAlive++;
 
         if (despawnAfterTime && timeAlive >= despawnTimer)
         {
-            print("projectile timed out");
+            //print("projectile timed out");
+            Destroy(this.gameObject);
+        }
+    }
+
+    //TODO: Fix despawnOnHit
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided");
+        if (despawnOnHit)
+        {
             Destroy(this.gameObject);
         }
     }
 
     // Only deal damage and destroy bullet if it hits enemy (trigger or collision)
-    private void OnTriggerEnter(Collider col)
+    /*private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
@@ -48,5 +58,5 @@ public class Projectile : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-    }
+    }*/
 }
