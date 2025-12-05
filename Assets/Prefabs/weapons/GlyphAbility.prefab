@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04ab24aa5a28f746a1841235383a26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  summonPrefab: {fileID: 0}
   glyphGuidePrefab: {fileID: 1380823609535745943, guid: 62450187467f4644197ccaa096a17473, type: 3}
   length: 10
   sides: 5

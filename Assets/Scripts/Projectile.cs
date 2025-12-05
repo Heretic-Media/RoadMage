@@ -33,7 +33,9 @@ public class Projectile : MonoBehaviour
     /// Only deal damage and destroy bullet if it hits enemy (trigger or collision)
     //private void OnTriggerEnter(Collider collision)
 
-    private void OnCollisionEnter(Collision collision)
+    /// Only deal damage and destroy bullet if it hits enemy (collision only)
+    //private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {

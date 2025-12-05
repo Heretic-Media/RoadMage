@@ -188,17 +188,17 @@ public class TopDownCarController : MonoBehaviour
                 if (rawThrottleInput > 0f)
                 {
                     if (forwardSpeed < maxForwardSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * acceleration), ForceMode.Force);
+                        rb.AddForce(transform.forward * (rawThrottleInput * acceleration), ForceMode.Acceleration);
                 }
                 else
                 {
                     if (forwardSpeed > -maxReverseSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * reverseAcceleration), ForceMode.Force);
+                        rb.AddForce(transform.forward * (rawThrottleInput * reverseAcceleration), ForceMode.Acceleration);
                 }
             }
             else
             {
-                rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Force);
+                rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Acceleration);
             }
         }
         else if (handbrake)
@@ -280,7 +280,7 @@ public class TopDownCarController : MonoBehaviour
 
             if (Mathf.Abs(rb.angularVelocity.y) < maxYawVelocity)
             {
-                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Force);
+                rb.AddTorque(Vector3.up * steerInputSmoothed * driftYawBoost, ForceMode.Acceleration);
             }
         }
 
