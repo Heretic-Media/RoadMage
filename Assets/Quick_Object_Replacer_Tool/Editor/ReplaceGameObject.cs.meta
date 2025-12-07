@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 156968b19c6d3844abe0ce0fb17fc1dc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198397
+  packageName: Quick Object Replacer Tool
+  packageVersion: 1.0
+  assetPath: Assets/Quick_Object_Replacer_Tool/Editor/ReplaceGameObject.cs
+  uploadId: 441049
