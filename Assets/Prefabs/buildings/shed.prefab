@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 626013a3485b688448509877c204fc44, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: fb4d5ba7ae7a38b40b65847c3132efc7, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b5fed627174bef48bf3fe39c6ddea5a, type: 2}
     - target: {fileID: 919132149155446097, guid: 626013a3485b688448509877c204fc44, type: 3}
       propertyPath: m_Name
       value: shed
