@@ -17,7 +17,30 @@ public class Health : MonoBehaviour
         health = maxHealth;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
+    {
+        Damage damageObject = other.gameObject.GetComponent<Damage>();
+
+        if (damageObject != null)
+        {
+            health -= damageObject.damage;
+            if (health <= 0)
+            {
+                if (deathEvent == null)
+                {
+                    Die();
+                }
+                else
+                {
+                    deathEvent.Invoke();
+                }
+            }
+
+            //            Debug.Log(this.gameObject.name + ": " + health);
+        }
+    }
+
+    /*private void OnCollisionEnter(Collision collision)
     {
         Damage damageObject = collision.gameObject.GetComponent<Damage>();
 
@@ -38,7 +61,7 @@ public class Health : MonoBehaviour
 
 //            Debug.Log(this.gameObject.name + ": " + health);
         }
-    }
+    }*/
 
     public void Heal(int healAmount)
     {

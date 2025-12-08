@@ -14510,7 +14510,6 @@ GameObject:
   - component: {fileID: 8335134832574950183}
   - component: {fileID: 3660571884161847812}
   - component: {fileID: 103407797736670246}
-  - component: {fileID: 1831299848085995082}
   m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
@@ -14548,11 +14547,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.012215757, y: 0.011202529, z: 0.02563073}
+  m_Size: {x: 0.01321576, y: 0.01220253, z: 0.02663073}
   m_Center: {x: -0.00041551172, y: 0.0063274913, z: 0.0027172912}
 --- !u!114 &103407797736670246
 MonoBehaviour:
@@ -14568,33 +14567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   damageType: 0
---- !u!54 &1831299848085995082
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7538355511466780154}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 94
-  m_CollisionDetection: 0
 --- !u!1 &8678510924125524444
 GameObject:
   m_ObjectHideFlags: 0
