@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
 
     // Takes no arguments
     [SerializeField] UnityEvent deathEvent;
+    [SerializeField] UnityEvent damageEvent;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        damageEvent.Invoke();
         if (health <= 0)
         {
             health = 0;

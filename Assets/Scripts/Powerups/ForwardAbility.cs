@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class KineticBlast : MonoBehaviour
+public class ForwardAbility : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     [SerializeField] private GameObject projectile;
@@ -27,7 +27,7 @@ public class KineticBlast : MonoBehaviour
 
         if (handbrake && (forwardVel >= speedThreshold) && attackCooldown <= 0)
         {
-            FireProjectile(2*(int)forwardVel, 1.5f*playerRigidbody.linearVelocity);
+            FireProjectile(2 * (int)forwardVel, 1.5f * playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
         else if (attackCooldown > 0)

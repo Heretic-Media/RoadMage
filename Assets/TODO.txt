@@ -1,11 +1,10 @@
 Player
-- UpdateHealthUI
 - Avoid damage on kill
 
 EnemyMelee/pink slime
 - Damage
 - Repeating contact damage
+	- EnemyBehaviour.AttackPlayer();
 
-KineticBlast
-- Refactor into ForwardAbility
-- Replace KineticBlastProjectile with Projectile
+ForwardAbility
+- Implement elemental variations

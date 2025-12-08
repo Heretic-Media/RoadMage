@@ -78,14 +78,13 @@
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
-    <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
-    <Compile Include="Assets\Scripts\healthtest.cs" />
+    <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\KineticBlast.cs" />
   </ItemGroup>

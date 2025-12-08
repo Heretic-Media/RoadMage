@@ -70,14 +70,10 @@ public class Player : MonoBehaviour
         UpdateXPUI();
     }
 
-    public void TakeDamage(float amount)
+    // Will be removed eventually
+    public void TakeDamage(int amount)
     {
-        if (amount <= 0) return;
-
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
-
-        UpdateHealthUI();
+        health.TakeDamage(amount);
 
         hurtSound.Play();
 
@@ -87,14 +83,10 @@ public class Player : MonoBehaviour
         }*/
     }
 
-    public void Heal(float amount)
+    // may be unneccesary function?
+    public void Heal(int amount)
     {
-        if (amount <= 0) return;
-
-        currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
-
-        UpdateHealthUI();
+        health.TakeDamage(amount);
     }
 
     void LevelUp()
@@ -124,7 +116,7 @@ public class Player : MonoBehaviour
         UpdateScoreUI();
     }
 
-    void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge(health.health / health.maxHealth);
         

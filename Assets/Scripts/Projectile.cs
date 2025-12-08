@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    // despawnOnHit triggers on environment collision, NOT enemy collision
     public bool despawnOnHit = true;
     public bool despawnAfterTime = true;
     public int despawnTimer = 60;
@@ -29,7 +30,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
+        //Debug.Log("Collided");
         if (despawnOnHit)
         {
             Destroy(this.gameObject);
