@@ -4889,6 +4889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   damageType: 0
+  onHitEffect: 1
 --- !u!135 &3830927695256164802
 SphereCollider:
   m_ObjectHideFlags: 0

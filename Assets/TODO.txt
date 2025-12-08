@@ -1,14 +1,11 @@
 Player
-- Health
-	- UpdateHealthUI
+- UpdateHealthUI
 - Avoid damage on kill
 
 EnemyMelee/pink slime
 - Damage
+- Repeating contact damage
 
 KineticBlast
 - Refactor into ForwardAbility
 - Replace KineticBlastProjectile with Projectile
-
-Fixes
-- Projectile despawnOnHit

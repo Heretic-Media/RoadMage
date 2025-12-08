@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damage : MonoBehaviour
 {
@@ -8,5 +9,25 @@ public class Damage : MonoBehaviour
     public int damage;
     // 0: Physical, 1: Fire, 2: Earth, 3: Water, 4: Air
     public int damageType;
-    
+
+    [SerializeField] int onHitEffect = 0;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (onHitEffect)
+        {
+            case 0:
+                break;
+            case 1:
+                DestroyParent();
+                break;
+        }
+    }
+
+
+    // onHitEffect functions
+    public void DestroyParent()
+    {
+        Destroy(transform.parent.gameObject);
+    }
 }

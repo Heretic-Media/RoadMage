@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     public int health;
 
     // Takes no arguments
-    public UnityEvent deathEvent;
+    [SerializeField] UnityEvent deathEvent;
 
     private void Start()
     {
@@ -23,50 +23,29 @@ public class Health : MonoBehaviour
 
         if (damageObject != null)
         {
-            health -= damageObject.damage;
-            if (health <= 0)
-            {
-                if (deathEvent == null)
-                {
-                    Die();
-                }
-                else
-                {
-                    deathEvent.Invoke();
-                }
-            }
+            TakeDamage(damageObject.damage);
 
             //            Debug.Log(this.gameObject.name + ": " + health);
         }
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    // Deal negative damage to heal
+    public void TakeDamage(int damage)
     {
-        Damage damageObject = collision.gameObject.GetComponent<Damage>();
-
-        if (damageObject != null)
+        health -= damage;
+        if (health <= 0)
         {
-            health -= damageObject.damage;
-            if (health <= 0)
+            health = 0;
+            if (deathEvent.GetPersistentEventCount() == 0)
             {
-                if (deathEvent == null)
-                {
-                    Die();
-                }
-                else
-                {
-                    deathEvent.Invoke();
-                }
+                Die();
             }
-
-//            Debug.Log(this.gameObject.name + ": " + health);
+            else
+            {
+                deathEvent.Invoke();
+            }
         }
-    }*/
-
-    public void Heal(int healAmount)
-    {
-        health += healAmount;
-        if (health > maxHealth)
+        else if (health > maxHealth)
         {
             health = maxHealth;
         }
