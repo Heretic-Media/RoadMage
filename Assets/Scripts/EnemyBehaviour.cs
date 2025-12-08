@@ -10,7 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float movementSpeed = 2f;
 
     [Tooltip("The range at which the enemy notices and chases the player.")]
-    [SerializeField] private float visionDistance = 200f;
+    [SerializeField] protected float visionDistance = 200f;
 
     [Tooltip("The minimum speed required to damage this enemy.")]
     [SerializeField] private float closeVanishSpeedThreshold = 2f;
@@ -37,7 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
     [SerializeField] protected Vector3 patrolAreaMax = new Vector3(20, 0, 20);
 
-    private GameObject playerObject;
+    protected GameObject playerObject;
     private Rigidbody rb;
     private float attackTimer = 0f;
 
@@ -110,7 +110,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private bool VisionCheck()
+    protected virtual bool VisionCheck()
     {
         Vector3 diff = playerObject.transform.position - transform.position;
         float distSqrd = diff.sqrMagnitude;

@@ -48,5 +48,5 @@ MonoBehaviour:
   enableDriftProjectiles: 1
   driftTime: 0
   driftProjectileDelay: 0.5
-  driftProjectileCharge: 1
+  driftProjectileCharge: 0
   driftProjectileRate: 0.05
