@@ -11,7 +11,8 @@ public class GarageBehaviour : MonoBehaviour
     [SerializeField] private UIBarBehaviour infestationBar;
     private Canvas upgradeMenu;
     private int enemiesNum;
-
+    private bool exploding = false;
+    private float explodingTimer = 1f;
 
     int GetEnemies()
     {
@@ -28,7 +29,16 @@ public class GarageBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GetEnemies() == 0)
+        if (exploding)
+        {
+            explodingTimer -= Time.fixedDeltaTime;
+            if (explodingTimer <= 0)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+        }
+        
+        if (GetEnemies() == 0 && !exploding)
         {
             foreach (BoxCollider col in physical)
             {
@@ -54,13 +64,14 @@ public class GarageBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
 
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player") && exploding)
             return;
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
         AccessUpgradeMenu();
-        Destroy(gameObject);
+        exploding = true;
+        trigger.enabled = false;
     }
 
     private void AccessUpgradeMenu()
