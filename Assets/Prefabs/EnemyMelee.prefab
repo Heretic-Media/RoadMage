@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8771079358771019445}
   - component: {fileID: 7371010319165309693}
-  - component: {fileID: 3232775728005827455}
+  - component: {fileID: 3391734630827218093}
   m_Layer: 7
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8771079358771019445
 Transform:
   m_ObjectHideFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1512422873767694819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,8 +48,8 @@ MonoBehaviour:
   damage: 5
   damageType: 0
   onHitEffect: 0
---- !u!136 &3232775728005827455
-CapsuleCollider:
+--- !u!135 &3391734630827218093
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,10 +66,8 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2531381191937858121
 GameObject:
@@ -228,12 +226,13 @@ MonoBehaviour:
   movementSpeed: 8
   visionDistance: 200
   closeVanishSpeedThreshold: 2
-  meleeRange: 1
+  meleeRange: 1.5
   attackCooldown: 0.5
   deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
   cameraShakeDuration: 0.1
   cameraShakeMagnitude: 0.05
   formationIndex: 0
+  attackHitbox: {fileID: 7371010319165309693}
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
@@ -266,6 +265,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7128880154959266142
 PrefabInstance:
   m_ObjectHideFlags: 0

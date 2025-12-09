@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         UpdateXPUI();
     }
 
-    // Will be removed eventually
+    // May be removed eventually
     public void TakeDamage(int amount)
     {
         health.TakeDamage(amount);
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     // may be unneccesary function?
     public void Heal(int amount)
     {
-        health.TakeDamage(amount);
+        health.TakeDamage(-amount);
     }
 
     void LevelUp()

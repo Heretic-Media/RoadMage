@@ -1,10 +1,5 @@
-Player
-- Avoid damage on kill
-
-EnemyMelee/pink slime
-- Damage
-- Repeating contact damage
-	- EnemyBehaviour.AttackPlayer();
-
 ForwardAbility
 - Implement elemental variations
+
+Bugs
+- Enemies deal double damage
