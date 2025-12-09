@@ -139,10 +139,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Vector3 diff = playerObject.transform.position - transform.position;
             float distSqrd = diff.sqrMagnitude;
-            if (currentState == State.Attacking)
+            /*if (currentState == State.Attacking)
             {
                 Debug.Log(diff.magnitude);
-            }
+            }*/
             return distSqrd < meleeRange * meleeRange;
         }
     }

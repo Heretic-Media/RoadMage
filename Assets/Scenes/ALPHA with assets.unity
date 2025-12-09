@@ -1077,11 +1077,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &147145792 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6006506757749974201, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
-  m_PrefabInstance: {fileID: 7723802509820281129}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &151414637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,67 +1226,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1410445034621442889, guid: c54b45ef2c91acd4883420eb215a42c9, type: 3}
   m_PrefabInstance: {fileID: 6301147961921907893}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &176040668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 147145792}
-    m_Modifications:
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4136298079975930903, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: m_Name
-      value: KineticBlastUpgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927126440162094700, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-      propertyPath: speedThreshold
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
 --- !u!1001 &178854160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17443,11 +17377,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1618014962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2129765080 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 490558661627578659, guid: 911cffcda116a8e4998c525913da4e51, type: 3}
-  m_PrefabInstance: {fileID: 176040668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2139572700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18198,9 +18127,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6006506757749974201, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2129765080}
     - targetCorrespondingSourceObject: {fileID: 3449319069651664219, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 393555775}
