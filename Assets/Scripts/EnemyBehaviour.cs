@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -32,6 +33,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Tooltip("Index of this enemy in the formation.")]
     public int formationIndex = 0;
+
+    [SerializeField] private Damage attackHitbox;
 
     // Patrol area bounds
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
@@ -68,6 +71,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Vanish()
     {
+        /*
+        Player player = FindFirstObjectByType<Player>();
+        player.AddXP(10);
+        player.AddScore(5);
+        */
+
         if (deathCry != null)
         {
             Instantiate(deathCry, transform.position, transform.rotation);
@@ -86,7 +95,7 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
             return;
@@ -108,7 +117,7 @@ public class EnemyBehaviour : MonoBehaviour
             player.AddScore(5);
             Vanish();
         }
-    }
+    }*/
 
     private bool VisionCheck()
     {
@@ -130,6 +139,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Vector3 diff = playerObject.transform.position - transform.position;
             float distSqrd = diff.sqrMagnitude;
+            /*if (currentState == State.Attacking)
+            {
+                Debug.Log(diff.magnitude);
+            }*/
             return distSqrd < meleeRange * meleeRange;
         }
     }
@@ -138,18 +151,20 @@ public class EnemyBehaviour : MonoBehaviour
     {
         FindPlayer();
         PickNewPatrolTarget();
+        InitHitbox();
     }
 
     void AttackPlayer()
     {
         if (MeleeCheck())
         {
-            Player playerDetails = playerObject.GetComponent<Player>();
+            StartCoroutine(MeleeAttack());
+            /*Player playerDetails = playerObject.GetComponent<Player>();
             if (playerDetails != null)
             {
                 playerDetails.TakeDamage(10);
-                print("damage dealt");
-            }
+                //print("damage dealt");
+            }*/
         }
     }
 
@@ -182,8 +197,9 @@ public class EnemyBehaviour : MonoBehaviour
                 attackTimer += Time.fixedDeltaTime;
                 if (attackTimer > attackCooldown)
                 {
-                    attackTimer -= attackCooldown;
+                    attackTimer = 0f;
                     AttackPlayer();
+                    Debug.Log("Attacking");
                 }
                 if (!MeleeCheck())
                     currentState = State.Chasing;
@@ -252,5 +268,18 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 targetPosition = playerObject.transform.position + formationOffset;
         Vector3 direction = (targetPosition - transform.position).normalized;
         rb.linearVelocity = direction * movementSpeed;
+    }
+
+    private IEnumerator MeleeAttack()
+    {
+        attackHitbox.gameObject.SetActive(true);
+        yield return new WaitForFixedUpdate();
+        attackHitbox.gameObject.SetActive(false);
+        yield return new WaitForSeconds(attackCooldown);
+    }
+
+    protected void InitHitbox()
+    {
+        attackHitbox.GetComponent<SphereCollider>().radius = meleeRange;
     }
 }

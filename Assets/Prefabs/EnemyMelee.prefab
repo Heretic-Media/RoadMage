@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1512422873767694819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8771079358771019445}
+  - component: {fileID: 7371010319165309693}
+  - component: {fileID: 3391734630827218093}
+  m_Layer: 7
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8771079358771019445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512422873767694819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6188801942920853604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7371010319165309693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512422873767694819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageType: 0
+  onHitEffect: 0
+--- !u!135 &3391734630827218093
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512422873767694819}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2531381191937858121
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +83,8 @@ GameObject:
   - component: {fileID: 1193037507179168645}
   - component: {fileID: 902121021878132522}
   - component: {fileID: 8812975350743510125}
-  m_Layer: 0
+  - component: {fileID: 7393692837926053850}
+  m_Layer: 9
   m_Name: EnemyMelee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -35,6 +105,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7306078597684438709}
+  - {fileID: 8771079358771019445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8695721390001416198
@@ -155,12 +226,48 @@ MonoBehaviour:
   movementSpeed: 8
   visionDistance: 200
   closeVanishSpeedThreshold: 2
-  meleeRange: 1
+  meleeRange: 1.5
   attackCooldown: 0.5
   deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.05
   formationIndex: 0
+  attackHitbox: {fileID: 7371010319165309693}
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
+  formationRadius: 0.5
+--- !u!114 &7393692837926053850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531381191937858121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c634cbdf6b193e49a83b6490f024272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8812975350743510125}
+        m_TargetAssemblyTypeName: EnemyBehaviour, Assembly-CSharp
+        m_MethodName: Vanish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7128880154959266142
 PrefabInstance:
   m_ObjectHideFlags: 0

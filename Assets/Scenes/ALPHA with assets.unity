@@ -18491,6 +18491,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1831299848085995082, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831299848085995082, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2384396360077417621, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -18630,6 +18638,10 @@ PrefabInstance:
     - target: {fileID: 6772695348766904087, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: maxHealth
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538355511466780154, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

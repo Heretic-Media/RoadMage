@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DriftAbility : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectile;
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
@@ -62,11 +62,12 @@ public class DriftAbility : MonoBehaviour
 
     private void SpawnProjectile(float projectileSpeed)
     {
-        if (projectilePrefab == null)
+        if (projectile == null)
             return;
 
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
-        GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        GameObject proj = Instantiate(projectile, spawnPos, Quaternion.identity);
+        proj.SetActive(true);
 
         Vector3 dir = -transform.forward;
         Rigidbody projRb = proj.GetComponent<Rigidbody>();

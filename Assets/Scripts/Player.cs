@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("Health")]
     public float maxHealth = 100f;
     public float currentHealth;
+    [SerializeField] Health health;
 
     [Header("XP / Level")]
     public int level = 1;
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour
     {
         healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
 
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         UpdateAllUI();
     }
 
@@ -69,31 +70,23 @@ public class Player : MonoBehaviour
         UpdateXPUI();
     }
 
-    public void TakeDamage(float amount)
+    // May be removed eventually
+    public void TakeDamage(int amount)
     {
-        if (amount <= 0) return;
-
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
-
-        UpdateHealthUI();
+        health.TakeDamage(amount);
 
         hurtSound.Play();
 
-        if (currentHealth <= 0)
+        /*if (currentHealth <= 0)
         {
             Die();
-        }
+        }*/
     }
 
-    public void Heal(float amount)
+    // may be unneccesary function?
+    public void Heal(int amount)
     {
-        if (amount <= 0) return;
-
-        currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
-
-        UpdateHealthUI();
+        health.TakeDamage(-amount);
     }
 
     void LevelUp()
@@ -107,7 +100,7 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
-    void Die()
+    public void Die()
     {
 
         Debug.Log("Player died.");
@@ -123,9 +116,9 @@ public class Player : MonoBehaviour
         UpdateScoreUI();
     }
 
-    void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge(currentHealth / maxHealth);
+        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge(health.health / health.maxHealth);
         
         //if (healthBarFill != null)
         //{
@@ -168,4 +161,6 @@ public class Player : MonoBehaviour
             scoreText.text = $"Score: {score}";
         }
     }
+
+
 }

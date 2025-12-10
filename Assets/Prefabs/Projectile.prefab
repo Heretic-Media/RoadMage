@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawnOnHit: 1
   despawnAfterTime: 1
-  despawnTimer: 3
+  despawnTimer: 180
   timeAlive: 0
 --- !u!1 &6132391412768088940
 GameObject:
