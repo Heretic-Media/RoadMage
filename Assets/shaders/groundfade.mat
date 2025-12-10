@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: groundfade
-  m_Shader: {fileID: -6465566751694194690, guid: 2608d33bc9f705342a1bc5f85f901998, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c78bd79c8040f144cafff05681dddd15, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Colour:
-        m_Texture: {fileID: 2800000, guid: 69ee041c6deb9024e95ecb9367c9cefa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d2ef900df301e84f93f1f9fdb5e9e7e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emissive_Map:
@@ -46,11 +46,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3e8419657c13bab4b92baabbc887a95d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b4bf0d53e55e089498ffdb90652ab962, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_2c0952a5f6714a57a1eb95e2d749a283_Out_0_Texture2D:
