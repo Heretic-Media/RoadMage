@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity 6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\Scripts\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\DriftAbility.cs" />
@@ -78,8 +80,10 @@
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
     <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />

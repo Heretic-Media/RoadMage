@@ -195,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6851335415810190822}
   m_Layer: 0
-  m_Name: garage
+  m_Name: basicGarage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
