@@ -10,7 +10,7 @@ public class GarageEnemyBehaviour : EnemyBehaviour
 
         FindPlayer();
         PickNewPatrolTarget();
-
+        InitHitbox();
 
     }
 
