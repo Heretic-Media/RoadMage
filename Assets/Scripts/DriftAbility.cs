@@ -7,6 +7,8 @@ public class DriftAbility : MonoBehaviour
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
 
+    [SerializeField] private float projectileDamage = 0.5f;
+
     [Tooltip("Time spent drifting for debugging")]
     [SerializeField] private float driftTime = 0;
 
@@ -20,6 +22,7 @@ public class DriftAbility : MonoBehaviour
     private float timeSinceLastDriftProjectile = 0;
 
     private TopDownCarController carController;
+
 
 
     void Start()
@@ -64,6 +67,8 @@ public class DriftAbility : MonoBehaviour
     {
         if (projectilePrefab == null)
             return;
+
+        projectilePrefab.GetComponent<Projectile>().damage = projectileDamage;
 
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
         GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
@@ -72,10 +72,10 @@
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\Scripts\billboard.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
+    <Compile Include="Assets\Scripts\FloatingHealthBar.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\DriftAbility.cs" />
-    <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
