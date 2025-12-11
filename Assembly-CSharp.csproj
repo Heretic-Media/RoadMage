@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity 6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\Scripts\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
@@ -69,22 +70,27 @@
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
+    <Compile Include="Assets\Scripts\FloatingHealthBar.cs" />
+    <Compile Include="Assets\Scripts\billboard.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\DriftAbility.cs" />
-    <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
+    <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
-    <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\KineticBlast.cs" />
   </ItemGroup>
@@ -106,7 +112,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TODO.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

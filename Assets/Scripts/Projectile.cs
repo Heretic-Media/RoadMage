@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // despawnOnHit triggers on environment collision, NOT enemy collision
     public bool despawnOnHit = true;
     public bool despawnAfterTime = true;
-    public int despawnTimer = 60;
+    public float despawnTimer = 5;
 
-    public int timeAlive = 0;
+    [Tooltip("Projectile damage should be set on spawn")]
+    public float damage = 0;
+
+    public float timeAlive = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,49 +17,44 @@ public class Projectile : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        timeAlive++;
+        timeAlive += Time.deltaTime;
 
         if (despawnAfterTime && timeAlive >= despawnTimer)
         {
-            //print("projectile timed out");
+            print("projectile timed out");
             Destroy(this.gameObject);
         }
     }
 
-    //TODO: Fix despawnOnHit
 
-    private void OnCollisionEnter(Collision collision)
+    /// Only deal damage and destroy bullet if it hits enemy (trigger or collision)
+    //private void OnTriggerEnter(Collider collision)
+
+    /// Only deal damage and destroy bullet if it hits enemy (collision only)
+    //private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("Collided");
-        if (despawnOnHit)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
-        }
-    }
+            print(collision.gameObject.name);
 
-    // Only deal damage and destroy bullet if it hits enemy (trigger or collision)
-    /*private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            print(col.gameObject.name);
-
-            EnemyBehaviour enemyDetails = col.gameObject.GetComponent<EnemyBehaviour>();
+            EnemyBehaviour enemyDetails = collision.gameObject.GetComponent<EnemyBehaviour>();
             if (enemyDetails != null)
             {
                 /// This could instead deal damage to the enemy by calling a public function or changing a public variable
                 /// Then the enemy could be set to despawn once health is 0;
 
-                enemyDetails.Vanish();
-                print("enemy vanished");
+                enemyDetails.TakeDamage(damage);
+                print("enemy damaged");
             }
 
-            if (despawnOnHit) 
+            if (despawnOnHit)
             {
                 Destroy(this.gameObject);
             }
         }
-    }*/
+    }
 }
