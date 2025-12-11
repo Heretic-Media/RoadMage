@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -38,8 +37,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Tooltip("Index of this enemy in the formation.")]
     public int formationIndex = 0;
-
-    [SerializeField] private Damage attackHitbox;
 
     // Patrol area bounds
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
@@ -117,12 +114,6 @@ public class EnemyBehaviour : MonoBehaviour
     }
     public void Vanish()
     {
-        /*
-        Player player = FindFirstObjectByType<Player>();
-        player.AddXP(10);
-        player.AddScore(5);
-        */
-
         if (deathCry != null)
         {
             Instantiate(deathCry, transform.position, transform.rotation);
@@ -141,7 +132,7 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    protected void FindPlayer()
     {
         if (playerObject == null)
         {
@@ -155,15 +146,8 @@ public class EnemyBehaviour : MonoBehaviour
                 playerObject = players[0];
             }
         }
-
-        if (playerSpeed >= closeVanishSpeedThreshold)
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.AddXP(10);
-            player.AddScore(5);
-            Vanish();
-        }
-    }*/
+        rb = GetComponent<Rigidbody>();
+    }
 
     /// Collision damage is now handled by the player in an ability
 
@@ -211,74 +195,22 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Vector3 diff = playerObject.transform.position - transform.position;
             float distSqrd = diff.sqrMagnitude;
-            /*if (currentState == State.Attacking)
-            {
-                Debug.Log(diff.magnitude);
-            }*/
             return distSqrd < meleeRange * meleeRange;
         }
-    }
-
-    void Start()
-    {
-        FindPlayer();
-        PickNewPatrolTarget();
-        InitHitbox();
     }
 
     void AttackPlayer()
     {
         if (MeleeCheck())
         {
-            StartCoroutine(MeleeAttack());
-            /*Player playerDetails = playerObject.GetComponent<Player>();
+            Player playerDetails = playerObject.GetComponent<Player>();
             if (playerDetails != null)
             {
                 playerDetails.TakeDamage(10);
-                //print("damage dealt");
-            }*/
+                print("damage dealt");
+            }
         }
     }
-
-    void FixedUpdate()
-    {
-        if (playerObject == null)
-        {
-            FindPlayer();
-            return;
-        }
-
-        switch (currentState)
-        {
-            case State.Patrolling:
-                Patrol();
-                if (VisionCheck())
-                    currentState = State.Chasing;
-                break;
-
-            case State.Chasing:
-                ChaseWithFormation();
-                if (!VisionCheck())
-                    currentState = State.Patrolling;
-                else if (MeleeCheck())
-                    currentState = State.Attacking;
-                break;
-
-            case State.Attacking:
-                rb.linearVelocity = Vector3.zero;
-                attackTimer += Time.fixedDeltaTime;
-                if (attackTimer > attackCooldown)
-                {
-                    attackTimer = 0f;
-                    AttackPlayer();
-                    Debug.Log("Attacking");
-                }
-                if (!MeleeCheck())
-                    currentState = State.Chasing;
-                break;
-        }
-    }
-
     void Patrol()
     {
         patrolTargetTimeout -= Time.fixedDeltaTime;
@@ -340,18 +272,5 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 targetPosition = playerObject.transform.position + formationOffset;
         Vector3 direction = (targetPosition - transform.position).normalized;
         rb.linearVelocity = direction * movementSpeed;
-    }
-
-    private IEnumerator MeleeAttack()
-    {
-        attackHitbox.gameObject.SetActive(true);
-        yield return new WaitForFixedUpdate();
-        attackHitbox.gameObject.SetActive(false);
-        yield return new WaitForSeconds(attackCooldown);
-    }
-
-    protected void InitHitbox()
-    {
-        attackHitbox.GetComponent<SphereCollider>().radius = meleeRange;
     }
 }

@@ -1,34 +1,18 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Damage : MonoBehaviour
 {
-    // Script for handling simple attack data
-    // Use the correct __Attack collision layer to avoid unintended interactions
-    // Create hitbox as child of main gameObject
+    // script for storing simple attack data
 
     public int damage;
-    // 0: Physical, 1: Fire, 2: Earth, 3: Water, 4: Air
-    public int damageType;
 
-    [SerializeField] int onHitEffect = 0;
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        switch (onHitEffect)
+        Health healthObject = collision.gameObject.GetComponent<Health>();
+
+        if (healthObject != null)
         {
-            case 0:
-                break;
-            case 1:
-                DestroyParent();
-                break;
+            healthObject.health -= damage;
         }
-    }
-
-
-    // onHitEffect functions
-    public void DestroyParent()
-    {
-        Destroy(transform.parent.gameObject);
     }
 }

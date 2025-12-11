@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // despawnOnHit triggers on environment collision, NOT enemy collision
     public bool despawnOnHit = true;
     public bool despawnAfterTime = true;
-    public int despawnTimer = 60;
+    public float despawnTimer = 5;
 
     [Tooltip("Projectile damage should be set on spawn")]
     public float damage = 0;
@@ -18,13 +17,14 @@ public class Projectile : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
         timeAlive += Time.deltaTime;
 
         if (despawnAfterTime && timeAlive >= despawnTimer)
         {
-            //print("projectile timed out");
+            print("projectile timed out");
             Destroy(this.gameObject);
         }
     }
@@ -56,5 +56,5 @@ public class Projectile : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-    }*/
+    }
 }
