@@ -4,12 +4,13 @@ using UnityEngine.UI;
 
 public class UpgradeMenuBehaviour : MonoBehaviour
 {
-    [SerializeField] GameObject defaultOption;
-    [SerializeField] EventSystem eventSystem;
+    [SerializeField] public GameObject defaultOption;
+    [SerializeField] public EventSystem eventSystem;
     
+
     public void Unpause(GameObject upgradePrefab)
     {
-        eventSystem.SetSelectedGameObject(defaultOption);
+        
         Time.timeScale = 1.0f;
         UpgradePlayer(upgradePrefab);
         GetComponent<Canvas>().enabled = false;
@@ -20,5 +21,10 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         
         GameObject newUpgrade = Instantiate(prefabToUse);
         newUpgrade.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
+    }
+
+    public void init()
+    {
+        eventSystem.SetSelectedGameObject(defaultOption);
     }
 }

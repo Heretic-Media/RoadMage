@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GarageBehaviour : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GarageBehaviour : MonoBehaviour
     [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
     [SerializeField] private UIBarBehaviour infestationBar;
-    private Canvas upgradeMenu;
+    private GameObject upgradeMenu;
     private int enemiesNum;
     private bool exploding = false;
     private float explodingTimer = 1f;
@@ -22,7 +23,7 @@ public class GarageBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI").GetComponent<Canvas>();
+        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI");
         enemiesNum = enemiesObject.transform.childCount;
     }
 
@@ -78,6 +79,7 @@ public class GarageBehaviour : MonoBehaviour
     private void AccessUpgradeMenu()
     {
         Time.timeScale = 0.0f;
-        upgradeMenu.enabled = true;
+        upgradeMenu.GetComponent<Canvas>().enabled = true;
+        upgradeMenu.GetComponent<UpgradeMenuBehaviour>().init();
     }
 }

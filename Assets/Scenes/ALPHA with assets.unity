@@ -531,7 +531,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -1375,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5252,7 +5252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.77999973
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9928,7 +9928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -10939,7 +10939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.161842
+      value: 6.56
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10947,7 +10947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.934704
+      value: -33.03
       objectReference: {fileID: 0}
     - target: {fileID: 3608831889742309252, guid: 8c73f02e182667a4c991e4ac31e6f416, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11107,7 +11107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -13503,7 +13503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -14031,7 +14031,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -14516,7 +14516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
@@ -15427,7 +15427,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: maxEnemies
-      value: 120
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
