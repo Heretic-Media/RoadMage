@@ -40,7 +40,7 @@ public class DriftAbility : MonoBehaviour
 
         /// Drift Projectiles
 
-        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftTime > driftProjectileDelay)
+        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftTime > driftProjectileDelay && carController.rawThrottleInput > 0)
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
             if (timeSinceLastDriftProjectile >= driftProjectileRate)
