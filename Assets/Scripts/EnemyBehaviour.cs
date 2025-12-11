@@ -175,7 +175,7 @@ public class EnemyBehaviour : MonoBehaviour
     //    }
     //}
 
-    private bool VisionCheck()
+    protected virtual bool VisionCheck()
     {
         Vector3 diff = playerObject.transform.position - transform.position;
         float distSqrd = diff.sqrMagnitude;

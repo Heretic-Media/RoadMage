@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6befa9997f917b94f8e8b44b73ce8733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  maxHealth: 3
+  health: 0.1
+  maxHealth: 0.1
   healthBar: {fileID: 0}
   movementSpeed: 8
   visionDistance: 200

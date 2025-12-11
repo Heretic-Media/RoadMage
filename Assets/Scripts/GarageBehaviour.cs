@@ -40,6 +40,7 @@ public class GarageBehaviour : MonoBehaviour
         
         if (GetEnemies() == 0 && !exploding)
         {
+            print(GetEnemies());
             foreach (BoxCollider col in physical)
             {
                 col.enabled = false;
@@ -64,7 +65,7 @@ public class GarageBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
 
-        if (!collision.gameObject.CompareTag("Player") && exploding)
+        if (!collision.gameObject.CompareTag("Player") || exploding || collision.isTrigger)
             return;
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
