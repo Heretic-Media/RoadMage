@@ -10088,11 +10088,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10124,11 +10124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -92
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 92
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 189439559335438799, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10146,6 +10146,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gauge
       objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933353506255223102, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 52.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587076576816961252, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f7ce507206234feda83180abc5c7158, type: 3}
+    - target: {fileID: 5774305902198712172, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbd32553ed0df44f4b5d748c410a7991, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
