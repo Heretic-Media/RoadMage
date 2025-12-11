@@ -10,6 +10,14 @@ public class billboard : MonoBehaviour
         mainCamera = Camera.main;
     }
 
+    private void Awake()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+    }
+
     private void Update()
     {
         Quaternion rotation = mainCamera.transform.rotation;
