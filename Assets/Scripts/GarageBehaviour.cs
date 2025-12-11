@@ -1,13 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GarageBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject enemiesObject;
-    [SerializeField] private BoxCollider physical;
+    [SerializeField] private GameObject infestedIndicator;
+    [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
-    private Canvas upgradeMenu;
-
+    [SerializeField] private UIBarBehaviour infestationBar;
+    private GameObject upgradeMenu;
+    private int enemiesNum;
+    private bool exploding = false;
+    private float explodingTimer = 1f;
 
     int GetEnemies()
     {
@@ -17,34 +23,63 @@ public class GarageBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI").GetComponent<Canvas>();
+        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI");
+        enemiesNum = enemiesObject.transform.childCount;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GetEnemies() == 0)
+        if (exploding)
         {
-            physical.enabled = false;
+            explodingTimer -= Time.fixedDeltaTime;
+            if (explodingTimer <= 0)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+        }
+        
+        if (GetEnemies() == 0 && !exploding)
+        {
+            print(GetEnemies());
+            foreach (BoxCollider col in physical)
+            {
+                col.enabled = false;
+                if (infestedIndicator != null)
+                {
+                    infestedIndicator.SetActive(false);
+                }
+            }
             trigger.enabled = true;
+        }
+        else if (infestedIndicator != null)
+        {
+            infestedIndicator.transform.localScale = new Vector3(Mathf.Abs(Mathf.Sin(Time.time)) * 40, 1, Mathf.Abs(Mathf.Sin(Time.time)) * 40);
+        }
+        
+        if (infestationBar != null)
+        {
+            infestationBar.UpdateBar((float)GetEnemies() / (float)enemiesNum);
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
 
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player") || exploding || collision.isTrigger)
             return;
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
         AccessUpgradeMenu();
-        Destroy(gameObject);
+        exploding = true;
+        trigger.enabled = false;
     }
 
     private void AccessUpgradeMenu()
     {
         Time.timeScale = 0.0f;
-        upgradeMenu.enabled = true;
+        upgradeMenu.GetComponent<Canvas>().enabled = true;
+        upgradeMenu.GetComponent<UpgradeMenuBehaviour>().init();
     }
 }

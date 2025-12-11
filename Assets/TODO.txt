@@ -1,3 +1,0 @@
-Bugs
-- Enemies deal double damage
-- Drift backwards incl. DriftAbility
