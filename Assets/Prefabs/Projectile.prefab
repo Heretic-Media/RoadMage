@@ -124,8 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawnOnHit: 1
   despawnAfterTime: 1
-  despawnTimer: 3
-  damage: 1
+  despawnTimer: 180
   timeAlive: 0
 --- !u!1 &6132391412768088940
 GameObject:
@@ -1444,8 +1443,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0.5647059}
-        key1: {r: 1, g: 0.124654844, b: 0, a: 0.25490198}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 0.124654844, b: 0, a: 1}
         key2: {r: 1, g: 0.77003056, b: 0, a: 0}
         key3: {r: 1, g: 0.6472138, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4937,7 +4936,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 4
+  m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4948,7 +4947,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 4
+  m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 1
@@ -4960,7 +4959,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

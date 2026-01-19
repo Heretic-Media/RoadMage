@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -6,16 +7,11 @@ public class EnemyBehaviour : MonoBehaviour
     public enum State { Patrolling, Chasing, Attacking }
     private State currentState = State.Patrolling;
 
-    [SerializeField] private float health = 3f;
-    [SerializeField] private float maxHealth = 3f;
-
-    [SerializeField] FloatingHealthBar healthBar;
-
     [Tooltip("Speed at which the enemy travels.")]
     [SerializeField] private float movementSpeed = 2f;
 
     [Tooltip("The range at which the enemy notices and chases the player.")]
-    [SerializeField] protected float visionDistance = 200f;
+    [SerializeField] private float visionDistance = 200f;
 
     [Tooltip("The minimum speed required to damage this enemy.")]
     [SerializeField] private float closeVanishSpeedThreshold = 2f;
@@ -38,11 +34,13 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("Index of this enemy in the formation.")]
     public int formationIndex = 0;
 
+    [SerializeField] private Damage attackHitbox;
+
     // Patrol area bounds
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
     [SerializeField] protected Vector3 patrolAreaMax = new Vector3(20, 0, 20);
 
-    protected GameObject playerObject;
+    private GameObject playerObject;
     private Rigidbody rb;
     private float attackTimer = 0f;
 
@@ -75,8 +73,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (playerObject == null)
         {
-            FindPlayer();
-            return;
+            var players = GameObject.FindGameObjectsWithTag("Player");
+            if (players.Length == 0)
+            {
+                Debug.LogWarning("Follow_player: player Transform is not assigned.");
+            }
+            else
+            {
+                playerObject = players[0];
+            }
         }
         else if ((transform.position - playerObject.transform.position).sqrMagnitude < 60 * 60)
         {
@@ -116,22 +121,19 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount) 
-    {
-        health -= damageAmount;
-        healthBar.UpdateHealthBar(health, maxHealth);
-        if (health <= 0f) 
-        {
-            Vanish();
-        }
-    }
     public void Vanish()
     {
+        /*
+        Player player = FindFirstObjectByType<Player>();
+        player.AddXP(10);
+        player.AddScore(5);
+        */
+
         if (deathCry != null)
         {
             Instantiate(deathCry, transform.position, transform.rotation);
         }
-
+        
         // shake the camera
         if (GameObject.FindGameObjectWithTag("MainCamera") != null)
         {
@@ -142,53 +144,34 @@ public class EnemyBehaviour : MonoBehaviour
             print("can't find camera");
         }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
 
-    protected void FindPlayer()
+    /*private void OnCollisionEnter(Collision collision)
     {
-        if (playerObject == null)
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
+
+        float playerSpeed = 0f;
+        if (collision.rigidbody != null)
+            playerSpeed = collision.rigidbody.linearVelocity.magnitude;
+        else
         {
-            var players = GameObject.FindGameObjectsWithTag("Player");
-            if (players.Length == 0)
-            {
-                Debug.LogWarning("Follow_player: player Transform is not assigned.");
-            }
-            else
-            {
-                playerObject = players[0];
-            }
+            var prb = collision.gameObject.GetComponent<Rigidbody>();
+            if (prb != null)
+                playerSpeed = prb.linearVelocity.magnitude;
         }
-        rb = GetComponent<Rigidbody>();
-    }
 
-    /// Collision damage is now handled by the player in an ability
+        if (playerSpeed >= closeVanishSpeedThreshold)
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.AddXP(10);
+            player.AddScore(5);
+            Vanish();
+        }
+    }*/
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player"))
-    //        return;
-
-    //    float playerSpeed = 0f;
-    //    if (collision.rigidbody != null)
-    //        playerSpeed = collision.rigidbody.linearVelocity.magnitude;
-    //    else
-    //    {
-    //        var prb = collision.gameObject.GetComponent<Rigidbody>();
-    //        if (prb != null)
-    //            playerSpeed = prb.linearVelocity.magnitude;
-    //    }
-
-    //    if (playerSpeed >= closeVanishSpeedThreshold)
-    //    {
-    //        Player player = collision.gameObject.GetComponent<Player>();
-    //        player.AddXP(10);
-    //        player.AddScore(5);
-    //        Vanish();
-    //    }
-    //}
-
-    protected virtual bool VisionCheck()
+    private bool VisionCheck()
     {
         Vector3 diff = playerObject.transform.position - transform.position;
         float distSqrd = diff.sqrMagnitude;
@@ -208,21 +191,73 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Vector3 diff = playerObject.transform.position - transform.position;
             float distSqrd = diff.sqrMagnitude;
+            /*if (currentState == State.Attacking)
+            {
+                Debug.Log(diff.magnitude);
+            }*/
             return distSqrd < meleeRange * meleeRange;
         }
+    }
+
+    void Start()
+    {
+        FindPlayer();
+        PickNewPatrolTarget();
+        InitHitbox();
     }
 
     void AttackPlayer()
     {
         if (MeleeCheck())
         {
-            Player playerDetails = playerObject.GetComponent<Player>();
+            StartCoroutine(MeleeAttack());
+            /*Player playerDetails = playerObject.GetComponent<Player>();
             if (playerDetails != null)
             {
                 playerDetails.TakeDamage(10);
             }
         }
     }
+
+    void FixedUpdate()
+    {
+        if (playerObject == null)
+        {
+            FindPlayer();
+            return;
+        }
+
+        switch (currentState)
+        {
+            case State.Patrolling:
+                Patrol();
+                if (VisionCheck())
+                    currentState = State.Chasing;
+                break;
+
+            case State.Chasing:
+                ChaseWithFormation();
+                if (!VisionCheck())
+                    currentState = State.Patrolling;
+                else if (MeleeCheck())
+                    currentState = State.Attacking;
+                break;
+
+            case State.Attacking:
+                rb.linearVelocity = Vector3.zero;
+                attackTimer += Time.fixedDeltaTime;
+                if (attackTimer > attackCooldown)
+                {
+                    attackTimer = 0f;
+                    AttackPlayer();
+                    Debug.Log("Attacking");
+                }
+                if (!MeleeCheck())
+                    currentState = State.Chasing;
+                break;
+        }
+    }
+
     void Patrol()
     {
         patrolTargetTimeout -= Time.fixedDeltaTime;
@@ -284,5 +319,18 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 targetPosition = playerObject.transform.position + formationOffset;
         Vector3 direction = (targetPosition - transform.position).normalized;
         rb.linearVelocity = direction * movementSpeed;
+    }
+
+    private IEnumerator MeleeAttack()
+    {
+        attackHitbox.gameObject.SetActive(true);
+        yield return new WaitForFixedUpdate();
+        attackHitbox.gameObject.SetActive(false);
+        yield return new WaitForSeconds(attackCooldown);
+    }
+
+    protected void InitHitbox()
+    {
+        attackHitbox.GetComponent<SphereCollider>().radius = meleeRange;
     }
 }

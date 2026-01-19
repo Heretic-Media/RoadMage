@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 
 public class GlyphAbility : MonoBehaviour
 {
-    [SerializeField] private GameObject summonPrefab;
-
     [SerializeField] private GameObject glyphGuidePrefab;
 
     [SerializeField] private float length = 10;
@@ -32,7 +30,7 @@ public class GlyphAbility : MonoBehaviour
 
     void Start()
     {
-       rb = GetComponentInParent<Rigidbody>();
+        if (!rb) rb = GetComponent<Rigidbody>();
 
         //glyphGuides.Add(null);
         //glyphGuides[0] = Instantiate(glyphGuidePrefab, rb.transform.position, Quaternion.identity);
@@ -125,100 +123,46 @@ public class GlyphAbility : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (goal != null)
-        {
-            if (IsPlayerInside(goal))
-            {
-                HandleGoalEnter();
-            }
-        }
-
-        if (area != null)
-        {
-            if (!IsPlayerInside(area))
-            {
-                HandleAreaExit();
-            }
-        }
-    }
-
-    bool IsPlayerInside(GameObject region)
-    {
-        Collider regionCollider = region.GetComponent<Collider>();
-        Collider playerCollider = rb.GetComponent<Collider>(); // parent collider
-
-        return Physics.ComputePenetration(
-            regionCollider, regionCollider.transform.position, regionCollider.transform.rotation,
-            playerCollider, playerCollider.transform.position, playerCollider.transform.rotation,
-            out _, out _
-        );
-    }
-
-    private void ResetGlyphCast() 
+    private void resetGlyphCast() 
     {
         for (int i = 0; i < glyphGuides.Count; i++)
         {
             glyphGuides[i].SetActive(false);
         }
 
-        area = null;
-        goal = null;
-
         glyphCasted = false;
     }
 
-    private void HandleGoalEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        goal.SetActive(false);
-        goalsHit++;
-        glyphIndex++;
-        if (glyphIndex < glyphGuides.Count)
+        if (goal != null && other == goal.GetComponent<Collider>())
         {
-            area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
-            goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
-
-            rb.transform.rotation = Quaternion.Euler(
-            rb.transform.rotation.eulerAngles.x,
-            rb.transform.rotation.eulerAngles.y + (360f / sides),
-            rb.transform.rotation.eulerAngles.z);
-        }
-        else
-        {
-            /// Cast glyph spell here
-            SummonSpell();
-            /// 
-
-            ResetGlyphCast();
-
-            print("entered goal");
+            goal.SetActive(false);
+            goalsHit++;
+            glyphIndex++;
+            if (glyphIndex < glyphGuides.Count)
+            {
+                area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
+                goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+            }
+            else
+            {
+                /// Cast glyph spell here
+                
+                /// 
+                resetGlyphCast();
+            }
         }
     }
 
-    private void HandleAreaExit()
+    private void OnTriggerExit(Collider other)
     {
-        //glyphGuides[glyphIndex].SetActive(false);
+        if (area != null && other == area.GetComponent<Collider>())
+        {
+            //glyphGuides[glyphIndex].SetActive(false);
 
-        /// Completely fail the cast and cancel
-        ResetGlyphCast();
-
-        print("exited area");
-    }
-
-    private void SummonSpell()
-    {
-        if (summonPrefab == null)
-            return;
-
-        Vector3 spawnPos = goal.transform.position;
-        GameObject summon = Instantiate(summonPrefab, spawnPos, Quaternion.identity);
-
-        summon.transform.localScale = new Vector3(
-            summon.transform.localScale.x * length,
-            summon.transform.localScale.y * length,
-            summon.transform.localScale.z * length);
-
-        print("spell summoned");
+            /// Completely fail the cast and cancel
+            resetGlyphCast();
+        }
     }
 }

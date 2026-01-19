@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class DriftAbility : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectile;
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
-
-    [SerializeField] private float projectileDamage = 0.5f;
 
     [Tooltip("Time spent drifting for debugging")]
     [SerializeField] private float driftTime = 0;
@@ -22,7 +20,6 @@ public class DriftAbility : MonoBehaviour
     private float timeSinceLastDriftProjectile = 0;
 
     private TopDownCarController carController;
-
 
 
     void Start()
@@ -43,7 +40,7 @@ public class DriftAbility : MonoBehaviour
 
         /// Drift Projectiles
 
-        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftTime > driftProjectileDelay && carController.rawThrottleInput > 0)
+        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftTime > driftProjectileDelay)
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
             if (timeSinceLastDriftProjectile >= driftProjectileRate)
@@ -65,13 +62,12 @@ public class DriftAbility : MonoBehaviour
 
     private void SpawnProjectile(float projectileSpeed)
     {
-        if (projectilePrefab == null)
+        if (projectile == null)
             return;
 
-        projectilePrefab.GetComponent<Projectile>().damage = projectileDamage;
-
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
-        GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        GameObject proj = Instantiate(projectile, spawnPos, Quaternion.identity);
+        proj.SetActive(true);
 
         Vector3 dir = -transform.forward;
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
