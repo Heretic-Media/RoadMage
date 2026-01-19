@@ -41,7 +41,6 @@ public class GarageBehaviour : MonoBehaviour
         
         if (GetEnemies() == 0 && !exploding)
         {
-            print(GetEnemies());
             foreach (BoxCollider col in physical)
             {
                 col.enabled = false;

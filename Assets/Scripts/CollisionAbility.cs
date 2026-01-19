@@ -26,7 +26,6 @@ public class CollisionAbility : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             colliderName = collision.gameObject.name;
-            print(colliderName);
 
             if (!colliding) 
             {
@@ -48,7 +47,6 @@ public class CollisionAbility : MonoBehaviour
                         float damage = ((rb.linearVelocity.magnitude / maxDamageSpeed) * maxDamage);
 
                         enemyDetails.TakeDamage(damage);
-                        print("enemy damaged");
                     }
                 }
             }

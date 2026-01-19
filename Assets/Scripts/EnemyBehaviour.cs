@@ -54,6 +54,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("How far from the player enemies will try to stay when chasing (formation circle radius).")]
     [SerializeField] private float formationRadius = 0.5f;
 
+    [Tooltip("If true, the enemy will not despawn.")]
+    [SerializeField] private bool persistent = true;
+
     private void Awake()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
@@ -63,6 +66,9 @@ public class EnemyBehaviour : MonoBehaviour
         FindPlayer();
         PickNewPatrolTarget();
         healthBar.UpdateHealthBar(health, maxHealth);
+        // Prevents enemies from pilgrimaging to 0,0
+        patrolAreaMin += transform.position;
+        patrolAreaMax += transform.position;
     }
 
     void FixedUpdate()
@@ -72,34 +78,41 @@ public class EnemyBehaviour : MonoBehaviour
             FindPlayer();
             return;
         }
-
-        switch (currentState)
+        else if ((transform.position - playerObject.transform.position).sqrMagnitude < 60 * 60)
         {
-            case State.Patrolling:
-                Patrol();
-                if (VisionCheck())
-                    currentState = State.Chasing;
-                break;
+            switch (currentState)
+            {
+                case State.Patrolling:
+                    Patrol();
+                    if (VisionCheck())
+                        currentState = State.Chasing;
+                    break;
 
-            case State.Chasing:
-                ChaseWithFormation();
-                if (!VisionCheck())
-                    currentState = State.Patrolling;
-                else if (MeleeCheck())
-                    currentState = State.Attacking;
-                break;
+                case State.Chasing:
+                    ChaseWithFormation();
+                    if (!VisionCheck())
+                        currentState = State.Patrolling;
+                    else if (MeleeCheck())
+                        currentState = State.Attacking;
+                    break;
 
-            case State.Attacking:
-                rb.linearVelocity = Vector3.zero;
-                attackTimer += Time.fixedDeltaTime;
-                if (attackTimer > attackCooldown)
-                {
-                    attackTimer -= attackCooldown;
-                    AttackPlayer();
-                }
-                if (!MeleeCheck())
-                    currentState = State.Chasing;
-                break;
+                case State.Attacking:
+                    rb.linearVelocity = Vector3.zero;
+                    attackTimer += Time.fixedDeltaTime;
+                    if (attackTimer > attackCooldown)
+                    {
+                        attackTimer -= attackCooldown;
+                        AttackPlayer();
+                    }
+                    if (!MeleeCheck())
+                        currentState = State.Chasing;
+                    break;
+            }
+        }
+        else if (!persistent)
+        {
+            // despawn if we're not close enough to the player
+            Destroy(gameObject);
         }
     }
 
@@ -207,7 +220,6 @@ public class EnemyBehaviour : MonoBehaviour
             if (playerDetails != null)
             {
                 playerDetails.TakeDamage(10);
-                print("damage dealt");
             }
         }
     }
