@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GarageBehaviour : MonoBehaviour
 {
@@ -13,7 +15,6 @@ public class GarageBehaviour : MonoBehaviour
     private bool exploding = false;
     private float explodingTimer = 1f;
 
-
     int GetEnemies()
     {
         return enemiesObject.transform.childCount;
@@ -23,12 +24,13 @@ public class GarageBehaviour : MonoBehaviour
     void Awake()
     {
         upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI");
+        enemiesNum = enemiesObject.transform.childCount;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GetEnemies() == 0)
+        if (exploding)
         {
             explodingTimer -= Time.fixedDeltaTime;
             if (explodingTimer <= 0)
@@ -36,7 +38,7 @@ public class GarageBehaviour : MonoBehaviour
                 Destroy(transform.parent.gameObject);
             }
         }
-        
+
         if (GetEnemies() == 0 && !exploding)
         {
             foreach (BoxCollider col in physical)
@@ -49,23 +51,33 @@ public class GarageBehaviour : MonoBehaviour
             }
             trigger.enabled = true;
         }
+        else if (infestedIndicator != null)
+        {
+            infestedIndicator.transform.localScale = new Vector3(Mathf.Abs(Mathf.Sin(Time.time)), 0.01f, Mathf.Abs(Mathf.Sin(Time.time)));
+        }
+
+        if (infestationBar != null)
+        {
+            infestationBar.UpdateBar((float)GetEnemies() / (float)enemiesNum);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player") || exploding || collision.isTrigger)
             return;
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
         AccessUpgradeMenu();
-        Destroy(gameObject);
+        exploding = true;
+        trigger.enabled = false;
+
     }
 
     private void AccessUpgradeMenu()
     {
         Time.timeScale = 0.0f;
-        upgradeMenu.SetActive(true);
+        upgradeMenu.GetComponent<Canvas>().enabled = true;
     }
 }

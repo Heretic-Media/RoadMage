@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 1193037507179168645}
   - component: {fileID: 902121021878132522}
   - component: {fileID: 8812975350743510125}
-  - component: {fileID: 7393692837926053850}
+  - component: {fileID: 3928221425472338594}
   m_Layer: 9
   m_Name: EnemyMelee
   m_TagString: Enemy
@@ -226,7 +226,7 @@ MonoBehaviour:
   movementSpeed: 8
   visionDistance: 16
   closeVanishSpeedThreshold: 2
-  meleeRange: 1.5
+  meleeRange: 2
   attackCooldown: 0.5
   deathCry: {fileID: 5767112977954557990, guid: db6ddc2bae0df9a49b7971e1b99a9aad, type: 3}
   cameraShakeDuration: 0.1
@@ -237,8 +237,8 @@ MonoBehaviour:
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
   persistent: 0
---- !u!1 &777921018969033312
-GameObject:
+--- !u!114 &3928221425472338594
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Script: {fileID: 11500000, guid: 0c634cbdf6b193e49a83b6490f024272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 1
   health: 0
   deathEvent:
     m_PersistentCalls:

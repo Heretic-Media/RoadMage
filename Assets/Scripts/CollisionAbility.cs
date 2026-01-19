@@ -29,7 +29,7 @@ public class CollisionAbility : MonoBehaviour
 
             if (!colliding) 
             {
-                EnemyBehaviour enemyDetails = collision.gameObject.GetComponent<EnemyBehaviour>();
+                Health enemyDetails = collision.gameObject.GetComponent<Health>();
                 if (enemyDetails != null)
                 {
                     /// This could instead deal damage to the enemy by calling a public function or changing a public variable
@@ -40,13 +40,13 @@ public class CollisionAbility : MonoBehaviour
                     }
                     else if (rb.linearVelocity.magnitude >= maxDamageSpeed)
                     {
-                        enemyDetails.TakeDamage(maxDamage);
+                        enemyDetails.TakeDamage((int)maxDamage);
                     }
                     else
                     {
                         float damage = ((rb.linearVelocity.magnitude / maxDamageSpeed) * maxDamage);
 
-                        enemyDetails.TakeDamage(damage);
+                        enemyDetails.TakeDamage((int)damage);
                     }
                 }
             }

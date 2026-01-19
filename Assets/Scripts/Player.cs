@@ -118,8 +118,7 @@ public class Player : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge(health.health / health.maxHealth);
-        
+        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
         //if (healthBarFill != null)
         //{
         //    float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;
