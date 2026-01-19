@@ -55,15 +55,11 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("If true, the enemy will not despawn.")]
     [SerializeField] private bool persistent = true;
 
-    private void Awake()
-    {
-        healthBar = GetComponentInChildren<FloatingHealthBar>();
-    }
+
     void Start()
     {
         FindPlayer();
         PickNewPatrolTarget();
-        healthBar.UpdateHealthBar(health, maxHealth);
         // Prevents enemies from pilgrimaging to 0,0
         patrolAreaMin += transform.position;
         patrolAreaMax += transform.position;
@@ -123,11 +119,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Vanish()
     {
-        /*
-        Player player = FindFirstObjectByType<Player>();
-        player.AddXP(10);
-        player.AddScore(5);
-        */
 
         if (deathCry != null)
         {
@@ -146,30 +137,6 @@ public class EnemyBehaviour : MonoBehaviour
 
             Destroy(gameObject);
     }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.gameObject.CompareTag("Player"))
-            return;
-
-        float playerSpeed = 0f;
-        if (collision.rigidbody != null)
-            playerSpeed = collision.rigidbody.linearVelocity.magnitude;
-        else
-        {
-            var prb = collision.gameObject.GetComponent<Rigidbody>();
-            if (prb != null)
-                playerSpeed = prb.linearVelocity.magnitude;
-        }
-
-        if (playerSpeed >= closeVanishSpeedThreshold)
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-            player.AddXP(10);
-            player.AddScore(5);
-            Vanish();
-        }
-    }*/
 
     private bool VisionCheck()
     {
@@ -191,27 +158,17 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Vector3 diff = playerObject.transform.position - transform.position;
             float distSqrd = diff.sqrMagnitude;
-            /*if (currentState == State.Attacking)
-            {
-                Debug.Log(diff.magnitude);
-            }*/
             return distSqrd < meleeRange * meleeRange;
         }
     }
 
-    void Start()
-    {
-        FindPlayer();
-        PickNewPatrolTarget();
-        InitHitbox();
-    }
 
     void AttackPlayer()
     {
         if (MeleeCheck())
         {
             StartCoroutine(MeleeAttack());
-            /*Player playerDetails = playerObject.GetComponent<Player>();
+            Player playerDetails = playerObject.GetComponent<Player>();
             if (playerDetails != null)
             {
                 playerDetails.TakeDamage(10);
@@ -219,43 +176,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public void TakeDamage(float damageAmount)
     {
-        if (playerObject == null)
-        {
-            FindPlayer();
-            return;
-        }
-
-        switch (currentState)
-        {
-            case State.Patrolling:
-                Patrol();
-                if (VisionCheck())
-                    currentState = State.Chasing;
-                break;
-
-            case State.Chasing:
-                ChaseWithFormation();
-                if (!VisionCheck())
-                    currentState = State.Patrolling;
-                else if (MeleeCheck())
-                    currentState = State.Attacking;
-                break;
-
-            case State.Attacking:
-                rb.linearVelocity = Vector3.zero;
-                attackTimer += Time.fixedDeltaTime;
-                if (attackTimer > attackCooldown)
-                {
-                    attackTimer = 0f;
-                    AttackPlayer();
-                    Debug.Log("Attacking");
-                }
-                if (!MeleeCheck())
-                    currentState = State.Chasing;
-                break;
-        }
+        Vanish();
     }
 
     void Patrol()
@@ -332,5 +255,22 @@ public class EnemyBehaviour : MonoBehaviour
     protected void InitHitbox()
     {
         attackHitbox.GetComponent<SphereCollider>().radius = meleeRange;
+    }
+
+    protected void FindPlayer()
+    {
+        if (playerObject == null)
+        {
+            var players = GameObject.FindGameObjectsWithTag("Player");
+            if (players.Length == 0)
+            {
+                Debug.LogWarning("Follow_player: player Transform is not assigned.");
+            }
+            else
+            {
+                playerObject = players[0];
+            }
+        }
+        rb = GetComponent<Rigidbody>();
     }
 }

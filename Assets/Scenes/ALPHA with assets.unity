@@ -601,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -6726,7 +6726,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.3
@@ -9042,8 +9042,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 974063325}
-  physical: {fileID: 1059233580}
+  infestedIndicator: {fileID: 0}
+  physical:
+  - {fileID: 0}
   trigger: {fileID: 1059233579}
+  infestationBar: {fileID: 0}
 --- !u!1001 &1059779761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10584,7 +10587,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.2
@@ -11796,7 +11799,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -97.5
@@ -14387,7 +14390,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.3
@@ -14923,7 +14926,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.4
@@ -15446,7 +15449,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.2
@@ -16484,7 +16487,7 @@ PrefabInstance:
     - target: {fileID: 6294439874114714575, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 384474650708277842, guid: da3fd998b5a16b2438a2b2f55325e47a, type: 3}
+      objectReference: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
     - target: {fileID: 7297672093929663730, guid: eff8f1ea785fab8499d0fd8c9d58260c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.1
@@ -18981,8 +18984,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 333986274}
-  physical: {fileID: 8258764153326911285}
+  infestedIndicator: {fileID: 0}
+  physical:
+  - {fileID: 0}
   trigger: {fileID: 8258764153326911284}
+  infestationBar: {fileID: 0}
 --- !u!1001 &8894538566665551118
 PrefabInstance:
   m_ObjectHideFlags: 0
