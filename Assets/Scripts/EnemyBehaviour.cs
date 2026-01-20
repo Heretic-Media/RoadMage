@@ -55,7 +55,6 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("If true, the enemy will not despawn.")]
     [SerializeField] private bool persistent = true;
 
-
     void Start()
     {
         FindPlayer();
@@ -174,11 +173,6 @@ public class EnemyBehaviour : MonoBehaviour
                 playerDetails.TakeDamage(10);
             }
         }
-    }
-
-    public void TakeDamage(float damageAmount)
-    {
-        Vanish();
     }
 
     void Patrol()

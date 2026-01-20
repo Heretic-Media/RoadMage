@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     [SerializeField] UnityEvent deathEvent;
     [SerializeField] UnityEvent damageEvent;
 
+    [Tooltip("UIBarBehaviour script of a bar that will display this entity's health.")]
+    [SerializeField] private UIBarBehaviour healthBar;
+
     private void Start()
     {
         health = maxHealth;
@@ -34,6 +37,13 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        // here we update the health bar if one exists
+        if (healthBar != null)
+        {
+            healthBar.UpdateBar((float) health / (float) maxHealth);
+        }
+
         damageEvent.Invoke();
         if (health <= 0)
         {

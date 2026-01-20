@@ -79,5 +79,6 @@ public class GarageBehaviour : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         upgradeMenu.GetComponent<Canvas>().enabled = true;
+        upgradeMenu.GetComponent<UpgradeMenuBehaviour>().init();
     }
 }

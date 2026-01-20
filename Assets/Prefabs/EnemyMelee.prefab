@@ -237,6 +237,8 @@ MonoBehaviour:
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
   persistent: 0
+  healthBar: {fileID: 0}
+  health: {fileID: 3928221425472338594}
 --- !u!114 &3928221425472338594
 MonoBehaviour:
   m_ObjectHideFlags: 0

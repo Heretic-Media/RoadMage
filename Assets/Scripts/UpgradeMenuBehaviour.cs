@@ -21,4 +21,9 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         GameObject newUpgrade = Instantiate(prefabToUse);
         newUpgrade.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
     }
+
+    public void init()
+    {
+        eventSystem.SetSelectedGameObject(defaultOption);
+    }
 }
