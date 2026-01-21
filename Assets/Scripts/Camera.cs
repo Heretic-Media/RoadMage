@@ -93,12 +93,13 @@ public class CameraBehaviour : MonoBehaviour
 
         // where the camera needs to get to vertically using its horizontal position to fill out the Vector3
 
-        Quaternion desiredCameraRot = Quaternion.Euler(90, player.rotation.eulerAngles.y, 0) * Quaternion.Euler(-cameraAngle, 0, 0);
-
+        
         //transform.eulerAngles = desiredCameraRot.eulerAngles;
 
         if (relativeRotateCamera)
         {
+            Quaternion desiredCameraRot = Quaternion.Euler(90, player.rotation.eulerAngles.y, 0) * Quaternion.Euler(-cameraAngle, 0, 0);
+
             transform.eulerAngles = new Vector3(
     Mathf.LerpAngle(transform.eulerAngles.x, desiredCameraRot.eulerAngles.x, Time.deltaTime * lerpMultiplier),
     Mathf.LerpAngle(transform.eulerAngles.y, desiredCameraRot.eulerAngles.y, Time.deltaTime * lerpMultiplier),
@@ -109,7 +110,7 @@ public class CameraBehaviour : MonoBehaviour
             transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
         }
 
-        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, -transform.right) * player.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
+        Vector3 cameraOffset = Quaternion.AngleAxis(cameraAngle, -transform.right) * Vector3.up * calculateZoom(playersVelocity.magnitude, minimumCameraHeight);
 
         Vector3 desiredCameraPos = focusPosition + cameraOffset;
 

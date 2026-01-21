@@ -18757,7 +18757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2384396360077417621, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3249992275038386196, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: m_Material
@@ -18825,7 +18825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: driftSteerMultiplier
-      value: 0.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6005566522181194015, guid: 5f123322c2c382b41a76f8c53fa7def0, type: 3}
       propertyPath: steerAtTopSpeedFactor
