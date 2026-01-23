@@ -10008,7 +10008,6 @@ MonoBehaviour:
   audioSource: {fileID: 4530731028319028946}
   rightSparks: {fileID: 596149398449156706}
   leftSparks: {fileID: 4365959597370992898}
-  playerAttack: {fileID: 0}
 --- !u!54 &6238248084907692843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10073,10 +10072,34 @@ MonoBehaviour:
   health: 300
   deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2071765818499074801}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2071765818499074801}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: UpdateHealthUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   healthBar: {fileID: 0}
 --- !u!114 &2071765818499074801
 MonoBehaviour:
