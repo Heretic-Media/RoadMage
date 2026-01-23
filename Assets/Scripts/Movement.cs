@@ -183,22 +183,23 @@ public class TopDownCarController : MonoBehaviour
 
         if (hasThrottle && !handbrake)
         {
+            Vector3 lockedAxisForward = new Vector3( transform.forward.x, Vector3.forward.y, transform.forward.z);
             if (!isBraking)
             {
                 if (rawThrottleInput > 0f)
                 {
                     if (forwardSpeed < maxForwardSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * acceleration), ForceMode.Acceleration);
+                        rb.AddForce(lockedAxisForward * (rawThrottleInput * acceleration), ForceMode.Acceleration);
                 }
                 else
                 {
                     if (forwardSpeed > -maxReverseSpeed)
-                        rb.AddForce(transform.forward * (rawThrottleInput * reverseAcceleration), ForceMode.Acceleration);
+                        rb.AddForce(lockedAxisForward * (rawThrottleInput * reverseAcceleration), ForceMode.Acceleration);
                 }
             }
             else
             {
-                rb.AddForce(-Mathf.Sign(forwardSpeed) * transform.forward * brakeStrength, ForceMode.Acceleration);
+                rb.AddForce(-Mathf.Sign(forwardSpeed) * lockedAxisForward * brakeStrength, ForceMode.Acceleration);
             }
         }
         else if (handbrake)
