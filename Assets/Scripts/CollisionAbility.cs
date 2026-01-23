@@ -29,6 +29,8 @@ public class CollisionAbility : MonoBehaviour
 
             if (!colliding) 
             {
+                colliding = true;
+
                 Health enemyDetails = collision.gameObject.GetComponent<Health>();
                 if (enemyDetails != null)
                 {
@@ -40,13 +42,23 @@ public class CollisionAbility : MonoBehaviour
                     }
                     else if (rb.linearVelocity.magnitude >= maxDamageSpeed)
                     {
-                        enemyDetails.TakeDamage((int)maxDamage);
+                        bool enemyKilled = enemyDetails.TakeDamage((int)maxDamage);
+
+                        if (enemyKilled) 
+                        {
+                            colliding = false;
+                        }
                     }
                     else
                     {
                         float damage = ((rb.linearVelocity.magnitude / maxDamageSpeed) * maxDamage);
 
-                        enemyDetails.TakeDamage((int)damage);
+                        bool enemyKilled = enemyDetails.TakeDamage((int)damage);
+
+                        if (enemyKilled)
+                        {
+                            colliding = false;
+                        }
                     }
                 }
             }

@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
     }
 
     // Deal negative damage to heal
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         health -= damage;
 
@@ -56,11 +56,13 @@ public class Health : MonoBehaviour
             {
                 deathEvent.Invoke();
             }
+            return true;
         }
         else if (health > maxHealth)
         {
             health = maxHealth;
         }
+        return false;
     }
 
     // Death defaults to this function if deathEvent is left blank
