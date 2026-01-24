@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class GlyphAbility : MonoBehaviour
 {
+    [SerializeField] private GameObject summonPrefab;
+
     [SerializeField] private GameObject glyphGuidePrefab;
 
     [SerializeField] private float length = 10;
@@ -30,7 +32,7 @@ public class GlyphAbility : MonoBehaviour
 
     void Start()
     {
-        if (!rb) rb = GetComponent<Rigidbody>();
+        if (!rb) rb = GetComponentInParent<Rigidbody>();
 
         //glyphGuides.Add(null);
         //glyphGuides[0] = Instantiate(glyphGuidePrefab, rb.transform.position, Quaternion.identity);
@@ -63,6 +65,8 @@ public class GlyphAbility : MonoBehaviour
                 {
                     glyphGuides.Add(null);
                     glyphGuides[i] = Instantiate(glyphGuidePrefab, rb.transform.position, Quaternion.identity);
+                    glyphGuides[i].transform.Find("Area").gameObject.GetComponent<GlyphTrigger>().Initialise(this);
+                    glyphGuides[i].transform.Find("Goal").gameObject.GetComponent<GlyphTrigger>().Initialise(this);
                 }
             }
 
@@ -123,7 +127,7 @@ public class GlyphAbility : MonoBehaviour
         }
     }
 
-    private void resetGlyphCast() 
+    private void ResetGlyphCast() 
     {
         for (int i = 0; i < glyphGuides.Count; i++)
         {
@@ -133,7 +137,7 @@ public class GlyphAbility : MonoBehaviour
         glyphCasted = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void PlayerEnterTrigger(Collider other)
     {
         if (goal != null && other == goal.GetComponent<Collider>())
         {
@@ -144,25 +148,46 @@ public class GlyphAbility : MonoBehaviour
             {
                 area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
                 goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+
+                rb.transform.rotation = Quaternion.Euler(
+                rb.transform.rotation.eulerAngles.x,
+                rb.transform.rotation.eulerAngles.y + (360f / sides),
+                rb.transform.rotation.eulerAngles.z);
             }
             else
             {
-                /// Cast glyph spell here
-                
-                /// 
-                resetGlyphCast();
+                /// Cast glyph spell
+                SummonSpell();
+
+                ResetGlyphCast();
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void PlayerExitTrigger(Collider other)
     {
         if (area != null && other == area.GetComponent<Collider>())
         {
             //glyphGuides[glyphIndex].SetActive(false);
 
             /// Completely fail the cast and cancel
-            resetGlyphCast();
+            ResetGlyphCast();
         }
+    }
+
+    private void SummonSpell()
+    {
+        if (summonPrefab == null)
+            return;
+
+        Vector3 spawnPos = rb.transform.position;
+        GameObject summon = Instantiate(summonPrefab, spawnPos, Quaternion.identity);
+
+        summon.transform.localScale = new Vector3(
+            summon.transform.localScale.x * length,
+            summon.transform.localScale.y * length,
+            summon.transform.localScale.z * length);
+
+        print("spell summoned");
     }
 }

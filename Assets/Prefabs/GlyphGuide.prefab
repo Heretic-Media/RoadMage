@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7948068553041653318}
   - component: {fileID: 2371673355653429420}
   - component: {fileID: 7602084487843931896}
+  - component: {fileID: 3034775327212482492}
   - component: {fileID: 393265380622884509}
   m_Layer: 0
   m_Name: Goal
@@ -120,6 +121,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3034775327212482492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2909700613608525944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73924355fffcbfe4a92f5bdab0ea0cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &393265380622884509
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -154,6 +167,7 @@ GameObject:
   - component: {fileID: 764310809911396939}
   - component: {fileID: 1902435434562026741}
   - component: {fileID: 7809415037171716748}
+  - component: {fileID: 3896977451741347806}
   - component: {fileID: 471620560888370326}
   m_Layer: 0
   m_Name: Area
@@ -230,6 +244,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3896977451741347806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160809644661600132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73924355fffcbfe4a92f5bdab0ea0cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &471620560888370326
 BoxCollider:
   m_ObjectHideFlags: 0
