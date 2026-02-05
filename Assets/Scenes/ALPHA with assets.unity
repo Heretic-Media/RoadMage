@@ -8959,7 +8959,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4014690878971600767, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4014690878971600767, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+    - {fileID: 6481704449830649469, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+    - {fileID: 2910049614875324231, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 497752563886354139, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}

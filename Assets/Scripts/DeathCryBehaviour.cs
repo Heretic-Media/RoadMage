@@ -7,9 +7,16 @@ public class DeathCryBehaviour : MonoBehaviour
 
     [SerializeField] private ParticleSystem emitter;
 
+    [SerializeField] private AudioSource sfx;
 
     private void Awake()
     {
+        if (sfx != null)
+        {
+            sfx.pitch = Random.Range(0.8f, 1.5f);
+        }
+
+
         if (emitter != null)
         {
             emitter.Play();

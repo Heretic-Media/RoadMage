@@ -10008,6 +10008,7 @@ MonoBehaviour:
   audioSource: {fileID: 4530731028319028946}
   rightSparks: {fileID: 596149398449156706}
   leftSparks: {fileID: 4365959597370992898}
+  driftAudio: {fileID: 0}
 --- !u!54 &6238248084907692843
 Rigidbody:
   m_ObjectHideFlags: 0
