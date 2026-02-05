@@ -82,6 +82,7 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] private GameObject rightSparks;
     [SerializeField] private GameObject leftSparks;
 
+    private GameObject speedGauge;
 
     // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
@@ -104,6 +105,9 @@ public class TopDownCarController : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        //find speed gauge
+        speedGauge = GameObject.FindGameObjectWithTag("SpeedFuelGauge");
     }
 
     void Update()
@@ -146,6 +150,13 @@ public class TopDownCarController : MonoBehaviour
         drift =
             (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
             (kb != null && kb[driftKey].isPressed);
+
+        // speed gauge
+        if (speedGauge != null)
+        {
+            speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
+        }
+
     }
 
     void FixedUpdate()
