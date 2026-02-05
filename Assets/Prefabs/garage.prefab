@@ -426,7 +426,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5212fdfd6cd9c0a429a20141c53f0e2d, type: 2}
+  - {fileID: 2100000, guid: d526c064dbce5ab448faf5d7bea90f93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -686,15 +686,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7888241161653779375, guid: 7675bfbe03ea7b34e99ede266fb1b106, type: 3}
       propertyPath: m_Color.b
-      value: 0.05774645
+      value: 0.5583782
       objectReference: {fileID: 0}
     - target: {fileID: 7888241161653779375, guid: 7675bfbe03ea7b34e99ede266fb1b106, type: 3}
       propertyPath: m_Color.g
-      value: 0.654088
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7888241161653779375, guid: 7675bfbe03ea7b34e99ede266fb1b106, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.654902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
