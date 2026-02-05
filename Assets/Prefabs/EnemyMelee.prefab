@@ -192,7 +192,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531381191937858121}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -237,8 +237,6 @@ MonoBehaviour:
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
   persistent: 0
-  healthBar: {fileID: 0}
-  health: {fileID: 3928221425472338594}
 --- !u!114 &3928221425472338594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +269,7 @@ MonoBehaviour:
   damageEvent:
     m_PersistentCalls:
       m_Calls: []
+  healthBar: {fileID: 0}
 --- !u!1001 &7128880154959266142
 PrefabInstance:
   m_ObjectHideFlags: 0

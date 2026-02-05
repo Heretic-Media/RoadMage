@@ -1,6 +1,9 @@
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class UpgradeMenuBehaviour : MonoBehaviour
 {
@@ -17,9 +20,22 @@ public class UpgradeMenuBehaviour : MonoBehaviour
 
     public void UpgradePlayer(GameObject prefabToUse)
     {
-        
-        GameObject newUpgrade = Instantiate(prefabToUse);
-        newUpgrade.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform, false);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        bool alreadyUpgraded = false;
+
+        for (int i = 0; i < player.transform.childCount; i++)
+        {
+            if (prefabToUse.name == player.transform.GetChild(i).name.Replace("(Clone)", ""))
+            {
+                alreadyUpgraded = true;
+                break;
+            }
+        }
+
+        if (!alreadyUpgraded)
+        {
+            GameObject newUpgrade = Instantiate(prefabToUse, player.transform);
+        }
     }
 
     public void init()
