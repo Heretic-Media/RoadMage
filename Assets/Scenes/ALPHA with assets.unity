@@ -8959,6 +8959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3796941920326565249, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cab5f395446c36148a4e21dc15fa8eaf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -8968,8 +8972,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 497752563886354139, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1849382124}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6103181250998725137, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1118386716}
   m_SourcePrefab: {fileID: 100100000, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+--- !u!1 &1118386713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 135820933040597386, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1118386714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4997148359457619627, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1118386715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6103181250998725137, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1118386716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118386715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf49cee6103a40148a92d89aced7b310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 1118386714}
+  - {fileID: 1118386713}
+  truckAccessories:
+  - {fileID: 0}
+  - {fileID: 1118386718}
+  threeWheeledCarAccessories:
+  - {fileID: 0}
+  - {fileID: 1118386717}
+--- !u!1 &1118386717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6965703549231362541, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1118386718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224114483070166448, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1130983116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18610,9 +18663,9 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1795479392}
   - {fileID: 1295931521}
-  - {fileID: 1118386712}
   - {fileID: 1539365395}
   - {fileID: 2039256219}
   - {fileID: 633504000}
   - {fileID: 1426577454}
   - {fileID: 1935815465}
+  - {fileID: 1118386712}
