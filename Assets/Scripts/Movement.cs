@@ -81,6 +81,8 @@ public class TopDownCarController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject rightSparks;
     [SerializeField] private GameObject leftSparks;
+    [SerializeField] private Damage rightSparksHitbox;
+    [SerializeField] private Damage leftSparksHitbox;
 
     private GameObject speedGauge;
 
@@ -309,11 +311,15 @@ public class TopDownCarController : MonoBehaviour
             {
                 rightSparks.GetComponent<ParticleSystem>().Stop();
                 leftSparks.GetComponent<ParticleSystem>().Play();
+                rightSparksHitbox.gameObject.SetActive(false);
+                leftSparksHitbox.gameObject.SetActive(true);
             }
             else if (rawSteerInput < -0.5f && steerThisFrame < 30f)
             {
                 rightSparks.GetComponent<ParticleSystem>().Play();
                 leftSparks.GetComponent<ParticleSystem>().Stop();
+                rightSparksHitbox.gameObject.SetActive(true);
+                leftSparksHitbox.gameObject.SetActive(false);
             }
 
         }
@@ -321,6 +327,8 @@ public class TopDownCarController : MonoBehaviour
         {
             rightSparks.GetComponent<ParticleSystem>().Stop();
             leftSparks.GetComponent<ParticleSystem>().Stop();
+            rightSparksHitbox.gameObject.SetActive(false);
+            leftSparksHitbox.gameObject.SetActive(false);
         }
     }
 }
