@@ -50,6 +50,8 @@ MonoBehaviour:
   start: {fileID: 121366815380639434}
   middle: {fileID: 7126324932383029225}
   end: {fileID: 5440959997801500836}
+  driftTime: 0
+  driftSoundDelay: 0.1
 --- !u!82 &121366815380639434
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63,7 +65,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e5911be7880b23e41a62768cbcb78f2a, type: 3}
   m_Resource: {fileID: 8300000, guid: e5911be7880b23e41a62768cbcb78f2a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.44
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -160,7 +162,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ace9484cd91a15d42958d460a3f5bd10, type: 3}
   m_Resource: {fileID: 8300000, guid: ace9484cd91a15d42958d460a3f5bd10, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.47
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -257,7 +259,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: a067dbeb42256cd44b9d4bb68ad00c33, type: 3}
   m_Resource: {fileID: 8300000, guid: a067dbeb42256cd44b9d4bb68ad00c33, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.452
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
