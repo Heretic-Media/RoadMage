@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\DriftAudio.cs" />
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\Billboard.cs" />
