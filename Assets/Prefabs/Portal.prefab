@@ -60,9 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 270668371211418519, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
       propertyPath: m_Name
       value: portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2059011123884950061, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -72,6 +80,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 46d1e6bb4ade82f48b1105d660cf7ec6, type: 2}
+    - target: {fileID: 4423045620967985251, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337514427077141855, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: 5a88c90ecebcdd046b39f57446f17445, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -239,5 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2531381191937858121, guid: b1e0bea28f08e1742a235b84e9c7ffa1, type: 3}
+  vfxPrefab: {fileID: 0}
   maxEnemies: 30
   spawnDelay: 3
+  spawnRadius: 10

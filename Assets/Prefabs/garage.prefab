@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1289240882338288086}
   - component: {fileID: 3456195617609597708}
   - component: {fileID: 1503486157476315596}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: garage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

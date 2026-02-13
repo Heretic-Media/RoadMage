@@ -12999,7 +12999,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.511
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -13119,13 +13119,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0b9053875808b4b4d8abbc2e2585ebc9, type: 2}
+    - target: {fileID: 2762266856760499662, guid: 6fef7674235444c41919e5501726f872, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5656425578177244215, guid: 6fef7674235444c41919e5501726f872, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5875193916671921253, guid: 6fef7674235444c41919e5501726f872, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7525211797553204760, guid: 6fef7674235444c41919e5501726f872, type: 3}
       propertyPath: m_Name
       value: level geometry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222204648878532267, guid: 6fef7674235444c41919e5501726f872, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8991526129124479630, guid: 6fef7674235444c41919e5501726f872, type: 3}
       propertyPath: m_IsActive

@@ -21,9 +21,9 @@ TagManager:
   - PlayerHurtbox
   - EnemyHurtbox
   - Camera
-  - 
-  - 
-  - 
+  - Outlined
+  - PlayerOutline
+  - GroundOutline
   - 
   - 
   - 
