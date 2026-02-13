@@ -334,10 +334,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8569360761483682369, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7728003447070774803, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -7575521708689237053, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -5712881897578682979, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: cc80645103951b9499d095374ddbc9f4, type: 2}
+    - target: {fileID: -3475402481478768965, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -3312015120146418374, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -354,10 +370,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 549482d715fadbc4bb55f95c2f2e7754, type: 2}
+    - target: {fileID: 2404040577925701905, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4282749242560659166, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 549482d715fadbc4bb55f95c2f2e7754, type: 2}
+    - target: {fileID: 6584461787307672293, guid: 6da5907a7844f8b409b5f223ce272319, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

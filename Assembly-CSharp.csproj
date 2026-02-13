@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
+    <Compile Include="Assets\outline\Outlines\Scripts\RendererFeatures\ScreenSpaceOutlines.cs" />
     <Compile Include="Assets\Scripts\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
