@@ -9,6 +9,7 @@ TagManager:
   - HealthBar
   - UpgradeUI
   - SpeedFuelGauge
+  - TutorialPopUpManager
   layers:
   - Default
   - TransparentFX
