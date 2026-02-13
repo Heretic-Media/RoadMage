@@ -9,6 +9,8 @@ TagManager:
   - HealthBar
   - UpgradeUI
   - SpeedFuelGauge
+  - TutorialMovement
+  - TutorialDriftingBraking
   layers:
   - Default
   - TransparentFX
