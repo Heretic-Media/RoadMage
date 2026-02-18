@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class CollisionAbility : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CollisionAbility : MonoBehaviour
 
     [SerializeField] private float maxDamageSpeed = 5f;
     [SerializeField] private float minDamageSpeed = 1f;
+
+    public List<UnityEvent> collisionEvents = new List<UnityEvent> { };
 
     private bool colliding = false;
     string colliderName;
@@ -30,6 +34,11 @@ public class CollisionAbility : MonoBehaviour
             if (!colliding) 
             {
                 colliding = true;
+
+                foreach (var collisionEvent in collisionEvents)
+                {
+                    collisionEvent.Invoke();
+                }
 
                 Health enemyDetails = collision.gameObject.GetComponent<Health>();
                 if (enemyDetails != null)

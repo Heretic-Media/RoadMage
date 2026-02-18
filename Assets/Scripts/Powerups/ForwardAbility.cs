@@ -7,7 +7,7 @@ public class ForwardAbility : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
-    private int attackCooldown;
+    private int attackCooldown = 60;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
