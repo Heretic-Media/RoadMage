@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class FollowRigidbody : MonoBehaviour
 {
-    public GameObject target;
+    [SerializeField] private GameObject target;
+
+    [SerializeField] private bool followX = true;
+    [SerializeField] private bool followY = true;
+    [SerializeField] private bool followZ = true;
+
     private Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,6 +19,12 @@ public class FollowRigidbody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = rb.position;
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        ;
+        if (followX) newPosition.x = rb.position.x;
+        if (followY) newPosition.y = rb.position.y;
+        if (followZ) newPosition.z = rb.position.z;
+
+        transform.position = newPosition;
     }
 }

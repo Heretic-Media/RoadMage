@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
+    <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
