@@ -7133,7 +7133,7 @@ GameObject:
   - component: {fileID: 876291174}
   m_Layer: 5
   m_Name: TutorialPopUpCanvas
-  m_TagString: Untagged
+  m_TagString: TutorialPopUpManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

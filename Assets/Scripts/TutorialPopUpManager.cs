@@ -35,11 +35,8 @@ public class TutorialPopUpManager : MonoBehaviour
 
     private void Awake()
     {
-        StartTutorialPopup("0", 2f);
-        StartTutorialPopup("1", 4f);
-        StartTutorialPopup("2", 6f);
-        StartTutorialPopup("3", 8f);
-        StartTutorialPopup("4", 10f);
+        StartTutorialPopup("RT to accelerate", 6f);
+        StartTutorialPopup("LT to reverse", 6f);
     }
 
     private void LateUpdate()
