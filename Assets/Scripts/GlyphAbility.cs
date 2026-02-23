@@ -70,33 +70,9 @@ public class GlyphAbility : MonoBehaviour
                 }
             }
 
-            /// Set glyph guides position in a circle
             for (int i = 0; i < sides; i++)
             {
-                if (i == 0)
-                {
-                    glyphGuides[0].transform.position = new Vector3(
-                        rb.transform.position.x,
-                        rb.transform.position.y,
-                        rb.transform.position.z);
-
-                    glyphGuides[0].transform.rotation = Quaternion.Euler(
-                        0,
-                        180 + rb.transform.eulerAngles.y,
-                        0);
-                }
-                else if (i > 0)
-                {
-                    glyphGuides[i].transform.position = new Vector3(
-                        goal.transform.position.x,
-                        goal.transform.position.y,
-                        goal.transform.position.z);
-
-                    glyphGuides[i].transform.rotation = Quaternion.Euler(
-                        glyphGuides[0].transform.rotation.eulerAngles.x,
-                        glyphGuides[0].transform.rotation.eulerAngles.y + (360f / sides) * i,
-                        glyphGuides[0].transform.rotation.eulerAngles.z);
-                }
+                AlignGlyph(i);
 
                 area = glyphGuides[i].transform.Find("Area").gameObject;
                 goal = glyphGuides[i].transform.Find("Goal").gameObject;
@@ -124,6 +100,52 @@ public class GlyphAbility : MonoBehaviour
             glyphIndex = 0;
             area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
             goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+        }
+
+        if (glyphCasted)
+        {
+            Vector2 directionY = new Vector2(
+                (float)Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y),
+                (float)Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y));
+
+            Vector3 movementInDirection = new Vector3(
+                glyphGuides[0].transform.position.x * directionY.x,
+                0,
+                glyphGuides[0].transform.position.y * directionY.y);
+
+            for (int i = 0; i < sides; i++)
+            {
+                AlignGlyph(i);
+            }
+        }
+    }
+
+    private void AlignGlyph(int index) 
+    {
+        /// Set glyph guides position in a circle
+        if (index == 0)
+        {
+            glyphGuides[0].transform.position = new Vector3(
+                rb.transform.position.x,
+                rb.transform.position.y,
+                rb.transform.position.z);
+
+            glyphGuides[0].transform.rotation = Quaternion.Euler(
+                0,
+                180 + rb.transform.eulerAngles.y,
+                0);
+        }
+        else
+        {
+            glyphGuides[index].transform.position = new Vector3(
+                glyphGuides[index - 1].transform.Find("Goal").transform.position.x,
+                glyphGuides[index - 1].transform.Find("Goal").transform.position.y,
+                glyphGuides[index - 1].transform.Find("Goal").transform.position.z); 
+
+            glyphGuides[index].transform.rotation = Quaternion.Euler(
+                glyphGuides[0].transform.rotation.eulerAngles.x,
+                glyphGuides[0].transform.rotation.eulerAngles.y + (360f / sides) * index,
+                glyphGuides[0].transform.rotation.eulerAngles.z);
         }
     }
 
