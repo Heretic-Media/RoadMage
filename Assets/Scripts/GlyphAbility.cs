@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,15 +12,18 @@ public class GlyphAbility : MonoBehaviour
     [SerializeField] private float length = 10;
     [SerializeField] private int sides = 5;
 
-    private List<GameObject> glyphGuides = new List<GameObject>( );
-    private GameObject area = null;
-    private GameObject goal = null;
+    private List<GameObject> glyphGuides = new List<GameObject>();
+    private GameObject currentArea = null;
+    private GameObject currentGoal = null;
 
     private Rigidbody rb;
 
     [Header("Input")]
     [SerializeField] private Key castingKey = Key.F;
     private bool casting;
+
+    [SerializeField] private float castingTime = 1;
+    private float castTimeDelta = 0;
 
     [Header("Debugging to see glyph casted bool")]
     [SerializeField] bool glyphCasted = false;
@@ -28,6 +32,8 @@ public class GlyphAbility : MonoBehaviour
     [SerializeField] int goalsHit = 0;
 
     private int glyphIndex = -1;
+
+    [SerializeField] private Vector3 offset = Vector3.zero;
     
 
     void Start()
@@ -47,8 +53,25 @@ public class GlyphAbility : MonoBehaviour
         (gp != null && gp.triangleButton.isPressed) ||
         (kb != null && kb[castingKey].isPressed);
 
-        if (casting && !glyphCasted)
+        if (!glyphCasted) 
         {
+            castTimeDelta += Time.deltaTime;
+        }
+        else
+        {
+            if (castTimeDelta > 0)
+            {
+                castTimeDelta -= Time.deltaTime;
+            }
+            else if (castTimeDelta < 0) 
+            {
+                castTimeDelta = 0;
+            }
+        }
+
+        if (casting && !glyphCasted && castTimeDelta >= castingTime)
+        {
+            castTimeDelta = castingTime;
             glyphCasted = true;
 
             goalsHit = 0;
@@ -70,81 +93,83 @@ public class GlyphAbility : MonoBehaviour
                 }
             }
 
+            glyphGuides[0].transform.position = new Vector3(
+                rb.transform.position.x,
+                rb.transform.position.y,
+                rb.transform.position.z);
+
+            glyphGuides[0].transform.rotation = Quaternion.Euler(0, rb.transform.eulerAngles.y, 0);
+
+            AlignGlyph();
+
             for (int i = 0; i < sides; i++)
             {
-                AlignGlyph(i);
-
-                area = glyphGuides[i].transform.Find("Area").gameObject;
-                goal = glyphGuides[i].transform.Find("Goal").gameObject;
+                currentArea = glyphGuides[i].transform.Find("Area").gameObject;
+                currentGoal = glyphGuides[i].transform.Find("Goal").gameObject;
 
                 GameObject prefabArea = glyphGuidePrefab.transform.Find("Area").gameObject;
                 GameObject prefabGoal = glyphGuidePrefab.transform.Find("Goal").gameObject;
 
                 /// Reactivate glyph guides that are deavtive
                 glyphGuides[i].SetActive(true);
-                area.SetActive(true);
-                goal.SetActive(true);
+                currentArea.SetActive(true);
+                currentGoal.SetActive(true);
 
-                area.transform.localScale = new Vector3(prefabArea.transform.localScale.x, prefabArea.transform.localScale.y, length);
-                area.transform.localPosition = new Vector3(
+                currentArea.transform.localScale = new Vector3(prefabArea.transform.localScale.x, prefabArea.transform.localScale.y, length);
+                currentArea.transform.localPosition = new Vector3(
                     prefabArea.transform.localPosition.x,
                     prefabArea.transform.localPosition.y,
-                    prefabArea.transform.localPosition.z - (length / 2) + 0.5f);
+                    prefabArea.transform.localPosition.z + (length / 2) - 0.5f);
 
-                goal.transform.localPosition = new Vector3(
+                currentGoal.transform.localPosition = new Vector3(
                     prefabGoal.transform.localPosition.x,
                     prefabGoal.transform.localPosition.y,
-                    prefabGoal.transform.localPosition.z - length + 1);
+                    prefabGoal.transform.localPosition.z + length - 1);
             }
 
             glyphIndex = 0;
-            area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
-            goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+            currentArea = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
+            currentGoal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+        }
+        else if (casting && glyphCasted && castTimeDelta <= 0)
+        {
+            ResetGlyphCast();
         }
 
         if (glyphCasted)
         {
-            Vector2 directionY = new Vector2(
-                (float)Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y),
-                (float)Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y));
+            Vector2 unitDirection = new Vector2(
+                (float)Mathf.Cos(Mathf.Deg2Rad * glyphGuides[0].transform.rotation.eulerAngles.y),
+                (float)Mathf.Sin(Mathf.Deg2Rad * glyphGuides[0].transform.rotation.eulerAngles.y));
 
-            Vector3 movementInDirection = new Vector3(
-                glyphGuides[0].transform.position.x * directionY.x,
-                0,
-                glyphGuides[0].transform.position.y * directionY.y);
+            //Vector3 movementInDirection = new Vector3(
+            //    (rb.transform.position.x - glyphGuides[0].transform.position.x) * directionY.x,
+            //    0,
+            //    (rb.transform.position.x - glyphGuides[0].transform.position.y) * directionY.y);
 
-            for (int i = 0; i < sides; i++)
-            {
-                AlignGlyph(i);
-            }
+            Vector3 movementInDirection = new Vector3(offset.x * unitDirection.x, 0, offset.z * unitDirection.y);
+
+            glyphGuides[0].transform.position = new Vector3(
+                rb.transform.position.x + movementInDirection.x,
+                rb.transform.position.y,
+                rb.transform.position.z + movementInDirection.z);
+
+            AlignGlyph();
         }
     }
 
-    private void AlignGlyph(int index) 
+    private void AlignGlyph() 
     {
-        /// Set glyph guides position in a circle
-        if (index == 0)
+        for (int i = 1; i < sides; i++) 
         {
-            glyphGuides[0].transform.position = new Vector3(
-                rb.transform.position.x,
-                rb.transform.position.y,
-                rb.transform.position.z);
+            glyphGuides[i].transform.position = new Vector3(
+                glyphGuides[i - 1].transform.Find("Goal").transform.position.x,
+                glyphGuides[i - 1].transform.Find("Goal").transform.position.y,
+                glyphGuides[i - 1].transform.Find("Goal").transform.position.z);
 
-            glyphGuides[0].transform.rotation = Quaternion.Euler(
-                0,
-                180 + rb.transform.eulerAngles.y,
-                0);
-        }
-        else
-        {
-            glyphGuides[index].transform.position = new Vector3(
-                glyphGuides[index - 1].transform.Find("Goal").transform.position.x,
-                glyphGuides[index - 1].transform.Find("Goal").transform.position.y,
-                glyphGuides[index - 1].transform.Find("Goal").transform.position.z); 
-
-            glyphGuides[index].transform.rotation = Quaternion.Euler(
+            glyphGuides[i].transform.rotation = Quaternion.Euler(
                 glyphGuides[0].transform.rotation.eulerAngles.x,
-                glyphGuides[0].transform.rotation.eulerAngles.y + (360f / sides) * index,
+                glyphGuides[0].transform.rotation.eulerAngles.y + (360f / sides) * i,
                 glyphGuides[0].transform.rotation.eulerAngles.z);
         }
     }
@@ -161,40 +186,40 @@ public class GlyphAbility : MonoBehaviour
 
     public void PlayerEnterTrigger(Collider other)
     {
-        if (goal != null && other == goal.GetComponent<Collider>())
-        {
-            goal.SetActive(false);
-            goalsHit++;
-            glyphIndex++;
-            if (glyphIndex < glyphGuides.Count)
-            {
-                area = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
-                goal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+        //if (currentGoal != null && other == currentGoal.GetComponent<Collider>())
+        //{
+        //    currentGoal.SetActive(false);
+        //    goalsHit++;
+        //    glyphIndex++;
+        //    if (glyphIndex < glyphGuides.Count)
+        //    {
+        //        currentArea = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
+        //        currentGoal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
 
-                rb.transform.rotation = Quaternion.Euler(
-                rb.transform.rotation.eulerAngles.x,
-                rb.transform.rotation.eulerAngles.y + (360f / sides),
-                rb.transform.rotation.eulerAngles.z);
-            }
-            else
-            {
-                /// Cast glyph spell
-                SummonSpell();
+        //        rb.transform.rotation = Quaternion.Euler(
+        //        rb.transform.rotation.eulerAngles.x,
+        //        rb.transform.rotation.eulerAngles.y + (360f / sides),
+        //        rb.transform.rotation.eulerAngles.z);
+        //    }
+        //    else
+        //    {
+        //        /// Cast glyph spell
+        //        SummonSpell();
 
-                ResetGlyphCast();
-            }
-        }
+        //        ResetGlyphCast();
+        //    }
+        //}
     }
 
     public void PlayerExitTrigger(Collider other)
     {
-        if (area != null && other == area.GetComponent<Collider>())
-        {
-            //glyphGuides[glyphIndex].SetActive(false);
+        //if (currentArea != null && other == currentArea.GetComponent<Collider>())
+        //{
+        //    //glyphGuides[glyphIndex].SetActive(false);
 
-            /// Completely fail the cast and cancel
-            ResetGlyphCast();
-        }
+        //    /// Completely fail the cast and cancel
+        //    ResetGlyphCast();
+        //}
     }
 
     private void SummonSpell()
