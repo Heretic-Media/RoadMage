@@ -31,7 +31,8 @@ public class GlyphAbility : MonoBehaviour
 
     private int glyphIndex = -1;
 
-    [SerializeField] private Vector3 glyphOffset = Vector3.zero;
+    private Vector3 glyphOffset = Vector3.zero;
+    private float glyphMovement = 0;
     
 
     void Start()
@@ -139,38 +140,78 @@ public class GlyphAbility : MonoBehaviour
         }
 
         /// Updating Active Glyph
-        if (glyphCasted && lastPosition != rb.transform.position)
+        if (glyphCasted)
         {
-            Vector2 glyphUnitDirection = new Vector2(
-                (float)Mathf.Sin(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)),
-                (float)Mathf.Cos(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)));
+            if (lastPosition != rb.transform.position)
+            {
+                Vector2 glyphUnitDirection = new Vector2(
+                    (float)Mathf.Sin(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)),
+                    (float)Mathf.Cos(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)));
 
-            Vector3 movement = new Vector3(
-                (rb.transform.position.x - lastPosition.x),
-                0,
-                (rb.transform.position.z - lastPosition.z));
+                Vector3 movement = new Vector3(
+                    (rb.transform.position.x - lastPosition.x),
+                    0,
+                    (rb.transform.position.z - lastPosition.z));
 
-            Vector3 direction = new Vector3(glyphUnitDirection.x, 0, glyphUnitDirection.y);
-            float projectedMagnitude = Vector3.Dot(movement, direction);
-            Vector3 movementInDirection = direction * projectedMagnitude;
+                Vector3 direction = new Vector3(glyphUnitDirection.x, 0, glyphUnitDirection.y);
+                float projectedMagnitude = Vector3.Dot(movement, direction);
 
-            glyphOffset += movementInDirection;
+                float sideLength = (length - 1) * 2;
+                if (glyphMovement + projectedMagnitude < 0)
+                {
+                    if (glyphMovement > 0)
+                    {
+                        Vector3 movementInDirection = direction * glyphMovement;
 
-            //glyphOffset += (movementInDirection / movementInDirection.magnitude) * movement.magnitude;
+                        glyphMovement = 0;
+                        glyphOffset += movementInDirection;
+                    }
+                }
+                else if(glyphMovement + projectedMagnitude >= sideLength)
+                {
+                    if (glyphMovement < sideLength)
+                    {
+                        Vector3 movementInDirection = direction * (sideLength - glyphMovement);
 
-            //glyphOffset += new Vector3(
-            //    (movementInDirection.x / movementInDirection.magnitude),
-            //    (movementInDirection.y / movementInDirection.magnitude),
-            //    (movementInDirection.z / movementInDirection.magnitude)) * movement.magnitude;
+                        //glyphMovement = sideLength;
+                        glyphMovement = 0;
+                        glyphOffset += movementInDirection;
 
-            glyphGuides[0].transform.position = new Vector3(
-                rb.transform.position.x - glyphOffset.x,
-                rb.transform.position.y,
-                rb.transform.position.z - glyphOffset.z);
+                        glyphIndex++;
+                        if (glyphIndex < glyphGuides.Count) 
+                        { 
+                        }
+                        else 
+                        {
+                            SummonSpell();
+                            ResetGlyphCast();
+                        }
+                    }
+                }
+                else
+                {
+                    Vector3 movementInDirection = direction * projectedMagnitude;
 
-            AlignGlyph();
+                    glyphMovement += projectedMagnitude;
+                    glyphOffset += movementInDirection;
+                }
 
-            lastPosition = rb.transform.position;
+                //glyphOffset += (movementInDirection / movementInDirection.magnitude) * movement.magnitude;
+
+                //glyphOffset += new Vector3(
+                //    (movementInDirection.x / movementInDirection.magnitude),
+                //    (movementInDirection.y / movementInDirection.magnitude),
+                //    (movementInDirection.z / movementInDirection.magnitude)) * movement.magnitude;
+
+                glyphGuides[0].transform.position = new Vector3(
+                    rb.transform.position.x - glyphOffset.x,
+                    rb.transform.position.y,
+                    rb.transform.position.z - glyphOffset.z);
+
+                AlignGlyph();
+
+                lastPosition = rb.transform.position;
+            }
         }
     }
 
@@ -194,6 +235,7 @@ public class GlyphAbility : MonoBehaviour
     private void ResetGlyphCast() 
     {
         glyphOffset = Vector3.zero;
+        glyphMovement = 0;
 
         for (int i = 0; i < glyphGuides.Count; i++)
         {
