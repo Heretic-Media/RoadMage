@@ -17,6 +17,7 @@ public class GlyphAbility : MonoBehaviour
     private GameObject currentGoal = null;
 
     private Rigidbody rb;
+    private Vector3 lastPosition;
 
     [Header("Input")]
     [SerializeField] private Key castingKey = Key.F;
@@ -28,12 +29,9 @@ public class GlyphAbility : MonoBehaviour
     [Header("Debugging to see glyph casted bool")]
     [SerializeField] bool glyphCasted = false;
 
-    [Header("Number of goals hit")]
-    [SerializeField] int goalsHit = 0;
-
     private int glyphIndex = -1;
 
-    [SerializeField] private Vector3 offset = Vector3.zero;
+    [SerializeField] private Vector3 glyphOffset = Vector3.zero;
     
 
     void Start()
@@ -46,6 +44,7 @@ public class GlyphAbility : MonoBehaviour
 
     void Update()
     {
+        /// Inputs
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
@@ -53,6 +52,7 @@ public class GlyphAbility : MonoBehaviour
         (gp != null && gp.triangleButton.isPressed) ||
         (kb != null && kb[castingKey].isPressed);
 
+        /// Casting Timer
         if (!glyphCasted) 
         {
             castTimeDelta += Time.deltaTime;
@@ -69,12 +69,11 @@ public class GlyphAbility : MonoBehaviour
             }
         }
 
+        /// Casting Glyph
         if (casting && !glyphCasted && castTimeDelta >= castingTime)
         {
             castTimeDelta = castingTime;
             glyphCasted = true;
-
-            goalsHit = 0;
 
             //if (rb.linearVelocity.magnitude > 2) 
             //{
@@ -92,15 +91,6 @@ public class GlyphAbility : MonoBehaviour
                     glyphGuides[i].transform.Find("Goal").gameObject.GetComponent<GlyphTrigger>().Initialise(this);
                 }
             }
-
-            glyphGuides[0].transform.position = new Vector3(
-                rb.transform.position.x,
-                rb.transform.position.y,
-                rb.transform.position.z);
-
-            glyphGuides[0].transform.rotation = Quaternion.Euler(0, rb.transform.eulerAngles.y, 0);
-
-            AlignGlyph();
 
             for (int i = 0; i < sides; i++)
             {
@@ -127,37 +117,64 @@ public class GlyphAbility : MonoBehaviour
                     prefabGoal.transform.localPosition.z + length - 1);
             }
 
+            glyphGuides[0].transform.position = new Vector3(
+                rb.transform.position.x,
+                rb.transform.position.y,
+                rb.transform.position.z);
+
+            glyphGuides[0].transform.rotation = Quaternion.Euler(0, rb.transform.eulerAngles.y, 0);
+
+            AlignGlyph();
+
             glyphIndex = 0;
             currentArea = glyphGuides[glyphIndex].transform.Find("Area").gameObject;
             currentGoal = glyphGuides[glyphIndex].transform.Find("Goal").gameObject;
+
+            lastPosition = rb.transform.position;
         }
+        /// Un-casting Glyph
         else if (casting && glyphCasted && castTimeDelta <= 0)
         {
             ResetGlyphCast();
         }
 
-        if (glyphCasted)
+        /// Updating Active Glyph
+        if (glyphCasted && lastPosition != rb.transform.position)
         {
-            Vector2 unitDirection = new Vector2(
-                (float)Mathf.Cos(Mathf.Deg2Rad * glyphGuides[0].transform.rotation.eulerAngles.y),
-                (float)Mathf.Sin(Mathf.Deg2Rad * glyphGuides[0].transform.rotation.eulerAngles.y));
+            Vector2 glyphUnitDirection = new Vector2(
+                (float)Mathf.Sin(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)),
+                (float)Mathf.Cos(Mathf.Deg2Rad * (glyphGuides[glyphIndex].transform.rotation.eulerAngles.y)));
 
-            //Vector3 movementInDirection = new Vector3(
-            //    (rb.transform.position.x - glyphGuides[0].transform.position.x) * directionY.x,
-            //    0,
-            //    (rb.transform.position.x - glyphGuides[0].transform.position.y) * directionY.y);
+            Vector3 movement = new Vector3(
+                (rb.transform.position.x - lastPosition.x),
+                0,
+                (rb.transform.position.z - lastPosition.z));
 
-            Vector3 movementInDirection = new Vector3(offset.x * unitDirection.x, 0, offset.z * unitDirection.y);
+            Vector3 direction = new Vector3(glyphUnitDirection.x, 0, glyphUnitDirection.y);
+            float projectedMagnitude = Vector3.Dot(movement, direction);
+            Vector3 movementInDirection = direction * projectedMagnitude;
+
+            glyphOffset += movementInDirection;
+
+            //glyphOffset += (movementInDirection / movementInDirection.magnitude) * movement.magnitude;
+
+            //glyphOffset += new Vector3(
+            //    (movementInDirection.x / movementInDirection.magnitude),
+            //    (movementInDirection.y / movementInDirection.magnitude),
+            //    (movementInDirection.z / movementInDirection.magnitude)) * movement.magnitude;
 
             glyphGuides[0].transform.position = new Vector3(
-                rb.transform.position.x + movementInDirection.x,
+                rb.transform.position.x - glyphOffset.x,
                 rb.transform.position.y,
-                rb.transform.position.z + movementInDirection.z);
+                rb.transform.position.z - glyphOffset.z);
 
             AlignGlyph();
+
+            lastPosition = rb.transform.position;
         }
     }
 
+    /// Align glyph with glyphGuides[0] rotation
     private void AlignGlyph() 
     {
         for (int i = 1; i < sides; i++) 
@@ -176,6 +193,8 @@ public class GlyphAbility : MonoBehaviour
 
     private void ResetGlyphCast() 
     {
+        glyphOffset = Vector3.zero;
+
         for (int i = 0; i < glyphGuides.Count; i++)
         {
             glyphGuides[i].SetActive(false);
@@ -189,7 +208,6 @@ public class GlyphAbility : MonoBehaviour
         //if (currentGoal != null && other == currentGoal.GetComponent<Collider>())
         //{
         //    currentGoal.SetActive(false);
-        //    goalsHit++;
         //    glyphIndex++;
         //    if (glyphIndex < glyphGuides.Count)
         //    {
