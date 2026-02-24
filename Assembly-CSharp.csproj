@@ -110,11 +110,13 @@
     <Compile Include="Assets\Scripts\HealArea.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\EdgeDetect.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\WorldPositionReconstruct.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
@@ -130,10 +132,12 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TODO.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\KernelUV.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\EdgeEnhancement.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -1411,6 +1415,10 @@
       <Project>{E6B73000-9AB7-11E4-F9EA-F4729E6130D3}</Project>
       <Name>Adobe.Substance.Connector</Name>
     </ProjectReference>
+    <ProjectReference Include="Pinwheel.Contour.Runtime.csproj">
+      <Project>{CEFAB510-A70D-0F58-D0A0-683315655BDC}</Project>
+      <Name>Pinwheel.Contour.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Adobe.Substance.csproj">
       <Project>{3AA87471-BE8D-D0ED-1059-0A95F80C11D0}</Project>
       <Name>Adobe.Substance</Name>
@@ -1418,6 +1426,10 @@
     <ProjectReference Include="Adobe.SubstanceEditor.csproj">
       <Project>{6721168D-9800-E884-6A5B-5BF82494D3F1}</Project>
       <Name>Adobe.SubstanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Pinwheel.Contour.Editor.csproj">
+      <Project>{A748A6D3-D914-5CA5-37A7-AA93D500845B}</Project>
+      <Name>Pinwheel.Contour.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Adobe.Substance.Connector.Unity.csproj">
       <Project>{C8ECF895-2459-321C-9523-1FB74642AAEF}</Project>
