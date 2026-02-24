@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Bits: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 10240
   renderQueue: 0
   occlusion: 2
   maskingStrategy: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Bits: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 10240
   renderQueue: 1
   occlusion: 2
   maskingStrategy: 0
