@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
+    <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_VertexPaintEditor.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Scripts\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
+    <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_TargetPosition.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
     <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
@@ -116,6 +118,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\FullOpaqueWater&amp;Waterfall\Documentation\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
