@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
@@ -78,8 +78,10 @@
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\Billboard.cs" />
+    <Compile Include="Assets\UI\Character Customisation\CCUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
+    <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\UI\Character Customisation\CharacterCustomisation.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
