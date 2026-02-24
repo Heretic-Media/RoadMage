@@ -167,7 +167,7 @@ public class GlyphAbility : MonoBehaviour
                         glyphOffset += movementInDirection;
                     }
                 }
-                else if(glyphMovement + projectedMagnitude >= sideLength)
+                else if (glyphMovement + projectedMagnitude >= sideLength)
                 {
                     if (glyphMovement < sideLength)
                     {
@@ -291,9 +291,9 @@ public class GlyphAbility : MonoBehaviour
         GameObject summon = Instantiate(summonPrefab, spawnPos, Quaternion.identity);
 
         summon.transform.localScale = new Vector3(
-            summon.transform.localScale.x * length,
-            summon.transform.localScale.y * length,
-            summon.transform.localScale.z * length);
+            summon.transform.localScale.x * length * 2,
+            summon.transform.localScale.y * length * 2,
+            summon.transform.localScale.z * length * 2);
 
         print("spell summoned");
     }
