@@ -1473,11 +1473,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6851335415810190822, guid: 2e38c2ebff566a548ae2ea211d6fdde1, type: 3}
   m_PrefabInstance: {fileID: 1985796732}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &198026081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4756054786240818191, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &204794900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,21 +2062,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4356762d3a4c9439ae57c1a42f4c55, type: 3}
---- !u!1 &297884258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4299629151707004775, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &297884259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8327501897458062050, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &297884260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7208059484558279907, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &301880216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8831,60 +8811,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1828871751}
   m_SourcePrefab: {fileID: 100100000, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
---- !u!1 &1118386713 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1712423970845708935, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1118386714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5618230925096208090, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1118386715 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8541761228609014496, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1118386716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3616822658221874625, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1118386717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2583445491074845051, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1118386718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118386717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf49cee6103a40148a92d89aced7b310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 1118386716}
-  - {fileID: 1118386715}
-  - {fileID: 198026081}
-  characterBodies:
-  - {fileID: 297884260}
-  - {fileID: 297884259}
-  - {fileID: 297884258}
-  truckAccessories:
-  - {fileID: 487808104}
-  - {fileID: 1118386714}
-  threeWheeledCarAccessories:
-  - {fileID: 487808104}
-  - {fileID: 1118386713}
-  vanAccessories:
-  - {fileID: 487808104}
-  - {fileID: 1757161716}
 --- !u!1001 &1130983116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15591,11 +15517,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8195901609404424556, guid: 6acf4d9e20115cb4b962d18e75786528, type: 3}
   m_PrefabInstance: {fileID: 801544502}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1757161716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 848557833375573352, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
-  m_PrefabInstance: {fileID: 1118386712}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1757184981
 PrefabInstance:
