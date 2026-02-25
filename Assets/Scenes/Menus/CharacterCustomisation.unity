@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 235622787}
   - component: {fileID: 235622786}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6255,7 +6255,7 @@ GameObject:
   - component: {fileID: 1920605268}
   - component: {fileID: 1920605267}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

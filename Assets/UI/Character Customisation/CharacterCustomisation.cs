@@ -20,6 +20,8 @@ public class CharacterCustomisation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
+        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[3]);
         currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
         currentMaterial.SetTexture("_BaseMap", truckColours[0]);
         currentCharacter = 0; // sets the current character index to 0 for the truck character
@@ -99,8 +101,10 @@ public class CharacterCustomisation : MonoBehaviour
 
     public void EnterGame()
     {
-        SceneManager.LoadScene("ALPHA with assets"); // loads the main menu scene
+        SceneManager.LoadScene("PortalTransition"); // loads the game via transition screen
     }
+
+ 
 
     public void OpenCharacterSelectionMenu()
      {
