@@ -11,10 +11,13 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     
     public void Unpause(GameObject upgradePrefab)
     {
-        eventSystem.SetSelectedGameObject(defaultOption);
-        Time.timeScale = 1.0f;
-        UpgradePlayer(upgradePrefab);
-        GetComponent<Canvas>().enabled = false;
+        if (GetComponent<Canvas>().enabled == true)
+        {
+            eventSystem.SetSelectedGameObject(defaultOption);
+            Time.timeScale = 1.0f;
+            UpgradePlayer(upgradePrefab);
+            GetComponent<Canvas>().enabled = false;
+        }
     }
 
     public void UpgradePlayer(GameObject prefabToUse)
