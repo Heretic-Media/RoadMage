@@ -1083,10 +1083,8 @@ MonoBehaviour:
   - {fileID: 3268324666377098943}
   - {fileID: 7629252147264749982}
   truckAccessories:
-  - {fileID: 624067937593235961}
   - {fileID: 5952938191405354404}
   threeWheeledCarAccessories:
-  - {fileID: 5952938191405354404}
   - {fileID: 624067937593235961}
 --- !u!1 &4577321390992704791
 GameObject:

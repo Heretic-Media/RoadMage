@@ -194,21 +194,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17373961}
   m_CullTransparentMesh: 1
---- !u!1 &98608628 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3268324666377098943, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
-  m_PrefabInstance: {fileID: 788235408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &166307655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7629252147264749982, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
-  m_PrefabInstance: {fileID: 788235408}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &660739241 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 624067937593235961, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
-  m_PrefabInstance: {fileID: 788235408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &788235408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,9 +313,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4373240430493565445, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1404956516}
-    - targetCorrespondingSourceObject: {fileID: 4373240430493565445, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1404956517}
   m_SourcePrefab: {fileID: 100100000, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
 --- !u!1 &941698123
 GameObject:
@@ -638,11 +620,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
---- !u!1 &1399415236 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5952938191405354404, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
-  m_PrefabInstance: {fileID: 788235408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1404956514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4373240430493565445, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
@@ -675,27 +652,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1404956517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404956514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf49cee6103a40148a92d89aced7b310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 98608628}
-  - {fileID: 166307655}
-  truckAccessories:
-  - {fileID: 0}
-  - {fileID: 1399415236}
-  threeWheeledCarAccessories:
-  - {fileID: 0}
-  - {fileID: 660739241}
 --- !u!1 &1493199351
 GameObject:
   m_ObjectHideFlags: 0
