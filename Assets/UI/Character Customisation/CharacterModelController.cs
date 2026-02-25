@@ -21,7 +21,11 @@ public class CharacterModelController : MonoBehaviour
         }
 
         models[CharacterCustomisation.currentCharacter].SetActive(true); // Activates the currently selected character model
-        characterBodies[CharacterCustomisation.currentCharacter].GetComponent<Renderer>().material = CharacterCustomisation.currentMaterial; // Sets the material of the character to the currently selected material
+
+        if (CharacterCustomisation.currentMaterial != null) // Checks if a material has been selected
+        {
+            characterBodies[CharacterCustomisation.currentCharacter].GetComponent<Renderer>().material = CharacterCustomisation.currentMaterial; // Sets the material of the character to the currently selected material
+        }
 
         if (CharacterCustomisation.currentCharacter == 0) // If the current character is the truck
         {
