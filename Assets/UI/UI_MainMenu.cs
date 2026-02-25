@@ -21,4 +21,9 @@ public class UI_MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("CharacterCustomisation");
     }
+
+    public void Transition()
+    {
+        SceneManager.LoadScene("PortalTransition");
+    }
 }
