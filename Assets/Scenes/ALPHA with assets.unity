@@ -2067,6 +2067,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4356762d3a4c9439ae57c1a42f4c55, type: 3}
+--- !u!1 &297884258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4299629151707004775, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &297884259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8327501897458062050, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &297884260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7208059484558279907, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &301880216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8835,6 +8850,10 @@ MonoBehaviour:
   - {fileID: 1118386716}
   - {fileID: 1118386715}
   - {fileID: 198026081}
+  characterBodies:
+  - {fileID: 297884260}
+  - {fileID: 297884259}
+  - {fileID: 297884258}
   truckAccessories:
   - {fileID: 487808104}
   - {fileID: 1118386714}
