@@ -7,6 +7,7 @@ public class CharacterModelController : MonoBehaviour
     public GameObject[] models; // Array to hold different character models
     public GameObject[] truckAccessories; // Array to hold different truck accessories
     public GameObject[] threeWheeledCarAccessories; // Array to hold different car accessories
+    public GameObject[] vanAccessories; // Array to hold different van accessories
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,11 +35,13 @@ public class CharacterModelController : MonoBehaviour
             }
             threeWheeledCarAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected car accessory
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        else if (CharacterCustomisation.currentCharacter == 2) // If the current character is the van
+        {
+            for (int i = 1; i < vanAccessories.Length; i++)
+            {
+                vanAccessories[i].SetActive(false); // Deactivates all van accessories
+            }
+            vanAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected van accessory
+        }
     }
 }

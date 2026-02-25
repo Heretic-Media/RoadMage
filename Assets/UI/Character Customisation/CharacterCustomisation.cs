@@ -9,8 +9,10 @@ public class CharacterCustomisation : MonoBehaviour
     public Material[] characterMaterials; // Array to hold different character materials
     public Texture[] truckColours; // Array to hold different truck colours
     public Texture[] threeWheelCarColours; // Array to hold different car colours
+    public Texture[] vanColours;
     public GameObject[] truckAccessories; // Array to hold different accessories
     public GameObject[] threeWheelCarAccessories; // Array to hold different accessories
+    public GameObject[] vanAccessories;
     public static int currentCharacter;
     private Material currentMaterial; // Reference to the currently selected material
     public static int currentAccessory;
@@ -22,8 +24,13 @@ public class CharacterCustomisation : MonoBehaviour
     {
         currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
         currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
+
+        currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
+        currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
+
         currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
         currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
+
         currentCharacter = 0; // sets the current character index to 0 for the truck character
         for (int i = 1; i < characterModels.Length; i++)
         {
@@ -62,6 +69,10 @@ public class CharacterCustomisation : MonoBehaviour
         {
             currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[colour]); // changes the character's material to selected colour
         }
+        if (currentCharacter == 2)
+        {
+            currentMaterial.SetTexture("_BaseMap", vanColours[colour]); // changes the character's material to selected colour
+        }
     }
 
     public void ChangeAccessory(int accessory)
@@ -75,6 +86,10 @@ public class CharacterCustomisation : MonoBehaviour
         for (int i = 1; i < threeWheelCarAccessories.Length; i++)
         {
             threeWheelCarAccessories[i].SetActive(false); // deactivates all car accessories
+        }
+        for (int i = 1; i < vanAccessories.Length; i++)
+        {
+            vanAccessories[i].SetActive(false); // deactivates all van accessories
         }
 
         if (currentCharacter == 0)
@@ -94,6 +109,16 @@ public class CharacterCustomisation : MonoBehaviour
                 if (i == accessory)
                 {
                     threeWheelCarAccessories[i].SetActive(true); // activates the selected accessory
+                }
+            }
+        }
+        if (currentCharacter == 2)
+        {
+            for (int i = 1; i < vanAccessories.Length; i++)
+            {
+                if (i == accessory)
+                {
+                    vanAccessories[i].SetActive(true); // activates the selected accessory
                 }
             }
         }
