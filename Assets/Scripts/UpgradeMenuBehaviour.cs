@@ -36,9 +36,13 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     {
         Init();
         Time.timeScale = 0.0f;
+        List<int> selectedupgrades = new List<int>();
         for (int i = 0; i < optionButtons.Length; i++)
         {
             options[i] = SelectUpgrades();
+            selectedupgrades.Add(options[i]);
+            availableUpgrades.Remove(options[i]);
+
             if (options[i] < 0)
             {
                 optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
@@ -50,6 +54,13 @@ public class UpgradeMenuBehaviour : MonoBehaviour
                     upgradePrefabs[options[i]].name;
             }
         }
+
+        foreach (var item in selectedupgrades)
+        {
+            availableUpgrades.Add(item);
+        }
+        selectedupgrades.Clear();
+
         GetComponent<Canvas>().enabled = true;
     }
 
@@ -90,6 +101,7 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     int SelectUpgrades()
     {
         int output = -1;
+
         if (availableUpgrades.Count > 0)
         {
             int index = Random.Range(0, availableUpgrades.Count);
