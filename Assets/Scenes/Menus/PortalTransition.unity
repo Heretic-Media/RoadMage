@@ -308,12 +308,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8028721972177212217, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2004440502}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4373240430493565445, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1404956516}
   m_SourcePrefab: {fileID: 100100000, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+--- !u!4 &788235409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8028721972177212217, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &788235410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1489649304008273430, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &788235411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6731197394341717873, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &788235412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2648603742349505561, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &788235413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7853108033248483740, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &788235414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8890889708697063325, guid: 4b7bacf6852f4214ab00668f67c562aa, type: 3}
+  m_PrefabInstance: {fileID: 788235408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &941698123
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +685,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1404956517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404956514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf49cee6103a40148a92d89aced7b310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 98608628}
+  - {fileID: 166307655}
+  - {fileID: 788235411}
+  characterBodies:
+  - {fileID: 788235414}
+  - {fileID: 788235413}
+  - {fileID: 788235412}
+  truckAccessories:
+  - {fileID: 2004440501}
+  - {fileID: 1399415236}
+  threeWheeledCarAccessories:
+  - {fileID: 2004440501}
+  - {fileID: 660739241}
+  vanAccessories:
+  - {fileID: 2004440501}
+  - {fileID: 788235410}
 --- !u!1 &1493199351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1103,37 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &2004440501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004440502}
+  m_Layer: 0
+  m_Name: none
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2004440502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004440501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788235409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026480340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e296d7db2c10888448d24831bf5cd133, type: 3}

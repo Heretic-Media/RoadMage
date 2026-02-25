@@ -5,8 +5,12 @@ using UnityEngine;
 public class CharacterModelController : MonoBehaviour
 {
     public GameObject[] models; // Array to hold different character models
+    public GameObject[] characterBodies; // Array to hold different character bodies for material changes
+
+
     public GameObject[] truckAccessories; // Array to hold different truck accessories
     public GameObject[] threeWheeledCarAccessories; // Array to hold different car accessories
+    public GameObject[] vanAccessories; // Array to hold different van accessories
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,10 +21,12 @@ public class CharacterModelController : MonoBehaviour
         }
 
         models[CharacterCustomisation.currentCharacter].SetActive(true); // Activates the currently selected character model
+        characterBodies[CharacterCustomisation.currentCharacter].GetComponent<Renderer>().material = CharacterCustomisation.currentMaterial; // Sets the material of the character to the currently selected material
 
         if (CharacterCustomisation.currentCharacter == 0) // If the current character is the truck
         {
-            for (int i = 0; i < truckAccessories.Length; i++)
+
+            for (int i = 1; i < truckAccessories.Length; i++)
             {
                 truckAccessories[i].SetActive(false); // Deactivates all truck accessories
             }
@@ -34,11 +40,13 @@ public class CharacterModelController : MonoBehaviour
             }
             threeWheeledCarAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected car accessory
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        else if (CharacterCustomisation.currentCharacter == 2) // If the current character is the van
+        {
+            for (int i = 1; i < vanAccessories.Length; i++)
+            {
+                vanAccessories[i].SetActive(false); // Deactivates all van accessories
+            }
+            vanAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected van accessory
+        }
     }
 }
