@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
@@ -52,7 +53,6 @@ namespace MyTools.VertexPainting
 
             if (hasHit)
             {
-                // Draw a green circle to indicate the brush influence area
                 Handles.color = Color.green;
                 Handles.DrawWireDisc(hit.point, hit.normal, brushSize);
 
@@ -100,7 +100,6 @@ namespace MyTools.VertexPainting
             }
             else
             {
-                // Draw a red circle to indicate an approximate brush area when no object is detected
                 Handles.color = Color.red;
                 Vector3 circlePos = ray.origin + ray.direction * 5f;
                 Handles.DrawWireDisc(circlePos, Vector3.up, brushSize);
@@ -153,3 +152,4 @@ namespace MyTools.VertexPainting
         }
     }
 }
+#endif

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 
 namespace VFX
@@ -35,7 +37,8 @@ namespace VFX
         {
             if (Application.isPlaying)
             {
-                UpdateShader((float)EditorApplication.timeSinceStartup);
+                // Use Time.realtimeSinceStartup at runtime instead of Application.timeSinceStartup
+                UpdateShader(Time.realtimeSinceStartup);
             }
         }
 
@@ -56,7 +59,7 @@ namespace VFX
             Vector3 currentPosition = target.position;
             positionHistory.Enqueue((currentTime, currentPosition));
 
-            Vector3 pastPosition = currentPosition; // fallback si aucune valeur trouvée
+            Vector3 pastPosition = currentPosition; // fallback if none found
 
             while (positionHistory.Count > 0)
             {
@@ -66,7 +69,7 @@ namespace VFX
 
                 if (age > 0.2f)
                 {
-                    // Trop vieux : on le retire de la queue
+                    // Too old: remove from queue
                     positionHistory.Dequeue();
                 }
                 else
@@ -76,8 +79,9 @@ namespace VFX
                 }
             }
 
-            Shader.SetGlobalVector(shaderPropertyID_Current, currentPosition);
-            Shader.SetGlobalVector(shaderPropertyID_Past, pastPosition);
+            // Shader.SetGlobalVector expects a Vector4, pass explicit Vector4
+            Shader.SetGlobalVector(shaderPropertyID_Current, new Vector4(currentPosition.x, currentPosition.y, currentPosition.z, 0f));
+            Shader.SetGlobalVector(shaderPropertyID_Past, new Vector4(pastPosition.x, pastPosition.y, pastPosition.z, 0f));
         }
     }
 }
