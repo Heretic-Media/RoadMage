@@ -38,7 +38,7 @@ public class CharacterModelController : MonoBehaviour
         }
         else if (CharacterCustomisation.currentCharacter == 1) // If the current character is the three-wheeled car
         {
-            for (int i = 0; i < threeWheeledCarAccessories.Length; i++)
+            for (int i = 1; i < threeWheeledCarAccessories.Length; i++)
             {
                 threeWheeledCarAccessories[i].SetActive(false); // Deactivates all car accessories
             }

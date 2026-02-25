@@ -43,7 +43,7 @@ public class CharacterCustomisation : MonoBehaviour
         currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
 
         currentCharacter = 0; // sets the current character index to 0 for the truck character
-        currentAccessory = -1; // sets the current accessory to be none
+        currentAccessory = 0; // sets the current accessory to be none
         for (int i = 1; i < characterModels.Length; i++)
         {
             characterModels[i].SetActive(false); // deactivates all character models except truck at the start
@@ -114,11 +114,11 @@ public class CharacterCustomisation : MonoBehaviour
     {
         currentAccessory = accessory;
 
-        for (int i = 0; i < truckAccessories.Length; i++)
+        for (int i = 1; i < truckAccessories.Length; i++)
         {
             truckAccessories[i].SetActive(false); // deactivates all truck accessories
         }
-        for (int i = 0; i < threeWheelCarAccessories.Length; i++)
+        for (int i = 1; i < threeWheelCarAccessories.Length; i++)
         {
             threeWheelCarAccessories[i].SetActive(false); // deactivates all car accessories
         }
@@ -129,7 +129,7 @@ public class CharacterCustomisation : MonoBehaviour
 
         if (currentCharacter == 0)
         {
-            for (int i = 0; i < truckAccessories.Length; i++)
+            for (int i = 1; i < truckAccessories.Length; i++)
             {
                 if (i == accessory)
                 {
@@ -139,7 +139,7 @@ public class CharacterCustomisation : MonoBehaviour
         }
         if (currentCharacter == 1)
         {
-            for (int i = 0; i < threeWheelCarAccessories.Length; i++)
+            for (int i = 1; i < threeWheelCarAccessories.Length; i++)
             {
                 if (i == accessory)
                 {
@@ -196,8 +196,6 @@ public class CharacterCustomisation : MonoBehaviour
         }
 
     }
-
-   
 
     public void OpenAccessorySelectionMenu()
     {
