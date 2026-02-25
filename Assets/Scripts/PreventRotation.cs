@@ -1,37 +1,35 @@
 using UnityEngine;
 
 public class PreventRotation : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+{ 
+    [SerializeField] private bool useGlobalRotation = true;
 
-    [SerializeField] private Quaternion startRotation = Quaternion.identity;
+    [SerializeField] private bool lockX = true;
+    [SerializeField] private bool lockY = true;
+    [SerializeField] private bool lockZ = true;
 
-    [SerializeField] private bool useGlobalStartRotation = false;
+    private Vector3 initialRotation;
 
-    void Start()
+    void Awake()
     {
-        startRotation = transform.localRotation;
-
-        //if (useGlobalStartRotation)
-        //{
-        //    startRotation = transform.rotation;
-        //}
-        //else
-        //{
-            
-        //}
+        initialRotation = transform.localEulerAngles;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if (useGlobalStartRotation)
+        Vector3 newRotation = transform.localEulerAngles;
+
+        if (lockX) newRotation.x = initialRotation.x;
+        if (lockY) newRotation.y = initialRotation.y;
+        if (lockZ) newRotation.z = initialRotation.z;
+
+        if (useGlobalRotation)
         {
-            transform.rotation = startRotation;
+            transform.eulerAngles = newRotation;
         }
         else
         {
-            transform.localRotation = startRotation;
+            transform.localEulerAngles = newRotation;
         }
     }
 }

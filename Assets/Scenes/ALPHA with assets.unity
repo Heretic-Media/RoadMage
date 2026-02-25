@@ -8792,7 +8792,6 @@ MonoBehaviour:
   - {fileID: 1118386716}
   - {fileID: 1118386715}
   truckAccessories:
-  - {fileID: 0}
   - {fileID: 1118386714}
   threeWheeledCarAccessories:
   - {fileID: 0}
