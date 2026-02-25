@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
 namespace MyTools.VertexPainting
 {
     public class VertexPainterEditor : EditorWindow
@@ -153,3 +154,4 @@ namespace MyTools.VertexPainting
         }
     }
 }
+#endif

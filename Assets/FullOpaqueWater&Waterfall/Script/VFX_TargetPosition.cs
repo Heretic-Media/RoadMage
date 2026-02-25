@@ -35,7 +35,7 @@ namespace VFX
         {
             if (Application.isPlaying)
             {
-                UpdateShader((float)EditorApplication.timeSinceStartup);
+                //UpdateShader((float)EditorApplication.timeSinceStartup);
             }
         }
 
@@ -44,7 +44,7 @@ namespace VFX
         {
             if (!Application.isPlaying)
             {
-                UpdateShader((float)EditorApplication.timeSinceStartup);
+                //UpdateShader((float)EditorApplication.timeSinceStartup);
             }
         }
 #endif
