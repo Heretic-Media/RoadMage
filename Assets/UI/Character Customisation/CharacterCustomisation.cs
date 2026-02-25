@@ -21,9 +21,9 @@ public class CharacterCustomisation : MonoBehaviour
     void Start()
     {
         currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[3]);
+        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
         currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", truckColours[0]);
+        currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
         currentCharacter = 0; // sets the current character index to 0 for the truck character
         for (int i = 1; i < characterModels.Length; i++)
         {
