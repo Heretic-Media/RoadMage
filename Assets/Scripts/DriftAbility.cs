@@ -27,7 +27,10 @@ public class DriftAbility : MonoBehaviour
         carController = transform.parent.GetComponent<TopDownCarController>();
     }
 
-
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("B to drift.", 4f);
+    }
     void Update()
     {
         transform.position = transform.parent.position;
