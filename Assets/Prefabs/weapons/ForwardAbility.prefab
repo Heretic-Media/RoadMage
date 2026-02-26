@@ -164,7 +164,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413861577208200737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -232,8 +232,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.45882353, b: 0.8, a: 0.5019608}
-      key1: {r: 1, g: 0.45882353, b: 0.8, a: 0}
+      key0: {r: 1, g: 0.45882353, b: 0.8, a: 1}
+      key1: {r: 1, g: 0.45882353, b: 0.8, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
