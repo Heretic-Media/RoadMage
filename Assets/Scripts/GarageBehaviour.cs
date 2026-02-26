@@ -10,7 +10,7 @@ public class GarageBehaviour : MonoBehaviour
     [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
     [SerializeField] private UIBarBehaviour infestationBar;
-    private GameObject upgradeMenu;
+    private UpgradeMenuBehaviour upgradeMenu;
     private int enemiesNum;
     private bool exploding = false;
     private float explodingTimer = 1f;
@@ -23,7 +23,7 @@ public class GarageBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        upgradeMenu = GameObject.FindGameObjectWithTag("UpgradeUI");
+        upgradeMenu = FindFirstObjectByType<UpgradeMenuBehaviour>();
         enemiesNum = enemiesObject.transform.childCount;
     }
 
@@ -69,7 +69,7 @@ public class GarageBehaviour : MonoBehaviour
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
-        AccessUpgradeMenu();
+        upgradeMenu.Pause();
         exploding = true;
         trigger.enabled = false;
 
@@ -77,8 +77,6 @@ public class GarageBehaviour : MonoBehaviour
 
     private void AccessUpgradeMenu()
     {
-        Time.timeScale = 0.0f;
-        upgradeMenu.GetComponent<Canvas>().enabled = true;
-        upgradeMenu.GetComponent<UpgradeMenuBehaviour>().init();
+        upgradeMenu.Pause();
     }
 }
