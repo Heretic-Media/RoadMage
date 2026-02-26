@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   summonPrefab: {fileID: 7847469486207784540, guid: 73be9fbab6693e04699698d4f580d747, type: 3}
   glyphGuidePrefab: {fileID: 1380823609535745943, guid: 62450187467f4644197ccaa096a17473, type: 3}
-  length: 10
+  length: 3
   sides: 5
   castingKey: 20
   castingTime: 1

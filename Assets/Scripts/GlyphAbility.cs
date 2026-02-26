@@ -154,7 +154,8 @@ public class GlyphAbility : MonoBehaviour
                     (rb.transform.position.z - lastPosition.z));
 
                 Vector3 direction = new Vector3(glyphUnitDirection.x, 0, glyphUnitDirection.y);
-                float projectedMagnitude = Vector3.Dot(movement, direction);
+                float projectedMagnitude = Vector3.Dot(movement, direction) - (movement.magnitude - Vector3.Dot(movement, direction));
+                if (projectedMagnitude < 0) projectedMagnitude = 0;
 
                 float sideLength = (length - 1) * 2;
                 if (glyphMovement + projectedMagnitude < 0)
