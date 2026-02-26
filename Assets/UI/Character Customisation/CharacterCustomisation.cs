@@ -55,6 +55,7 @@ public class CharacterCustomisation : MonoBehaviour
     public void ChangeCharacter(int character)
     {
         currentCharacter = character; // sets the current character
+        currentMaterial = characterMaterials[character]; // sets the current material to the default material for the selected character
         ChangeAccessory(currentAccessory); // updates the accessories to match the new character
 
 
