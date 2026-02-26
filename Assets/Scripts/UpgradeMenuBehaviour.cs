@@ -12,6 +12,8 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     int[] options;
     [SerializeField] EventSystem eventSystem;
 
+    [SerializeField] GameObject canvas;
+
     [SerializeField] GameObject[] upgradePrefabs;
     List<int> availableUpgrades = new List<int>();
 
@@ -29,12 +31,11 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         Init();
         Time.timeScale = 1.0f;
         UpgradePlayer(options[buttonIndex]);
-        GetComponent<Canvas>().enabled = false;
+        canvas.SetActive(false);
     }
 
     public void Pause()
     {
-        Init();
         Time.timeScale = 0.0f;
         List<int> selectedupgrades = new List<int>();
         for (int i = 0; i < optionButtons.Length; i++)
@@ -61,10 +62,11 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         }
         selectedupgrades.Clear();
 
-        GetComponent<Canvas>().enabled = true;
+        canvas.SetActive(true);
+        Init();
     }
 
-    public void UpgradePlayer(int prefabIndex)
+    void UpgradePlayer(int prefabIndex)
     {
         if (prefabIndex < 0)
         {
