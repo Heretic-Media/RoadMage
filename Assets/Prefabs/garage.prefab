@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 2134623525747645811}
   - component: {fileID: 8687260289726209119}
   - component: {fileID: 4081671271292619463}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: infestedIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
