@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
+    <Compile Include="Assets\Scripts\AbilityDesc.cs" />
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_VertexPaintEditor.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />

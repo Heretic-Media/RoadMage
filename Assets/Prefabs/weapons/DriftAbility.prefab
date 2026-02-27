@@ -4921,6 +4921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6352233872740281370}
   - component: {fileID: 2242553603432343779}
+  - component: {fileID: -7896137533681884194}
   m_Layer: 0
   m_Name: DriftAbility
   m_TagString: Untagged
@@ -4962,6 +4963,21 @@ MonoBehaviour:
   driftProjectileDelay: 0.5
   driftProjectileCharge: 1
   driftProjectileRate: 0.05
+--- !u!114 &-7896137533681884194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845318381417463026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2b810b89ce10841bb887a716eec378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Fiery Drift
+  abilityDesc: Drift to create a wave of fire.
+  icon: {fileID: 0}
 --- !u!1 &7355393933315031068
 GameObject:
   m_ObjectHideFlags: 0
