@@ -38,7 +38,7 @@ public class ForwardAbility : MonoBehaviour
 
         if (handbrake && (forwardVel >= speedThreshold) && attackCooldown <= 0)
         {
-            FireProjectile(2 * forwardVel, 1.5f * playerRigidbody.linearVelocity);
+            FireProjectile(forwardVel, 1.5f * playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
         else if (attackCooldown > 0)
