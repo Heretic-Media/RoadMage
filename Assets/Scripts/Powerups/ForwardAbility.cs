@@ -8,6 +8,7 @@ public class ForwardAbility : MonoBehaviour
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
     private int attackCooldown = 60;
+    [SerializeField] ParticleSystem indicatorParticles;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,15 @@ public class ForwardAbility : MonoBehaviour
     private void FixedUpdate()
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
+
+        if (forwardVel >= speedThreshold && attackCooldown <= 0)
+        {
+            indicatorParticles.Play();
+        }
+        else
+        {
+            indicatorParticles.Stop();
+        }
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;
