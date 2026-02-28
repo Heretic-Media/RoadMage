@@ -69,10 +69,11 @@ public class GarageBehaviour : MonoBehaviour
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
+        GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().AddScore(200);
+
         upgradeMenu.Pause();
         exploding = true;
         trigger.enabled = false;
-
     }
 
     private void AccessUpgradeMenu()

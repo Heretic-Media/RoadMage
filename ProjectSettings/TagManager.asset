@@ -10,6 +10,10 @@ TagManager:
   - UpgradeUI
   - SpeedFuelGauge
   - TutorialPopUpManager
+  - TutorialMovement
+  - TutorialDriftingBraking
+  - ScoreManager
+  - GaragesText
   layers:
   - Default
   - TransparentFX
