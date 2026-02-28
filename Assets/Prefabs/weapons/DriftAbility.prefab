@@ -4959,9 +4959,11 @@ MonoBehaviour:
   projectile: {fileID: 7355393933315031068}
   enableDriftProjectiles: 1
   driftTime: 0
-  driftProjectileDelay: 0.5
-  driftProjectileCharge: 1
+  driftAbilityDelay: 0.5
+  driftAbilityDecay: 4
+  driftAbilityBurnout: 10
   driftProjectileRate: 0.05
+  driftProjectileRandomness: 0.3
 --- !u!1 &7355393933315031068
 GameObject:
   m_ObjectHideFlags: 0

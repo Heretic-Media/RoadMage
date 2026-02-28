@@ -33,6 +33,7 @@ public class TopDownCarController : MonoBehaviour
 
     // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
+    public float minSteerThreshold = 0.3f;
     public float maxSteerAnglePerSec = 280f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
     public float steerAtTopSpeedFactor = 0.6f;
@@ -234,7 +235,7 @@ public class TopDownCarController : MonoBehaviour
 
         hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 
-        drifting = enableDrift && drift && speedAbs > driftMinSpeed;
+        drifting = enableDrift && drift && speedAbs > driftMinSpeed && Mathf.Abs(rawSteerInput) > minSteerThreshold;
 
         isBraking =
             (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
