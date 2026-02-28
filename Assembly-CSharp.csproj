@@ -64,7 +64,6 @@
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\ButtonBurstTrigger.cs" />
-    <Compile Include="Assets\Scripts\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\UIDialBehaviour.cs" />
@@ -72,24 +71,29 @@
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
-    <Compile Include="Assets\Scripts\GlyphTrigger.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
+    <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Powerups\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\FollowRigidbody.cs" />
     <Compile Include="Assets\Scripts\DriftAudio.cs" />
+    <Compile Include="Assets\Scripts\Powerups\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
-    <Compile Include="Assets\Scripts\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\Billboard.cs" />
     <Compile Include="Assets\UI\Character Customisation\CCUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
+    <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
     <Compile Include="Assets\Scripts\AbilityDesc.cs" />
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_VertexPaintEditor.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\DriftTutorialManager.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\TutorialPopUp.cs" />
+    <Compile Include="Assets\Scripts\Powerups\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
@@ -97,11 +101,11 @@
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterCustomisation.cs" />
+    <Compile Include="Assets\Scripts\Powerups\GlyphTrigger.cs" />
     <Compile Include="Assets\CursorFollow.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_TargetPosition.cs" />
@@ -110,6 +114,7 @@
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\KineticBlast.cs" />
     <Compile Include="Assets\Scripts\HealArea.cs" />
+    <Compile Include="Assets\Scripts\BuildingBounce.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\EdgeDetect.hlsl" />
@@ -130,6 +135,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\shaders\StencilMask.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TODO.txt" />
