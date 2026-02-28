@@ -78,6 +78,7 @@ public class TopDownCarController : MonoBehaviour
 
     [SerializeField] private bool hasThrottle;
     public bool drifting;
+    public float disabledTime = 0f;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject rightSparks;
@@ -126,91 +127,99 @@ public class TopDownCarController : MonoBehaviour
 
     void Update()
     {
-        var kb = Keyboard.current;
-        var gp = Gamepad.current;
-
-        float t = 0f;
-
-        if (gp != null)
+        if (disabledTime > 0)
         {
-            t = gp.rightTrigger.ReadValue() - gp.leftTrigger.ReadValue();
+            disabledTime -= Time.deltaTime;
+            if (disabledTime < 0) disabledTime = 0;
         }
-        else if (kb != null)
+        else
         {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) t += 1f;
-            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) t -= 1f;
-        }
+            var kb = Keyboard.current;
+            var gp = Gamepad.current;
 
-        rawThrottleInput = Mathf.Clamp(t, -1f, 1f);
+            float t = 0f;
 
-        float s = 0f;
-
-        if (gp != null)
-        {
-            s = gp.leftStick.x.ReadValue();
-        }
-        else if (kb != null)
-        {
-            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) s -= 1f;
-            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) s += 1f;
-        }
-
-        rawSteerInput = Mathf.Clamp(s, -1f, 1f);
-
-        handbrake =
-            (gp != null && gp.leftShoulder.isPressed) ||
-            (kb != null && kb[handbrakeKey].isPressed);
-
-        drift =
-            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
-            (kb != null && kb[driftKey].isPressed);
-
-        // speed gauge
-        if (speedGauge != null)
-        {
-            speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
-        }
-
-        // tutorial management
-        if (tutorialStage == 0)
-        {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed || kb.sKey.isPressed || kb.downArrowKey.isPressed)
+            if (gp != null)
             {
-                tutorialTimeDriven += Time.deltaTime;
-                if (tutorialTimeDriven > 5f)
+                t = gp.rightTrigger.ReadValue() - gp.leftTrigger.ReadValue();
+            }
+            else if (kb != null)
+            {
+                if (kb.wKey.isPressed || kb.upArrowKey.isPressed) t += 1f;
+                if (kb.sKey.isPressed || kb.downArrowKey.isPressed) t -= 1f;
+            }
+
+            rawThrottleInput = Mathf.Clamp(t, -1f, 1f);
+
+            float s = 0f;
+
+            if (gp != null)
+            {
+                s = gp.leftStick.x.ReadValue();
+            }
+            else if (kb != null)
+            {
+                if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) s -= 1f;
+                if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) s += 1f;
+            }
+
+            rawSteerInput = Mathf.Clamp(s, -1f, 1f);
+
+            handbrake =
+                (gp != null && gp.leftShoulder.isPressed) ||
+                (kb != null && kb[handbrakeKey].isPressed);
+
+            drift =
+                (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+                (kb != null && kb[driftKey].isPressed);
+
+            // speed gauge
+            if (speedGauge != null)
+            {
+                speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
+            }
+
+            // tutorial management
+            if (tutorialStage == 0)
+            {
+                if (kb.wKey.isPressed || kb.upArrowKey.isPressed || kb.sKey.isPressed || kb.downArrowKey.isPressed)
                 {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                    tutorialTimeDriven += Time.deltaTime;
+                    if (tutorialTimeDriven > 5f)
                     {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = true;
+                        if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = true;
+                        }
+                        tutorialStage = 1;
                     }
-                    tutorialStage = 1;
+                }
+            }
+            else if (tutorialStage == 1)
+            {
+                if ((gp != null && gp.leftShoulder.isPressed) || (kb != null && kb[handbrakeKey].isPressed) || (gp != null && gp.buttonSouth.isPressed) || (kb != null && kb[driftKey].isPressed))
+                {
+                    tutorialTimeDriftingBraking += Time.deltaTime;
+                    if (tutorialTimeDriftingBraking > 5f)
+                    {
+                        if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = false;
+                        }
+                        if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = false;
+                        }
+                        tutorialStage = 2;
+                    }
                 }
             }
         }
-        else if (tutorialStage == 1)
-        {
-            if ((gp != null && gp.leftShoulder.isPressed) || (kb != null && kb[handbrakeKey].isPressed) || (gp != null && gp.buttonSouth.isPressed) || (kb != null && kb[driftKey].isPressed))
-            {
-                tutorialTimeDriftingBraking += Time.deltaTime;
-                if (tutorialTimeDriftingBraking > 5f)
-                {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = false;
-                    }
-                    if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = false;
-                    }
-                    tutorialStage = 2;
-                }
-            }
-        }
-
     }
 
     void FixedUpdate()
     {
+        if (disabledTime > 0) return;
         if (!rb) return;
 
         /// Keep rb upright

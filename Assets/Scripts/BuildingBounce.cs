@@ -5,6 +5,8 @@ public class BuildingBounce : MonoBehaviour
     [SerializeField] private float bounceMultiplier = 3f;
     [SerializeField] private float minBounceForce = 15f;
     [SerializeField] private float maxBounceForce = 20f;
+
+    [SerializeField] private float disableTime = 2f;
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("HIT: " + collision.gameObject.name);
@@ -34,6 +36,12 @@ public class BuildingBounce : MonoBehaviour
                 {
                     collisionRB.AddForce(force, ForceMode.VelocityChange);
                 }
+            }
+
+            TopDownCarController controller = collision.gameObject.GetComponent<TopDownCarController>();
+            if (controller != null)
+            {
+                controller.disabledTime = disableTime;
             }
         }
     }
