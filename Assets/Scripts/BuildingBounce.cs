@@ -27,19 +27,19 @@ public class BuildingBounce : MonoBehaviour
 
                 if (force.magnitude < minBounceForce)
                 {
-                    collisionRB.AddForce(unitCollisionDirection * minBounceForce, ForceMode.Impulse);
+                    collisionRB.AddForce(unitCollisionDirection * minBounceForce * 0.7f, ForceMode.Impulse);
                     collisionRB.AddForce(Vector3.up * minBounceForce * 0.3f, ForceMode.Impulse);
                 }
                 else 
                 {
                     if (force.magnitude > maxBounceForce)
                     {
-                        collisionRB.AddForce(unitCollisionDirection * maxBounceForce, ForceMode.Impulse);
+                        collisionRB.AddForce(unitCollisionDirection * maxBounceForce * 0.7f, ForceMode.Impulse);
                         collisionRB.AddForce(Vector3.up * maxBounceForce * 0.3f, ForceMode.Impulse);
                     }
                     else
                     {
-                        collisionRB.AddForce(unitCollisionDirection * force.magnitude, ForceMode.Impulse);
+                        collisionRB.AddForce(unitCollisionDirection * force.magnitude * 0.7f, ForceMode.Impulse);
                         collisionRB.AddForce(Vector3.up * force.magnitude * 0.3f, ForceMode.Impulse);
                     }
 
