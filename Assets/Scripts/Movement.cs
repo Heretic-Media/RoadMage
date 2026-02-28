@@ -87,11 +87,6 @@ public class TopDownCarController : MonoBehaviour
 
     private GameObject speedGauge;
 
-    // These are all used for tutorial pop-up management
-    private float tutorialTimeDriven = 0f;
-    private float tutorialTimeDriftingBraking = 0f;
-    private int tutorialStage = 0;
-
     // made this a toggle for testing the block out level feel free to switch it back - Cy
     void Awake()
     {
@@ -116,12 +111,6 @@ public class TopDownCarController : MonoBehaviour
 
         //find speed gauge
         speedGauge = GameObject.FindGameObjectWithTag("SpeedFuelGauge");
-
-        //tutorial setup
-        if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
-        {
-            GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = true;
-        }
     }
 
     void Update()
@@ -169,42 +158,6 @@ public class TopDownCarController : MonoBehaviour
         if (speedGauge != null)
         {
             speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
-        }
-
-        // tutorial management
-        if (tutorialStage == 0)
-        {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed || kb.sKey.isPressed || kb.downArrowKey.isPressed)
-            {
-                tutorialTimeDriven += Time.deltaTime;
-                if (tutorialTimeDriven > 5f)
-                {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = true;
-                    }
-                    tutorialStage = 1;
-                }
-            }
-        }
-        else if (tutorialStage == 1)
-        {
-            if ((gp != null && gp.leftShoulder.isPressed) || (kb != null && kb[handbrakeKey].isPressed) || (gp != null && gp.buttonSouth.isPressed) || (kb != null && kb[driftKey].isPressed))
-            {
-                tutorialTimeDriftingBraking += Time.deltaTime;
-                if (tutorialTimeDriftingBraking > 5f)
-                {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = false;
-                    }
-                    if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = false;
-                    }
-                    tutorialStage = 2;
-                }
-            }
         }
 
     }
