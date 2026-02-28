@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1289240882338288086}
   - component: {fileID: 3456195617609597708}
   - component: {fileID: 1503486157476315596}
+  - component: {fileID: 1395110030943963729}
   m_Layer: 0
   m_Name: garage
   m_TagString: Untagged
@@ -99,7 +100,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838812369589495160}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4dd3d6f9dc8461448817fe3ecba3114, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -120,7 +121,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838812369589495160}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c4dd3d6f9dc8461448817fe3ecba3114, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -174,6 +175,19 @@ MonoBehaviour:
   - {fileID: 1289240882338288086}
   trigger: {fileID: 3456195617609597708}
   infestationBar: {fileID: 7390734588132931651}
+--- !u!114 &1395110030943963729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838812369589495160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d4383fa07c0154fb138d51f02ba0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceMultiplier: 8
 --- !u!1 &3087967873849494639
 GameObject:
   m_ObjectHideFlags: 0
