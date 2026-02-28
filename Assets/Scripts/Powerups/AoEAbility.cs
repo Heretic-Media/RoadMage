@@ -17,6 +17,11 @@ public class AoEAbility : MonoBehaviour
         playerCollision.collisionEvents.Add(attackEvent);
     }
 
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hit an enemy to summon a magic attack.", 4f);
+    }
+
     private void FixedUpdate()
     {
         if (attackCooldown > 0)

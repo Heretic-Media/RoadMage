@@ -89,6 +89,7 @@
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_VertexPaintEditor.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\DriftTutorialManager.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUp.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
