@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ec55916b5c2b1ff42964fe3a036c1555, type: 2}
+      objectReference: {fileID: 2100000, guid: 6117a97ddf5183d41a74d8b1327d8266, type: 2}
     - target: {fileID: 919132149155446097, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
       propertyPath: m_Name
       value: two part house
