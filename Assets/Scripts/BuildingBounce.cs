@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BuildingBounce : MonoBehaviour
 {
-    [SerializeField] private float bounceMultiplier = 1f;
-    [SerializeField] private float minBounceForce = 5f;
-    [SerializeField] private float maxBounceForce = 15f;
+    [SerializeField] private float bounceMultiplier = 3f;
+    [SerializeField] private float minBounceForce = 15f;
+    [SerializeField] private float maxBounceForce = 20f;
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("HIT: " + collision.gameObject.name);
