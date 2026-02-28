@@ -10,4 +10,9 @@ public class GarageTextBehaviour : MonoBehaviour
         garagesDone++;
         GetComponent<TextMeshProUGUI>().text = garagesDone.ToString() + "/4";
     }
+
+    public int GetGaragesDone()
+    {
+        return garagesDone;
+    }
 }

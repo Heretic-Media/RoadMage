@@ -10,6 +10,7 @@ public class GarageBehaviour : MonoBehaviour
     [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
     [SerializeField] private UIBarBehaviour infestationBar;
+    [SerializeField] private GameObject victoryPrefab;
     private UpgradeMenuBehaviour upgradeMenu;
     private int enemiesNum;
     private bool exploding = false;
@@ -72,7 +73,16 @@ public class GarageBehaviour : MonoBehaviour
         GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().AddScore(200);
         GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().AddGarageScore();
 
-        upgradeMenu.Pause();
+        if (GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().GetGaragesDone() == 4)
+        {
+            GameObject victoryVFX = Instantiate(victoryPrefab);
+            victoryVFX.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        }
+        else
+        {
+            upgradeMenu.Pause();
+        }
+
         exploding = true;
         trigger.enabled = false;
     }
