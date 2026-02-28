@@ -80,6 +80,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _DistanceTillDisappearing: 0.128
+    - _Normal_Intensity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SeeThroughDistance: 2.5
