@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class BuildingBounce : MonoBehaviour
 {
-    [SerializeField] private float bounceMultiplier = 3f;
+    [SerializeField] private float bounceMultiplier = 1f;
+    [SerializeField] private float minBounceForce = 5f;
+    [SerializeField] private float maxBounceForce = 15f;
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("HIT: " + collision.gameObject.name);
@@ -17,12 +19,21 @@ public class BuildingBounce : MonoBehaviour
 
                 Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal * 5, Color.red, 2f);
 
-                Debug.Log("BOUNCE: ");
-                Debug.DrawRay(
-                    collision.transform.position,
-                    unitCollisionDirection * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier),
-                    Color.green, 2f);
-                collisionRB.AddForce(unitCollisionDirection * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier), ForceMode.VelocityChange);
+                Vector3 force = unitCollisionDirection * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier);
+                Debug.DrawRay(collision.transform.position, force, Color.green, 2f);
+                Debug.Log("BOUNCE: " + force.magnitude.ToString());
+                if (force.magnitude > maxBounceForce) 
+                {
+                    collisionRB.AddForce(unitCollisionDirection * maxBounceForce, ForceMode.VelocityChange);
+                }
+                else if (force.magnitude < minBounceForce) 
+                {
+                    collisionRB.AddForce(unitCollisionDirection * minBounceForce, ForceMode.VelocityChange);
+                }
+                else
+                {
+                    collisionRB.AddForce(force, ForceMode.VelocityChange);
+                }
             }
         }
     }
