@@ -18,13 +18,12 @@ public class BuildingBounce : MonoBehaviour
                 Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal * 5, Color.red, 2f);
 
                 Vector3 direction = new Vector3(unitCollisionDirection.x, 0, unitCollisionDirection.z);
+                float projectedMagnitude = Vector3.Dot(collisionRB.linearVelocity, direction);
+                if (projectedMagnitude < 0) projectedMagnitude = 0;
 
                 Debug.Log("BOUNCE: ");
-                Debug.DrawRay(
-                    collision.transform.position,
-                    direction * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier),
-                    Color.green, 2f);
-                collisionRB.AddForce(direction * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier), ForceMode.Impulse);
+                Debug.DrawRay(collision.transform.position, direction * projectedMagnitude * bounceMultiplier, Color.green, 2f);
+                collisionRB.AddForce(direction * projectedMagnitude * bounceMultiplier, ForceMode.Impulse);
             }
         }
     }

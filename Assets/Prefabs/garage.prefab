@@ -158,7 +158,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2134623525747645811}
-  - {fileID: 3550524637598501126}
   m_Father: {fileID: 6851335415810190822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2574125177399062047
@@ -308,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d4383fa07c0154fb138d51f02ba0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceMultiplier: 2
+  bounceMultiplier: 0.5
 --- !u!1 &3087967873849494639
 GameObject:
   m_ObjectHideFlags: 0
