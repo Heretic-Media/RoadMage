@@ -30,6 +30,7 @@ public class TutorialPopUpManager : MonoBehaviour
         {
             child.SetPositionAuto(num);
             num++;
+            child.gameObject.GetComponent<RectTransform>().localScale = Vector3.one * 0.36f;
         }
     }
 
