@@ -4959,7 +4959,7 @@ MonoBehaviour:
   projectile: {fileID: 7355393933315031068}
   enableDriftProjectiles: 1
   driftTime: 0
-  driftAbilityDelay: 1
+  driftAbilityDelay: 0.5
   driftAbilityDecay: 4
   driftAbilityBurnout: 10
   driftProjectileRate: 0.05

@@ -9,6 +9,7 @@ public class DriftAbility : MonoBehaviour
 
     [Tooltip("Time spent drifting for debugging")]
     [SerializeField] private float driftTime = 0;
+    private float driftDelayTime = 0;
 
     [Tooltip("Drift time needed before spawning first projectile")]
     [SerializeField] private float driftAbilityDelay = 1f;
@@ -38,17 +39,26 @@ public class DriftAbility : MonoBehaviour
         
         if (carController.drifting)
         {
-            if (driftTime >= driftAbilityBurnout)
+            if (driftDelayTime < driftAbilityDelay) 
             {
-                driftTime = driftAbilityBurnout;
+                driftDelayTime += Time.deltaTime;
             }
-            else
+            else 
             {
-                driftTime += Time.deltaTime;
+                if (driftTime >= driftAbilityBurnout)
+                {
+                    driftTime = driftAbilityBurnout;
+                }
+                else
+                {
+                    driftTime += Time.deltaTime;
+                }
             }
         }
         else 
-        { 
+        {
+            driftDelayTime = 0;
+
             if (driftTime <= 0) 
             {
                 driftTime = 0;
@@ -61,7 +71,7 @@ public class DriftAbility : MonoBehaviour
 
         /// Drift Projectiles
 
-        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftTime > driftAbilityDelay)
+        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftDelayTime > driftAbilityDelay)
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
 
