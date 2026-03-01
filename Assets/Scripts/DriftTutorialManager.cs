@@ -11,7 +11,7 @@ public class DriftTutorialManager : MonoBehaviour
 
         if (delay < 0)
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("A to drift.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hold <sprite=33> to drift.", 4f);
             Destroy(gameObject);
         }
     }

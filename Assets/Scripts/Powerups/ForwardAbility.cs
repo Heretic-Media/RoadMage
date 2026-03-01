@@ -18,7 +18,7 @@ public class ForwardAbility : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("LB to fire a blast while moving fast.", 4f);
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("<sprite=123> to fire a blast while moving fast.", 4f);
     }
 
     private void FixedUpdate()

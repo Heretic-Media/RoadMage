@@ -5181,6 +5181,7 @@ GameObject:
   - component: {fileID: 490558661627578659}
   - component: {fileID: 2648652334582576740}
   - component: {fileID: 8271608109788875772}
+  - component: {fileID: 5676113962504397362}
   m_Layer: 0
   m_Name: ForwardAbility
   m_TagString: Untagged
@@ -5236,6 +5237,20 @@ MonoBehaviour:
   abilityName: Kinetic Blast
   abilityDesc: At high speed, hit the handbrake to project your momentum.
   icon: {fileID: 0}
+--- !u!114 &5676113962504397362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136298079975930903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526a6a8a87c5eb4429a13dceee71a150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contents: Press <sprite=123> while driving at high speeds to fire projectiles
+  duration: 0
 --- !u!1 &8961348948668084600
 GameObject:
   m_ObjectHideFlags: 0

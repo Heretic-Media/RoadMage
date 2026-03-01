@@ -37,6 +37,10 @@ public class DriftAbility : MonoBehaviour
         carController = transform.parent.GetComponent<TopDownCarController>();
     }
 
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hold <sprite=33> to shoot flames while drifting.", 4f);
+    }
 
     void Update()
     {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9188757637268469998}
   - component: {fileID: 5822224047908747682}
   - component: {fileID: 2344102539846125578}
+  - component: {fileID: 4649051149944564416}
   m_Layer: 0
   m_Name: AoEAbility
   m_TagString: Untagged
@@ -62,6 +63,20 @@ MonoBehaviour:
   abilityName: Explosive Ram
   abilityDesc: Ram into enemies to cause a large explosion.
   icon: {fileID: 0}
+--- !u!114 &4649051149944564416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142619097945221916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526a6a8a87c5eb4429a13dceee71a150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contents: Drive through enemies to drop explosive magic
+  duration: 0
 --- !u!1 &2386911881986272307
 GameObject:
   m_ObjectHideFlags: 0
