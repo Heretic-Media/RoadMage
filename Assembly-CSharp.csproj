@@ -63,11 +63,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
-    <Compile Include="Assets\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\UIDialBehaviour.cs" />
-    <Compile Include="Assets\MenuCursor.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
@@ -91,6 +89,7 @@
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_VertexPaintEditor.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\DriftTutorialManager.cs" />
+    <Compile Include="Assets\UI\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUp.cs" />
     <Compile Include="Assets\Scripts\Powerups\CollisionAbility.cs" />
@@ -102,8 +101,8 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterCustomisation.cs" />
     <Compile Include="Assets\Scripts\Powerups\GlyphTrigger.cs" />
-    <Compile Include="Assets\CursorFollow.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
+    <Compile Include="Assets\UI\MenuCursor.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
@@ -111,10 +110,12 @@
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_TargetPosition.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
     <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
+    <Compile Include="Assets\UI\CursorFollow.cs" />
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\KineticBlast.cs" />
     <Compile Include="Assets\Scripts\HealArea.cs" />
     <Compile Include="Assets\Scripts\BuildingBounce.cs" />
+    <Compile Include="Assets\Scripts\UIPauseMenuFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\EdgeDetect.hlsl" />
