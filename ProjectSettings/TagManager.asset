@@ -15,6 +15,7 @@ TagManager:
   - ScoreManager
   - GaragesText
   - Music
+  - IntuitiveSwitching
   layers:
   - Default
   - TransparentFX

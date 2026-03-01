@@ -68,8 +68,10 @@
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\UIDialBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\Powerups\PopUpOnWeapon.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
+    <Compile Include="Assets\Scripts\UIAbilityBar.cs" />
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\DeBugMenu.cs" />
