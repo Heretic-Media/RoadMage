@@ -662,7 +662,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: returnToPauseMenu
         m_Mode: 1
@@ -1056,6 +1056,204 @@ CanvasRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7488684843663638175, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
   m_PrefabInstance: {fileID: 1294899157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &174211140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 633504000}
+    m_Modifications:
+    - target: {fileID: 3289052273565567909, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289052273565567909, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289052273565567909, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289052273565567909, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361843791430380565, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361843791430380565, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361843791430380565, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361843791430380565, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432840115745501464, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_Name
+      value: ability bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 292.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -66.88636
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -161.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222935795686991012, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222935795686991012, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222935795686991012, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222935795686991012, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317897445799245774, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317897445799245774, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317897445799245774, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317897445799245774, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323319270269113117, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323319270269113117, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323319270269113117, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8323319270269113117, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802876970458867004, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802876970458867004, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802876970458867004, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802876970458867004, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+--- !u!224 &174211141 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5215186637274890240, guid: 6a0aae305cd0118498f81fba2a6602c3, type: 3}
+  m_PrefabInstance: {fileID: 174211140}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &189874309
 GameObject:
@@ -1481,9 +1679,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1548922100}
+  m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 194555497}
-  m_HandleRect: {fileID: 1548922099}
+  m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0.0001
   m_MaxValue: 1
@@ -1731,7 +1929,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 723682099}
-  m_Father: {fileID: 153804476}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -1898,7 +2096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: OpenVolumeOptions
         m_Mode: 1
@@ -2172,7 +2370,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: OpenCodex
         m_Mode: 1
@@ -2417,7 +2615,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 231569946}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2502,7 +2700,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1653515862}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3484,7 +3682,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: ReturnToMainMenu
         m_Mode: 1
@@ -3762,7 +3960,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -3919,8 +4117,6 @@ GameObject:
   - component: {fileID: 633503999}
   - component: {fileID: 633503998}
   - component: {fileID: 633503997}
-  - component: {fileID: 633504001}
-  - component: {fileID: 633504002}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4010,6 +4206,8 @@ RectTransform:
   - {fileID: 873342}
   - {fileID: 83751995}
   - {fileID: 109907522}
+  - {fileID: 1314797200}
+  - {fileID: 174211141}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4497,7 +4695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -5594,7 +5792,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 153804476}
   - {fileID: 436496866}
   m_Father: {fileID: 1117020905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5746,8 +5943,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 115052422}
+  m_Children: []
   m_Father: {fileID: 747892810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -5799,7 +5995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: AreYouSureYouWantToQuit
         m_Mode: 1
@@ -6120,7 +6316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: OpenOptions
         m_Mode: 1
@@ -6253,7 +6449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -6385,7 +6581,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: returnToPauseMenu
         m_Mode: 1
@@ -6578,7 +6774,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 268363265}
-  - {fileID: 136850072}
   m_Father: {fileID: 1117020905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -7559,7 +7754,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 153804476}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -8744,7 +8939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: returnToPauseMenu
         m_Mode: 1
@@ -8877,7 +9072,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: OpenOptions
         m_Mode: 1
@@ -8997,9 +9192,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 231569946}
-  m_Father: {fileID: 1653515862}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9681,7 +9875,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504002}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DeBugMenu, Assembly-CSharp
         m_MethodName: KillAllSLimes
         m_Mode: 1
@@ -9859,8 +10053,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1548922099}
+  m_Children: []
   m_Father: {fileID: 268363265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10350,7 +10543,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 913058987}
-  m_Father: {fileID: 153804476}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11430,7 +11623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -12430,7 +12623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 633504001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPauseMenuFunctions, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -12806,3 +12999,9 @@ SceneRoots:
   - {fileID: 1118386712}
   - {fileID: 1732499544}
   - {fileID: 1548890445}
+  - {fileID: 315665623}
+  - {fileID: 401769096}
+  - {fileID: 421401290}
+  - {fileID: 1166986075}
+  - {fileID: 1438942444}
+  - {fileID: 1720012214}
