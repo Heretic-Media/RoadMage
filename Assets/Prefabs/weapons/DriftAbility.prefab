@@ -4961,8 +4961,9 @@ MonoBehaviour:
   enableDriftProjectiles: 1
   driftTime: 0
   driftAbilityDelay: 0.5
-  driftAbilityDecay: 4
+  driftAbilityDecay: 3
   driftAbilityBurnout: 10
+  driftAbilityCooldownRate: 2
   driftProjectileRate: 0.05
   driftProjectileRandomness: 0.3
 --- !u!114 &8790057563998037608

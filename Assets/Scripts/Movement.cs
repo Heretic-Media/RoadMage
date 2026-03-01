@@ -78,7 +78,8 @@ public class TopDownCarController : MonoBehaviour
 
     [SerializeField] private bool hasThrottle;
     public bool drifting;
-    public float disabledTime = 0f;
+
+    public float disabledTime = 2f;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject rightSparks;
