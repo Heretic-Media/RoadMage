@@ -893,6 +893,16 @@ MonoBehaviour:
   cameraSpeedSmoothingMultiplier: 0.21
   relativeRotateCamera: 1
   lerpMultiplier: 1
+  playIntroAnimation: 1
+  introStartDistance: 10
+  introStartOffsetZ: 5
+  introAnimationDuration: 2
+  introAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &524942276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,7 +2231,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168547749}
-  - component: {fileID: 1168547748}
   - component: {fileID: 1168547745}
   - component: {fileID: 1168547747}
   - component: {fileID: 1168547746}
@@ -2340,14 +2349,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1168547748
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168547744}
-  m_Enabled: 1
 --- !u!4 &1168547749
 Transform:
   m_ObjectHideFlags: 0
