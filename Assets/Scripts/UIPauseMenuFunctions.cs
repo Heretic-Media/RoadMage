@@ -18,6 +18,9 @@ public class UIPauseMenuFunctions : MonoBehaviour
     public GameObject eventsSystem;
     private bool buttonPressed = false;
 
+    public GameObject deBugMenu;
+    private bool deBugOn = false;
+
     public void Pause()
     {
         Time.timeScale = 0;
@@ -33,7 +36,8 @@ public class UIPauseMenuFunctions : MonoBehaviour
         options.SetActive(false);
         codex.SetActive(false);
         pauseMenu.SetActive(false);
-
+        deBugMenu.SetActive(false);
+        deBugOn = false;
     }
 
     public void OpenOptions()
@@ -97,6 +101,28 @@ public class UIPauseMenuFunctions : MonoBehaviour
         Application.Quit();
     }
 
+    public void ToggleDebugMenu()
+    {
+        if (!deBugOn)
+        {
+            deBugOn = true;
+            Time.timeScale = 0;
+            options.SetActive(false);
+            codex.SetActive(false);
+            pauseMenu.SetActive(false);
+            deBugMenu.SetActive(true);
+        }
+        else
+        {
+            deBugOn = false;
+            Time.timeScale = 1;
+            options.SetActive(false);
+            codex.SetActive(false);
+            pauseMenu.SetActive(false);
+            deBugMenu.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         var kb = Keyboard.current;
@@ -117,12 +143,20 @@ public class UIPauseMenuFunctions : MonoBehaviour
                     {
                         Pause();
                     }
+                    return;
                 }
-                
+                return;
             }
+            if (kb.scrollLockKey.isPressed && kb.insertKey.isPressed)
+            {
+                ToggleDebugMenu();
+                return;
+            }
+
             else
             {
                 buttonPressed = false;
+                deBugOn = false;
             }
         }
     }
