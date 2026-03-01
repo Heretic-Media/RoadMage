@@ -168,6 +168,7 @@ public class UIPauseMenuFunctions : MonoBehaviour
                 }
                 return;
             }
+
             if (kb.scrollLockKey.isPressed && kb.insertKey.isPressed)
             {
                 ToggleDebugMenu();
