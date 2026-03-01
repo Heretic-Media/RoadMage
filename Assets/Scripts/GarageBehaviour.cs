@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ public class GarageBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject enemiesObject;
     [SerializeField] private GameObject infestedIndicator;
+    [SerializeField] private GameObject infestationText;
     [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
     [SerializeField] private UIBarBehaviour infestationBar;
@@ -60,6 +62,12 @@ public class GarageBehaviour : MonoBehaviour
         if (infestationBar != null)
         {
             infestationBar.UpdateBar((float)GetEnemies() / (float)enemiesNum);
+        }
+
+        TextMeshProUGUI tmp = infestationText.GetComponent<TextMeshProUGUI>();
+        if(tmp != null) 
+        {
+            tmp.SetText(GetEnemies().ToString() + " / " + enemiesNum.ToString());
         }
     }
 

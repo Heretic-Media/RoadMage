@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class BuildingBounce : MonoBehaviour
 {
-    [SerializeField] private float bounceMultiplier = 1f;
-    [SerializeField] private float minBounceForce = 5f;
-    [SerializeField] private float maxBounceForce = 15f;
+    [SerializeField] private float bounceMultiplier = 3f;
+    [SerializeField] private float minBounceForce = 15f;
+    [SerializeField] private float maxBounceForce = 20f;
+
+    [SerializeField] private float disableTime = 2f;
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("HIT: " + collision.gameObject.name);
@@ -22,17 +24,30 @@ public class BuildingBounce : MonoBehaviour
                 Vector3 force = unitCollisionDirection * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier);
                 Debug.DrawRay(collision.transform.position, force, Color.green, 2f);
                 Debug.Log("BOUNCE: " + force.magnitude.ToString());
-                if (force.magnitude > maxBounceForce) 
+
+                if (force.magnitude < minBounceForce)
                 {
-                    collisionRB.AddForce(unitCollisionDirection * maxBounceForce, ForceMode.VelocityChange);
+                    collisionRB.AddForce(unitCollisionDirection * minBounceForce * 0.7f, ForceMode.Impulse);
+                    collisionRB.AddForce(Vector3.up * minBounceForce * 0.3f, ForceMode.Impulse);
                 }
-                else if (force.magnitude < minBounceForce) 
+                else 
                 {
-                    collisionRB.AddForce(unitCollisionDirection * minBounceForce, ForceMode.VelocityChange);
-                }
-                else
-                {
-                    collisionRB.AddForce(force, ForceMode.VelocityChange);
+                    if (force.magnitude > maxBounceForce)
+                    {
+                        collisionRB.AddForce(unitCollisionDirection * maxBounceForce * 0.7f, ForceMode.Impulse);
+                        collisionRB.AddForce(Vector3.up * maxBounceForce * 0.3f, ForceMode.Impulse);
+                    }
+                    else
+                    {
+                        collisionRB.AddForce(unitCollisionDirection * force.magnitude * 0.7f, ForceMode.Impulse);
+                        collisionRB.AddForce(Vector3.up * force.magnitude * 0.3f, ForceMode.Impulse);
+                    }
+
+                    TopDownCarController controller = collision.gameObject.GetComponent<TopDownCarController>();
+                    if (controller != null)
+                    {
+                        controller.disabledTime = disableTime;
+                    }
                 }
             }
         }

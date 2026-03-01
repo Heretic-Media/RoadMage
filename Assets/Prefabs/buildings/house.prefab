@@ -738,9 +738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d4383fa07c0154fb138d51f02ba0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceMultiplier: 1
-  minBounceForce: 5
-  maxBounceForce: 15
+  bounceMultiplier: 3
+  minBounceForce: 15
+  maxBounceForce: 20
 --- !u!4 &5692490808511770953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 799c7cdd373787d46aff7056270b8f08, type: 3}
