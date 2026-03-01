@@ -16,6 +16,8 @@ public class UIPauseMenuFunctions : MonoBehaviour
     public GameObject codex;
     public GameObject codexFirstSelect;
     public GameObject eventsSystem;
+    public GameObject tutorialManager;
+    private bool tutorialsEnabled = true;
     private bool buttonPressed = false;
 
     public GameObject deBugMenu;
@@ -54,6 +56,25 @@ public class UIPauseMenuFunctions : MonoBehaviour
         normalOptions.SetActive(false);
         volumeOptions.SetActive(true);
         eventsSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(volumeFirstSelect);
+    }
+
+    public void toggleTutorials()
+    {
+        if (tutorialsEnabled)
+        {
+            tutorialManager.SetActive(false);
+            tutorialsEnabled = false;
+            Debug.Log("tutorials off");
+            return;
+        }
+
+        else if (!tutorialsEnabled)
+        {
+            tutorialManager.SetActive(true);
+            tutorialsEnabled = true;
+            Debug.Log("tutorials on");
+            return;
+        }
     }
 
     public void OpenCodex()
