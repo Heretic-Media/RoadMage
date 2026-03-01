@@ -346,11 +346,12 @@ MonoBehaviour:
   closeVanishSpeedThreshold: 2
   meleeRange: 2
   attackCooldown: 0.5
-  deathCry: {fileID: 0}
+  deathCry: {fileID: 5767112977954557990, guid: 89d772ceef086ad479f2aefa3e7f8a1f, type: 3}
   cameraShakeDuration: 0.1
   cameraShakeMagnitude: 0.05
   formationIndex: 0
   attackHitbox: {fileID: 5459276814889489623}
+  PointValue: 100
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5

@@ -296,6 +296,7 @@ MonoBehaviour:
   - {fileID: 1289240882338288086}
   trigger: {fileID: 3456195617609597708}
   infestationBar: {fileID: 7390734588132931651}
+  victoryPrefab: {fileID: 9219405972848614523, guid: f1500dcd7b217ba48921be873236bff1, type: 3}
 --- !u!114 &1395110030943963729
 MonoBehaviour:
   m_ObjectHideFlags: 0
