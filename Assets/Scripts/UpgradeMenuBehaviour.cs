@@ -46,13 +46,20 @@ public class UpgradeMenuBehaviour : MonoBehaviour
 
             if (options[i] < 0)
             {
-                optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
-                    "Skip upgrade";
+                //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
+                //    "Skip upgrade";
+                TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
+                abilityTexts[0].text = "Skip upgrade";
+                abilityTexts[1].text = "Skips this upgrade";
             }
             else
             {
-                optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
-                    upgradePrefabs[options[i]].name;
+                AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
+                TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
+                abilityTexts[0].text = abilityDescription.abilityName;
+                abilityTexts[1].text = abilityDescription.abilityDesc;
+                //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
+                //    upgradePrefabs[options[i]].GetComponent<AbilityDesc>().abilityName;
             }
         }
 

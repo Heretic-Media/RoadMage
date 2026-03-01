@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,9 +8,11 @@ public class GarageBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject enemiesObject;
     [SerializeField] private GameObject infestedIndicator;
+    [SerializeField] private GameObject infestationText;
     [SerializeField] private BoxCollider[] physical;
     [SerializeField] private BoxCollider trigger;
     [SerializeField] private UIBarBehaviour infestationBar;
+    [SerializeField] private GameObject victoryPrefab;
     private UpgradeMenuBehaviour upgradeMenu;
     private int enemiesNum;
     private bool exploding = false;
@@ -60,6 +63,12 @@ public class GarageBehaviour : MonoBehaviour
         {
             infestationBar.UpdateBar((float)GetEnemies() / (float)enemiesNum);
         }
+
+        TextMeshProUGUI tmp = infestationText.GetComponent<TextMeshProUGUI>();
+        if(tmp != null) 
+        {
+            tmp.SetText(GetEnemies().ToString() + " / " + enemiesNum.ToString());
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -69,10 +78,21 @@ public class GarageBehaviour : MonoBehaviour
 
         TopDownCarController mScript = collision.gameObject.GetComponent<TopDownCarController>();
 
-        upgradeMenu.Pause();
+        GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().AddScore(200);
+        GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().AddGarageScore();
+
+        if (GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().GetGaragesDone() == 4)
+        {
+            GameObject victoryVFX = Instantiate(victoryPrefab);
+            victoryVFX.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        }
+        else
+        {
+            upgradeMenu.Pause();
+        }
+
         exploding = true;
         trigger.enabled = false;
-
     }
 
     private void AccessUpgradeMenu()

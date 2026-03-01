@@ -9884,6 +9884,7 @@ MonoBehaviour:
   rawSteerInput: 0
   hasThrottle: 0
   drifting: 0
+  disabledTime: 2
   audioSource: {fileID: 4530731028319028946}
   rightSparks: {fileID: 596149398449156706}
   leftSparks: {fileID: 4365959597370992898}
@@ -10021,7 +10022,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: accc69163e5474f4eae92721a3c1d996, type: 3}
   m_Resource: {fileID: 8300000, guid: accc69163e5474f4eae92721a3c1d996, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

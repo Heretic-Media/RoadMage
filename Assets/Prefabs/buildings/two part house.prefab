@@ -614,7 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d4383fa07c0154fb138d51f02ba0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceMultiplier: 0.5
+  bounceMultiplier: 3
+  minBounceForce: 15
+  maxBounceForce: 20
 --- !u!4 &5373505005465171662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}

@@ -36,6 +36,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private Damage attackHitbox;
 
+    [SerializeField] private int PointValue = 1;
+
     // Patrol area bounds
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
     [SerializeField] protected Vector3 patrolAreaMax = new Vector3(20, 0, 20);
@@ -134,7 +136,9 @@ public class EnemyBehaviour : MonoBehaviour
             print("can't find camera");
         }
 
-            Destroy(gameObject);
+        GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().AddScore(PointValue);
+
+        Destroy(gameObject);
     }
 
     private bool VisionCheck()

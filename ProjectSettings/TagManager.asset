@@ -9,8 +9,12 @@ TagManager:
   - HealthBar
   - UpgradeUI
   - SpeedFuelGauge
+  - TutorialPopUpManager
   - TutorialMovement
   - TutorialDriftingBraking
+  - ScoreManager
+  - GaragesText
+  - Music
   layers:
   - Default
   - TransparentFX

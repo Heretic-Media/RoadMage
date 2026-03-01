@@ -17,6 +17,11 @@ public class DriftAbility : MonoBehaviour
     [SerializeField] private float driftAbilityDecay = 4f;
     [Tooltip("Drift time needed before projectile stop spawning")]
     [SerializeField] private float driftAbilityBurnout = 10f;
+    [Tooltip("Time multiplier for ability cooldown")]
+    [SerializeField] private float driftAbilityCooldownRate = 2f;
+
+
+
     [Tooltip("The fire rate of the projectiles")]
     [SerializeField] private float driftProjectileRate = 0.05f;
     [Tooltip("The random spawn direction range")]
@@ -65,7 +70,7 @@ public class DriftAbility : MonoBehaviour
             }
             else 
             {
-                driftTime -= Time.deltaTime;
+                driftTime -= driftAbilityCooldownRate * Time.deltaTime;
             } 
         }
 

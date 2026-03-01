@@ -21,6 +21,7 @@ public class DeathCryBehaviour : MonoBehaviour
         {
             emitter.Play();
         }
+
     }
 
     void FixedUpdate()
