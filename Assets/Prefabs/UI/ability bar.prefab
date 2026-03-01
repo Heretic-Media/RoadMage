@@ -1444,6 +1444,7 @@ GameObject:
   - component: {fileID: 1286734035358810779}
   - component: {fileID: 7051383302546253243}
   - component: {fileID: 3556755408769687001}
+  - component: {fileID: 2054834525625136476}
   m_Layer: 5
   m_Name: ability bar
   m_TagString: Untagged
@@ -1459,7 +1460,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4432840115745501464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -66.88636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1477,7 +1478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -155, y: 35}
+  m_AnchoredPosition: {x: -161.6, y: 40.4}
   m_SizeDelta: {x: 292.5, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1286734035358810779
@@ -1544,6 +1545,33 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &2054834525625136476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432840115745501464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27b5c252d1225245ba73ca439fe925a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  abilityIcons:
+  - {fileID: 6787986466026860999}
+  - {fileID: 7459941509192893352}
+  - {fileID: 4878840034621033495}
+  - {fileID: 7930265123409345264}
+  - {fileID: 2739100336022054214}
+  - {fileID: 4386398258345406788}
+  - {fileID: 255365344163597791}
+  - {fileID: 326361362361125949}
+  blankIcons:
+  - {fileID: 2039355147328729338}
+  - {fileID: 3687548273246688075}
+  - {fileID: 3810217318923152222}
+  - {fileID: 150217333664067889}
 --- !u!1 &4622115511706923723
 GameObject:
   m_ObjectHideFlags: 0
