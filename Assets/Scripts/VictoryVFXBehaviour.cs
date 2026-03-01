@@ -15,6 +15,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = true;
         startTime = Time.time;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Pause();
     }
 
     private void FixedUpdate()
@@ -34,17 +35,21 @@ public class VictoryVFXBehaviour : MonoBehaviour
             // back to menu
             SceneManager.LoadScene("MainMenu");
         }
-        else if (Time.time > 3 + startTime)
+        else if (Time.time > 9 + startTime)
         {
-            // final score
-            FinalScoreText.enabled = true;
             ScoreText.enabled = true;
 
             string fmt = "000000";
             int score = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().GetScore();
             ScoreText.text = score.ToString(fmt);
         }
-        else if(Time.time > 2 + startTime)
+        else if (Time.time > 6 + startTime)
+        {
+            // final score
+            FinalScoreText.enabled = true;
+
+        }
+        else if (Time.time > 3 + startTime)
         {
             // you win!
             youWinText.enabled = true;
