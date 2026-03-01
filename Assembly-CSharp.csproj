@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
+    <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />

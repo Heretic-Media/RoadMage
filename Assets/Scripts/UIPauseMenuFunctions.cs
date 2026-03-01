@@ -10,10 +10,13 @@ public class UIPauseMenuFunctions : MonoBehaviour
     public GameObject quitFirstSelect;
     public GameObject options;
     public GameObject optionsFirstSelect;
+    public GameObject normalOptions;
+    public GameObject volumeOptions;
+    public GameObject volumeFirstSelect;
     public GameObject codex;
     public GameObject codexFirstSelect;
     public GameObject eventsSystem;
-    private int delayFrames = 0;
+    private bool buttonPressed = false;
 
     public void Pause()
     {
@@ -37,7 +40,16 @@ public class UIPauseMenuFunctions : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         options.SetActive(true);
+        normalOptions.SetActive(true);
+        volumeOptions.SetActive(false);
         eventsSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(optionsFirstSelect);
+    }
+
+    public void OpenVolumeOptions()
+    {
+        normalOptions.SetActive(false);
+        volumeOptions.SetActive(true);
+        eventsSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(volumeFirstSelect);
     }
 
     public void OpenCodex()
@@ -57,7 +69,7 @@ public class UIPauseMenuFunctions : MonoBehaviour
     }
 
     public void AreYouSureYouWantToQuit()
-    {         
+    {
         pauseMenu.SetActive(false);
         options.SetActive(false);
         codex.SetActive(false);
@@ -94,14 +106,9 @@ public class UIPauseMenuFunctions : MonoBehaviour
         {
             if (kb.escapeKey.isPressed || gp.startButton.isPressed)
             {
-                if (delayFrames > 0)
+                if (!buttonPressed)
                 {
-                    --delayFrames;
-                    return;
-                }
-                else if (delayFrames == 0)
-                {
-                    delayFrames = 50; // Delay for 10 frames to prevent rapid toggling
+                    buttonPressed = true;
                     if (Time.timeScale == 0)
                     {
                         Resume();
@@ -110,8 +117,12 @@ public class UIPauseMenuFunctions : MonoBehaviour
                     {
                         Pause();
                     }
-
                 }
+                
+            }
+            else
+            {
+                buttonPressed = false;
             }
         }
     }
