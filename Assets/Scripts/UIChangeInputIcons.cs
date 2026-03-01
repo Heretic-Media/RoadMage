@@ -6,13 +6,21 @@ public class UIChangeInputIcons : MonoBehaviour
     public GameObject[] keyboardIcons;
     public GameObject[] gamepadIcons;
     public GameObject[] playstationIcons;
+    private bool gamepadEnabled = true;
+    private bool playstationEnabled = false;
+    private bool keyboardEnabled = false;
 
+
+    private void Start()
+    {
+        InputSystem.onActionChange += switchIconOnChange;
+    }
 
     void switchIconOnChange(object obj, InputActionChange change)
     {
         if (obj != null && obj is InputAction action)
-        { // Modern C# is usable because we're checking the type, not for null
-            if (action.activeControl == null) return; // Can't use modern C# here because Destroy exists and does weird things with the memory behind the scenes
+        { 
+            if (action.activeControl == null) return; 
             InputDevice lastDevice = action.activeControl.device;
 
             if (lastDevice is Gamepad)
@@ -29,6 +37,8 @@ public class UIChangeInputIcons : MonoBehaviour
                 {
                     icon.SetActive(false);
                 }
+                gamepadEnabled = true;
+                keyboardEnabled = false;
             }
             else if (lastDevice is Keyboard)
             {
@@ -44,9 +54,22 @@ public class UIChangeInputIcons : MonoBehaviour
                 {
                     icon.SetActive(false);
                 }
+                gamepadEnabled = false;
+                keyboardEnabled = true;
             }
         }
     }
+
+    public bool ControllerConnected()
+    {
+        return gamepadEnabled;
+    }
+
+    public bool KeyboardConnected()
+    { 
+        return keyboardEnabled; 
+    }
+
 
     private void Update()
     {

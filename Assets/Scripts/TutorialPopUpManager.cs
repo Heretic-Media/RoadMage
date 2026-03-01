@@ -36,8 +36,20 @@ public class TutorialPopUpManager : MonoBehaviour
 
     private void Awake()
     {
-        StartTutorialPopup("<sprite=13> to accelerate", 6f);
-        StartTutorialPopup("<sprite=12> to reverse", 6f);
+        if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().ControllerConnected())
+        {
+            StartTutorialPopup("<sprite=13> to accelerate", 6f);
+            StartTutorialPopup("<sprite=12> to reverse", 6f);
+            Debug.Log("ControllerConnected");
+        }
+        else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
+        {
+            StartTutorialPopup("<sprite=111> to accelerate", 6f);
+            StartTutorialPopup("<sprite=104> to reverse", 6f);
+            Debug.Log("KeyboardConnected");
+
+        }
+
     }
 
     private void LateUpdate()
