@@ -60,10 +60,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6400849764302162800, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 61c3858aec7908d458dd24bbe5e2b53f, type: 2}
+    - target: {fileID: -5934521250031025668, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 61c3858aec7908d458dd24bbe5e2b53f, type: 2}
+    - target: {fileID: -927276528025482536, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 62e58ce71f6ab824f91ec7943f5b29ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
       propertyPath: m_Name
       value: SirFred
       objectReference: {fileID: 0}
+    - target: {fileID: 4239333288823587063, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 61c3858aec7908d458dd24bbe5e2b53f, type: 2}
+    - target: {fileID: 8805407219193331957, guid: 19f6d17d860835d47a3255f09c29ff5e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 61c3858aec7908d458dd24bbe5e2b53f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

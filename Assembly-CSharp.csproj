@@ -61,6 +61,7 @@
     <Analyzer Include="D:\Unity\6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\RescueNPC.cs" />
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\DriftTutorialManager.cs" />
     <Compile Include="Assets\UI\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\GarageEnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\PlayerRescue.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUp.cs" />
     <Compile Include="Assets\Scripts\Powerups\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
