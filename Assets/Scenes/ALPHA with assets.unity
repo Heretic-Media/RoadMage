@@ -4131,6 +4131,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 414945121}
+--- !u!114 &1828871754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5367643861987677436, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+  m_PrefabInstance: {fileID: 1118386712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419791425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c2e38795003384294986240f384e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1856885767
 Mesh:
   m_ObjectHideFlags: 0
@@ -5025,10 +5036,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: menus that need pausing
       objectReference: {fileID: 0}
+    - target: {fileID: 1308696701255179714, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_text
+      value: Toggle Rumble
+      objectReference: {fileID: 0}
     - target: {fileID: 3053424381703750105, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2145721868}
+    - target: {fileID: 3252636770196870964, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_Name
+      value: Toggle Rumble
+      objectReference: {fileID: 0}
     - target: {fileID: 3252636770196870964, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5125,6 +5144,18 @@ PrefabInstance:
       propertyPath: tutorialManager
       value: 
       objectReference: {fileID: 83751993}
+    - target: {fileID: 6192607093296449084, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1828871754}
+    - target: {fileID: 6192607093296449084, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleHaptics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192607093296449084, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VibrationController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8204212098096657320, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -16,6 +16,7 @@ TagManager:
   - GaragesText
   - Music
   - IntuitiveSwitching
+  - Building
   layers:
   - Default
   - TransparentFX

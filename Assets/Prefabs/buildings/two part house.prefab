@@ -552,6 +552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: two part house
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -574,6 +578,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3759954804321395728}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4218732225096259502}
   m_SourcePrefab: {fileID: 100100000, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
 --- !u!1 &4744919312059903092 stripped
 GameObject:
@@ -617,6 +624,28 @@ MonoBehaviour:
   bounceMultiplier: 3
   minBounceForce: 15
   maxBounceForce: 20
+  disableTime: 2
+--- !u!65 &4218732225096259502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744919312059903092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.07996752, y: 0.065369256, z: 0.047767498}
+  m_Center: {x: -0.000000008669766, y: 0.033022325, z: -0.0010158181}
 --- !u!4 &5373505005465171662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5895016a8adf3e64eb495f2cf9c0c756, type: 3}
