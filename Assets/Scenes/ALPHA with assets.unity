@@ -4694,7 +4694,7 @@ PrefabInstance:
       objectReference: {fileID: 1295931520}
     - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
       propertyPath: upgradePrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
       propertyPath: 'upgradePrefabs.Array.data[3]'
