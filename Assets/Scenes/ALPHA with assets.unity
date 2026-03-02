@@ -4692,6 +4692,14 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1295931520}
+    - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
+      propertyPath: upgradePrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
+      propertyPath: 'upgradePrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4761340383284370400, guid: dba956bbc04c5d643bea8e71629a45f0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
