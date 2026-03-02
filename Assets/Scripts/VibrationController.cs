@@ -10,7 +10,7 @@ public class VibrationController : MonoBehaviour
     GamePadState prevState;
     [SerializeField] GameObject player;
     private bool inputUsingVibration = false;
-    private bool enemyUsingVibration = false;
+    private bool collisionUsingVibration = false;
     private int delayCounter = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +36,7 @@ public class VibrationController : MonoBehaviour
             else
             {
                 inputUsingVibration = false;
-                if (!enemyUsingVibration)
+                if (!collisionUsingVibration)
                 {
                     GamePad.SetVibration(playerIndex, 0f, 0f);
                     Debug.Log("Vibration stopped");
@@ -70,8 +70,14 @@ public class VibrationController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !inputUsingVibration)
         {
             GamePad.SetVibration(playerIndex, 0.2f, 0.2f);
-            enemyUsingVibration = true;
+            collisionUsingVibration = true;
             delayCounter = 20; // Set the delay counter to a certain number of frames (e.g., 20 frames)
+        }
+        if (collision.gameObject.CompareTag("Building") && !inputUsingVibration)
+        {
+            GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+            collisionUsingVibration = true;
+            delayCounter = 50; // Set the delay counter to a certain number of frames (e.g., 20 frames)
         }
     }
 
@@ -79,7 +85,7 @@ public class VibrationController : MonoBehaviour
     public void bigRumble()
     {         
         GamePad.SetVibration(playerIndex, 1f, 1f);
-        enemyUsingVibration = true;
+        collisionUsingVibration = true;
         delayCounter = 20; // Set the delay counter to a certain number of frames (e.g., 20 frames)
     }
 
@@ -88,7 +94,7 @@ public class VibrationController : MonoBehaviour
     {
         isAbilityActive(); 
 
-        if (!enemyUsingVibration)
+        if (!collisionUsingVibration)
         {   
             if (!inputUsingVibration)
             {
@@ -98,7 +104,7 @@ public class VibrationController : MonoBehaviour
 
         if (delayCounter == 0)
         {
-            enemyUsingVibration = false;
+            collisionUsingVibration = false;
         }
         else if (delayCounter > 0)
         {
