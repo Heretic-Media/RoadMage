@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class CameraBehaviour : MonoBehaviour
 {
+    private TopDownCarController playerController = null;
     [Tooltip("The angle at which the camera looks at the player")]
     [SerializeField] private float cameraAngle = 0f;
 
@@ -62,7 +63,6 @@ public class CameraBehaviour : MonoBehaviour
 
         if (player == null)
         {
-            // if there are multiple player objects this needs re-writing
             if (GameObject.FindGameObjectsWithTag("Player").Length == 0)
             {
                 Debug.LogWarning("Follow_player: player Transform is not assigned.");
@@ -71,6 +71,7 @@ public class CameraBehaviour : MonoBehaviour
             else
             {
                 player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+                playerController = player.GetComponent<TopDownCarController>();
                 lastPlayerPosition = player.position;
                 focusPosition = lastPlayerPosition;
             }
@@ -78,6 +79,7 @@ public class CameraBehaviour : MonoBehaviour
         else
         {
             lastPlayerPosition = player.position;
+            playerController = player.GetComponent<TopDownCarController>();
         }
 
         if (playIntroAnimation && player != null)
@@ -86,7 +88,6 @@ public class CameraBehaviour : MonoBehaviour
         }
         else
         {
-            // Not keen on this, but it prevents a jarring snap on start.
             transform.position = player.position + new Vector3(0, minimumCameraHeight, 0);
         }
     }
@@ -122,6 +123,11 @@ public class CameraBehaviour : MonoBehaviour
         lastPlayerPosition = playerStartPos;
         focusPosition = playerStartPos;
 
+        if (playerController != null)
+        {
+            playerController.disabledTime = float.MaxValue;
+        }
+
         while (elapsedTime < introAnimationDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -150,6 +156,11 @@ public class CameraBehaviour : MonoBehaviour
         anchorPos = endPos;
         focusPosition = playerStartPos;
         transform.rotation = gameplayRotation;
+
+        if (playerController != null)
+        {
+            playerController.disabledTime = 0f;
+        }
 
         introAnimationPlaying = false;
     }
@@ -247,6 +258,11 @@ public class CameraBehaviour : MonoBehaviour
         focusPosition = player.position;
 
         transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
+
+        if (playerController != null)
+        {
+            playerController.disabledTime = 0f;
+        }
 
         introAnimationPlaying = false;
 

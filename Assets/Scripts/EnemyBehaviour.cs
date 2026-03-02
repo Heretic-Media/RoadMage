@@ -68,6 +68,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Stop if rescue is active
+        if (PlayerRescue.Instance != null && PlayerRescue.Instance.IsRescuing())
+        {
+            if (rb != null)
+                rb.linearVelocity = Vector3.zero;
+            return;
+        }
+
         if (playerObject == null)
         {
             var players = GameObject.FindGameObjectsWithTag("Player");

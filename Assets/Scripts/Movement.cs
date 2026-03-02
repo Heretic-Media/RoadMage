@@ -316,6 +316,9 @@ public class TopDownCarController : MonoBehaviour
         float lateralKill = lateralGrip * Time.fixedDeltaTime;
         localVel.x = Mathf.MoveTowards(lateral, 0f, lateralKill);
 
+        // Don't set velocity if kinematic (e.g., during rescue)
+        if (rb.isKinematic) return;
+
         Vector3 newWorldVel = transform.TransformDirection(localVel);
         newWorldVel.y = rb.linearVelocity.y;
         rb.linearVelocity = newWorldVel;
