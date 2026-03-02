@@ -12,9 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _FAST_MODE
   - _USE_SCENE_COLOR
-  - _USE_SCENE_DEPTH
   - _USE_SCENE_NORMALS
   m_InvalidKeywords:
   - _BLENDMODE_A
