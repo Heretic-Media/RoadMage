@@ -38,6 +38,20 @@ public class VibrationController : MonoBehaviour
         
     }
 
+
+    private void StopAllRumble()
+    {
+        GamePad.SetVibration(playerIndex, 0f, 0f);
+        if (inputUsingVibration)
+        {
+            inputUsingVibration = false;
+        }
+        if (collisionUsingVibration)
+        {
+            collisionUsingVibration = false;
+        }
+    }
+
     private void isAbilityActive()
     {
 
@@ -58,7 +72,6 @@ public class VibrationController : MonoBehaviour
                 if (!collisionUsingVibration)
                 {
                     GamePad.SetVibration(playerIndex, 0f, 0f);
-                    Debug.Log("Vibration stopped");
                 }
             }
 
@@ -68,7 +81,7 @@ public class VibrationController : MonoBehaviour
                 {
                     if (player.transform.GetChild(i).name == "ForwardAbility(Clone)" && gp.leftShoulder.isPressed)
                     {
-                        GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+                        GamePad.SetVibration(playerIndex, 0.2f, 0.2f);
                         inputUsingVibration = true;
                     }
 
