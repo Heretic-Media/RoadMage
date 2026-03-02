@@ -70,5 +70,5 @@ MonoBehaviour:
   m_UseSceneColor: 1
   m_UseSceneDepth: 1
   m_UseSceneNormals: 1
-  m_Include: 2
+  m_Include: 1
   m_RenderEdgeOnly: 0
