@@ -59,6 +59,7 @@ public class PlayerRescue : MonoBehaviour
         {
             Vector3 spawnPos = transform.position;
             npc = Instantiate(npcPrefab, spawnPos, Quaternion.identity);
+            npc.transform.rotation = Quaternion.LookRotation(rescuePosition + spawnPos);
             npc.name = "RescueNPC";
 
             RescueNPC npcScript = npc.GetComponent<RescueNPC>();
