@@ -2237,6 +2237,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 497752563886354139, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 903056355}
+    - targetCorrespondingSourceObject: {fileID: 497752563886354139, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 893430936065170525}
     - targetCorrespondingSourceObject: {fileID: 8070770373078341703, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 487808105}
@@ -3284,6 +3287,10 @@ PrefabInstance:
     - target: {fileID: 2147080995083984554, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: m_Name
       value: CollisionAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068502184620832204, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
+      propertyPath: enableCollisionAbility
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8008217553567032323, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5067,6 +5074,68 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 8675ea587aec7c641805f1f098e12b6e, type: 2}
   music: {fileID: 0}
   sfx: {fileID: 0}
+--- !u!1001 &893430936065170524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1828871743}
+    m_Modifications:
+    - target: {fileID: 2198914365449532958, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_Name
+      value: VortexAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+--- !u!4 &893430936065170525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3499374618320673886, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
+  m_PrefabInstance: {fileID: 893430936065170524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4569931227974324938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5283,6 +5352,10 @@ PrefabInstance:
     - target: {fileID: 6192607093296449084, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VibrationController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828770083619694543, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204212098096657320, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
