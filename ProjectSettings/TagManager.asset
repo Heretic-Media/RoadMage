@@ -9,6 +9,14 @@ TagManager:
   - HealthBar
   - UpgradeUI
   - SpeedFuelGauge
+  - TutorialPopUpManager
+  - TutorialMovement
+  - TutorialDriftingBraking
+  - ScoreManager
+  - GaragesText
+  - Music
+  - IntuitiveSwitching
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -21,8 +29,8 @@ TagManager:
   - PlayerHurtbox
   - EnemyHurtbox
   - Camera
-  - UI_VFX_BACK
-  - UI
+  - Minimap
+  - Overlay
   - 
   - 
   - 
@@ -43,14 +51,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: UI
-    uniqueID: 1034835157
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI_VFX_BACK
-    uniqueID: 1380889175
     locked: 0
   m_RenderingLayers:
   - Default

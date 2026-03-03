@@ -16,4 +16,14 @@ public class UI_MainMenu : MonoBehaviour
 
         Application.Quit();
     }
+
+    public void CharacterCustomisation()
+    {
+        SceneManager.LoadScene("CharacterCustomisation");
+    }
+
+    public void Transition()
+    {
+        SceneManager.LoadScene("PortalTransition");
+    }
 }

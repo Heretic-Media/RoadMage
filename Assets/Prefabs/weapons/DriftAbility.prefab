@@ -445,8 +445,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -498,8 +498,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 1.5707963
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -551,8 +551,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -607,7 +607,7 @@ ParticleSystem:
     maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -4810,7 +4810,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4833,7 +4833,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4887,7 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   damageType: 0
   onHitEffect: 1
 --- !u!135 &3830927695256164802
@@ -4921,6 +4921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6352233872740281370}
   - component: {fileID: 2242553603432343779}
+  - component: {fileID: 8790057563998037608}
   m_Layer: 0
   m_Name: DriftAbility
   m_TagString: Untagged
@@ -4959,9 +4960,27 @@ MonoBehaviour:
   projectile: {fileID: 7355393933315031068}
   enableDriftProjectiles: 1
   driftTime: 0
-  driftProjectileDelay: 0.5
-  driftProjectileCharge: 1
+  driftAbilityDelay: 0.5
+  driftAbilityDecay: 3
+  driftAbilityBurnout: 10
+  driftAbilityCooldownRate: 2
   driftProjectileRate: 0.05
+  driftProjectileRandomness: 0.3
+--- !u!114 &8790057563998037608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845318381417463026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2b810b89ce10841bb887a716eec378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Fiery Drift
+  abilityDesc: Drift to create a wave of fire.
+  icon: {fileID: 0}
 --- !u!1 &7355393933315031068
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnRadius = 10f;
 
     private float timer = 1f;
+    private float levelTime = 0f;
 
     private void SpawnEnemy()
     {
@@ -44,13 +45,15 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         timer = spawnDelay;
+        levelTime = Time.time;
     }
 
     void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
 
-        if (timer > spawnDelay) 
+        // here we also check if four seconds have passed since leveltime which is time the start of the level
+        if (timer > spawnDelay && Time.time > levelTime + 4) 
         {
             timer -= spawnDelay;
             SpawnEnemy();

@@ -7,7 +7,8 @@ public class ForwardAbility : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
-    private int attackCooldown;
+    private int attackCooldown = 60;
+    [SerializeField] ParticleSystem indicatorParticles;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,9 +16,31 @@ public class ForwardAbility : MonoBehaviour
         playerRigidbody = GetComponentInParent<Rigidbody>();
     }
 
+    private void Awake()
+    {
+        if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().ControllerConnected())
+        {
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("<sprite=123> to fire a blast while moving fast.", 4f);
+        }
+        else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
+        {
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hold <sprite=120> to fire a blast while moving fast.", 4f);
+        }
+        
+    }
+
     private void FixedUpdate()
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
+
+        if (forwardVel >= speedThreshold && attackCooldown <= 0)
+        {
+            indicatorParticles.Play();
+        }
+        else
+        {
+            indicatorParticles.Stop();
+        }
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;
@@ -28,7 +51,7 @@ public class ForwardAbility : MonoBehaviour
 
         if (handbrake && (forwardVel >= speedThreshold) && attackCooldown <= 0)
         {
-            FireProjectile(2 * forwardVel, 1.5f * playerRigidbody.linearVelocity);
+            FireProjectile(forwardVel, 1.5f * playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
         else if (attackCooldown > 0)
