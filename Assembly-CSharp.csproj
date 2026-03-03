@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
+    <Compile Include="Assets\Scripts\Powerups\HealAbility.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\VictoryVFXBehaviour.cs" />
     <Compile Include="Assets\UI\Character Customisation\CCUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
+    <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Assets\Scripts\Powerups\GlyphTrigger.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\UI\MenuCursor.cs" />
+    <Compile Include="Assets\Scripts\Powerups\VortexAbility.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
