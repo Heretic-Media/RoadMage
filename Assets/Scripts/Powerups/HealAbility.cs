@@ -79,18 +79,8 @@ public class HealAbility : MonoBehaviour
         {
             if (kb.shiftKey.isPressed || gp.xButton.isPressed)
             {
-                if (!buttonPressed)
-                {
-                    buttonPressed = true;
                     Heal();
                     return;
-                }
-                return;
-            }
-
-            else
-            {
-                buttonPressed = false;
             }
         }
 

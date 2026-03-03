@@ -3285,6 +3285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollisionAbility
       objectReference: {fileID: 0}
+    - target: {fileID: 5068502184620832204, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
+      propertyPath: enableCollisionAbility
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8008217553567032323, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4754,12 +4758,16 @@ PrefabInstance:
       objectReference: {fileID: 1295931520}
     - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
       propertyPath: upgradePrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
       propertyPath: 'upgradePrefabs.Array.data[3]'
       value: 
       objectReference: {fileID: 4761340383284370400, guid: dba956bbc04c5d643bea8e71629a45f0, type: 3}
+    - target: {fileID: 8110307834838184290, guid: 2629e8c5bc4bab14cab68dc1d0d3fdd2, type: 3}
+      propertyPath: 'upgradePrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2198914365449532958, guid: c41137cf98e23ee43887e3f716824bf9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5283,6 +5291,10 @@ PrefabInstance:
     - target: {fileID: 6192607093296449084, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VibrationController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828770083619694543, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204212098096657320, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
