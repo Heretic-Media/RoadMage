@@ -75,14 +75,10 @@ public class VortexAbility : MonoBehaviour
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null || gp != null)
+        if (kb != null && kb.qKey.isPressed || gp != null && gp.yButton.isPressed)
         {
-            if (kb.qKey.isPressed || gp.yButton.isPressed)
-            {
-                    startAttack();
-                    return;
-            }
-
+            startAttack();
+            return;
         }
     }
 }

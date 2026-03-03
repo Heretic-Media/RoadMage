@@ -54,11 +54,9 @@ public class VibrationController : MonoBehaviour
 
     private void isAbilityActive()
     {
-
-        var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null || gp != null)
+        if (gp != null)
         {
             if (gp.aButton.isPressed && Time.timeScale != 0)
             {
@@ -101,13 +99,19 @@ public class VibrationController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !inputUsingVibration && hapticEnabled)
         {
-            GamePad.SetVibration(playerIndex, 0.2f, 0.2f);
+            if (Gamepad.current != null)
+            {
+                GamePad.SetVibration(playerIndex, 0.2f, 0.2f);
+            }
             collisionUsingVibration = true;
             delayCounter = 20; // Set the delay counter to a certain number of frames (e.g., 20 frames)
         }
         if (collision.gameObject.CompareTag("Building") && !inputUsingVibration && hapticEnabled)
         {
-            GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+            if (Gamepad.current != null)
+            {
+                GamePad.SetVibration(playerIndex, 0.5f, 0.5f);
+            }
             collisionUsingVibration = true;
             delayCounter = 50; // Set the delay counter to a certain number of frames (e.g., 20 frames)
         }
@@ -124,26 +128,34 @@ public class VibrationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hapticEnabled)
+        if (Gamepad.current != null)
         {
-            isAbilityActive();
-
-            if (!collisionUsingVibration)
+            if (hapticEnabled)
             {
-                if (!inputUsingVibration)
+                isAbilityActive();
+
+                if (!collisionUsingVibration)
                 {
-                    GamePad.SetVibration(playerIndex, 0f, 0f);
+                    if (!inputUsingVibration)
+                    {
+                        GamePad.SetVibration(playerIndex, 0f, 0f);
+                    }
+                }
+
+                if (delayCounter == 0)
+                {
+                    collisionUsingVibration = false;
+                }
+                else if (delayCounter > 0)
+                {
+                    delayCounter--;
                 }
             }
-
-            if (delayCounter == 0)
-            {
-                collisionUsingVibration = false;
-            }
-            else if (delayCounter > 0)
-            {
-                delayCounter--;
-            }
+        }
+        else
+        {
+            StopAllRumble();
+            hapticEnabled = false; // Disable haptics if no gamepad is connected
         }
     }
   

@@ -29,6 +29,7 @@ public class UIPauseMenuFunctions : MonoBehaviour
         options.SetActive(false);
         codex.SetActive(false);
         pauseMenu.SetActive(true);
+
         eventsSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(pauseFirstSelect);
     }
 
@@ -149,37 +150,32 @@ public class UIPauseMenuFunctions : MonoBehaviour
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null || gp != null)
+        // Check each device before accessing its keys/buttons
+        if ((kb != null && kb.escapeKey.isPressed) || (gp != null && gp.startButton.isPressed))
         {
-            if (kb.escapeKey.isPressed || gp.startButton.isPressed)
+            if (!buttonPressed)
             {
-                if (!buttonPressed)
+                buttonPressed = true;
+                if (Time.timeScale == 0)
                 {
-                    buttonPressed = true;
-                    if (Time.timeScale == 0)
-                    {
-                        Resume();
-                    }
-                    else
-                    {
-                        Pause();
-                    }
-                    return;
+                    Resume();
                 }
-                return;
+                else
+                {
+                    Pause();
+                }
             }
-
-            if (kb.scrollLockKey.isPressed && kb.insertKey.isPressed)
-            {
-                ToggleDebugMenu();
-                return;
-            }
-
-            else
-            {
-                buttonPressed = false;
-                deBugOn = false;
-            }
+            return;
         }
+
+        // Toggle debug when both scroll lock and insert are pressed on keyboard
+        if (kb != null && kb.scrollLockKey.isPressed && kb.insertKey.isPressed)
+        {
+            ToggleDebugMenu();
+            return;
+        }
+
+        // No relevant input pressed -> reset state
+        buttonPressed = false;
     }
 }

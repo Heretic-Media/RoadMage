@@ -75,14 +75,11 @@ public class HealAbility : MonoBehaviour
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null || gp != null)
-        {
-            if (kb.shiftKey.isPressed || gp.xButton.isPressed)
+            if (kb != null && kb.shiftKey.isPressed || gp != null && gp.xButton.isPressed)
             {
                     Heal();
                     return;
             }
-        }
 
     }
 }
