@@ -637,15 +637,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 367444497660635593, guid: 83125332fefaf92499f8aee669fa3c2f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.2857616
+      value: 3.3889027
       objectReference: {fileID: 0}
     - target: {fileID: 367444497660635593, guid: 83125332fefaf92499f8aee669fa3c2f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.2857616
+      value: 3.3889027
       objectReference: {fileID: 0}
     - target: {fileID: 367444497660635593, guid: 83125332fefaf92499f8aee669fa3c2f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.2857616
+      value: 3.3889027
       objectReference: {fileID: 0}
     - target: {fileID: 367444497660635593, guid: 83125332fefaf92499f8aee669fa3c2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1195,7 +1195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 82, y: -388.00003}
+  m_AnchoredPosition: {x: 82, y: -388}
   m_SizeDelta: {x: -730, y: -312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092599728
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: aaf2d5fbb60312c48ab70e1bd7617384, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6ab8e812192e23b4ea2ff53dbac89f33, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
