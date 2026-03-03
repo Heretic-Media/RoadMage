@@ -408,9 +408,9 @@ RectTransform:
   - {fileID: 3402028367107787658}
   m_Father: {fileID: 5215186637274890240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.5, y: -27.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5816000618154255733
@@ -536,12 +536,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1652142727945811149}
   m_Layer: 5
-  m_Name: blank ability
+  m_Name: Ice Vortex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1652142727945811149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1100,12 +1100,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3032799908289188774}
   m_Layer: 5
-  m_Name: blank
+  m_Name: refuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3032799908289188774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1142,11 +1142,11 @@ GameObject:
   - component: {fileID: 7066034032192403324}
   m_Layer: 5
   m_Name: ability bar
-  m_TagString: Untagged
+  m_TagString: IntuitiveSwitching
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5215186637274890240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1155,7 +1155,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4432840115745501464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -66.88636}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1169,8 +1169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -161.6, y: 40.4}
-  m_SizeDelta: {x: 292.5, y: 55}
+  m_AnchoredPosition: {x: -110, y: 35}
+  m_SizeDelta: {x: 200, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1286734035358810779
 CanvasRenderer:
@@ -1227,7 +1227,7 @@ MonoBehaviour:
     m_Right: 5
     m_Top: 5
     m_Bottom: 5
-  m_ChildAlignment: 5
+  m_ChildAlignment: 4
   m_Spacing: 2.5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -1254,15 +1254,10 @@ MonoBehaviour:
   - {fileID: 7459941509192893352}
   - {fileID: 4878840034621033495}
   - {fileID: 7930265123409345264}
-  - {fileID: 2739100336022054214}
   - {fileID: 4386398258345406788}
+  - {fileID: 2739100336022054214}
   - {fileID: 255365344163597791}
   - {fileID: 326361362361125949}
-  blankIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7066034032192403324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,9 +1321,9 @@ RectTransform:
   - {fileID: 243399386025491349}
   m_Father: {fileID: 5215186637274890240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -27.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1248252735519874228
@@ -1417,7 +1412,7 @@ GameObject:
   - component: {fileID: 7971225166656365448}
   - component: {fileID: 4366398244340292525}
   m_Layer: 5
-  m_Name: Shift
+  m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,7 +1452,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5474136666129576918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1470,7 +1465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2120801154, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: -1350719223, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1572,7 +1567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8841623522502794904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1590,9 +1585,9 @@ RectTransform:
   - {fileID: 139819591257047796}
   m_Father: {fileID: 5215186637274890240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 122.5, y: -27.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6793358751656788650
@@ -1645,7 +1640,7 @@ GameObject:
   - component: {fileID: 4419979269318321520}
   - component: {fileID: 3662252513703135245}
   m_Layer: 5
-  m_Name: blank input
+  m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,7 +1693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1476951808, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
+  m_Sprite: {fileID: 182514567, guid: 069a00c4a21d8654bbe27600f3ba7103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2229,9 +2224,9 @@ RectTransform:
   - {fileID: 8597671131182174112}
   m_Father: {fileID: 5215186637274890240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -27.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2220950317823762943
@@ -2284,7 +2279,7 @@ GameObject:
   - component: {fileID: 8911168987971591587}
   - component: {fileID: 8602274953163925000}
   m_Layer: 5
-  m_Name: blank
+  m_Name: healing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2359,7 +2354,7 @@ GameObject:
   - component: {fileID: 3285761114526833307}
   - component: {fileID: 3091684619061347590}
   m_Layer: 5
-  m_Name: blank icon
+  m_Name: ice vortex icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,14 +2400,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 44e0bd844f0f9d443a85eb420ff2abd5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
