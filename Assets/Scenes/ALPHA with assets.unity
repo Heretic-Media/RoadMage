@@ -4193,7 +4193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0213fc3a9a8b4324cb32a7091f4612eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallThreshold: -1
+  fallThreshold: -2
   rescueHeight: 20
   spawnPoint: {fileID: 1746964568}
   npcPrefab: {fileID: 8866314447258755045, guid: 0359b0aca941f1240945ef1702c5b9be, type: 3}
@@ -5087,6 +5087,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 397271161}
+    - target: {fileID: 4395680649221531964, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459368863484625917, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Mesh
       value: 
