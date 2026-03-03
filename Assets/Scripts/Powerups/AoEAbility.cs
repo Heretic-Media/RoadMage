@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class AoEAbility : MonoBehaviour
 {
     [SerializeField] private GameObject attack;
+    [SerializeField] private GameObject explosionAudio;
     private int attackCooldown = 0;
     CollisionAbility playerCollision;
     UnityEvent attackEvent;
@@ -37,10 +38,22 @@ public class AoEAbility : MonoBehaviour
         }
     }
 
+    private void StartAudio()
+    {         
+        explosionAudio.SetActive(true);
+        Invoke("CutAudio", 1.5f);
+    }
+
+    private void CutAudio()
+    {
+        explosionAudio.SetActive(false);
+    }
+
     void SpawnAttack()
     {
         if (attackCooldown <= 0)
         {
+            StartAudio();
             GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
             newAttack.transform.localScale *= Mathf.Clamp(forwardVel / 20, 0.5f, 1.5f);
             newAttack.SetActive(true);

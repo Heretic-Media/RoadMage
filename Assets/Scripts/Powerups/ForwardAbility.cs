@@ -5,6 +5,7 @@ public class ForwardAbility : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject audioManager;
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
     private int attackCooldown = 60;
@@ -60,6 +61,17 @@ public class ForwardAbility : MonoBehaviour
         }
     }
 
+    private void StartAudio()
+    {
+        audioManager.SetActive(true);
+        Invoke("CutAudio", 1.5f);
+    }
+
+    private void CutAudio()
+    {
+        audioManager.SetActive(false);
+    }
+
     void FireProjectile(float damage, Vector3 velocity)
     {
         switch (element)
@@ -85,6 +97,7 @@ public class ForwardAbility : MonoBehaviour
                 velocity *= 1.5f;
                 break;
         }
+        StartAudio();
         GameObject newProj = Instantiate(projectile, transform.position, transform.rotation);
         newProj.SetActive(true);
         newProj.transform.GetComponentInChildren<Damage>().damage = (int)damage;
