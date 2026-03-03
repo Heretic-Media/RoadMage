@@ -8,6 +8,7 @@ public class UIAbilityBar : MonoBehaviour
     private bool fireyDriftIconActive = false;
     private bool kineticBlastIconActive = false;
     private bool reFuelIconActive = false;
+    private bool iceVortexIconActive = false;
 
     // private bool [name here]IconActive = false; // Add a boolean for each new ability icon
 
@@ -56,6 +57,13 @@ public class UIAbilityBar : MonoBehaviour
                 reFuelIconActive = true;
                 activateAbilityIcon(4); // Activate the icon for [name here] ability
                 return;
+                }
+
+                if (player.transform.GetChild(i).name == "VortexAbility(Clone)" && !iceVortexIconActive)
+                {
+                    iceVortexIconActive = true;
+                    activateAbilityIcon(5); // Activate the icon for [name here] ability
+                    return;
                 }
 
                 //if (player.transform.GetChild(i).name == "[name here](Clone)" && ![name here]IconActive)
