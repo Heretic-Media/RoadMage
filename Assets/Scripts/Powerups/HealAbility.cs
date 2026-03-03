@@ -25,7 +25,7 @@ public class HealAbility : MonoBehaviour
         }
         else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=121> to drop a healing potion.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=64> to drop a healing potion.", 4f);
         }
     }
 
@@ -75,14 +75,11 @@ public class HealAbility : MonoBehaviour
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null || gp != null)
-        {
-            if (kb.shiftKey.isPressed || gp.xButton.isPressed)
+            if (kb != null && kb.eKey.isPressed || gp != null && gp.xButton.isPressed)
             {
                     Heal();
                     return;
             }
-        }
 
     }
 }
