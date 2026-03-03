@@ -5,6 +5,7 @@ public class HealAbility : MonoBehaviour
 {
     private bool buttonPressed;
     [SerializeField] private GameObject[] particles;
+    [SerializeField] private GameObject audio;
     [SerializeField] private int healAmount = 75;
     private bool healOnCooldown = false;
 
@@ -36,6 +37,7 @@ public class HealAbility : MonoBehaviour
             particles[i].SetActive(true);
 
         }
+        audio.SetActive(true);
 
         Invoke("StopParticleEffect", 2f);
     }
@@ -46,6 +48,7 @@ public class HealAbility : MonoBehaviour
         {
             particles[i].SetActive(false);
         }
+        audio.SetActive(false);
     }
 
     private void Heal()
