@@ -5,10 +5,10 @@ public class UIAbilityBar : MonoBehaviour
 {
     public Player player;
     public GameObject[] abilityIcons;
-    public GameObject[] blankIcons;
-    private int iconSpaceNeeded = 0;
     private bool fireyDriftIconActive = false;
     private bool kineticBlastIconActive = false;
+    private bool reFuelIconActive = false;
+
     // private bool [name here]IconActive = false; // Add a boolean for each new ability icon
 
 
@@ -26,10 +26,6 @@ public class UIAbilityBar : MonoBehaviour
 
     private void activateAbilityIcon(int ability)
     {
-        if (iconSpaceNeeded > 0)
-        {
-          blankIcons[iconSpaceNeeded - 1].SetActive(false);
-        }
         abilityIcons[ability].SetActive(true);
     }
 
@@ -55,12 +51,18 @@ public class UIAbilityBar : MonoBehaviour
                     return;
                 }
 
+                if (player.transform.GetChild(i).name == "HealAbility(Clone)" && !reFuelIconActive)
+                {
+                reFuelIconActive = true;
+                activateAbilityIcon(4); // Activate the icon for [name here] ability
+                return;
+                }
+
                 //if (player.transform.GetChild(i).name == "[name here](Clone)" && ![name here]IconActive)
                 //{
-                    //[name here]IconActive = true;
-                    //iconSpaceNeeded++;
-                    //activateAbilityIcon(iconNumberInList); // Activate the icon for [name here] ability
-                    //return;
+                //[name here]IconActive = true;
+                //activateAbilityIcon(iconNumberInList); // Activate the icon for [name here] ability
+                //return;
                 //}
 
             }
