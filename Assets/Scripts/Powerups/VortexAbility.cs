@@ -79,19 +79,10 @@ public class VortexAbility : MonoBehaviour
         {
             if (kb.qKey.isPressed || gp.yButton.isPressed)
             {
-                if (!buttonPressed)
-                {
-                    buttonPressed = true;
                     startAttack();
                     return;
-                }
-                return;
             }
 
-            else
-            {
-                buttonPressed = false;
-            }
         }
     }
 }
