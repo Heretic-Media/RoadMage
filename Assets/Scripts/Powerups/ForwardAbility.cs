@@ -8,7 +8,7 @@ public class ForwardAbility : MonoBehaviour
     [SerializeField] private GameObject audioManager;
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
-    private int attackCooldown = 60;
+    public int attackCooldown = 60;
     [SerializeField] ParticleSystem indicatorParticles;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

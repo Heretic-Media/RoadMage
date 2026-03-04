@@ -7,7 +7,7 @@ public class HealAbility : MonoBehaviour
     [SerializeField] private GameObject[] particles;
     [SerializeField] private GameObject audio;
     [SerializeField] private int healAmount = 75;
-    private bool healOnCooldown = false;
+    public bool healOnCooldown = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,6 +60,10 @@ public class HealAbility : MonoBehaviour
             StartParticleEffect();
             healOnCooldown = true;
         }
+        else
+        {
+            Invoke("RemoveCooldown", 10f);
+        }
     }
 
     private void RemoveCooldown()
@@ -67,13 +71,14 @@ public class HealAbility : MonoBehaviour
         healOnCooldown = false;
     }
 
+    public bool GetHealOnCooldown()
+    {
+        return healOnCooldown;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (healOnCooldown)
-        {
-            Invoke("RemoveCooldown", 10f);
-        }
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;
