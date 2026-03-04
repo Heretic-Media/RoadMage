@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class IntroCutscene : MonoBehaviour
@@ -19,14 +20,21 @@ public class IntroCutscene : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("PortalTransition");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var kb = Keyboard.current;
+        var gp = Gamepad.current;
+
+        if (kb != null && kb.spaceKey.isPressed || gp != null && gp.aButton.isPressed)
+        {
+            maxDelay = 0;
+            return;
+        }
         transitionScene();
     }
 }
