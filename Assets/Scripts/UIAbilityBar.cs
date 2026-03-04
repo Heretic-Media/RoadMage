@@ -99,19 +99,19 @@ public class UIAbilityBar : MonoBehaviour
                 //    }
                 //}
 
-                //if (player.transform.GetChild(i).name == "ForwardAbility(Clone)" && kineticBlastIconActive)
-                //{
-                //    if (player.transform.GetChild(i).GetComponent<ForwardAbility>().attackCooldown > 0)
-                //    {
-                //        cooldownIcons[1].SetActive(true);
-                //        abilityIcons[3].SetActive(false);
-                //    }
-                //    else
-                //    {
-                //        cooldownIcons[1].SetActive(false);
-                //        abilityIcons[3].SetActive(true);
-                //    }
-                //}
+                if (player.transform.GetChild(i).name == "forwardability(clone)" && kineticBlastIconActive)
+                {
+                    if (player.transform.GetChild(i).GetComponent<ForwardAbility>().attackCooldown > 0)
+                    {
+                        cooldownIcons[1].SetActive(true);
+                        abilityIcons[3].SetActive(false);
+                    }
+                    else
+                    {
+                        cooldownIcons[1].SetActive(false);
+                        abilityIcons[3].SetActive(true);
+                    }
+                }
 
 
                 if (player.transform.GetChild(i).name == "HealAbility(Clone)" && reFuelIconActive)
