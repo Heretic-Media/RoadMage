@@ -74,6 +74,8 @@ public class ForwardAbility : MonoBehaviour
 
     void FireProjectile(float damage, Vector3 velocity)
     {
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.25f, 0.5f);
+
         switch (element)
         {
             case 0:

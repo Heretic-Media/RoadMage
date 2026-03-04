@@ -28,7 +28,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
             enemy.transform.position = Vector3.up * 999999;
         }
 
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(Time.fixedDeltaTime * 2, Time.time * 0.001f);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(Time.fixedDeltaTime * 2, (Time.time - startTime) * 0.01f);
 
         if (Time.time > 15 + startTime)
         {

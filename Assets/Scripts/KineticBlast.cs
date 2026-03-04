@@ -43,6 +43,8 @@ public class KineticBlast : MonoBehaviour
 
     void FireProjectile(int damage, Vector3 velocity)
     {
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.5f, 1000);
+        
         GameObject newProj = Instantiate(projectile, transform.position, transform.rotation);
         newProj.SetActive(true);
         newProj.transform.GetComponentInChildren<Damage>().damage = damage;
