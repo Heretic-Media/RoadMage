@@ -451,8 +451,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284180086
-  m_fontColor: {r: 0.46226418, g: 0.4012104, b: 0.3554201, a: 1}
+    rgba: 4285831077
+  m_fontColor: {r: 0.64705884, g: 0.5921569, b: 0.454902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1609,7 +1609,7 @@ GameObject:
   - component: {fileID: 794539760}
   - component: {fileID: 794539759}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,8 +2060,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284180086
-  m_fontColor: {r: 0.46226418, g: 0.4012104, b: 0.3554201, a: 1}
+    rgba: 4285831077
+  m_fontColor: {r: 0.64705884, g: 0.5921569, b: 0.454902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3501,8 +3501,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284180086
-  m_fontColor: {r: 0.46226418, g: 0.4012104, b: 0.3554201, a: 1}
+    rgba: 4285831077
+  m_fontColor: {r: 0.64705884, g: 0.5921569, b: 0.454902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
