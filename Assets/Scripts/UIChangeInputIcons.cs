@@ -10,53 +10,74 @@ public class UIChangeInputIcons : MonoBehaviour
     private bool playstationEnabled = false;
     private bool keyboardEnabled = false;
 
-
-    private void Start()
+    // Subscribe when the component is enabled and unsubscribe when disabled.
+    // This prevents callbacks from firing against destroyed/destroying objects.
+    private void OnEnable()
     {
         InputSystem.onActionChange += switchIconOnChange;
     }
 
+    private void OnDisable()
+    {
+        InputSystem.onActionChange -= switchIconOnChange;
+    }
+
     void switchIconOnChange(object obj, InputActionChange change)
     {
-        if (obj != null && obj is InputAction action)
-        { 
-            if (action.activeControl == null) return; 
-            InputDevice lastDevice = action.activeControl.device;
+        if (obj == null || !(obj is InputAction action))
+            return;
 
-            if (lastDevice is Gamepad)
+        // activeControl can be null for some event types — bail out early.
+        if (action.activeControl == null)
+            return;
+
+        InputDevice lastDevice = action.activeControl.device;
+
+        if (lastDevice is Gamepad)
+        {
+            if (gamepadIcons != null)
             {
                 foreach (var icon in gamepadIcons)
-                {
-                    icon.SetActive(true);
-                }
-                foreach (var icon in keyboardIcons)
-                {
-                    icon.SetActive(false);
-                }
-                foreach (var icon in playstationIcons)
-                {
-                    icon.SetActive(false);
-                }
-                gamepadEnabled = true;
-                keyboardEnabled = false;
+                    if (icon != null) icon.SetActive(true);
             }
-            else if (lastDevice is Keyboard)
+
+            if (keyboardIcons != null)
+            {
+                foreach (var icon in keyboardIcons)
+                    if (icon != null) icon.SetActive(false);
+            }
+
+            if (playstationIcons != null)
+            {
+                foreach (var icon in playstationIcons)
+                    if (icon != null) icon.SetActive(false);
+            }
+
+            gamepadEnabled = true;
+            keyboardEnabled = false;
+        }
+        else if (lastDevice is Keyboard)
+        {
+            if (gamepadIcons != null)
             {
                 foreach (var icon in gamepadIcons)
-                {
-                    icon.SetActive(false);
-                }
-                foreach (var icon in keyboardIcons)
-                {
-                    icon.SetActive(true);
-                }
-                foreach (var icon in playstationIcons)
-                {
-                    icon.SetActive(false);
-                }
-                gamepadEnabled = false;
-                keyboardEnabled = true;
+                    if (icon != null) icon.SetActive(false);
             }
+
+            if (keyboardIcons != null)
+            {
+                foreach (var icon in keyboardIcons)
+                    if (icon != null) icon.SetActive(true);
+            }
+
+            if (playstationIcons != null)
+            {
+                foreach (var icon in playstationIcons)
+                    if (icon != null) icon.SetActive(false);
+            }
+
+            gamepadEnabled = false;
+            keyboardEnabled = true;
         }
     }
 
@@ -66,13 +87,13 @@ public class UIChangeInputIcons : MonoBehaviour
     }
 
     public bool KeyboardConnected()
-    { 
-        return keyboardEnabled; 
+    {
+        return keyboardEnabled;
     }
 
-
+    // Removed the Update subscription to avoid adding the delegate every frame.
     private void Update()
     {
-        InputSystem.onActionChange += switchIconOnChange;
+        // No longer subscribing here.
     }
 }

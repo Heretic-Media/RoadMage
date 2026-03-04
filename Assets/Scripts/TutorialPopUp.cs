@@ -19,7 +19,7 @@ public class TutorialPopUp : MonoBehaviour
 
     public void SetPositionAuto(int childrenCount)
     {
-        targetPos = new Vector2(200 + (200 * (childrenCount - 1)), -135);
+        targetPos = new Vector2(575, -45 - (75 * (childrenCount - 1)));
     }
 
     private void FixedUpdate()
