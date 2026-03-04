@@ -34,7 +34,7 @@ public class VortexAbility : MonoBehaviour
             if (!vortexOnCooldown)
             {
                 hitBox.SetActive(true);
-                Invoke("endAttack", 2.5f);
+                Invoke("endAttack", 5f);
                 isActive = true;
             }
         }
@@ -51,7 +51,7 @@ public class VortexAbility : MonoBehaviour
             hitBox.SetActive(false);
             isActive = false;
             vortexOnCooldown = true;
-            Invoke("endCooldown", 3f);
+            Invoke("endCooldown", 5f);
         }
         else
         {
