@@ -25,7 +25,7 @@ public class AoEAbility : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hit an enemy to summon a magic attack.", 4f);
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hit an enemy to summon a magic attack.", 6f);
     }
 
     private void FixedUpdate()
