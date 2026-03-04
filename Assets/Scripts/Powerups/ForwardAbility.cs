@@ -34,11 +34,11 @@ public class ForwardAbility : MonoBehaviour
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
 
-        if (forwardVel >= speedThreshold && attackCooldown <= 0)
+        if (forwardVel >= speedThreshold && attackCooldown <= 0 && !indicatorParticles.isPlaying)
         {
             indicatorParticles.Play();
         }
-        else
+        else if (forwardVel < speedThreshold || attackCooldown > 0)
         {
             indicatorParticles.Stop();
         }

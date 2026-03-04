@@ -763,6 +763,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7488684843663638175, guid: 68b5c07eb20be704184c63fb287e443c, type: 3}
   m_PrefabInstance: {fileID: 1972792839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &418355354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3548700041077215882, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+  m_PrefabInstance: {fileID: 4920554458386254273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426761705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,6 +5464,10 @@ PrefabInstance:
       propertyPath: eventsSystem
       value: 
       objectReference: {fileID: 1295931518}
+    - target: {fileID: 6016273384153209072, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
+      propertyPath: quitFirstSelect
+      value: 
+      objectReference: {fileID: 418355354}
     - target: {fileID: 6016273384153209072, guid: 7ead4996653821e4dbaffb9d4825222b, type: 3}
       propertyPath: tutorialManager
       value: 
