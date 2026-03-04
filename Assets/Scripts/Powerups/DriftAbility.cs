@@ -9,7 +9,7 @@ public class DriftAbility : MonoBehaviour
 
     [Tooltip("Time spent drifting for debugging")]
     [SerializeField] private float driftTime = 0;
-    private float driftDelayTime = 0;
+    public float driftDelayTime = 0;
 
     [Tooltip("Drift time needed before spawning first projectile")]
     [SerializeField] private float driftAbilityDelay = 1f;
