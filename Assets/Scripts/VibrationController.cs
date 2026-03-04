@@ -12,12 +12,12 @@ public class VibrationController : MonoBehaviour
     private bool inputUsingVibration = false;
     private bool collisionUsingVibration = false;
     private int delayCounter = 0;
-    private bool hapticEnabled = true;
+    private bool hapticEnabled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        hapticEnabled = true; // Default to haptics enabled
+        hapticEnabled = false; // Default to haptics enabled
     }
 
     public void ToggleHaptics()
