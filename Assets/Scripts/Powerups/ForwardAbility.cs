@@ -34,11 +34,11 @@ public class ForwardAbility : MonoBehaviour
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
 
-        if (forwardVel >= speedThreshold && attackCooldown <= 0)
+        if (forwardVel >= speedThreshold && attackCooldown <= 0 && !indicatorParticles.isPlaying)
         {
             indicatorParticles.Play();
         }
-        else
+        else if (forwardVel < speedThreshold || attackCooldown > 0)
         {
             indicatorParticles.Stop();
         }
@@ -74,6 +74,8 @@ public class ForwardAbility : MonoBehaviour
 
     void FireProjectile(float damage, Vector3 velocity)
     {
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.7f, 0.2f);
+
         switch (element)
         {
             case 0:

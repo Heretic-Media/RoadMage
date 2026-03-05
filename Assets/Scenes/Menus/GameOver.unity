@@ -487,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 2055685561}
     - target: {fileID: 5758016651630237308, guid: 83125332fefaf92499f8aee669fa3c2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: ReturnToMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
