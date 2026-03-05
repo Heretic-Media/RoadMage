@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
+    <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
     <Compile Include="Assets\Scripts\AbilityDesc.cs" />
