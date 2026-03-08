@@ -18,6 +18,7 @@ TagManager:
   - IntuitiveSwitching
   - Building
   - Water
+  - PauseManager
   layers:
   - Default
   - TransparentFX

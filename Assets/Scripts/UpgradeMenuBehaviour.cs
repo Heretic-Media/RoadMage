@@ -29,14 +29,14 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     public void Unpause(int buttonIndex)
     {
         Init();
-        Time.timeScale = 1.0f;
+        GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>().UpgradeMenuPause(false);
         UpgradePlayer(options[buttonIndex]);
         canvas.SetActive(false);
     }
 
     public void Pause()
     {
-        Time.timeScale = 0.0f;
+        GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>().UpgradeMenuPause(true);
         List<int> selectedupgrades = new List<int>();
         for (int i = 0; i < optionButtons.Length; i++)
         {
