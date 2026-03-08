@@ -3,42 +3,120 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
 
 public class UpgradeMenuBehaviour : MonoBehaviour
 {
-    [SerializeField] GameObject defaultOption;
+    [SerializeField] GameObject[] optionButtons;
+    int[] options;
     [SerializeField] EventSystem eventSystem;
-    
-    public void Unpause(GameObject upgradePrefab)
+
+    [SerializeField] GameObject canvas;
+
+    [SerializeField] GameObject[] upgradePrefabs;
+    List<int> availableUpgrades = new List<int>();
+
+    private void Start()
     {
-        eventSystem.SetSelectedGameObject(defaultOption);
-        Time.timeScale = 1.0f;
-        UpgradePlayer(upgradePrefab);
-        GetComponent<Canvas>().enabled = false;
+        options = new int[optionButtons.Length];
+        for (int i = 0; i < upgradePrefabs.Length; i++)
+        {
+            availableUpgrades.Add(i);
+        }
     }
 
-    public void UpgradePlayer(GameObject prefabToUse)
+    public void Unpause(int buttonIndex)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        bool alreadyUpgraded = false;
+        Init();
+        Time.timeScale = 1.0f;
+        UpgradePlayer(options[buttonIndex]);
+        canvas.SetActive(false);
+    }
 
-        for (int i = 0; i < player.transform.childCount; i++)
+    public void Pause()
+    {
+        Time.timeScale = 0.0f;
+        List<int> selectedupgrades = new List<int>();
+        for (int i = 0; i < optionButtons.Length; i++)
         {
-            if (prefabToUse.name == player.transform.GetChild(i).name.Replace("(Clone)", ""))
+            options[i] = SelectUpgrades();
+            selectedupgrades.Add(options[i]);
+            availableUpgrades.Remove(options[i]);
+
+            if (options[i] < 0)
             {
-                alreadyUpgraded = true;
-                break;
+                //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
+                //    "Skip upgrade";
+                TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
+                abilityTexts[0].text = "Skip upgrade";
+                abilityTexts[1].text = "Skips this upgrade";
+            }
+            else
+            {
+                AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
+                TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
+                abilityTexts[0].text = abilityDescription.abilityName;
+                abilityTexts[1].text = abilityDescription.abilityDesc;
+                //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
+                //    upgradePrefabs[options[i]].GetComponent<AbilityDesc>().abilityName;
             }
         }
 
-        if (!alreadyUpgraded)
+        foreach (var item in selectedupgrades)
         {
-            GameObject newUpgrade = Instantiate(prefabToUse, player.transform);
+            availableUpgrades.Add(item);
         }
+        selectedupgrades.Clear();
+
+        canvas.SetActive(true);
+        Init();
     }
 
-    public void init()
+    void UpgradePlayer(int prefabIndex)
     {
-        eventSystem.SetSelectedGameObject(defaultOption);
+        if (prefabIndex < 0)
+        {
+            return;
+        }
+
+        GameObject player = FindFirstObjectByType<Player>().gameObject;
+        Instantiate(upgradePrefabs[prefabIndex], player.transform);
+
+        availableUpgrades.Remove(prefabIndex);
+
+        //bool alreadyUpgraded = false;
+
+        //for (int i = 0; i < player.transform.childCount; i++)
+        //{
+        //    if (prefabToUse.name == player.transform.GetChild(i).name.Replace("(Clone)", ""))
+        //    {
+        //        alreadyUpgraded = true;
+        //        break;
+        //    }
+        //}
+
+        //if (!alreadyUpgraded)
+        //{
+        //    GameObject newUpgrade = Instantiate(prefabToUse, player.transform);
+        //}
+    }
+
+    void Init()
+    {
+        eventSystem.SetSelectedGameObject(optionButtons[0]);
+    }
+
+    int SelectUpgrades()
+    {
+        int output = -1;
+
+        if (availableUpgrades.Count > 0)
+        {
+            int index = Random.Range(0, availableUpgrades.Count);
+            output = availableUpgrades[index];
+        }
+
+        return output;
     }
 }

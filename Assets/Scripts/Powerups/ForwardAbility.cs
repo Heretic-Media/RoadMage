@@ -5,9 +5,11 @@ public class ForwardAbility : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject audioManager;
     [SerializeField] float speedThreshold = 5;
     public int element = 0;
-    private int attackCooldown = 60;
+    public int attackCooldown = 60;
+    [SerializeField] ParticleSystem indicatorParticles;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,9 +17,31 @@ public class ForwardAbility : MonoBehaviour
         playerRigidbody = GetComponentInParent<Rigidbody>();
     }
 
+    private void Awake()
+    {
+        if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().ControllerConnected())
+        {
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("<sprite=123> to fire a blast while moving fast.", 6f);
+        }
+        else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
+        {
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Hold <sprite=120> to fire a blast while moving fast.", 6f);
+        }
+        
+    }
+
     private void FixedUpdate()
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
+
+        if (forwardVel >= speedThreshold && attackCooldown <= 0 && !indicatorParticles.isPlaying)
+        {
+            indicatorParticles.Play();
+        }
+        else if (forwardVel < speedThreshold || attackCooldown > 0)
+        {
+            indicatorParticles.Stop();
+        }
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;
@@ -28,7 +52,7 @@ public class ForwardAbility : MonoBehaviour
 
         if (handbrake && (forwardVel >= speedThreshold) && attackCooldown <= 0)
         {
-            FireProjectile(2 * forwardVel, 1.5f * playerRigidbody.linearVelocity);
+            FireProjectile(forwardVel, 1.5f * playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
         else if (attackCooldown > 0)
@@ -37,8 +61,21 @@ public class ForwardAbility : MonoBehaviour
         }
     }
 
+    private void StartAudio()
+    {
+        audioManager.SetActive(true);
+        Invoke("CutAudio", 1.5f);
+    }
+
+    private void CutAudio()
+    {
+        audioManager.SetActive(false);
+    }
+
     void FireProjectile(float damage, Vector3 velocity)
     {
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.7f, 0.2f);
+
         switch (element)
         {
             case 0:
@@ -62,6 +99,7 @@ public class ForwardAbility : MonoBehaviour
                 velocity *= 1.5f;
                 break;
         }
+        StartAudio();
         GameObject newProj = Instantiate(projectile, transform.position, transform.rotation);
         newProj.SetActive(true);
         newProj.transform.GetComponentInChildren<Damage>().damage = (int)damage;

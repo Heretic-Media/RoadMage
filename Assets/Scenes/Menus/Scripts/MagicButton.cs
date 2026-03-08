@@ -2,7 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MagicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MagicButton : MonoBehaviour,
+    IPointerEnterHandler,
+    IPointerExitHandler,
+    ISelectHandler,
+    IDeselectHandler
 {
     public Image glow;
     Vector3 baseScale;
@@ -10,18 +14,46 @@ public class MagicButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         baseScale = transform.localScale;
-        if (glow != null) glow.enabled = false;
+
+        if (glow != null)
+            glow.enabled = false;
     }
 
-    public void OnPointerEnter(PointerEventData data)
+    void ActivateHover()
     {
         transform.localScale = baseScale * 1.1f;
-        if (glow) glow.enabled = true;
+
+        if (glow != null)
+            glow.enabled = true;
+    }
+
+    void DeactivateHover()
+    {
+        transform.localScale = baseScale;
+
+        if (glow != null)
+            glow.enabled = false;
+    }
+
+    // Mouse hover
+    public void OnPointerEnter(PointerEventData data)
+    {
+        ActivateHover();
     }
 
     public void OnPointerExit(PointerEventData data)
     {
-        transform.localScale = baseScale;
-        if (glow) glow.enabled = false;
+        DeactivateHover();
+    }
+
+    // Controller / Keyboard selection
+    public void OnSelect(BaseEventData eventData)
+    {
+        ActivateHover();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        DeactivateHover();
     }
 }

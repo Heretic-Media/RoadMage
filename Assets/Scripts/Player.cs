@@ -70,6 +70,14 @@ public class Player : MonoBehaviour
         UpdateXPUI();
     }
 
+    public void ToggleTrails(bool on_off)
+    {
+        foreach (TrailRenderer trail in GetComponentsInChildren<TrailRenderer>())
+        {
+            trail.enabled = on_off;
+        }
+    }
+
     // May be removed eventually
     public void TakeDamage(int amount)
     {

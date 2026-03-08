@@ -8,75 +8,78 @@ using static UnityEngine.GraphicsBuffer;
 public class TopDownCarController : MonoBehaviour
 {
     [Header("Axis Locking")]
-    public bool lockAxis = false;
+    [SerializeField] private bool lockAxis = false;
     [Tooltip("Set to 0 to disable")]
-    public float uprightTorque = 250;
+    [SerializeField] private float uprightTorque = 250;
     [Tooltip("Angle in degrees player must tilt to start correcting to upright")]
-    public float degreeThreshold = 15;
+    [SerializeField] private float degreeThreshold = 15;
     [Tooltip("Debugging to show when upright tilt is active")]
-    public bool tryingToUpright = false;
+    [SerializeField] private bool tryingToUpright = false;
 
     [Header("Speed (m/s)")]
-    public float maxForwardSpeed = 20f;
-    public float maxReverseSpeed = 10f;
+    [SerializeField] private float maxForwardSpeed = 20f;
+    [SerializeField] private float maxReverseSpeed = 10f;
 
     [Header("Acceleration / Braking")]
-    public float acceleration = 25f;
-    public float reverseAcceleration = 30f;
-    public float brakeStrength = 55f;
-    public float idleDrag = 0.75f;
-    public float accelDrag = 0.6f;
-    public float brakeDrag = 5f;
+    [SerializeField] private float acceleration = 25f;
+    [SerializeField] private float reverseAcceleration = 30f;
+    [SerializeField] private float brakeStrength = 55f;
+    [SerializeField] private float idleDrag = 0.75f;
+    [SerializeField] private float accelDrag = 0.6f;
+    [SerializeField] private float brakeDrag = 5f;
     [Tooltip("Debugging to show when breaking")]
-    public bool isBraking = false;
-    public float brakeFactor = 6f;
+    [SerializeField] private bool isBraking = false;
+    [SerializeField] private float brakeFactor = 6f;
 
     // Increase maxSteerAnglePerSec to reduce turning circle
     [Header("Steering")]
-    public float maxSteerAnglePerSec = 280f; // was 140f, increased for tighter turns
+    [SerializeField] private float minSteerThreshold = 0.3f;
+    [SerializeField] private float maxSteerAnglePerSec = 280f; // was 140f, increased for tighter turns
     [Range(0.1f, 1f)]
-    public float steerAtTopSpeedFactor = 0.6f;
-    public float steeringResponse = 10f;
+    [SerializeField] private float steerAtTopSpeedFactor = 0.6f;
+    [SerializeField] private float steeringResponse = 10f;
 
     [Header("Grip / Traction")]
     [Tooltip("Base sideways grip. Higher = less slide.")]
-    public float baseLateralGrip = 20f;
+    [SerializeField] private float baseLateralGrip = 20f;
     [Tooltip("Extra grip when accelerating.")]
-    public float accelLateralGripBoost = 4f;
+    [SerializeField] private float accelLateralGripBoost = 4f;
     [Tooltip("Extra grip when braking.")]
-    public float brakeLateralGripBoost = 6f;
+    [SerializeField] private float brakeLateralGripBoost = 6f;
     [Tooltip("Handbrake grip factor when NOT using drift mode.")]
-    public float handbrakeLateralGripFactor = 0.35f;
+    [SerializeField] private float handbrakeLateralGripFactor = 0.35f;
 
     [Header("Drift")]
-    public bool enableDrift = true;
+    [SerializeField] private bool enableDrift = true;
     [Tooltip("Lateral grip multiplier while drifting.")]
-    public float driftLateralGripFactor = 1f;
+    [SerializeField] private float driftLateralGripFactor = 1f;
     [Tooltip("Forward drag while drifting (keeps momentum, slight slowdown).")]
-    public float driftForwardDrag = 0.2f;
+    [SerializeField] private float driftForwardDrag = 0.2f;
     [Tooltip("Steering multiplier while drifting.")]
-    public float driftSteerMultiplier = 0.4f;
+    [SerializeField] private float driftSteerMultiplier = 0.4f;
     [Tooltip("Extra yaw torque while drifting to help kick the rear out.")]
-    public float driftYawBoost = 6f;
+    [SerializeField] private float driftYawBoost = 6f;
     [Tooltip("Prevents extra yaw torque from building up")]
-    public float maxYawVelocity = 3f;
+    [SerializeField] private float maxYawVelocity = 3f;
     [Tooltip("Minimum speed needed before drift takes effect.")]
-    public float driftMinSpeed = 5f;
+    [SerializeField] private float driftMinSpeed = 5f;
 
     [Header("Input / Physics")]
-    public Key handbrakeKey = Key.LeftCtrl;
-    public Key driftKey = Key.Space;
+    [SerializeField] private Key handbrakeKey = Key.LeftCtrl;
+    [SerializeField] private Key driftKey = Key.Space;
     public Rigidbody rb;
-    public Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
+    [SerializeField] private Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
 
-    public float rawThrottleInput;
+    [SerializeField] private float rawThrottleInput;
     public float rawSteerInput;
-    float steerInputSmoothed;
-    bool handbrake;
-    bool drift;
+    private float steerInputSmoothed;
+    private bool handbrake;
+    private bool drift;
 
-    public bool hasThrottle;
+    [SerializeField] private bool hasThrottle;
     public bool drifting;
+
+    public float disabledTime = 2f;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject rightSparks;
@@ -125,91 +128,99 @@ public class TopDownCarController : MonoBehaviour
 
     void Update()
     {
-        var kb = Keyboard.current;
-        var gp = Gamepad.current;
-
-        float t = 0f;
-
-        if (gp != null)
+        if (disabledTime > 0)
         {
-            t = gp.rightTrigger.ReadValue() - gp.leftTrigger.ReadValue();
+            disabledTime -= Time.deltaTime;
+            if (disabledTime < 0) disabledTime = 0;
         }
-        else if (kb != null)
+        else
         {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed) t += 1f;
-            if (kb.sKey.isPressed || kb.downArrowKey.isPressed) t -= 1f;
-        }
+            var kb = Keyboard.current;
+            var gp = Gamepad.current;
 
-        rawThrottleInput = Mathf.Clamp(t, -1f, 1f);
+            float t = 0f;
 
-        float s = 0f;
-
-        if (gp != null)
-        {
-            s = gp.leftStick.x.ReadValue();
-        }
-        else if (kb != null)
-        {
-            if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) s -= 1f;
-            if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) s += 1f;
-        }
-
-        rawSteerInput = Mathf.Clamp(s, -1f, 1f);
-
-        handbrake =
-            (gp != null && gp.leftShoulder.isPressed) ||
-            (kb != null && kb[handbrakeKey].isPressed);
-
-        drift =
-            (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
-            (kb != null && kb[driftKey].isPressed);
-
-        // speed gauge
-        if (speedGauge != null)
-        {
-            speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
-        }
-
-        // tutorial management
-        if (tutorialStage == 0)
-        {
-            if (kb.wKey.isPressed || kb.upArrowKey.isPressed || kb.sKey.isPressed || kb.downArrowKey.isPressed)
+            if (gp != null)
             {
-                tutorialTimeDriven += Time.deltaTime;
-                if (tutorialTimeDriven > 5f)
+                t = gp.rightTrigger.ReadValue() - gp.leftTrigger.ReadValue();
+            }
+            else if (kb != null)
+            {
+                if (kb.wKey.isPressed || kb.upArrowKey.isPressed) t += 1f;
+                if (kb.sKey.isPressed || kb.downArrowKey.isPressed) t -= 1f;
+            }
+
+            rawThrottleInput = Mathf.Clamp(t, -1f, 1f);
+
+            float s = 0f;
+
+            if (gp != null)
+            {
+                s = gp.leftStick.x.ReadValue();
+            }
+            else if (kb != null)
+            {
+                if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) s -= 1f;
+                if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) s += 1f;
+            }
+
+            rawSteerInput = Mathf.Clamp(s, -1f, 1f);
+
+            handbrake =
+                (gp != null && gp.leftShoulder.isPressed) ||
+                (kb != null && kb[handbrakeKey].isPressed);
+
+            drift =
+                (gp != null && gp.buttonSouth.isPressed) || // A button on most controllers
+                (kb != null && kb[driftKey].isPressed);
+
+            // speed gauge
+            if (speedGauge != null)
+            {
+                speedGauge.GetComponent<UIDialBehaviour>().UpdateGauge(rb.linearVelocity.magnitude / maxForwardSpeed / 2);
+            }
+
+            // tutorial management
+            if (tutorialStage == 0)
+            {
+                if (kb.wKey.isPressed || kb.upArrowKey.isPressed || kb.sKey.isPressed || kb.downArrowKey.isPressed)
                 {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                    tutorialTimeDriven += Time.deltaTime;
+                    if (tutorialTimeDriven > 5f)
                     {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = true;
+                        if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = true;
+                        }
+                        tutorialStage = 1;
                     }
-                    tutorialStage = 1;
+                }
+            }
+            else if (tutorialStage == 1)
+            {
+                if ((gp != null && gp.leftShoulder.isPressed) || (kb != null && kb[handbrakeKey].isPressed) || (gp != null && gp.buttonSouth.isPressed) || (kb != null && kb[driftKey].isPressed))
+                {
+                    tutorialTimeDriftingBraking += Time.deltaTime;
+                    if (tutorialTimeDriftingBraking > 5f)
+                    {
+                        if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = false;
+                        }
+                        if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
+                        {
+                            GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = false;
+                        }
+                        tutorialStage = 2;
+                    }
                 }
             }
         }
-        else if (tutorialStage == 1)
-        {
-            if ((gp != null && gp.leftShoulder.isPressed) || (kb != null && kb[handbrakeKey].isPressed) || (gp != null && gp.buttonSouth.isPressed) || (kb != null && kb[driftKey].isPressed))
-            {
-                tutorialTimeDriftingBraking += Time.deltaTime;
-                if (tutorialTimeDriftingBraking > 5f)
-                {
-                    if (GameObject.FindGameObjectWithTag("TutorialDriftingBraking") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialDriftingBraking").GetComponent<Canvas>().enabled = false;
-                    }
-                    if (GameObject.FindGameObjectWithTag("TutorialMovement") != null)
-                    {
-                        GameObject.FindGameObjectWithTag("TutorialMovement").GetComponent<Canvas>().enabled = false;
-                    }
-                    tutorialStage = 2;
-                }
-            }
-        }
-
     }
 
     void FixedUpdate()
     {
+        if (disabledTime > 0) return;
         if (!rb) return;
 
         /// Keep rb upright
@@ -234,7 +245,7 @@ public class TopDownCarController : MonoBehaviour
 
         hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 
-        drifting = enableDrift && drift && speedAbs > driftMinSpeed;
+        drifting = enableDrift && drift && speedAbs > driftMinSpeed && Mathf.Abs(rawSteerInput) > minSteerThreshold;
 
         isBraking =
             (forwardSpeed > 0.2f && rawThrottleInput < -0.1f) ||
@@ -243,7 +254,7 @@ public class TopDownCarController : MonoBehaviour
 
         if (hasThrottle && !handbrake)
         {
-            Vector3 lockedAxisForward = new Vector3( transform.forward.x, Vector3.forward.y, transform.forward.z);
+            Vector3 lockedAxisForward = new Vector3(transform.forward.x, Vector3.forward.y, transform.forward.z);
             if (!isBraking)
             {
                 if (rawThrottleInput > 0f)
@@ -304,6 +315,9 @@ public class TopDownCarController : MonoBehaviour
         float lateral = localVel.x;
         float lateralKill = lateralGrip * Time.fixedDeltaTime;
         localVel.x = Mathf.MoveTowards(lateral, 0f, lateralKill);
+
+        // Don't set velocity if kinematic (e.g., during rescue)
+        if (rb.isKinematic) return;
 
         Vector3 newWorldVel = transform.TransformDirection(localVel);
         newWorldVel.y = rb.linearVelocity.y;

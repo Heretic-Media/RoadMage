@@ -14,6 +14,11 @@ public class KineticBlast : MonoBehaviour
         playerRigidbody = GetComponentInParent<Rigidbody>();
     }
 
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("LB to fire a blast while moving fast.", 4f);
+    }
+
     private void FixedUpdate()
     {
         float forwardVel = transform.InverseTransformDirection(playerRigidbody.linearVelocity).z;
@@ -38,6 +43,8 @@ public class KineticBlast : MonoBehaviour
 
     void FireProjectile(int damage, Vector3 velocity)
     {
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.5f, 1000);
+        
         GameObject newProj = Instantiate(projectile, transform.position, transform.rotation);
         newProj.SetActive(true);
         newProj.transform.GetComponentInChildren<Damage>().damage = damage;

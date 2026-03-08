@@ -9,8 +9,15 @@ TagManager:
   - HealthBar
   - UpgradeUI
   - SpeedFuelGauge
+  - TutorialPopUpManager
   - TutorialMovement
   - TutorialDriftingBraking
+  - ScoreManager
+  - GaragesText
+  - Music
+  - IntuitiveSwitching
+  - Building
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -24,7 +31,7 @@ TagManager:
   - EnemyHurtbox
   - Camera
   - Minimap
-  - 
+  - Overlay
   - 
   - 
   - 
