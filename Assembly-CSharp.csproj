@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
+    <Compile Include="Assets\Scripts\Brightness.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
     <Compile Include="Assets\Scripts\Powerups\HealAbility.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
