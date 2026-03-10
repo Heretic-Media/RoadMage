@@ -1,7 +1,5 @@
 using TMPro;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ScoreManager : MonoBehaviour
 {
