@@ -351,7 +351,7 @@ MonoBehaviour:
   cameraShakeMagnitude: 0.05
   formationIndex: 0
   attackHitbox: {fileID: 5459276814889489623}
-  PointValue: 100
+  PointValue: 30
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
