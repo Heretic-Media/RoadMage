@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\UpgradeMenuBehaviour.cs" />
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_TargetPosition.cs" />
+    <Compile Include="Assets\Scripts\Powerups\TrailAbility.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
     <Compile Include="Assets\Scripts\GarageTextBehaviour.cs" />
     <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
