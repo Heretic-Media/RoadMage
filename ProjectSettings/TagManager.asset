@@ -19,6 +19,7 @@ TagManager:
   - Building
   - Water
   - PauseManager
+  - WinScreenManager
   layers:
   - Default
   - TransparentFX
