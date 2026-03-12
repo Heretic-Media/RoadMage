@@ -3,6 +3,7 @@ using UnityEngine;
 public class DriftAbility : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private AudioSource fireAudio;
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
@@ -118,12 +119,33 @@ public class DriftAbility : MonoBehaviour
         }
     }
 
+    private void StartAudio()
+    {
+        if(fireAudio.isPlaying == false) 
+        {
+            fireAudio.Play();
+            Invoke("CutAudio", 1.5f);
+        }
+        else 
+        {
+            CancelInvoke("CutAudio");
+            CutAudio();
+            StartAudio();
+        }
+    }
+
+    private void CutAudio()
+    {
+        fireAudio.Stop();
+    }
     private void SpawnProjectile(float projectileSpeed)
     {
         timeSinceLastDriftProjectile = 0;
 
         if (projectile == null)
             return;
+
+        StartAudio();
 
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
         GameObject proj = Instantiate(projectile, spawnPos, Quaternion.identity);
