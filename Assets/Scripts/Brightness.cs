@@ -1,8 +1,6 @@
-using Adobe.Substance.Connector;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
 public class Brightness : MonoBehaviour
 {
