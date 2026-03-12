@@ -1,9 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DriftAbility : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
-    [SerializeField] private AudioSource fireAudio;
+    [SerializeField] private GameObject fireAudio;
+
+    [SerializeField] private int audioPlayersCount = 5;
+    private List<GameObject> fireSounds = new List<GameObject>();
+    private int audioIndex = 0;
+
+    
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
@@ -36,6 +43,11 @@ public class DriftAbility : MonoBehaviour
     void Start()
     {
         carController = transform.parent.GetComponent<TopDownCarController>();
+
+        for (int i = 0; i < audioPlayersCount; i++) 
+        {
+            fireSounds.Add(Instantiate(fireAudio, Vector3.zero, Quaternion.identity));
+        }
     }
 
     private void Awake()
@@ -121,23 +133,19 @@ public class DriftAbility : MonoBehaviour
 
     private void StartAudio()
     {
-        if(fireAudio.isPlaying == false) 
+        if (fireSounds[audioIndex].GetComponentInChildren<AudioSource>().isPlaying == false) 
         {
-            fireAudio.Play();
-            Invoke("CutAudio", 1.5f);
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Play();
         }
         else 
         {
-            CancelInvoke("CutAudio");
-            CutAudio();
+            audioIndex++;
+            audioIndex = audioIndex % audioPlayersCount;
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Stop();
             StartAudio();
         }
     }
 
-    private void CutAudio()
-    {
-        fireAudio.Stop();
-    }
     private void SpawnProjectile(float projectileSpeed)
     {
         timeSinceLastDriftProjectile = 0;
