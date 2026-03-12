@@ -18,6 +18,8 @@ public class GarageBehaviour : MonoBehaviour
     private bool exploding = false;
     private float explodingTimer = 1f;
 
+    private Material material;
+
     int GetEnemies()
     {
         return enemiesObject.transform.childCount;
@@ -30,12 +32,18 @@ public class GarageBehaviour : MonoBehaviour
         enemiesNum = enemiesObject.transform.childCount;
     }
 
+    void Start()
+    {
+        material = GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (exploding)
         {
             explodingTimer -= Time.fixedDeltaTime;
+            material.SetFloat("_Progress", 1 - explodingTimer);
             if (explodingTimer <= 0)
             {
                 Destroy(transform.parent.gameObject);
