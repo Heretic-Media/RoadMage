@@ -34,7 +34,7 @@ public class GarageBehaviour : MonoBehaviour
 
     void Start()
     {
-        material = GetComponent<MeshRenderer>().sharedMaterial;
+        material = GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
