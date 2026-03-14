@@ -100,9 +100,10 @@ public class ForwardAbility : MonoBehaviour
                 break;
         }
         StartAudio();
-        GameObject newProj = Instantiate(projectile, transform.position, transform.rotation);
+        GameObject newProj = Instantiate(projectile, transform.position, Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f));
         newProj.SetActive(true);
         newProj.transform.GetComponentInChildren<Damage>().damage = (int)damage;
+        velocity.y = 0f;
         newProj.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
     }
 }
