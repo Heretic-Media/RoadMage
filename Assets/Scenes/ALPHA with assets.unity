@@ -4320,7 +4320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7987905645439177855, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: m_Size.z
-      value: 1.2488152
+      value: 0.9668025
       objectReference: {fileID: 0}
     - target: {fileID: 7987905645439177855, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: m_Enabled
@@ -4328,11 +4328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7987905645439177855, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: m_Center.x
-      value: -0.05262578
+      value: -0.052625798
       objectReference: {fileID: 0}
     - target: {fileID: 7987905645439177855, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: m_Center.z
-      value: 0.2605483
+      value: 0.019423567
       objectReference: {fileID: 0}
     - target: {fileID: 8531347432276063996, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: m_CastShadows
@@ -6012,7 +6012,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1094843536862067123, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: m_Size.z
-      value: 1.12
+      value: 0.8655686
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094843536862067123, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00000008568619
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094843536862067123, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
+      propertyPath: m_Center.z
+      value: -0.20383005
       objectReference: {fileID: 0}
     - target: {fileID: 1094843536862067123, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: m_IsTrigger
