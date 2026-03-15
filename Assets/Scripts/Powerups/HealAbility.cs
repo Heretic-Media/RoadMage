@@ -8,7 +8,6 @@ public class HealAbility : MonoBehaviour
     [SerializeField] private GameObject healArea;
     [SerializeField] private GameObject audio;
     [SerializeField] private float cooldown = 10f;
-    //[SerializeField] private int healAmount = 75;
     [SerializeField] private int healAmount = 75;
     private GameObject[] debuffs;
     public bool healOnCooldown = false;
