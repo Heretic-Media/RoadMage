@@ -51,6 +51,7 @@ MonoBehaviour:
   particles: {fileID: 7048748642964297523}
   healArea: {fileID: 8961607332128349594}
   audio: {fileID: 8828982963083001756}
+  cooldown: 10
   healOnCooldown: 0
 --- !u!114 &7796484831200905901
 MonoBehaviour:
@@ -5041,7 +5042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: -75
+  damage: -750
   damageType: 0
   onHitEffect: 0
 --- !u!135 &530353848408023520

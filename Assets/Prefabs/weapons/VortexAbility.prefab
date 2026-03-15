@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 20
   damageType: 0
   onHitEffect: 0
 --- !u!135 &3718682607351000749
@@ -9956,7 +9956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 20
   damageType: 0
   onHitEffect: 0
 --- !u!135 &7455224925991814071
@@ -10081,7 +10081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 20
   damageType: 0
   onHitEffect: 0
 --- !u!135 &4016610224434626733
@@ -10206,7 +10206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 20
   damageType: 0
   onHitEffect: 0
 --- !u!135 &613821757587544543

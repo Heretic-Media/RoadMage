@@ -7,6 +7,7 @@ public class ForwardAbility : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject audioManager;
     [SerializeField] float speedThreshold = 5;
+    [SerializeField] float damageMult = 1f;
     public int element = 0;
     public int attackCooldown = 60;
     [SerializeField] ParticleSystem indicatorParticles;
@@ -52,7 +53,7 @@ public class ForwardAbility : MonoBehaviour
 
         if (handbrake && (forwardVel >= speedThreshold) && attackCooldown <= 0)
         {
-            FireProjectile(forwardVel, 1.5f * playerRigidbody.linearVelocity);
+            FireProjectile(damageMult * forwardVel, 1.5f * playerRigidbody.linearVelocity);
             attackCooldown = 60;
         }
         else if (attackCooldown > 0)

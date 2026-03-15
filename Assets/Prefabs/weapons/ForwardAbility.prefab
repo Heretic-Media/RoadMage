@@ -10072,6 +10072,7 @@ MonoBehaviour:
   projectile: {fileID: 1767329421393310009}
   audioManager: {fileID: 6531978290684415182}
   speedThreshold: 15
+  damageMult: 10
   element: 0
   attackCooldown: 60
   indicatorParticles: {fileID: 6651160559962024284}
