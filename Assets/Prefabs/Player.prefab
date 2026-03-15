@@ -9953,8 +9953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c634cbdf6b193e49a83b6490f024272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
-  health: 300
+  maxHealth: 3000
+  health: 3000
   deathEvent:
     m_PersistentCalls:
       m_Calls:

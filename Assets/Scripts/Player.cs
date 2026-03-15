@@ -91,12 +91,6 @@ public class Player : MonoBehaviour
         }*/
     }
 
-    // may be unneccesary function?
-    public void Heal(int amount)
-    {
-        health.TakeDamage(-amount);
-    }
-
     void LevelUp()
     {
         level++;

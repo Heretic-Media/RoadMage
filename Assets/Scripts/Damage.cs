@@ -18,7 +18,7 @@ public class Damage : MonoBehaviour
     {
         switch (onHitEffect)
         {
-            case 0:
+            default:
                 break;
             case 1:
                 DestroyParent();

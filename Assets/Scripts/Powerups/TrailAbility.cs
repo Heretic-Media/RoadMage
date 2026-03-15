@@ -4,7 +4,7 @@ public class TrailAbility : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     [SerializeField] GameObject projectile;
-    float attackCooldown = 60f;
+    float attackCooldown = 35f;
     float attackTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
