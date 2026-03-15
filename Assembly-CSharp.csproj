@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\PlayerRescue.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUp.cs" />
     <Compile Include="Assets\Scripts\Powerups\CollisionAbility.cs" />
+    <Compile Include="Assets\Scripts\DeBuffs\StunDebuff.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterCustomisation.cs" />
     <Compile Include="Assets\Scripts\Powerups\GlyphTrigger.cs" />
-    <Compile Include="Assets\Scripts\DeBuffs\StunPlayer.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\UI\MenuCursor.cs" />
     <Compile Include="Assets\Scripts\Powerups\VortexAbility.cs" />

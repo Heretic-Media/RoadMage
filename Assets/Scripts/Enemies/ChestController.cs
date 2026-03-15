@@ -16,9 +16,10 @@ public class ChestController : MonoBehaviour
         mimicChance = UnityEngine.Random.Range(1, 10);
         if (mimicChance % 2 == 0)
         {
-            // even == mimic time
+            // even = mimic time
             isMimic = true;
             gameObject.name = "MIMIC";
+            gameObject.layer = 9; //enemy hurtbox
         }
         else
         {

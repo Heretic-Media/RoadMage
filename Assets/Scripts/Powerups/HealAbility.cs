@@ -7,6 +7,7 @@ public class HealAbility : MonoBehaviour
     [SerializeField] private GameObject[] particles;
     [SerializeField] private GameObject audio;
     [SerializeField] private int healAmount = 75;
+    private GameObject[] debuffs;
     public bool healOnCooldown = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +29,8 @@ public class HealAbility : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=64> to drop a healing potion.", 6f);
         }
+
+        debuffs = GameObject.FindGameObjectsWithTag("DeBuff");
     }
 
     private void StartParticleEffect()
@@ -51,11 +54,26 @@ public class HealAbility : MonoBehaviour
         audio.SetActive(false);
     }
 
+    private void Cleanse()
+    {
+        foreach (var debuff in debuffs)
+        {
+            if (debuff.name == "stun")
+            {
+                debuff.GetComponent<StunDebuff>().UnStun();
+                debuff.SetActive(false);
+            }
+        }
+    }
+
     private void Heal()
     {
         if (!healOnCooldown)
         {
-            
+            if (debuffs.Length > 0)
+            {
+                Cleanse();
+            }
             GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(-healAmount);
             StartParticleEffect();
             healOnCooldown = true;
@@ -79,6 +97,7 @@ public class HealAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        debuffs = GameObject.FindGameObjectsWithTag("DeBuff");
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;

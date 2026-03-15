@@ -20,6 +20,7 @@ TagManager:
   - Water
   - PauseManager
   - WinScreenManager
+  - DeBuff
   layers:
   - Default
   - TransparentFX
