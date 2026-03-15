@@ -4,18 +4,17 @@ using UnityEngine.InputSystem;
 public class HealAbility : MonoBehaviour
 {
     private bool buttonPressed;
-    [SerializeField] private GameObject[] particles;
+    [SerializeField] private GameObject particles;
+    [SerializeField] private GameObject healArea;
     [SerializeField] private GameObject audio;
-    [SerializeField] private int healAmount = 75;
+    [SerializeField] private float cooldown = 10f;
+    //[SerializeField] private int healAmount = 75;
     public bool healOnCooldown = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < particles.Length; i++)
-        {
-            particles[i].SetActive(false);
-        }
+        
     }
 
     private void Awake()
@@ -32,11 +31,7 @@ public class HealAbility : MonoBehaviour
 
     private void StartParticleEffect()
     {
-        for (int i = 0; i < particles.Length; i++)
-        {
-            particles[i].SetActive(true);
-
-        }
+        particles.SetActive(true);
         audio.SetActive(true);
 
         Invoke("StopParticleEffect", 2f);
@@ -44,10 +39,7 @@ public class HealAbility : MonoBehaviour
 
     private void StopParticleEffect()
     {
-        for (int i = 0; i < particles.Length; i++)
-        {
-            particles[i].SetActive(false);
-        }
+        particles.SetActive(false);
         audio.SetActive(false);
     }
 
@@ -55,14 +47,14 @@ public class HealAbility : MonoBehaviour
     {
         if (!healOnCooldown)
         {
-            
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(-healAmount);
+
+            Instantiate(healArea, transform.position, transform.rotation).SetActive(true);
             StartParticleEffect();
             healOnCooldown = true;
         }
         else
         {
-            Invoke("RemoveCooldown", 10f);
+            Invoke("RemoveCooldown", cooldown);
         }
     }
 

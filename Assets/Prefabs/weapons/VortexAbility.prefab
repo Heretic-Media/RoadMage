@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8658445674568287297}
   - component: {fileID: 2232167084999247740}
   - component: {fileID: 3718682607351000749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spinning cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   damageType: 0
   onHitEffect: 0
 --- !u!135 &3718682607351000749
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6421354031292550933}
   - component: {fileID: 5919679779308187467}
   - component: {fileID: 994193253098581108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4969,7 +4969,7 @@ GameObject:
   - component: {fileID: 5579712284587552192}
   - component: {fileID: 7911680885946735818}
   - component: {fileID: 4230791986706478878}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9838,6 +9838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 8328470807036137324}
+  cooldown: 5
   vortexOnCooldown: 0
 --- !u!114 &922774496987568950
 MonoBehaviour:
@@ -9867,7 +9868,7 @@ GameObject:
   - component: {fileID: 8263343328718476974}
   - component: {fileID: 4698084894931688419}
   - component: {fileID: 7455224925991814071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spinning cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9955,7 +9956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   damageType: 0
   onHitEffect: 0
 --- !u!135 &7455224925991814071
@@ -9992,7 +9993,7 @@ GameObject:
   - component: {fileID: 126278190584415635}
   - component: {fileID: 2379116814582431174}
   - component: {fileID: 4016610224434626733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spinning cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10080,7 +10081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   damageType: 0
   onHitEffect: 0
 --- !u!135 &4016610224434626733
@@ -10117,7 +10118,7 @@ GameObject:
   - component: {fileID: 6013363844596412445}
   - component: {fileID: 3821558729483908617}
   - component: {fileID: 613821757587544543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spinning cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10205,7 +10206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   damageType: 0
   onHitEffect: 0
 --- !u!135 &613821757587544543
@@ -10239,7 +10240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5908712033291281663}
   - component: {fileID: 6575510894967298693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spinning objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10298,7 +10299,7 @@ GameObject:
   - component: {fileID: 6099840470956252754}
   - component: {fileID: 2709886836465231415}
   - component: {fileID: 4478103344409802332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15131,7 +15132,7 @@ GameObject:
   - component: {fileID: 953010380981978849}
   - component: {fileID: 1726785763798042469}
   - component: {fileID: 1564911436321252657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19998,6 +19999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 1116425551911790505, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1967894863689600172, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20036,6 +20041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1967894863689600172, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374047664388388733, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6174309818862440198, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
