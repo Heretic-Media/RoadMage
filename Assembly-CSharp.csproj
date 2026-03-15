@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Powerups\PopUpOnWeapon.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyTutorialPopUps.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
     <Compile Include="Assets\Scripts\Brightness.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
