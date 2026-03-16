@@ -71,15 +71,15 @@ PrefabInstance:
     - target: {fileID: -5712881897578682979, guid: 115f171d01cd9384fa9f284894d3b5e5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a529f45728175cb4b8571e1657d03134, type: 2}
+      objectReference: {fileID: 2100000, guid: c33ce82a2d10f584291806279e2df199, type: 2}
     - target: {fileID: -4971756522850820613, guid: 115f171d01cd9384fa9f284894d3b5e5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 885d2424d137ac54999f7cdf26d0e530, type: 2}
+      objectReference: {fileID: 2100000, guid: c33ce82a2d10f584291806279e2df199, type: 2}
     - target: {fileID: -1256572002082213163, guid: 115f171d01cd9384fa9f284894d3b5e5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 885d2424d137ac54999f7cdf26d0e530, type: 2}
+      objectReference: {fileID: 2100000, guid: c33ce82a2d10f584291806279e2df199, type: 2}
     - target: {fileID: 919132149155446097, guid: 115f171d01cd9384fa9f284894d3b5e5, type: 3}
       propertyPath: m_Name
       value: slime redesign

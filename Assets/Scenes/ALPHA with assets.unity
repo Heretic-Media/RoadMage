@@ -8783,6 +8783,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1587479420}
+    - target: {fileID: 7976922531717665412, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976922531717665412, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fa79d24c210fb1d4986e6e481dd700e8, type: 2}
     - target: {fileID: 8238967382460283966, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Name
       value: floating island
