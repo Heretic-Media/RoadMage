@@ -1,15 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DriftAbility : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject fireAudio;
+
+    [SerializeField] private int audioPlayersCount = 5;
+    private List<GameObject> fireSounds = new List<GameObject>();
+    private int audioIndex = 0;
+
+    
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
 
     [Tooltip("Time spent drifting for debugging")]
     [SerializeField] private float driftTime = 0;
-    private float driftDelayTime = 0;
+    public float driftDelayTime = 0;
 
     [Tooltip("Drift time needed before spawning first projectile")]
     [SerializeField] private float driftAbilityDelay = 1f;
@@ -35,6 +43,11 @@ public class DriftAbility : MonoBehaviour
     void Start()
     {
         carController = transform.parent.GetComponent<TopDownCarController>();
+
+        for (int i = 0; i < audioPlayersCount; i++) 
+        {
+            fireSounds.Add(Instantiate(fireAudio, Vector3.zero, Quaternion.identity));
+        }
     }
 
     private void Awake()
@@ -118,12 +131,29 @@ public class DriftAbility : MonoBehaviour
         }
     }
 
+    private void StartAudio()
+    {
+        if (fireSounds[audioIndex].GetComponentInChildren<AudioSource>().isPlaying == false) 
+        {
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Play();
+        }
+        else 
+        {
+            audioIndex++;
+            audioIndex = audioIndex % audioPlayersCount;
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Stop();
+            StartAudio();
+        }
+    }
+
     private void SpawnProjectile(float projectileSpeed)
     {
         timeSinceLastDriftProjectile = 0;
 
         if (projectile == null)
             return;
+
+        StartAudio();
 
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
         GameObject proj = Instantiate(projectile, spawnPos, Quaternion.identity);

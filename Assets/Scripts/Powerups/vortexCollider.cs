@@ -5,7 +5,6 @@ public class vortexCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("called vortex on trigger enter");
-
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Health>().TakeDamage(1);

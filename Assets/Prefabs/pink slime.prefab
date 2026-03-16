@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019e925d04950a42be2379d7d60eaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 200
   damageType: 0
   onHitEffect: 0
 --- !u!135 &5520334214079417683
@@ -344,14 +344,15 @@ MonoBehaviour:
   movementSpeed: 2
   visionDistance: 10
   closeVanishSpeedThreshold: 2
-  meleeRange: 2
+  meleeRange: 5
   attackCooldown: 0.5
+  damage: 200
   deathCry: {fileID: 5767112977954557990, guid: 89d772ceef086ad479f2aefa3e7f8a1f, type: 3}
   cameraShakeDuration: 0.1
   cameraShakeMagnitude: 0.05
   formationIndex: 0
   attackHitbox: {fileID: 5459276814889489623}
-  PointValue: 100
+  PointValue: 30
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
   formationRadius: 0.5
@@ -368,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c634cbdf6b193e49a83b6490f024272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   health: 0
   deathEvent:
     m_PersistentCalls:

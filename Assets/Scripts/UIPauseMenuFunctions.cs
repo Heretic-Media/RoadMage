@@ -23,9 +23,11 @@ public class UIPauseMenuFunctions : MonoBehaviour
     public GameObject deBugMenu;
     private bool deBugOn = false;
 
+    private PauseManager pauseManager;
+
     public void Pause()
     {
-        Time.timeScale = 0;
+        pauseManager.PauseMenuPause(true);
         options.SetActive(false);
         codex.SetActive(false);
         pauseMenu.SetActive(true);
@@ -35,7 +37,7 @@ public class UIPauseMenuFunctions : MonoBehaviour
 
     public void Resume()
     {
-        Time.timeScale = 1;
+        pauseManager.PauseMenuPause(false);
         options.SetActive(false);
         codex.SetActive(false);
         pauseMenu.SetActive(false);
@@ -143,6 +145,11 @@ public class UIPauseMenuFunctions : MonoBehaviour
             pauseMenu.SetActive(false);
             deBugMenu.SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        pauseManager = GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>();
     }
 
     private void Update()

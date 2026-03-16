@@ -6,7 +6,8 @@ public class VortexAbility : MonoBehaviour
 {
     [SerializeField] private GameObject hitBox;
     private bool isActive = false;
-    private bool onCooldown = false;
+    [SerializeField] private float cooldown = 5f;
+    public bool vortexOnCooldown = false;
     private bool buttonPressed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,10 +32,10 @@ public class VortexAbility : MonoBehaviour
     {
         if (!isActive)
         {
-            if (!onCooldown)
+            if (!vortexOnCooldown)
             {
                 hitBox.SetActive(true);
-                Invoke("endAttack", 2.5f);
+                Invoke("endAttack", 5f);
                 isActive = true;
             }
         }
@@ -50,8 +51,8 @@ public class VortexAbility : MonoBehaviour
         {
             hitBox.SetActive(false);
             isActive = false;
-            onCooldown = true;
-            Invoke("endCooldown", 1.5f);
+            vortexOnCooldown = true;
+            Invoke("endCooldown", cooldown);
         }
         else
         {
@@ -61,12 +62,12 @@ public class VortexAbility : MonoBehaviour
 
     private void endCooldown()
     {
-        onCooldown = false;
+        vortexOnCooldown = false;
     }
 
     public bool IsOnCooldown()
     {
-        return onCooldown;
+        return vortexOnCooldown;
     }
 
     // Update is called once per frame

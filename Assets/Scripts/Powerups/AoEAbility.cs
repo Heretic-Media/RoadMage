@@ -54,6 +54,7 @@ public class AoEAbility : MonoBehaviour
         if (attackCooldown <= 0)
         {
             StartAudio();
+            Camera.main.GetComponent<CameraBehaviour>().Shake(0.25f, 0.5f);
             GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
             newAttack.transform.localScale *= Mathf.Clamp(forwardVel / 20, 0.5f, 1.5f);
             newAttack.SetActive(true);

@@ -44,6 +44,7 @@ public class RescueNPC : MonoBehaviour
             Vector3 playerWorldPos = player.position;
             player.SetParent(transform);
             player.position = playerWorldPos;
+            player.GetComponent<Player>().ToggleTrails(false);
 
             playerRb = player.GetComponent<Rigidbody>();
             if (playerRb != null)
@@ -105,6 +106,7 @@ public class RescueNPC : MonoBehaviour
         if (player != null && player.parent == transform)
         {
             player.SetParent(null);
+            player.GetComponent<Player>().ToggleTrails(true);
         }
 
         if (playerRb != null)
@@ -128,5 +130,6 @@ public class RescueNPC : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, flyAwayEnd, t);
             yield return null;
         }
+
     }
 }
