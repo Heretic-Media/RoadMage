@@ -21,7 +21,7 @@ public class CharacterCustomisation : MonoBehaviour
     [Tooltip("Add the colour variations for each car here")]
     [SerializeField] private Texture[] vanColours;
 
-    [Header("Special Options")]
+    [Header("Unlocked Options")]
     [Tooltip("Add the material variations for each car here")]
     [SerializeField] private Material[] truckSpecialMaterials; // Array to hold different special options for truck character
     [Tooltip("Add the material variations for each car here")]
@@ -42,26 +42,39 @@ public class CharacterCustomisation : MonoBehaviour
     public static int currentCharacter;
     public static Material currentMaterial; // Reference to the currently selected material
     public static int currentAccessory;
+    private static bool characterCustomisationExists; // Flag to check if an instance of CharacterCustomisation already exists
     [SerializeField] private GameObject[] selectionMenus;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
-
-        currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
-
-        currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
-
-        currentCharacter = 0; // sets the current character index to 0 for the truck character
-        currentAccessory = 0; // sets the current accessory to be none
-        for (int i = 1; i < characterModels.Length; i++)
+        if (!characterCustomisationExists)
         {
-            characterModels[i].SetActive(false); // deactivates all character models except truck at the start
+            currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
+
+            currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
+
+            currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
+
+            currentCharacter = 0; // sets the current character index to 0 for the truck character
+            currentAccessory = 0; // sets the current accessory to be none
+            for (int i = 1; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false); // deactivates all character models except truck at the start
+            }
+        }
+        else if (characterCustomisationExists)
+        {
+            for (int i = 0; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false);
+            }
+            characterModels[currentCharacter].SetActive(true); // activates the currently selected character model
+            ChangeAccessory(currentAccessory);
         }
     }
 
@@ -177,6 +190,7 @@ public class CharacterCustomisation : MonoBehaviour
 
     public void EnterGame()
     {
+        characterCustomisationExists = true; // flags character as customised so that the customisation options are not reset when the character customisation scene is reloaded
         SceneManager.LoadScene("PortalTransition"); // loads the game via transition screen
     }
 

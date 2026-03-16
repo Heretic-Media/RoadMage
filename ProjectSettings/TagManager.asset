@@ -22,6 +22,7 @@ TagManager:
   - WinScreenManager
   - DeBuff
   - EnemyPopUpManager
+  - UnlockManager
   layers:
   - Default
   - TransparentFX
