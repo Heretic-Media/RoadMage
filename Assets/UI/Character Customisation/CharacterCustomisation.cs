@@ -3,50 +3,78 @@ using UnityEngine.SceneManagement;
 
 public class CharacterCustomisation : MonoBehaviour
 {
-    public GameObject[] characterModels; // Array to hold different character models
-    public GameObject[] characterBodies; // Array to hold different character bodies for material changes
-    public GameObject player; // Reference to the player GameObject
-    public Material[] characterMaterials; // Array to hold different character materials
+    [Header("Car Models")]
+    [Tooltip("Store the prefab from the scene for the car models here (used to activate different models)")]
+    [SerializeField] private GameObject[] characterModels; // Array to hold different character models
+    [Tooltip("The models for the bodies of the cars (used for assigning materials)")]
+    [SerializeField] private GameObject[] characterBodies; // Array to hold different character bodies for material changes
+    [Tooltip("Reference to the player object in the scene if there is one")]
+    [SerializeField] private GameObject player; // Reference to the player GameObject
 
-    public Texture[] truckColours; // Array to hold different truck colours
-    public Texture[] threeWheelCarColours; // Array to hold different car colours
-    public Texture[] vanColours;
+    [Header("Materials")]
+    [Tooltip("Store the main materials for the cars here (used for changing the alpha colour")]
+    [SerializeField] private Material[] characterMaterials; // Array to hold different character materials
+    [Tooltip("Add the colour variations for each car here")]
+    [SerializeField] private Texture[] truckColours; // Array to hold different truck colours
+    [Tooltip("Add the colour variations for each car here")]
+    [SerializeField] private Texture[] threeWheelCarColours; // Array to hold different car colours
+    [Tooltip("Add the colour variations for each car here")]
+    [SerializeField] private Texture[] vanColours;
 
-    static bool specialMaterialSelected; // Static variable to track if a special option is selected
-    public Material[] truckSpecialMaterials; // Array to hold different special options for truck character
-    public Material[] threeWheelCarSpecialMaterials; // Array to hold different special options for car character
-    public Material[] vanSpecialMaterials; // Array to hold different special options for van character
+    [Header("Unlocked Options")]
+    [Tooltip("Add the material variations for each car here")]
+    [SerializeField] private Material[] truckSpecialMaterials; // Array to hold different special options for truck character
+    [Tooltip("Add the material variations for each car here")]
+    [SerializeField] private Material[] threeWheelCarSpecialMaterials; // Array to hold different special options for car character
+    [Tooltip("Add the material variations for each car here")]
+    [SerializeField] private Material[] vanSpecialMaterials; // Array to hold different special options for van character
 
-    public GameObject[] truckAccessories; // Array to hold different accessories
-    public GameObject[] threeWheelCarAccessories; // Array to hold different accessories
-    public GameObject[] vanAccessories;
+    [Header("Accessories")]
+    [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
+    [SerializeField] private GameObject[] truckAccessories; // Array to hold different accessories
+    [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
+    [SerializeField] private GameObject[] threeWheelCarAccessories; // Array to hold different accessories
+    [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
+    [SerializeField] private GameObject[] vanAccessories;
 
     
 
     public static int currentCharacter;
     public static Material currentMaterial; // Reference to the currently selected material
     public static int currentAccessory;
-    public GameObject[] selectionMenus;
+    private static bool characterCustomisationExists; // Flag to check if an instance of CharacterCustomisation already exists
+    [SerializeField] private GameObject[] selectionMenus;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        specialMaterialSelected = false; // sets the shiny material flag to false at the start of the game
-        currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
-
-        currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
-
-        currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
-        currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
-
-        currentCharacter = 0; // sets the current character index to 0 for the truck character
-        currentAccessory = 0; // sets the current accessory to be none
-        for (int i = 1; i < characterModels.Length; i++)
+        if (!characterCustomisationExists)
         {
-            characterModels[i].SetActive(false); // deactivates all character models except truck at the start
+            currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
+
+            currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
+
+            currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
+
+            currentCharacter = 0; // sets the current character index to 0 for the truck character
+            currentAccessory = 0; // sets the current accessory to be none
+            for (int i = 1; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false); // deactivates all character models except truck at the start
+            }
+        }
+        else if (characterCustomisationExists)
+        {
+            for (int i = 0; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false);
+            }
+            characterModels[currentCharacter].SetActive(true); // activates the currently selected character model
+            ChangeAccessory(currentAccessory);
         }
     }
 
@@ -162,6 +190,7 @@ public class CharacterCustomisation : MonoBehaviour
 
     public void EnterGame()
     {
+        characterCustomisationExists = true; // flags character as customised so that the customisation options are not reset when the character customisation scene is reloaded
         SceneManager.LoadScene("PortalTransition"); // loads the game via transition screen
     }
 
