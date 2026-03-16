@@ -32,6 +32,9 @@ public class ChestController : MonoBehaviour
         if (eventTriggered) return;
         eventTriggered = true;
 
+        // pop up
+        GameObject.FindGameObjectWithTag("EnemyPopUpManager").GetComponent<EnemyTutorialPopUps>().MimicPopUp();
+
         // play animation
         var animator = gameObject.GetComponent<Animator>();
         if (animator != null) animator.SetBool("mimicAttacking", true);
@@ -47,6 +50,10 @@ public class ChestController : MonoBehaviour
     {
         if (eventTriggered) return;
         eventTriggered = true;
+
+        // pop up
+        GameObject.FindGameObjectWithTag("EnemyPopUpManager").GetComponent<EnemyTutorialPopUps>().ChestPopUp();
+
 
         // play animation
         var animator = gameObject.GetComponent<Animator>();
