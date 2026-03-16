@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 7824384052992379240}
+--- !u!114 &7824384052992379240
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7776fecd3f82d5a44a5b47227ed6a41c, type: 3}
+  m_Name: ContourEffectVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+  peakBrightness:
+    m_OverrideState: 1
+    m_Value: 2
+  depthResponse:
+    m_OverrideState: 1
+    m_Value: 5
+  weakEdgeRemoval:
+    m_OverrideState: 1
+    m_Value: 0.5
+  strongEdgeHighlight:
+    m_OverrideState: 1
+    m_Value: 0.5
+  edgeClarity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  fadeDistanceStart:
+    m_OverrideState: 1
+    m_Value: 50
+  fadeDistanceEnd:
+    m_OverrideState: 1
+    m_Value: 200
+  fadeBottomStart:
+    m_OverrideState: 1
+    m_Value: -1000
+  fadeBottomEnd:
+    m_OverrideState: 1
+    m_Value: -1100
+  fadeTopStart:
+    m_OverrideState: 1
+    m_Value: 1000
+  fadeTopEnd:
+    m_OverrideState: 1
+    m_Value: 1100
+  edgeColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  nonEdgeColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  thickness:
+    m_OverrideState: 1
+    m_Value: 4
