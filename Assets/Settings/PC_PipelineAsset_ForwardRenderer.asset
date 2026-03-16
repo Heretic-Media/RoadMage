@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5786135484947631053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e110547dcf715004dbd808d078bd1d6a, type: 3}
+  m_Name: AdvancedEdgeDetection
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Settings:
+    Event: 600
+    _ControlViaVolumes: 0
+    _CustomDataLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    _DepthMaskLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    _UseCustomData: 1
+    _UseDepthMask: 1
+    _UseCustomTexture: 0
+    _CustomTexture: {fileID: 0}
+    _CustomTextureLayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    _Thickness: 2.54
+    _ResolutionAdjust: 1
+    _UseDepthFade: 0
+    _FadeStart: 20
+    _FadeEnd: 40
+    _NormalsEdgeDetection: 1
+    _NormalsOffset: 1.5
+    _NormalsHardness: 0.99
+    _NormalsPower: 5
+    _DepthEdgeDetection: 1
+    _AcuteAngleFix: 0
+    _ViewDirThreshold: 1
+    _ViewDirThresholdScale: 50
+    _DepthThreshold: 1
+    _DepthHardness: 0.9
+    _DepthPower: 5
+    _EdgeColor: {r: 0, g: 0, b: 0, a: 1}
+    _UseEdgeBlendDepthFade: 0
+    _EdgeBlendFadeStart: 10
+    _EdgeBlendFadeEnd: 20
+    _UseSketchEdges: 1
+    _Amplitude: 0.00471
+    _Frequency: 30.5
+    _ChangesPerSecond: 0
+    _UseGrain: 0
+    _GrainTexture: {fileID: 0}
+    _GrainStrength: 1
+    _GrainScale: 1
+    _UseUvOffset: 0
+    _OffsetNoise: {fileID: 0}
+    _OffsetNoiseScale: 0.4
+    _OffsetChangesPerSecond: 0
+    _OffsetStrength: 0.005
+  m_EdgeDetectionShader: {fileID: 0}
+  m_EdgeBlendShader: {fileID: 0}
+  m_DepthMaskShader: {fileID: 0}
+  m_CustomDataShader: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,7 +92,8 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: 7244567910761595544}
-  m_RendererFeatureMap: 988223a821e08964
+  - {fileID: -5786135484947631053}
+  m_RendererFeatureMap: 988223a821e0896433f469c56e84b3af
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -66,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   m_Material: {fileID: 2100000, guid: 24273f62738eeed47af3b67f02559ef7, type: 2}
-  m_UseFastMode: 1
+  m_UseFastMode: 0
   m_UseSceneColor: 1
   m_UseSceneDepth: 1
   m_UseSceneNormals: 1
