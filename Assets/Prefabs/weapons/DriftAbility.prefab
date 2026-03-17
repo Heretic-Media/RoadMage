@@ -5186,7 +5186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   despawnOnHit: 1
   despawnAfterTime: 1
-  despawnTimer: 60
+  despawnTimer: 6
   timeAlive: 0
   particleSystemHolder: {fileID: 351891827495431023}
   hitBoxHolder: {fileID: 529320286256337383}
