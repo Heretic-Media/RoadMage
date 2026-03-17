@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
+    <Compile Include="Assets\Scripts\FieryDriftProjectile.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
