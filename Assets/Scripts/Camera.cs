@@ -217,7 +217,9 @@ public class CameraBehaviour : MonoBehaviour
 
     public void Shake(float duration, float magnitude)
     {
-        StartCoroutine(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().ShakeCoRoutine(duration, magnitude));
+        float scoreMult = Mathf.Min(GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().getMultiplier(), 10f);
+        
+        StartCoroutine(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().ShakeCoRoutine(duration, magnitude * scoreMult));
     }
 
     IEnumerator ShakeCoRoutine(float duration, float magnitude)
