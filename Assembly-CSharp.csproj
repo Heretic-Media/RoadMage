@@ -79,6 +79,7 @@
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
+    <Compile Include="Assets\Scenes\Menus\Scripts\WindSway.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Powerups\DriftAbility.cs" />
@@ -144,6 +145,7 @@
     <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\WorldPositionReconstruct.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Scenes\Menus\Scripts\GrasswWindShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\FullOpaqueWater&amp;Waterfall\Documentation\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
