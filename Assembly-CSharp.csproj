@@ -53,6 +53,7 @@
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
+    <Compile Include="Assets\Scripts\FieryDriftProjectile.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
     <Compile Include="Assets\Scripts\Brightness.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
+    <Compile Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Core URP 6\Scripts\AdvancedEdgeDetection.cs" />
     <Compile Include="Assets\Scripts\Powerups\HealAbility.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
@@ -80,10 +82,10 @@
     <Compile Include="Assets\Scripts\UIBarBehaviour.cs" />
     <Compile Include="Assets\Scripts\Billboard.cs" />
     <Compile Include="Assets\Scripts\VictoryVFXBehaviour.cs" />
-    <Compile Include="Assets\UI\Character Customisation\CCUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
+    <Compile Include="Assets\UI\Character Customisation\UnlocksBehaviour.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterModelController.cs" />
@@ -100,9 +102,12 @@
     <Compile Include="Assets\Scripts\Powerups\CollisionAbility.cs" />
     <Compile Include="Assets\Scripts\DeBuffs\StunDebuff.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Core URP 6\Scripts\DepthMaskPass.cs" />
+    <Compile Include="Assets\UI\Character Customisation\UnlockForLevel.cs" />
     <Compile Include="Assets\Scripts\EnemyPrototype.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicButton.cs" />
     <Compile Include="Assets\Scripts\VibrationController.cs" />
+    <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\UIAbilityBar.cs" />
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
@@ -126,6 +131,7 @@
     <Compile Include="Assets\UI\CursorFollow.cs" />
     <Compile Include="Assets\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\KineticBlast.cs" />
+    <Compile Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Core URP 6\Scripts\CustomDataPass.cs" />
     <Compile Include="Assets\Scripts\HealArea.cs" />
     <Compile Include="Assets\Scripts\BuildingBounce.cs" />
     <Compile Include="Assets\Scripts\UIPauseMenuFunctions.cs" />
@@ -135,6 +141,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\XInputDotNet\Docs.txt" />
     <None Include="Assets\XInputDotNet\Plugins\XInputDotNetPure.dll" />
@@ -142,6 +149,7 @@
     <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\WorldPositionReconstruct.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\INab Studio\Demo Assets\Unity Companion License\Adventure Game Environment Pack\Link.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\FullOpaqueWater&amp;Waterfall\Documentation\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

@@ -13,7 +13,12 @@ public class WinScreenManager : MonoBehaviour
     [SerializeField] private GameObject scoreText;
 
     [SerializeField] private int secondStarThreshold = 1000;
+    [SerializeField] private bool secondStarUnlock = false;
+    [SerializeField] private string secondStarUnlockName = "";
     [SerializeField] private int thirdStarThreshold = 3000;
+    [SerializeField] private bool thirdStarUnlock = false;
+    [SerializeField] private string thirdStarUnlockName = "";
+
 
     private Vector2 scoreTextDefaultPos;
 
@@ -37,10 +42,18 @@ public class WinScreenManager : MonoBehaviour
         if (amount >= 2 && scoreManager.GetScore() >= secondStarThreshold)
         {
             starFillB.enabled = true;
+            if (secondStarUnlock)
+            {
+                GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().addUnlockedItem(secondStarUnlockName);
+            }
         }
         if (amount >= 3 && scoreManager.GetScore() >= thirdStarThreshold)
         {
             starFillC.enabled = true;
+            if (thirdStarUnlock)
+            {
+                GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().addUnlockedItem(thirdStarUnlockName);
+            }
         }
     }
 

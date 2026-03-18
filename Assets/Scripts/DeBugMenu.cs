@@ -9,4 +9,11 @@ public class DeBugMenu : MonoBehaviour
             Destroy(slime);
         }
     }
+
+    public void GiveAllUnlocks()
+    {
+        GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().addUnlockedItem("Gold");
+        GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().addUnlockedItem("Silver");
+
+    }
 }
