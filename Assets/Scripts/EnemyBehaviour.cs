@@ -22,6 +22,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Tooltip("Time in seconds between melee attacks.")]
     [SerializeField] private float attackCooldown = 0.5f;
 
+    [Tooltip("Damage dealt by attacks.")]
+    [SerializeField] private int damage = 1;
+
     [Tooltip("Prefab spawned when this enemy dies.")]
     [SerializeField] private GameObject deathCry;
 
@@ -178,11 +181,13 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (MeleeCheck())
         {
-            StartCoroutine(MeleeAttack());
+            //StartCoroutine(MeleeAttack());
+
             Player playerDetails = playerObject.GetComponent<Player>();
+
             if (playerDetails != null)
             {
-                playerDetails.TakeDamage(10);
+                playerDetails.TakeDamage(damage);
             }
         }
     }
@@ -250,6 +255,7 @@ public class EnemyBehaviour : MonoBehaviour
         rb.linearVelocity = direction * movementSpeed;
     }
 
+    // cant be bothered to use this
     private IEnumerator MeleeAttack()
     {
         attackHitbox.gameObject.SetActive(true);

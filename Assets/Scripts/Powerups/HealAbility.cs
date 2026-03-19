@@ -4,47 +4,57 @@ using UnityEngine.InputSystem;
 public class HealAbility : MonoBehaviour
 {
     private bool buttonPressed;
-    [SerializeField] private GameObject[] particles;
+    [SerializeField] private GameObject particles;
+    [SerializeField] private GameObject healArea;
+    [SerializeField] private GameObject audio;
+    [SerializeField] private float cooldown = 10f;
     [SerializeField] private int healAmount = 75;
-    private bool healOnCooldown = false;
+    private GameObject[] debuffs;
+    public bool healOnCooldown = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < particles.Length; i++)
-        {
-            particles[i].SetActive(false);
-        }
+        
     }
 
     private void Awake()
     {
         if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().ControllerConnected())
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=35> to drop a healing potion.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=35> to drop a healing potion.", 6f);
         }
         else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=64> to drop a healing potion.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=64> to drop a healing potion.", 6f);
         }
+
+        debuffs = GameObject.FindGameObjectsWithTag("DeBuff");
     }
 
     private void StartParticleEffect()
     {
-        for (int i = 0; i < particles.Length; i++)
-        {
-            particles[i].SetActive(true);
-
-        }
+        particles.SetActive(true);
+        audio.SetActive(true);
 
         Invoke("StopParticleEffect", 2f);
     }
 
     private void StopParticleEffect()
     {
-        for (int i = 0; i < particles.Length; i++)
+        particles.SetActive(false);
+        audio.SetActive(false);
+    }
+
+    private void Cleanse()
+    {
+        foreach (var debuff in debuffs)
         {
-            particles[i].SetActive(false);
+            if (debuff.name == "stun")
+            {
+                debuff.GetComponent<StunDebuff>().UnStun();
+                debuff.SetActive(false);
+            }
         }
     }
 
@@ -52,10 +62,19 @@ public class HealAbility : MonoBehaviour
     {
         if (!healOnCooldown)
         {
-            
+            if (debuffs.Length > 0)
+            {
+                Cleanse();
+            }
             GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(-healAmount);
+
+            Instantiate(healArea, transform.position, transform.rotation).SetActive(true);
             StartParticleEffect();
             healOnCooldown = true;
+        }
+        else
+        {
+            Invoke("RemoveCooldown", cooldown);
         }
     }
 
@@ -64,13 +83,15 @@ public class HealAbility : MonoBehaviour
         healOnCooldown = false;
     }
 
+    public bool GetHealOnCooldown()
+    {
+        return healOnCooldown;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (healOnCooldown)
-        {
-            Invoke("RemoveCooldown", 10f);
-        }
+        debuffs = GameObject.FindGameObjectsWithTag("DeBuff");
 
         var kb = Keyboard.current;
         var gp = Gamepad.current;

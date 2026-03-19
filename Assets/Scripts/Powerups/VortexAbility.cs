@@ -6,7 +6,8 @@ public class VortexAbility : MonoBehaviour
 {
     [SerializeField] private GameObject hitBox;
     private bool isActive = false;
-    private bool onCooldown = false;
+    [SerializeField] private float cooldown = 5f;
+    public bool vortexOnCooldown = false;
     private bool buttonPressed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,11 +20,11 @@ public class VortexAbility : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().ControllerConnected())
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=36> to summon a spinning attack.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=36> to summon a spinning attack.", 6f);
         }
         else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
         {
-            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=100> to summon a spinning attack.", 4f);
+            GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=100> to summon a spinning attack.", 6f);
         }
     }
 
@@ -31,10 +32,10 @@ public class VortexAbility : MonoBehaviour
     {
         if (!isActive)
         {
-            if (!onCooldown)
+            if (!vortexOnCooldown)
             {
                 hitBox.SetActive(true);
-                Invoke("endAttack", 2.5f);
+                Invoke("endAttack", 5f);
                 isActive = true;
             }
         }
@@ -50,8 +51,8 @@ public class VortexAbility : MonoBehaviour
         {
             hitBox.SetActive(false);
             isActive = false;
-            onCooldown = true;
-            Invoke("endCooldown", 1.5f);
+            vortexOnCooldown = true;
+            Invoke("endCooldown", cooldown);
         }
         else
         {
@@ -61,12 +62,12 @@ public class VortexAbility : MonoBehaviour
 
     private void endCooldown()
     {
-        onCooldown = false;
+        vortexOnCooldown = false;
     }
 
     public bool IsOnCooldown()
     {
-        return onCooldown;
+        return vortexOnCooldown;
     }
 
     // Update is called once per frame
