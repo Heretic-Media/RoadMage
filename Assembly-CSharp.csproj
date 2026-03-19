@@ -149,6 +149,7 @@
     <None Include="Assets\PinwheelStudio\Contour\Runtime\ShaderIncludes\WorldPositionReconstruct.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Scenes\Menus\Scripts\GrasswWindShader.shader" />
     <None Include="Assets\INab Studio\Demo Assets\Unity Companion License\Adventure Game Environment Pack\Link.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\FullOpaqueWater&amp;Waterfall\Documentation\README.txt" />
