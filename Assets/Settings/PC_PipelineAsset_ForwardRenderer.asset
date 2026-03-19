@@ -26,7 +26,8 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: 7244567910761595544}
-  m_RendererFeatureMap: 988223a821e08964
+  - {fileID: 0}
+  m_RendererFeatureMap: 988223a821e0896433f469c56e84b3af
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   m_Material: {fileID: 2100000, guid: 24273f62738eeed47af3b67f02559ef7, type: 2}
-  m_UseFastMode: 1
+  m_UseFastMode: 0
   m_UseSceneColor: 1
   m_UseSceneDepth: 1
   m_UseSceneNormals: 1
