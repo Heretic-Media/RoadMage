@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a97f096b4adf1cc4786feb827b3c718d
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262863
+  packageName: Advanced Edge Detection
+  packageVersion: 3.0
+  assetPath: Assets/INab Studio/Post Processing Assets/Advanced Edge Detection/Demo
+    Scenes/Demo Scene URP.unity
+  uploadId: 859168

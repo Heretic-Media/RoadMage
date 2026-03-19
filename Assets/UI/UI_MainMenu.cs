@@ -26,4 +26,9 @@ public class UI_MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("PortalTransition");
     }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
