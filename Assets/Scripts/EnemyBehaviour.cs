@@ -141,6 +141,11 @@ public class EnemyBehaviour : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("MainCamera") != null)
         {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(cameraShakeDuration, cameraShakeMagnitude);
+
+            PauseManager pause_manager = GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>();
+            ScoreManager score_manager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+
+            pause_manager.InitiateHitStop(0.01f * score_manager.getMultiplier() / 4);
         }
         else
         {
