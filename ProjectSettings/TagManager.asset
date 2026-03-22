@@ -23,6 +23,7 @@ TagManager:
   - DeBuff
   - EnemyPopUpManager
   - UnlockManager
+  - Goal
   layers:
   - Default
   - TransparentFX
