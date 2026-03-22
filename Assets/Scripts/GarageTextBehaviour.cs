@@ -12,7 +12,7 @@ public class GarageTextBehaviour : MonoBehaviour
         GetComponent<TextMeshProUGUI>().text = garagesDone.ToString() + "/" + garagesToDo.ToString();
         if (garagesDone >= garagesToDo)
         {
-            GameObject.FindGameObjectWithTag("Goal").GetComponent<PortalBehaviour>().UnlockDoor();
+            GameObject.FindGameObjectWithTag("Goal").GetComponent<PortalBehaviour>().InitDoor();
         }
     }
 
