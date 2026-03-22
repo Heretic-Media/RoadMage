@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e110547dcf715004dbd808d078bd1d6a, type: 3}
   m_Name: AdvancedEdgeDetection
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     Event: 600
     _ControlViaVolumes: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
     _EdgeBlendFadeStart: 10
     _EdgeBlendFadeEnd: 20
     _UseSketchEdges: 1
-    _Amplitude: 0.00471
-    _Frequency: 30.5
+    _Amplitude: 0.00169
+    _Frequency: 5.9
     _ChangesPerSecond: 0
     _UseGrain: 0
     _GrainTexture: {fileID: 0}
