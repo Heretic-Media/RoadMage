@@ -4,6 +4,7 @@ using UnityEngine;
 public class PortalBehaviour : MonoBehaviour
 {
     [SerializeField] private BoxCollider trigger;
+    [SerializeField] private GameObject portal;
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private GameObject victoryPrefab;
     [SerializeField] private GameObject enemiesObject;
@@ -31,6 +32,7 @@ public class PortalBehaviour : MonoBehaviour
 
     public void InitDoor()
     {
+        portal.SetActive(true);
         enemiesObject.SetActive(true);
         spawner.enabled = true;
         inited = true;
