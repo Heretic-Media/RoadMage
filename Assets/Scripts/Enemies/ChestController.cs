@@ -11,6 +11,11 @@ public class ChestController : MonoBehaviour
 
     private bool eventTriggered = false;
 
+    [SerializeField] private float dissolveSpeed = 0.5f;
+    private MeshRenderer[] meshes;
+    private bool destroyed = false;
+    private float dissolveTimer = 0f;
+
     void Awake()
     {
         mimicChance = UnityEngine.Random.Range(1, 10);
@@ -25,6 +30,11 @@ public class ChestController : MonoBehaviour
         {
             isMimic = false;
         }
+    }
+
+    void Start()
+    {
+        meshes = GetComponentsInChildren<MeshRenderer>();
     }
 
     void MimicTriggered()
@@ -68,7 +78,7 @@ public class ChestController : MonoBehaviour
 
     void DestroyObject()
     {
-        Destroy(gameObject);
+        destroyed = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,5 +102,20 @@ public class ChestController : MonoBehaviour
 
     void Update()
     {
+        /// Check destroyed
+        if (destroyed) 
+        {
+            dissolveTimer += dissolveSpeed * Time.deltaTime;
+        }
+
+        foreach (var mesh in meshes)
+        {
+            mesh.material.SetFloat("_Progress", 0 + dissolveTimer);
+        }
+
+        if (dissolveTimer > 1) 
+        {
+            Destroy(gameObject);
+        }
     }
 }
