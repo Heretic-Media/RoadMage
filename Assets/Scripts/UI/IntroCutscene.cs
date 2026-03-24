@@ -30,7 +30,7 @@ public class IntroCutscene : MonoBehaviour
         var kb = Keyboard.current;
         var gp = Gamepad.current;
 
-        if (kb != null && kb.spaceKey.isPressed || gp != null && gp.aButton.isPressed)
+        if (kb != null && kb.spaceKey.wasPressedThisFrame || gp != null && gp.aButton.wasPressedThisFrame)
         {
             maxDelay = 0;
             return;
