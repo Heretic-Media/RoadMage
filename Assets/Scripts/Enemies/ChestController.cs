@@ -11,6 +11,13 @@ public class ChestController : MonoBehaviour
 
     private bool eventTriggered = false;
 
+    private Animator animator;
+
+    [SerializeField] private float dissolveSpeed = 0.5f;
+    private MeshRenderer[] meshes;
+    private bool destroyed = false;
+    private float dissolveTimer = 0f;
+
     void Awake()
     {
         mimicChance = UnityEngine.Random.Range(1, 10);
@@ -27,6 +34,13 @@ public class ChestController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+
+        meshes = GetComponentsInChildren<MeshRenderer>();
+    }
+
     void MimicTriggered()
     {
         if (eventTriggered) return;
@@ -36,7 +50,6 @@ public class ChestController : MonoBehaviour
         GameObject.FindGameObjectWithTag("EnemyPopUpManager").GetComponent<EnemyTutorialPopUps>().MimicPopUp();
 
         // play animation
-        var animator = gameObject.GetComponent<Animator>();
         if (animator != null) animator.SetBool("mimicAttacking", true);
 
         // invoke mimic event
@@ -54,9 +67,7 @@ public class ChestController : MonoBehaviour
         // pop up
         GameObject.FindGameObjectWithTag("EnemyPopUpManager").GetComponent<EnemyTutorialPopUps>().ChestPopUp();
 
-
         // play animation
-        var animator = gameObject.GetComponent<Animator>();
         if (animator != null) animator.SetBool("chestOpening", true);
 
         // invoke a random chest event
@@ -68,7 +79,11 @@ public class ChestController : MonoBehaviour
 
     void DestroyObject()
     {
-        Destroy(gameObject);
+        destroyed = true;
+
+        // stop animation
+        //if (animator != null) animator.SetBool("mimicAttacking", false);
+        //if (animator != null) animator.SetBool("chestOpening", false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,5 +107,20 @@ public class ChestController : MonoBehaviour
 
     void Update()
     {
+        /// Check destroyed
+        if (destroyed) 
+        {
+            dissolveTimer += dissolveSpeed * Time.deltaTime;
+        }
+
+        foreach (var mesh in meshes)
+        {
+            mesh.material.SetFloat("_Progress", 0 + dissolveTimer);
+        }
+
+        if (dissolveTimer > 1) 
+        {
+            Destroy(gameObject);
+        }
     }
 }

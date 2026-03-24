@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity 6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PortalBehaviour.cs" />
     <Compile Include="Assets\Scripts\RescueNPC.cs" />
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
+    <Compile Include="Assets\Materials\texture files\misc\exit portal\PortalColourShift.cs" />
     <Compile Include="Assets\UI\Character Customisation\UnlocksBehaviour.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
