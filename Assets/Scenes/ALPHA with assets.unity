@@ -913,6 +913,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!43 &397271161
 Mesh:
   m_ObjectHideFlags: 0
@@ -3651,6 +3652,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!4 &969865775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8008217553567032323, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
@@ -3909,6 +3911,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!4 &1052619097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8255681055186679931, guid: 42123476403debd4e95c5f724f7d45a5, type: 3}
@@ -5502,6 +5505,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!1001 &1376747172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5711,6 +5715,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!1 &1419791425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3531769181555214917, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
@@ -6451,6 +6456,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!1001 &1654095947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6660,6 +6666,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dissolveSpeed: 0.5
 --- !u!43 &1706949025
 Mesh:
   m_ObjectHideFlags: 0
@@ -8263,6 +8270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4569931227974324939}
     m_Modifications:
+    - target: {fileID: 3790047584146427376, guid: d0f019ca5e75eac41b8646c642f437b8, type: 3}
+      propertyPath: spawnDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4763223052274613818, guid: d0f019ca5e75eac41b8646c642f437b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.76

@@ -42,7 +42,7 @@ public class PauseManager : MonoBehaviour
 
     public void InitiateHitStop(float duration)
     {   
-        StartCoroutine(HitStop(Mathf.Min(duration, shakeSettingManager.shakeStrength * 0.1f)));
+        StartCoroutine(HitStop(Mathf.Min(duration, shakeSettingManager.shakeStrength * 0.075f)));
     }
 
     IEnumerator HitStop(float duration)
