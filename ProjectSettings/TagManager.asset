@@ -23,6 +23,8 @@ TagManager:
   - DeBuff
   - EnemyPopUpManager
   - UnlockManager
+  - Goal
+  - ShakeSettingsManager
   layers:
   - Default
   - TransparentFX

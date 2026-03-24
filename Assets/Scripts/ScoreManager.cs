@@ -50,4 +50,9 @@ public class ScoreManager : MonoBehaviour
         multiplier = 1 + (int)Mathf.Floor(internal_multiplier);
         UpdateMultiplierText();
     }
+
+    public int getMultiplier()
+    {
+        return multiplier;
+    }
 }
