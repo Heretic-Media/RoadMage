@@ -38,7 +38,7 @@ public class ChestController : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
 
-        meshes = GetComponentsInChildren<MeshRenderer>();
+        meshes = GetComponentsInChildren<MeshRenderer>(true);
     }
 
     void MimicTriggered()
