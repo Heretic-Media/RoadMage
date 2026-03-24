@@ -24,6 +24,7 @@ TagManager:
   - EnemyPopUpManager
   - UnlockManager
   - Goal
+  - ShakeSettingsManager
   layers:
   - Default
   - TransparentFX

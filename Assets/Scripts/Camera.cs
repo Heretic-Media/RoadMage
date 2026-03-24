@@ -48,6 +48,8 @@ public class CameraBehaviour : MonoBehaviour
     [Tooltip("Animation curve for smooth zoom (set in Inspector for custom easing)")]
     [SerializeField] private AnimationCurve introAnimationCurve;
 
+    
+    private ShakeSettingManager shakeSettingManager;
     private Vector3 shakeOffset = Vector3.zero;
     private Vector3 anchorPos;
     private Transform player;
@@ -58,6 +60,8 @@ public class CameraBehaviour : MonoBehaviour
 
     void Start()
     {
+        shakeSettingManager = GameObject.FindGameObjectWithTag("ShakeSettingsManager").GetComponent<ShakeSettingManager>();
+        
         anchorPos = transform.position;
         transform.rotation = Quaternion.Euler(90, 0, -180) * Quaternion.Euler(-cameraAngle, 0, 0);
 
@@ -217,7 +221,10 @@ public class CameraBehaviour : MonoBehaviour
 
     public void Shake(float duration, float magnitude)
     {
-        StartCoroutine(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().ShakeCoRoutine(duration, magnitude));
+        float scoreMult = Mathf.Min(GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().getMultiplier(), 10f);
+        float maximumMagnitude = 10f;
+        
+        StartCoroutine(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().ShakeCoRoutine(shakeSettingManager.shakeStrength * duration, Mathf.Min(shakeSettingManager.shakeStrength * magnitude * (1 + 0.2f * scoreMult), maximumMagnitude)));
     }
 
     IEnumerator ShakeCoRoutine(float duration, float magnitude)

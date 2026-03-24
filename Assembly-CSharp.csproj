@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
     <Compile Include="Assets\Scripts\WaterAudio.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />
+    <Compile Include="Assets\Scripts\ShakeSettingManager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Powerups\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\FollowRigidbody.cs" />
