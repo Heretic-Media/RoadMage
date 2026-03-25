@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     public void RefreshPausing()
     {
-        if (upgradeMenuPaused || pauseMenuPaused || hitStopPaused)
+        if (upgradeMenuPaused || pauseMenuPaused)
         {
             Time.timeScale = 0;
         }
