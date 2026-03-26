@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 89052180666829870}
   - component: {fileID: 2758454889286074234}
   - component: {fileID: 4505934011948502879}
+  - component: {fileID: 7358891866488602151}
   m_Layer: 14
   m_Name: brick58
   m_TagString: Untagged
@@ -117,7 +118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258717032916840983}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -136,6 +137,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7358891866488602151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258717032916840983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305102248700159181
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +162,7 @@ GameObject:
   - component: {fileID: 2318988811310732077}
   - component: {fileID: 4728442489591135532}
   - component: {fileID: 83885349069893428}
+  - component: {fileID: 7300999870169881472}
   m_Layer: 14
   m_Name: brick61
   m_TagString: Untagged
@@ -253,7 +267,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305102248700159181}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -272,6 +286,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7300999870169881472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305102248700159181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &344521877396119085
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +311,7 @@ GameObject:
   - component: {fileID: 1185651959432618594}
   - component: {fileID: 8751084025878782480}
   - component: {fileID: 6349708612784071172}
+  - component: {fileID: 3766209383190655046}
   m_Layer: 14
   m_Name: brick7
   m_TagString: Untagged
@@ -389,7 +416,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344521877396119085}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -408,6 +435,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3766209383190655046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344521877396119085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671874108378132426
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +460,7 @@ GameObject:
   - component: {fileID: 1872847515406385939}
   - component: {fileID: 1799498023303560374}
   - component: {fileID: 8144854905560358539}
+  - component: {fileID: 7589809449557472694}
   m_Layer: 14
   m_Name: brick52
   m_TagString: Untagged
@@ -525,7 +565,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671874108378132426}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -544,6 +584,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7589809449557472694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671874108378132426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968848995849991344
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +609,7 @@ GameObject:
   - component: {fileID: 8101582128253049752}
   - component: {fileID: 6157788289334555744}
   - component: {fileID: 7449697792373723651}
+  - component: {fileID: 2961217330539385202}
   m_Layer: 14
   m_Name: brick3
   m_TagString: Untagged
@@ -661,7 +714,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968848995849991344}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -680,6 +733,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2961217330539385202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968848995849991344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122804461585457067
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +758,7 @@ GameObject:
   - component: {fileID: 9117032530335172441}
   - component: {fileID: 6921279176862534594}
   - component: {fileID: 7447909766762982405}
+  - component: {fileID: 8444698044733305093}
   m_Layer: 14
   m_Name: brick70
   m_TagString: Untagged
@@ -797,7 +863,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122804461585457067}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -816,6 +882,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8444698044733305093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122804461585457067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129749296104463259
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +907,7 @@ GameObject:
   - component: {fileID: 768369538211717720}
   - component: {fileID: 3240652868815508895}
   - component: {fileID: 762350401139625806}
+  - component: {fileID: 1827554751997589250}
   m_Layer: 14
   m_Name: brick27
   m_TagString: Untagged
@@ -933,7 +1012,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129749296104463259}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -952,6 +1031,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1827554751997589250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129749296104463259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1130040681222372119
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +1056,7 @@ GameObject:
   - component: {fileID: 9132951373630044279}
   - component: {fileID: 2428933819494253634}
   - component: {fileID: 2108297939531603921}
+  - component: {fileID: 8559846543127357201}
   m_Layer: 14
   m_Name: brick22
   m_TagString: Untagged
@@ -1069,7 +1161,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130040681222372119}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1088,6 +1180,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8559846543127357201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130040681222372119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1326786565789423140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1205,7 @@ GameObject:
   - component: {fileID: 4655758626369395149}
   - component: {fileID: 8875228147089991183}
   - component: {fileID: 3170005007051477313}
+  - component: {fileID: 7805361554262099963}
   m_Layer: 14
   m_Name: brick26
   m_TagString: Untagged
@@ -1205,7 +1310,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326786565789423140}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1224,6 +1329,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7805361554262099963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326786565789423140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1426479241327111464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1354,7 @@ GameObject:
   - component: {fileID: 5002714209959979216}
   - component: {fileID: 7808568338029870371}
   - component: {fileID: 310919452303590378}
+  - component: {fileID: 6080613951656705583}
   m_Layer: 14
   m_Name: brick38
   m_TagString: Untagged
@@ -1341,7 +1459,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426479241327111464}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1360,6 +1478,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6080613951656705583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426479241327111464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1473727332376686431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1503,7 @@ GameObject:
   - component: {fileID: 6323971173474574671}
   - component: {fileID: 4761159584463652392}
   - component: {fileID: 6628093314131242153}
+  - component: {fileID: 7627914331229945672}
   m_Layer: 14
   m_Name: brick64
   m_TagString: Untagged
@@ -1477,7 +1608,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473727332376686431}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1496,6 +1627,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7627914331229945672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473727332376686431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574965714646888657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1652,7 @@ GameObject:
   - component: {fileID: 5326693810731663506}
   - component: {fileID: 1556630109476340667}
   - component: {fileID: 8861338458595682813}
+  - component: {fileID: 1138320768085683553}
   m_Layer: 14
   m_Name: brick15
   m_TagString: Untagged
@@ -1613,7 +1757,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574965714646888657}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1632,6 +1776,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1138320768085683553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574965714646888657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1692542852474351755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1801,7 @@ GameObject:
   - component: {fileID: 7976422117424137546}
   - component: {fileID: 3830969971619483714}
   - component: {fileID: 3372260293126648984}
+  - component: {fileID: 7048567478107927464}
   m_Layer: 14
   m_Name: brick43
   m_TagString: Untagged
@@ -1749,7 +1906,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692542852474351755}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1768,6 +1925,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7048567478107927464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692542852474351755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789735744504682970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1950,7 @@ GameObject:
   - component: {fileID: 1894685397625415334}
   - component: {fileID: 1532308748553943209}
   - component: {fileID: 8358225038361614764}
+  - component: {fileID: 2549975750437421462}
   m_Layer: 14
   m_Name: brick50
   m_TagString: Untagged
@@ -1885,7 +2055,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789735744504682970}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1904,6 +2074,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2549975750437421462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789735744504682970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1831889729491164988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,6 +2099,7 @@ GameObject:
   - component: {fileID: 1511528982220468366}
   - component: {fileID: 5577434743132788910}
   - component: {fileID: 7662896977752258806}
+  - component: {fileID: 9157731140521717959}
   m_Layer: 14
   m_Name: brick36
   m_TagString: Untagged
@@ -2021,7 +2204,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831889729491164988}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2040,6 +2223,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9157731140521717959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831889729491164988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017262824324775140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2248,7 @@ GameObject:
   - component: {fileID: 6421457434964108496}
   - component: {fileID: 6589024747125004464}
   - component: {fileID: 6467333055411376106}
+  - component: {fileID: 6879193965299936829}
   m_Layer: 14
   m_Name: brick29
   m_TagString: Untagged
@@ -2157,7 +2353,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017262824324775140}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2176,6 +2372,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6879193965299936829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017262824324775140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2213942136185200033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,6 +2500,7 @@ GameObject:
   - component: {fileID: 89017466701253956}
   - component: {fileID: 2821529879073574266}
   - component: {fileID: 3894765038908187906}
+  - component: {fileID: 2107280339922212866}
   m_Layer: 14
   m_Name: brick6
   m_TagString: Untagged
@@ -2396,7 +2605,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2374865064952903745}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2415,6 +2624,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2107280339922212866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374865064952903745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2517784944655972021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2649,7 @@ GameObject:
   - component: {fileID: 299024373894290146}
   - component: {fileID: 845063668924799141}
   - component: {fileID: 4612206751162841970}
+  - component: {fileID: 4092983478803061433}
   m_Layer: 14
   m_Name: brick40
   m_TagString: Untagged
@@ -2532,7 +2754,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2517784944655972021}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2551,6 +2773,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4092983478803061433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2517784944655972021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2548512807307614054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2798,7 @@ GameObject:
   - component: {fileID: 8789151876522375553}
   - component: {fileID: 8180287422727486533}
   - component: {fileID: 6572712881927406492}
+  - component: {fileID: 44679999737130310}
   m_Layer: 14
   m_Name: brick35
   m_TagString: Untagged
@@ -2668,7 +2903,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2548512807307614054}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2687,6 +2922,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &44679999737130310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548512807307614054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2676290386698764828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,6 +2947,7 @@ GameObject:
   - component: {fileID: 2851930461687805952}
   - component: {fileID: 6188445135738681267}
   - component: {fileID: 3214624962005835188}
+  - component: {fileID: 6857782842880255061}
   m_Layer: 14
   m_Name: brick59
   m_TagString: Untagged
@@ -2804,7 +3052,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2676290386698764828}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2823,6 +3071,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6857782842880255061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2676290386698764828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2789459871243308049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,6 +3096,7 @@ GameObject:
   - component: {fileID: 3604085398211849882}
   - component: {fileID: 1585611155475462699}
   - component: {fileID: 8814238435491165382}
+  - component: {fileID: 1540012408920132530}
   m_Layer: 14
   m_Name: brick55
   m_TagString: Untagged
@@ -2940,7 +3201,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2789459871243308049}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2959,6 +3220,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1540012408920132530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789459871243308049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2901597838867390260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,6 +3245,7 @@ GameObject:
   - component: {fileID: 3112263356274577696}
   - component: {fileID: 1489129579782938734}
   - component: {fileID: 2826398761574516836}
+  - component: {fileID: 3775193621643613863}
   m_Layer: 14
   m_Name: brick54
   m_TagString: Untagged
@@ -3076,7 +3350,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2901597838867390260}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3095,6 +3369,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3775193621643613863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901597838867390260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3226708975548853121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3394,7 @@ GameObject:
   - component: {fileID: 7717521543370706432}
   - component: {fileID: 7508588779687449866}
   - component: {fileID: 4307337088110222388}
+  - component: {fileID: 702855551952382944}
   m_Layer: 14
   m_Name: brick24
   m_TagString: Untagged
@@ -3212,7 +3499,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3226708975548853121}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3231,6 +3518,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &702855551952382944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3226708975548853121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3241988570638333638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,6 +3543,7 @@ GameObject:
   - component: {fileID: 5245433013848376595}
   - component: {fileID: 3328368965517978397}
   - component: {fileID: 1968381675934590032}
+  - component: {fileID: 4493610406093113894}
   m_Layer: 14
   m_Name: brick20
   m_TagString: Untagged
@@ -3348,7 +3648,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3241988570638333638}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3367,6 +3667,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4493610406093113894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3241988570638333638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3251101101144381556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,6 +3692,7 @@ GameObject:
   - component: {fileID: 5279717716855447106}
   - component: {fileID: 5480737242708870708}
   - component: {fileID: 708832195480681238}
+  - component: {fileID: 223138112451051093}
   m_Layer: 14
   m_Name: brick11
   m_TagString: Untagged
@@ -3484,7 +3797,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3251101101144381556}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3503,6 +3816,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &223138112451051093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251101101144381556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3335607078070035083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3516,6 +3841,7 @@ GameObject:
   - component: {fileID: 1852023599935239589}
   - component: {fileID: 7312819959563400205}
   - component: {fileID: 1779815392574818437}
+  - component: {fileID: 6320164998610233113}
   m_Layer: 14
   m_Name: brick31
   m_TagString: Untagged
@@ -3620,7 +3946,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3335607078070035083}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3639,6 +3965,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6320164998610233113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335607078070035083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3721604748467418841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,6 +3990,7 @@ GameObject:
   - component: {fileID: 8497368979876471884}
   - component: {fileID: 6529349015797483239}
   - component: {fileID: 7862103436912853760}
+  - component: {fileID: 6065071654049730851}
   m_Layer: 14
   m_Name: brick2
   m_TagString: Untagged
@@ -3756,7 +4095,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3721604748467418841}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3775,6 +4114,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6065071654049730851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721604748467418841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3769805059567848080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,6 +4139,7 @@ GameObject:
   - component: {fileID: 1611462650944522886}
   - component: {fileID: 3170791762164377783}
   - component: {fileID: 2174338087730113025}
+  - component: {fileID: 3687694708658972432}
   m_Layer: 14
   m_Name: brick16
   m_TagString: Untagged
@@ -3892,7 +4244,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3769805059567848080}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3911,6 +4263,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3687694708658972432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769805059567848080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3806068570572354671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,6 +4288,7 @@ GameObject:
   - component: {fileID: 9194252945470995903}
   - component: {fileID: 6231799386318576726}
   - component: {fileID: 452002176406326823}
+  - component: {fileID: 8199931456674328600}
   m_Layer: 14
   m_Name: brick39
   m_TagString: Untagged
@@ -4028,7 +4393,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3806068570572354671}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4047,6 +4412,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8199931456674328600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806068570572354671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4059510343984303990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,6 +4437,7 @@ GameObject:
   - component: {fileID: 3486590625591713084}
   - component: {fileID: 1307426683431643647}
   - component: {fileID: 2114038111950068957}
+  - component: {fileID: 2328375883229025166}
   m_Layer: 14
   m_Name: brick13
   m_TagString: Untagged
@@ -4164,7 +4542,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4059510343984303990}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4183,6 +4561,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2328375883229025166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059510343984303990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4240520901607129166
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4586,7 @@ GameObject:
   - component: {fileID: 6334078618635353023}
   - component: {fileID: 4605260196213816084}
   - component: {fileID: 4850373453859050208}
+  - component: {fileID: 598888759623051353}
   m_Layer: 14
   m_Name: brick66
   m_TagString: Untagged
@@ -4300,7 +4691,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4240520901607129166}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4319,6 +4710,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &598888759623051353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240520901607129166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4255009474272061997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,6 +4735,7 @@ GameObject:
   - component: {fileID: 1187019927811950061}
   - component: {fileID: 7097506513113971530}
   - component: {fileID: 1166209884682481587}
+  - component: {fileID: 5653557538715249182}
   m_Layer: 14
   m_Name: brick21
   m_TagString: Untagged
@@ -4436,7 +4840,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4255009474272061997}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4455,6 +4859,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5653557538715249182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255009474272061997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4259589387179558107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,6 +4884,7 @@ GameObject:
   - component: {fileID: 7993428140389543086}
   - component: {fileID: 3847567823943447562}
   - component: {fileID: 8055018782398816108}
+  - component: {fileID: 1673230978557664609}
   m_Layer: 14
   m_Name: brick5
   m_TagString: Untagged
@@ -4572,7 +4989,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259589387179558107}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4591,6 +5008,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1673230978557664609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259589387179558107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4423790910597909243
 GameObject:
   m_ObjectHideFlags: 0
@@ -4604,6 +5033,7 @@ GameObject:
   - component: {fileID: 119446328098997804}
   - component: {fileID: 6000049893169598460}
   - component: {fileID: 6326388271015806446}
+  - component: {fileID: 4289448473717676947}
   m_Layer: 14
   m_Name: brick8
   m_TagString: Untagged
@@ -4708,7 +5138,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423790910597909243}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4727,6 +5157,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4289448473717676947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423790910597909243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4896398321566925164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,6 +5182,7 @@ GameObject:
   - component: {fileID: 2835686643296857326}
   - component: {fileID: 1074331783431469502}
   - component: {fileID: 6267262175182503827}
+  - component: {fileID: 2001168062588473934}
   m_Layer: 14
   m_Name: brick33
   m_TagString: Untagged
@@ -4844,7 +5287,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4896398321566925164}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4863,6 +5306,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2001168062588473934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896398321566925164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5438454312785140185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,6 +5331,7 @@ GameObject:
   - component: {fileID: 3754973043840727645}
   - component: {fileID: 3310835846140890949}
   - component: {fileID: 4670718111243234037}
+  - component: {fileID: 8738049375476885295}
   m_Layer: 14
   m_Name: brick63
   m_TagString: Untagged
@@ -4980,7 +5436,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5438454312785140185}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4999,6 +5455,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8738049375476885295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438454312785140185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5563387687856739088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,6 +5480,7 @@ GameObject:
   - component: {fileID: 2492698959647698710}
   - component: {fileID: 3009650084157075879}
   - component: {fileID: 6350160640152119480}
+  - component: {fileID: 5990888215036343095}
   m_Layer: 14
   m_Name: brick23
   m_TagString: Untagged
@@ -5116,7 +5585,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5563387687856739088}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5135,6 +5604,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5990888215036343095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563387687856739088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5671702600044854367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,6 +5629,7 @@ GameObject:
   - component: {fileID: 8177337428604844613}
   - component: {fileID: 7841523950395595853}
   - component: {fileID: 3869613808305916128}
+  - component: {fileID: 1249346226286509845}
   m_Layer: 14
   m_Name: brick68
   m_TagString: Untagged
@@ -5252,7 +5734,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5671702600044854367}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5271,6 +5753,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1249346226286509845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671702600044854367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5729338095257102619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5284,6 +5778,7 @@ GameObject:
   - component: {fileID: 3449571376501258501}
   - component: {fileID: 1829566057479540592}
   - component: {fileID: 1158323923989105710}
+  - component: {fileID: 3336610291933586916}
   m_Layer: 14
   m_Name: brick67
   m_TagString: Untagged
@@ -5388,7 +5883,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729338095257102619}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5407,6 +5902,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3336610291933586916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729338095257102619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5835710210162326990
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,6 +5927,7 @@ GameObject:
   - component: {fileID: 791294157038868100}
   - component: {fileID: 1893795544807999726}
   - component: {fileID: 8518853446821508262}
+  - component: {fileID: 4923894057791133740}
   m_Layer: 14
   m_Name: brick41
   m_TagString: Untagged
@@ -5524,7 +6032,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835710210162326990}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5543,6 +6051,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4923894057791133740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835710210162326990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6023595163937564342
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,6 +6076,7 @@ GameObject:
   - component: {fileID: 5619145247284055695}
   - component: {fileID: 8958442720131104643}
   - component: {fileID: 4485850771886675059}
+  - component: {fileID: 7153980726600980450}
   m_Layer: 14
   m_Name: brick47
   m_TagString: Untagged
@@ -5660,7 +6181,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6023595163937564342}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5679,6 +6200,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7153980726600980450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023595163937564342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6125014372380153901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +6225,7 @@ GameObject:
   - component: {fileID: 3852595409038198069}
   - component: {fileID: 6097849026061856386}
   - component: {fileID: 2901196503749118601}
+  - component: {fileID: 1765787859355194789}
   m_Layer: 14
   m_Name: brick9
   m_TagString: Untagged
@@ -5796,7 +6330,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6125014372380153901}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5815,6 +6349,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1765787859355194789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125014372380153901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6162003877078940041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,6 +6374,7 @@ GameObject:
   - component: {fileID: 3063421536865262770}
   - component: {fileID: 6839102650765008781}
   - component: {fileID: 24983344307308941}
+  - component: {fileID: 8128763383889408239}
   m_Layer: 14
   m_Name: brick71
   m_TagString: Untagged
@@ -5932,7 +6479,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6162003877078940041}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5951,6 +6498,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8128763383889408239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162003877078940041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6244051513723553770
 GameObject:
   m_ObjectHideFlags: 0
@@ -5964,6 +6523,7 @@ GameObject:
   - component: {fileID: 9140184014204648393}
   - component: {fileID: 4057859835456321126}
   - component: {fileID: 7345527757350924439}
+  - component: {fileID: 6668483848928971714}
   m_Layer: 14
   m_Name: brick57
   m_TagString: Untagged
@@ -6068,7 +6628,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6244051513723553770}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6087,6 +6647,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6668483848928971714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244051513723553770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6317807061811514560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,6 +6672,7 @@ GameObject:
   - component: {fileID: 2271476853956462856}
   - component: {fileID: 2431952451727468371}
   - component: {fileID: 1994908410214747221}
+  - component: {fileID: 6769850394593786703}
   m_Layer: 14
   m_Name: brick69
   m_TagString: Untagged
@@ -6204,7 +6777,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6317807061811514560}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6223,6 +6796,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6769850394593786703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317807061811514560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6320992627009271901
 GameObject:
   m_ObjectHideFlags: 0
@@ -6236,6 +6821,7 @@ GameObject:
   - component: {fileID: 2295642072588462361}
   - component: {fileID: 998254873116302434}
   - component: {fileID: 7128683540496256460}
+  - component: {fileID: 8292241387114977277}
   m_Layer: 14
   m_Name: brick17
   m_TagString: Untagged
@@ -6340,7 +6926,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6320992627009271901}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6359,6 +6945,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8292241387114977277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320992627009271901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6369712981534653113
 GameObject:
   m_ObjectHideFlags: 0
@@ -6372,6 +6970,7 @@ GameObject:
   - component: {fileID: 5743183657879097209}
   - component: {fileID: 2944210256758896458}
   - component: {fileID: 8239163100830840731}
+  - component: {fileID: 3178070577881199100}
   m_Layer: 14
   m_Name: brick49
   m_TagString: Untagged
@@ -6476,7 +7075,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6369712981534653113}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6495,6 +7094,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3178070577881199100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369712981534653113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6448181239568249119
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,6 +7119,7 @@ GameObject:
   - component: {fileID: 6337008203301445395}
   - component: {fileID: 5510419369642617042}
   - component: {fileID: 8740103057855029521}
+  - component: {fileID: 4515499819549222813}
   m_Layer: 14
   m_Name: brick60
   m_TagString: Untagged
@@ -6612,7 +7224,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6448181239568249119}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6631,6 +7243,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4515499819549222813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448181239568249119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6696075598044182196
 GameObject:
   m_ObjectHideFlags: 0
@@ -6644,6 +7268,7 @@ GameObject:
   - component: {fileID: 2822161567234764743}
   - component: {fileID: 190503820262636667}
   - component: {fileID: 7125776264159886286}
+  - component: {fileID: 2124105555818491104}
   m_Layer: 14
   m_Name: brick65
   m_TagString: Untagged
@@ -6748,7 +7373,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6696075598044182196}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6767,6 +7392,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2124105555818491104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6696075598044182196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6810703754265124197
 GameObject:
   m_ObjectHideFlags: 0
@@ -6780,6 +7417,7 @@ GameObject:
   - component: {fileID: 3495840599030767299}
   - component: {fileID: 4249980889066129364}
   - component: {fileID: 5158492615708431236}
+  - component: {fileID: 4805130209114823198}
   m_Layer: 14
   m_Name: brick25
   m_TagString: Untagged
@@ -6884,7 +7522,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6810703754265124197}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6903,6 +7541,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4805130209114823198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810703754265124197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6832746401739092213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,6 +7566,7 @@ GameObject:
   - component: {fileID: 7007089140837196101}
   - component: {fileID: 5980225311093593612}
   - component: {fileID: 8094492255735410071}
+  - component: {fileID: 8279086334773141437}
   m_Layer: 14
   m_Name: brick56
   m_TagString: Untagged
@@ -7020,7 +7671,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6832746401739092213}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7039,6 +7690,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8279086334773141437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832746401739092213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6853296263084961455
 GameObject:
   m_ObjectHideFlags: 0
@@ -7052,6 +7715,7 @@ GameObject:
   - component: {fileID: 5739981777004010199}
   - component: {fileID: 3642823716399250881}
   - component: {fileID: 1180863612443212107}
+  - component: {fileID: 7093856997490085958}
   m_Layer: 14
   m_Name: brick30
   m_TagString: Untagged
@@ -7156,7 +7820,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6853296263084961455}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7175,6 +7839,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7093856997490085958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853296263084961455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6953268421679059715
 GameObject:
   m_ObjectHideFlags: 0
@@ -7188,6 +7864,7 @@ GameObject:
   - component: {fileID: 3748616478486922097}
   - component: {fileID: 6581060776785448793}
   - component: {fileID: 1082223325366691579}
+  - component: {fileID: 3341214491393304368}
   m_Layer: 14
   m_Name: brick37
   m_TagString: Untagged
@@ -7292,7 +7969,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6953268421679059715}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7311,6 +7988,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3341214491393304368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953268421679059715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7044536513236447996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,6 +8013,7 @@ GameObject:
   - component: {fileID: 3725765898636371435}
   - component: {fileID: 4243787662811740625}
   - component: {fileID: 546476929259095995}
+  - component: {fileID: 163804778481526784}
   m_Layer: 14
   m_Name: brick1
   m_TagString: Untagged
@@ -7428,7 +8118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044536513236447996}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7447,6 +8137,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &163804778481526784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044536513236447996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7293428676307676021
 GameObject:
   m_ObjectHideFlags: 0
@@ -7460,6 +8162,7 @@ GameObject:
   - component: {fileID: 1367404452535204520}
   - component: {fileID: 3240555564429439657}
   - component: {fileID: 137156428365929765}
+  - component: {fileID: 37619677321510125}
   m_Layer: 14
   m_Name: brick14
   m_TagString: Untagged
@@ -7564,7 +8267,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7293428676307676021}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7583,6 +8286,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &37619677321510125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293428676307676021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7379620335885132900
 GameObject:
   m_ObjectHideFlags: 0
@@ -7596,6 +8311,7 @@ GameObject:
   - component: {fileID: 1717246861140498344}
   - component: {fileID: 5728875805571438828}
   - component: {fileID: 691626420049158748}
+  - component: {fileID: 8816224472609827627}
   m_Layer: 14
   m_Name: brick62
   m_TagString: Untagged
@@ -7700,7 +8416,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7379620335885132900}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7719,6 +8435,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8816224472609827627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379620335885132900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7435215213433635104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7732,6 +8460,7 @@ GameObject:
   - component: {fileID: 5903857278950685494}
   - component: {fileID: 8513354142512186321}
   - component: {fileID: 249853215069835135}
+  - component: {fileID: 365175406321021032}
   m_Layer: 14
   m_Name: brick12
   m_TagString: Untagged
@@ -7836,7 +8565,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7435215213433635104}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7855,6 +8584,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &365175406321021032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435215213433635104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7464809488720955123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,6 +8609,7 @@ GameObject:
   - component: {fileID: 7309293353528002917}
   - component: {fileID: 12835861681587841}
   - component: {fileID: 8359344582114149983}
+  - component: {fileID: 3433070883973362344}
   m_Layer: 14
   m_Name: brick45
   m_TagString: Untagged
@@ -7972,7 +8714,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7464809488720955123}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7991,6 +8733,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3433070883973362344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464809488720955123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7480160936658469088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8004,6 +8758,7 @@ GameObject:
   - component: {fileID: 952724404196568075}
   - component: {fileID: 5490835934671595560}
   - component: {fileID: 1545126665505593621}
+  - component: {fileID: 2505972284845281453}
   m_Layer: 14
   m_Name: brick48
   m_TagString: Untagged
@@ -8108,7 +8863,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7480160936658469088}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8127,6 +8882,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2505972284845281453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7480160936658469088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7859581028454828793
 GameObject:
   m_ObjectHideFlags: 0
@@ -8140,6 +8907,7 @@ GameObject:
   - component: {fileID: 414727454057453133}
   - component: {fileID: 7399652736601797231}
   - component: {fileID: 8388296561048295353}
+  - component: {fileID: 1424863535327214981}
   m_Layer: 14
   m_Name: brick42
   m_TagString: Untagged
@@ -8244,7 +9012,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7859581028454828793}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8263,6 +9031,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1424863535327214981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859581028454828793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8074878886492568138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8276,6 +9056,7 @@ GameObject:
   - component: {fileID: 6566396536633743361}
   - component: {fileID: 2406202658219346261}
   - component: {fileID: 8289627691934079687}
+  - component: {fileID: 8341351835071297270}
   m_Layer: 14
   m_Name: brick19
   m_TagString: Untagged
@@ -8380,7 +9161,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8074878886492568138}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8399,6 +9180,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8341351835071297270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074878886492568138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8170564369888857239
 GameObject:
   m_ObjectHideFlags: 0
@@ -8412,6 +9205,7 @@ GameObject:
   - component: {fileID: 7346845189006051343}
   - component: {fileID: 3804165003490219156}
   - component: {fileID: 1792082862111775994}
+  - component: {fileID: 169435903605972356}
   m_Layer: 14
   m_Name: brick53
   m_TagString: Untagged
@@ -8516,7 +9310,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8170564369888857239}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8535,6 +9329,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &169435903605972356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170564369888857239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8265289417074483850
 GameObject:
   m_ObjectHideFlags: 0
@@ -8548,6 +9354,7 @@ GameObject:
   - component: {fileID: 6437333572874904360}
   - component: {fileID: 602918813975594861}
   - component: {fileID: 7985796381035933550}
+  - component: {fileID: 5007073776172434201}
   m_Layer: 14
   m_Name: brick28
   m_TagString: Untagged
@@ -8652,7 +9459,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265289417074483850}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8671,6 +9478,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5007073776172434201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265289417074483850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8478997529478214197
 GameObject:
   m_ObjectHideFlags: 0
@@ -8684,6 +9503,7 @@ GameObject:
   - component: {fileID: 4868245636084476728}
   - component: {fileID: 1325952358268632981}
   - component: {fileID: 4601191612054842188}
+  - component: {fileID: 2168328144276217309}
   m_Layer: 14
   m_Name: brick4
   m_TagString: Untagged
@@ -8788,7 +9608,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8478997529478214197}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8807,6 +9627,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2168328144276217309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478997529478214197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8579966190452630265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,6 +9652,7 @@ GameObject:
   - component: {fileID: 249814390820385879}
   - component: {fileID: 3787229322704245300}
   - component: {fileID: 7049527951925602227}
+  - component: {fileID: 5876189136497328757}
   m_Layer: 14
   m_Name: brick32
   m_TagString: Untagged
@@ -8924,7 +9757,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8579966190452630265}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8943,6 +9776,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5876189136497328757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579966190452630265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8596275256434538044
 GameObject:
   m_ObjectHideFlags: 0
@@ -8956,6 +9801,7 @@ GameObject:
   - component: {fileID: 3645116420820815770}
   - component: {fileID: 5399709001835108031}
   - component: {fileID: 8266392473282980602}
+  - component: {fileID: 4358630184537392173}
   m_Layer: 14
   m_Name: brick51
   m_TagString: Untagged
@@ -9060,7 +9906,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8596275256434538044}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9079,6 +9925,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4358630184537392173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8596275256434538044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8651514152708687109
 GameObject:
   m_ObjectHideFlags: 0
@@ -9092,6 +9950,7 @@ GameObject:
   - component: {fileID: 7918715675184683556}
   - component: {fileID: 5877494110370600953}
   - component: {fileID: 60499792127522937}
+  - component: {fileID: 6861185056415187938}
   m_Layer: 14
   m_Name: brick46
   m_TagString: Untagged
@@ -9196,7 +10055,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8651514152708687109}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9215,6 +10074,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6861185056415187938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8651514152708687109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8720731357525840288
 GameObject:
   m_ObjectHideFlags: 0
@@ -9228,6 +10099,7 @@ GameObject:
   - component: {fileID: 8207325004111219755}
   - component: {fileID: 7871874049735206775}
   - component: {fileID: 1252415599050095}
+  - component: {fileID: 2312864044722320004}
   m_Layer: 14
   m_Name: brick34
   m_TagString: Untagged
@@ -9332,7 +10204,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8720731357525840288}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9351,6 +10223,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2312864044722320004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720731357525840288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8794699615629426935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9364,6 +10248,7 @@ GameObject:
   - component: {fileID: 44853011475412949}
   - component: {fileID: 4924565334916601649}
   - component: {fileID: 6827899032848282220}
+  - component: {fileID: 6995271716390732514}
   m_Layer: 14
   m_Name: brick44
   m_TagString: Untagged
@@ -9468,7 +10353,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8794699615629426935}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9487,6 +10372,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6995271716390732514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794699615629426935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8821263615425231590
 GameObject:
   m_ObjectHideFlags: 0
@@ -9500,6 +10397,7 @@ GameObject:
   - component: {fileID: 6859670273440913103}
   - component: {fileID: 894665526491496906}
   - component: {fileID: 3395899097630516729}
+  - component: {fileID: 2856779542344887832}
   m_Layer: 14
   m_Name: brick18
   m_TagString: Untagged
@@ -9604,7 +10502,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8821263615425231590}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9623,6 +10521,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2856779542344887832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821263615425231590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9110067070981804042
 GameObject:
   m_ObjectHideFlags: 0
@@ -9636,6 +10546,7 @@ GameObject:
   - component: {fileID: 2616662325622065104}
   - component: {fileID: 1943669006853878922}
   - component: {fileID: 5513555113904618542}
+  - component: {fileID: 6584502729152812708}
   m_Layer: 14
   m_Name: brick10
   m_TagString: Untagged
@@ -9740,7 +10651,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9110067070981804042}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9759,6 +10670,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6584502729152812708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110067070981804042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9139010434694625407
 GameObject:
   m_ObjectHideFlags: 0
@@ -9772,6 +10695,7 @@ GameObject:
   - component: {fileID: 1179406000227605369}
   - component: {fileID: 7971733990069612774}
   - component: {fileID: 1297963731397379593}
+  - component: {fileID: 5125755474851369493}
   m_Layer: 14
   m_Name: brick
   m_TagString: Untagged
@@ -9876,7 +10800,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9139010434694625407}
   serializedVersion: 5
-  m_Mass: 0.1
+  m_Mass: 0.05
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9895,3 +10819,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5125755474851369493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139010434694625407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa7ac220ce83674480ccc78d7045631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

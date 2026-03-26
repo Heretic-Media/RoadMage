@@ -25,6 +25,7 @@ TagManager:
   - UnlockManager
   - Goal
   - ShakeSettingsManager
+  - Brick
   layers:
   - Default
   - TransparentFX

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTutorialPopUps.cs" />
+    <Compile Include="Assets\Scripts\createRuins.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
     <Compile Include="Assets\Scripts\Brightness.cs" />
     <Compile Include="Assets\Scripts\Damage.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
+    <Compile Include="Assets\Scripts\brickDespawner.cs" />
     <Compile Include="Assets\Materials\texture files\misc\exit portal\PortalColourShift.cs" />
     <Compile Include="Assets\UI\Character Customisation\UnlocksBehaviour.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
