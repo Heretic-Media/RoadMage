@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PortalEffects : MonoBehaviour
@@ -28,7 +29,14 @@ public class PortalEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var kb = Keyboard.current;
+        var gp = Gamepad.current;
+
+        if (kb != null && kb.spaceKey.wasPressedThisFrame || gp != null && gp.aButton.wasPressedThisFrame)
+        {
+            maxDelay = 0;
+            return;
+        }
         transitionScene();
     }
 }
