@@ -22,7 +22,7 @@ public class PortalEffects : MonoBehaviour
         else
         {
             transitionScreen.SetActive(true);
-            SceneManager.LoadScene("ALPHA with assets");
+            SceneManager.LoadScene("Tutorial Island");
         }
     }
 
