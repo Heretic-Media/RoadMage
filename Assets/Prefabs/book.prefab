@@ -9819,6 +9819,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1caf26593237ae4c80bc03b8f7bd3f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5927845314743014800}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1caf26593237ae4c80bc03b8f7bd3f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 543646320963356236}
   m_SourcePrefab: {fileID: 100100000, guid: c1caf26593237ae4c80bc03b8f7bd3f4, type: 3}
 --- !u!4 &2628012782129737177 stripped
 Transform:
@@ -9852,3 +9855,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &543646320963356236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401135944063465315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a1c48364c03394e96d3c1c91c08b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
+  visionDistance: 200
+  closeVanishSpeedThreshold: 2
+  attackRange: 20
+  attackCooldown: 0.5
+  damage: 1
+  deathCry: {fileID: 0}
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.05
+  formationIndex: 0
+  attackHitbox: {fileID: 0}
+  PointValue: 1
+  patrolAreaMin: {x: -20, y: 0, z: -20}
+  patrolAreaMax: {x: 20, y: 0, z: 20}
+  formationRadius: 0.5
+  persistent: 1
