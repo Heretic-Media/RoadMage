@@ -57,7 +57,7 @@ public class CharacterCustomisation : MonoBehaviour
 
     void Start()
     {
-        specialMaterialSelected = false;
+        //specialMaterialSelected = false;
 
         // Load saved data
         GameSaveData data = SaveSystem.LoadGame();
