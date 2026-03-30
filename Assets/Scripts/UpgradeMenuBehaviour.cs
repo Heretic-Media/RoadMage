@@ -56,8 +56,18 @@ public class UpgradeMenuBehaviour : MonoBehaviour
             {
                 AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
                 TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
-                abilityTexts[0].text = abilityDescription.abilityName;
-                abilityTexts[1].text = abilityDescription.abilityDesc;
+                UpgradeAbility upgradeAbility = upgradePrefabs[options[i]].GetComponent<UpgradeAbility>();
+
+                if (upgradeAbility != null && upgradeAbility.level > 0) 
+                {
+                    abilityTexts[0].text = abilityDescription.abilityName + " Upgrade Level: " + upgradeAbility.level.ToString();
+                    abilityTexts[1].text = abilityDescription.abilityDesc;
+                }
+                else 
+                {
+                    abilityTexts[0].text = abilityDescription.abilityName;
+                    abilityTexts[1].text = abilityDescription.abilityDesc;
+                }
                 //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                 //    upgradePrefabs[options[i]].GetComponent<AbilityDesc>().abilityName;
             }
@@ -83,23 +93,37 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         GameObject player = FindFirstObjectByType<Player>().gameObject;
         Instantiate(upgradePrefabs[prefabIndex], player.transform);
 
-        availableUpgrades.Remove(prefabIndex);
+        UpgradeAbility upgradeAbility = upgradePrefabs[prefabIndex].GetComponent<UpgradeAbility>();
+
+        if (upgradeAbility == null) 
+        {
+            availableUpgrades.Remove(prefabIndex);
+        }
+        else if (upgradeAbility.level == upgradeAbility.upgrades) 
+        {
+            availableUpgrades.Remove(prefabIndex);
+        }
+        else if (upgradeAbility.level < upgradeAbility.upgrades) 
+        {
+            upgradeAbility.Upgrade();
+        }
+
 
         //bool alreadyUpgraded = false;
 
-        //for (int i = 0; i < player.transform.childCount; i++)
-        //{
-        //    if (prefabToUse.name == player.transform.GetChild(i).name.Replace("(Clone)", ""))
-        //    {
-        //        alreadyUpgraded = true;
-        //        break;
-        //    }
-        //}
+            //for (int i = 0; i < player.transform.childCount; i++)
+            //{
+            //    if (prefabToUse.name == player.transform.GetChild(i).name.Replace("(Clone)", ""))
+            //    {
+            //        alreadyUpgraded = true;
+            //        break;
+            //    }
+            //}
 
-        //if (!alreadyUpgraded)
-        //{
-        //    GameObject newUpgrade = Instantiate(prefabToUse, player.transform);
-        //}
+            //if (!alreadyUpgraded)
+            //{
+            //    GameObject newUpgrade = Instantiate(prefabToUse, player.transform);
+            //}
     }
 
     void Init()
