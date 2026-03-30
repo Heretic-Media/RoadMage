@@ -5499,6 +5499,10 @@ PrefabInstance:
       value: CollisionAbility
       objectReference: {fileID: 0}
     - target: {fileID: 5068502184620832204, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
+      propertyPath: minDamageSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068502184620832204, guid: 4eb63608869b46d48a6b52ad00942b47, type: 3}
       propertyPath: enableCollisionAbility
       value: 1
       objectReference: {fileID: 0}
