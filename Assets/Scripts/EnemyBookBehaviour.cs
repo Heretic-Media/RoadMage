@@ -11,10 +11,7 @@ public class EnemyBookBehaviour : MonoBehaviour
     [SerializeField] private float movementSpeed = 2f;
 
     [Tooltip("The range at which the enemy notices and chases the player.")]
-    [SerializeField] private float visionDistance = 200f;
-
-    [Tooltip("The minimum speed required to damage this enemy.")]
-    [SerializeField] private float closeVanishSpeedThreshold = 2f;
+    [SerializeField] private float visionDistance = 30f;
 
     [Tooltip("The distance in units this enemy will shoot the player from.")]
     [SerializeField] private float attackRange = 1.5f;
@@ -34,9 +31,6 @@ public class EnemyBookBehaviour : MonoBehaviour
     [Tooltip("Camera shake magnitude when this enemy dies.")]
     [SerializeField] private float cameraShakeMagnitude = 0.05f;
 
-    [Tooltip("Index of this enemy in the formation.")]
-    public int formationIndex = 0;
-
     [SerializeField] private int PointValue = 1;
 
     // Patrol area bounds
@@ -52,11 +46,10 @@ public class EnemyBookBehaviour : MonoBehaviour
     private float patrolTargetTimeout = 0f;
     private const float patrolTargetInterval = 4f;
 
-    [Tooltip("How far from the player enemies will try to stay when chasing (formation circle radius).")]
-    [SerializeField] private float formationRadius = 0.5f;
-
     [Tooltip("If true, the enemy will not despawn.")]
     [SerializeField] private bool persistent = true;
+
+    private Animator animator;
 
     void Start()
     {
@@ -65,6 +58,8 @@ public class EnemyBookBehaviour : MonoBehaviour
         // Prevents enemies from pilgrimaging to 0,0
         patrolAreaMin += transform.position;
         patrolAreaMax += transform.position;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -100,7 +95,7 @@ public class EnemyBookBehaviour : MonoBehaviour
                     break;
 
                 case State.Chasing:
-                    ChaseWithFormation();
+                    Chase();
                     if (!VisionCheck())
                         currentState = State.Patrolling;
                     else if (RangeCheck())
@@ -139,11 +134,6 @@ public class EnemyBookBehaviour : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("MainCamera") != null)
         {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraBehaviour>().Shake(cameraShakeDuration, cameraShakeMagnitude);
-
-            PauseManager pause_manager = GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>();
-            ScoreManager score_manager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
-
-            pause_manager.InitiateHitStop(0.01f * score_manager.getMultiplier() / 4);
         }
         else
         {
@@ -165,18 +155,9 @@ public class EnemyBookBehaviour : MonoBehaviour
     private bool RangeCheck()
     {
         Rigidbody playerRigidbody = playerObject.GetComponent<Rigidbody>();
-        float playerSpeed = playerRigidbody.linearVelocity.magnitude;
-
-        if (playerSpeed >= closeVanishSpeedThreshold)
-        {
-            return false;
-        }
-        else
-        {
-            Vector3 diff = playerObject.transform.position - transform.position;
-            float distSqrd = diff.sqrMagnitude;
-            return distSqrd < attackRange * attackRange;
-        }
+        Vector3 diff = playerObject.transform.position - transform.position;
+        float distSqrd = diff.sqrMagnitude;
+        return distSqrd < attackRange * attackRange;
     }
 
 
@@ -184,7 +165,7 @@ public class EnemyBookBehaviour : MonoBehaviour
     {
         if (RangeCheck())
         {
-            print("RANGED ATTACK!");
+            animator.SetBool("Book Attacking", true);
         }
     }
 
@@ -213,40 +194,11 @@ public class EnemyBookBehaviour : MonoBehaviour
         patrolTargetTimeout = patrolTargetInterval;
     }
 
-    void ChaseWithFormation()
+    void Chase()
     {
-        // Find all active enemies
-        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        List<GameObject> chasingEnemies = new List<GameObject>();
+        // stripped down from ChaseWithFormation for this enemy type
 
-        // Filter only those in Chasing or Attacking state
-        foreach (var enemyObj in allEnemies)
-        {
-            var behaviour = enemyObj.GetComponent<EnemyBookBehaviour>();
-            if (behaviour != null && (behaviour.currentState == State.Chasing || behaviour.currentState == State.Attacking))
-            {
-                chasingEnemies.Add(enemyObj);
-            }
-        }
-
-        // Sort by distance to player for consistent formation assignment
-        chasingEnemies.Sort((a, b) =>
-            Vector3.Distance(a.transform.position, playerObject.transform.position)
-            .CompareTo(Vector3.Distance(b.transform.position, playerObject.transform.position)));
-
-        int myIndex = chasingEnemies.IndexOf(this.gameObject);
-        int totalEnemies = chasingEnemies.Count;
-        float radius = formationRadius + Random.Range(-0.3f, 0.3f);
-
-        // Calculate angle for this enemy in the formation circle
-        float angle = 0f;
-        if (totalEnemies > 0)
-        {
-            angle = (2 * Mathf.PI / totalEnemies) * myIndex;
-        }
-
-        Vector3 formationOffset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-        Vector3 targetPosition = playerObject.transform.position + formationOffset;
+        Vector3 targetPosition = playerObject.transform.position;
         Vector3 direction = (targetPosition - transform.position).normalized;
         rb.linearVelocity = direction * movementSpeed;
     }
