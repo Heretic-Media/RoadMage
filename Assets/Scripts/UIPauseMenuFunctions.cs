@@ -107,6 +107,7 @@ public class UIPauseMenuFunctions : MonoBehaviour
     {
         Time.timeScale = 1;
         Debug.Log("Returning to main menu...");
+        SaveSystem.SaveGame();
         SceneManager.LoadScene("MainMenu");
     }
 
