@@ -19,7 +19,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("ALPHA with assets");
+        SceneManager.LoadScene("Tutorial Island");
     }
 
     public void QuitGame()
@@ -37,10 +37,5 @@ public class UI_MainMenu : MonoBehaviour
     public void Transition()
     {
         SceneManager.LoadScene("PortalTransition");
-    }
-
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

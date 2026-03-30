@@ -47,13 +47,13 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d18152e938dd8704cbe0ba04d457ffaa, type: 3}
   m_Resource: {fileID: 8300000, guid: d18152e938dd8704cbe0ba04d457ffaa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
-  m_Pitch: 1
+  m_Volume: 0.308
+  m_Pitch: 0
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 150
+  Priority: 23
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -434,7 +434,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4971,7 +4971,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2345343835147741796, guid: 9b6dea594125a584b881504ed1d9d344, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

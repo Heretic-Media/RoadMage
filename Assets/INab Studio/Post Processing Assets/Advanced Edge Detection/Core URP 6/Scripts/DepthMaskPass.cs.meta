@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 49f2ca28dcfb6aa4ca2301552f71ffa8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262863
+  packageName: Advanced Edge Detection
+  packageVersion: 3.0
+  assetPath: Assets/INab Studio/Post Processing Assets/Advanced Edge Detection/Core
+    URP 6/Scripts/DepthMaskPass.cs
+  uploadId: 859168

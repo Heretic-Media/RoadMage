@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2d5b4d41e0b888c4382f9ac270871a54
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262863
+  packageName: Advanced Edge Detection
+  packageVersion: 3.0
+  assetPath: Assets/INab Studio/Post Processing Assets/Advanced Edge Detection/Core
+    URP 6/Scripts/CustomDataPass.cs
+  uploadId: 859168
