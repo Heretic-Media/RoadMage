@@ -72,7 +72,7 @@ Material:
     - _QueueOffset: 0
     - _Speed: 1
     m_Colors:
-    - _Base_Colour: {r: 1, g: 0, b: 0.38000238, a: 0}
-    - _Emissive_Colour: {r: 1, g: 0, b: 0.38000238, a: 0}
+    - _Base_Colour: {r: 0.30785966, g: 1, b: 0.15305936, a: 0}
+    - _Emissive_Colour: {r: 0.30785966, g: 1, b: 0.15305936, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

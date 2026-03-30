@@ -8,28 +8,36 @@ public class PreventRotation : MonoBehaviour
     [SerializeField] private bool lockY = true;
     [SerializeField] private bool lockZ = true;
 
-    private Vector3 initialRotation;
+    private Vector3 initialLocalEuler;
+    private Vector3 initialWorldEuler;
 
     void Awake()
     {
-        initialRotation = transform.localEulerAngles;
+        initialLocalEuler = transform.localEulerAngles;
+        initialWorldEuler = transform.eulerAngles;
     }
 
     void LateUpdate()
     {
-        Vector3 newRotation = transform.localEulerAngles;
-
         if (useGlobalRotation)
         {
+            Vector3 newRotation = transform.localEulerAngles;
+
+            if (lockX) newRotation.x = initialLocalEuler.x;
+            if (lockY) newRotation.y = initialLocalEuler.y;
+            if (lockZ) newRotation.z = initialLocalEuler.z;
+
             transform.eulerAngles = newRotation;
         }
         else
         {
+            Vector3 newRotation = transform.localEulerAngles;
+
+            if (lockX) newRotation.x = initialWorldEuler.x;
+            if (lockY) newRotation.y = initialWorldEuler.y;
+            if (lockZ) newRotation.z = initialWorldEuler.z;
+
             transform.localEulerAngles = newRotation;
         }
-
-        if (lockX) transform.eulerAngles = new Vector3(initialRotation.x, transform.eulerAngles.y, transform.eulerAngles.z);
-        if (lockY) transform.eulerAngles = new Vector3(transform.eulerAngles.x, initialRotation.y, transform.eulerAngles.z);
-        if (lockZ) transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, initialRotation.z);
     }
 }

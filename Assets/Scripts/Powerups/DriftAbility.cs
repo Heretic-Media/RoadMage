@@ -10,7 +10,6 @@ public class DriftAbility : MonoBehaviour
     private List<GameObject> fireSounds = new List<GameObject>();
     private int audioIndex = 0;
 
-    
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
@@ -19,30 +18,34 @@ public class DriftAbility : MonoBehaviour
     [SerializeField] private float driftTime = 0;
     public float driftDelayTime = 0;
 
+    [Space]
     [Tooltip("Drift time needed before spawning first projectile")]
-    [SerializeField] private float driftAbilityDelay = 1f;
+    [SerializeField] private float driftAbilityDelay = 0.3f;
     [Tooltip("Drift time needed before projectile speed starts decaying")]
-    [SerializeField] private float driftAbilityDecay = 4f;
+    [SerializeField] private float driftAbilityDecay = 2f;
     [Tooltip("Drift time needed before projectile stop spawning")]
-    [SerializeField] private float driftAbilityBurnout = 10f;
+    [SerializeField] private float driftAbilityBurnout = 7f;
     [Tooltip("Time multiplier for ability cooldown")]
     [SerializeField] private float driftAbilityCooldownRate = 2f;
 
 
 
     [Tooltip("The fire rate of the projectiles")]
-    [SerializeField] private float driftProjectileRate = 0.05f;
+    [SerializeField] private float driftProjectileRate = 0.07f;
     [Tooltip("The random spawn direction range")]
-    [SerializeField] private float driftProjectileRandomness = 0.3f;
+    [SerializeField] private float driftProjectileRandomness = 0.4f;
 
     private float timeSinceLastDriftProjectile = 0;
 
     private TopDownCarController carController;
+    private UpgradeAbility upgradeAbility;
 
 
     void Start()
     {
         carController = transform.parent.GetComponent<TopDownCarController>();
+        upgradeAbility = transform.GetComponent<UpgradeAbility>();
+        Upgrade();
 
         for (int i = 0; i < audioPlayersCount; i++) 
         {
@@ -64,7 +67,13 @@ public class DriftAbility : MonoBehaviour
 
     void Update()
     {
-        transform.position = transform.parent.position;
+        //transform.position = transform.parent.position;
+
+        if (upgradeAbility.upgraded == true) 
+        {
+            Upgrade();
+            upgradeAbility.upgraded = false;
+        }
         
         if (carController.drifting)
         {
@@ -100,7 +109,7 @@ public class DriftAbility : MonoBehaviour
 
         /// Drift Projectiles
 
-        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftDelayTime > driftAbilityDelay)
+        if (carController.drifting && Mathf.Abs(carController.rawSteerInput) > 0.5f && enableDriftProjectiles && driftDelayTime >= driftAbilityDelay)
         {
             timeSinceLastDriftProjectile += Time.deltaTime;
 
@@ -121,11 +130,13 @@ public class DriftAbility : MonoBehaviour
                 float burnoutTime = (driftAbilityBurnout - driftAbilityDecay);
                 float burnoutDifference = burnoutTime - (driftTime - driftAbilityDecay);
 
-                if (timeSinceLastDriftProjectile <= driftProjectileRate * 2 + (1 - burnoutDifference / burnoutTime)) { }
+                if (timeSinceLastDriftProjectile <= driftProjectileRate * 1 + (1 - burnoutDifference / burnoutTime)) { }
                 else if (burnoutDifference > 0)
                 {
-                    SpawnProjectile(burnoutDifference / burnoutTime
-                        * carController.rb.linearVelocity.magnitude * 0.5f);
+                    //SpawnProjectile(burnoutDifference / burnoutTime
+                    //    * carController.rb.linearVelocity.magnitude * 0.5f);
+
+                    SpawnProjectile(carController.rb.linearVelocity.magnitude * 0.5f);
                 }
             }
         }
@@ -171,5 +182,25 @@ public class DriftAbility : MonoBehaviour
             projRb.useGravity = false;
         }
         projRb.linearVelocity = dir * projectileSpeed;
+    }
+
+    void Upgrade() 
+    {
+        if (upgradeAbility == null)
+        {
+        }
+        else if (upgradeAbility.level == 0)
+        {
+        }
+        else if (upgradeAbility.level == 1) 
+        {
+            driftAbilityDelay = 0f;
+            driftAbilityDecay = 6f;
+            driftAbilityBurnout = 12f;
+            driftAbilityCooldownRate = 3f;
+
+            driftProjectileRate = 0.05f;
+            driftProjectileRandomness = 0.2f;
+        }
     }
 }

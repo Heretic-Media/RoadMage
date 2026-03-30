@@ -9875,6 +9875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades: 2
   level: 0
+  upgraded: 0
 --- !u!1 &4832195502824684592
 GameObject:
   m_ObjectHideFlags: 0

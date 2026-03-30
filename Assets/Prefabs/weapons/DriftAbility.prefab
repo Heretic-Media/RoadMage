@@ -4966,12 +4966,12 @@ MonoBehaviour:
   enableDriftProjectiles: 1
   driftTime: 0
   driftDelayTime: 0
-  driftAbilityDelay: 0.5
-  driftAbilityDecay: 3
-  driftAbilityBurnout: 10
+  driftAbilityDelay: 0.3
+  driftAbilityDecay: 2
+  driftAbilityBurnout: 7
   driftAbilityCooldownRate: 2
-  driftProjectileRate: 0.05
-  driftProjectileRandomness: 0.3
+  driftProjectileRate: 0.1
+  driftProjectileRandomness: 0.4
 --- !u!114 &8790057563998037608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4999,8 +4999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4bdd4735dd333848a07e42a3b6115df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrades: 0
+  upgrades: 1
   level: 0
+  upgraded: 0
 --- !u!82 &5193058411366945203
 AudioSource:
   m_ObjectHideFlags: 0

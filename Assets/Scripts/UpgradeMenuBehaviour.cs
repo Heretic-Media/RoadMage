@@ -1,10 +1,8 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class UpgradeMenuBehaviour : MonoBehaviour
 {
@@ -17,6 +15,9 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     [SerializeField] GameObject[] upgradePrefabs;
     List<int> availableUpgrades = new List<int>();
 
+    [Space]
+    [SerializeField] GameObject[] upgradeObjects;
+
     private void Start()
     {
         options = new int[optionButtons.Length];
@@ -24,6 +25,8 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         {
             availableUpgrades.Add(i);
         }
+
+        upgradeObjects = new GameObject[upgradePrefabs.Length];
     }
 
     public void Unpause(int buttonIndex)
@@ -56,14 +59,23 @@ public class UpgradeMenuBehaviour : MonoBehaviour
             {
                 AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
                 TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
-                UpgradeAbility upgradeAbility = upgradePrefabs[options[i]].GetComponent<UpgradeAbility>();
 
-                if (upgradeAbility != null && upgradeAbility.level > 0) 
+                if (upgradeObjects[options[i]] != null)
                 {
-                    abilityTexts[0].text = abilityDescription.abilityName + " Upgrade Level: " + upgradeAbility.level.ToString();
-                    abilityTexts[1].text = abilityDescription.abilityDesc;
+                    UpgradeAbility upgradeAbility = upgradeObjects[options[i]].GetComponent<UpgradeAbility>();
+
+                    if (upgradeAbility != null)
+                    {
+                        abilityTexts[0].text = abilityDescription.abilityName + " Upgrade Level: " + (upgradeAbility.level + 1).ToString();
+                        abilityTexts[1].text = abilityDescription.abilityDesc;
+                    }
+                    else
+                    {
+                        abilityTexts[0].text = abilityDescription.abilityName;
+                        abilityTexts[1].text = abilityDescription.abilityDesc;
+                    }
                 }
-                else 
+                else
                 {
                     abilityTexts[0].text = abilityDescription.abilityName;
                     abilityTexts[1].text = abilityDescription.abilityDesc;
@@ -91,23 +103,31 @@ public class UpgradeMenuBehaviour : MonoBehaviour
         }
 
         GameObject player = FindFirstObjectByType<Player>().gameObject;
-        Instantiate(upgradePrefabs[prefabIndex], player.transform);
 
-        UpgradeAbility upgradeAbility = upgradePrefabs[prefabIndex].GetComponent<UpgradeAbility>();
+        bool instantiated = false;
+        if (upgradeObjects[prefabIndex] == null)
+        {
+            upgradeObjects[prefabIndex] = Instantiate(upgradePrefabs[prefabIndex], player.transform);
+            instantiated = true;
+        }
 
-        if (upgradeAbility == null) 
+        UpgradeAbility upgradeAbility = upgradeObjects[prefabIndex].GetComponent<UpgradeAbility>();
+
+        if (upgradeAbility != null)
+        {
+            if (upgradeAbility.level == upgradeAbility.upgrades)
+            {
+                availableUpgrades.Remove(prefabIndex);
+            }
+            else if (!instantiated && upgradeAbility.level < upgradeAbility.upgrades)
+            {
+                upgradeAbility.Upgrade();
+            }
+        }
+        else
         {
             availableUpgrades.Remove(prefabIndex);
         }
-        else if (upgradeAbility.level == upgradeAbility.upgrades) 
-        {
-            availableUpgrades.Remove(prefabIndex);
-        }
-        else if (upgradeAbility.level < upgradeAbility.upgrades) 
-        {
-            upgradeAbility.Upgrade();
-        }
-
 
         //bool alreadyUpgraded = false;
 
