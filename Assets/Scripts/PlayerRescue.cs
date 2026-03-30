@@ -6,13 +6,12 @@ public class PlayerRescue : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float fallThreshold = -50f;
     [SerializeField] private float rescueHeight = 2f;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Transform[] rescuePoints;
 
     [Header("NPC")]
     [SerializeField] private GameObject npcPrefab;
 
     private Rigidbody playerRb;
-    private Vector3 rescuePosition;
     private GameObject npc;
     private bool isRescuing = false;
 
@@ -24,15 +23,6 @@ public class PlayerRescue : MonoBehaviour
     {
         Instance = this;
         playerRb = GetComponent<Rigidbody>();
-
-        if (spawnPoint == null)
-        {
-            rescuePosition = transform.position;
-        }
-        else
-        {
-            rescuePosition = spawnPoint.position;
-        }
     }
 
     void Update()
@@ -45,9 +35,33 @@ public class PlayerRescue : MonoBehaviour
         }
     }
 
+    private Vector3 GetClosestRescuePosition()
+    {
+        if (rescuePoints == null || rescuePoints.Length == 0)
+            return transform.position;
+
+        Vector3 playerPos = transform.position;
+        Transform closest = rescuePoints[0];
+        float closestDistSqr = (closest.position - playerPos).sqrMagnitude;
+
+        for (int i = 1; i < rescuePoints.Length; i++)
+        {
+            if (rescuePoints[i] == null) continue;
+            float distSqr = (rescuePoints[i].position - playerPos).sqrMagnitude;
+            if (distSqr < closestDistSqr)
+            {
+                closestDistSqr = distSqr;
+                closest = rescuePoints[i];
+            }
+        }
+
+        return closest.position;
+    }
+
     void StartRescue()
     {
         isRescuing = true;
+        Vector3 rescuePosition = GetClosestRescuePosition();
 
         if (playerRb != null)
         {
@@ -69,12 +83,12 @@ public class PlayerRescue : MonoBehaviour
             }
             else
             {
-                SimpleRescue();
+                SimpleRescue(rescuePosition);
             }
         }
         else
         {
-            SimpleRescue();
+            SimpleRescue(rescuePosition);
         }
     }
 
@@ -84,7 +98,7 @@ public class PlayerRescue : MonoBehaviour
         npc = null;
     }
 
-    void SimpleRescue()
+    void SimpleRescue(Vector3 rescuePosition)
     {
         transform.position = new Vector3(rescuePosition.x, rescueHeight, rescuePosition.z);
         OnRescueComplete();

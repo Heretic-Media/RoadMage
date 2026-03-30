@@ -129,7 +129,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void Vanish()
+    public virtual void Vanish()
     {
 
         if (deathCry != null)
