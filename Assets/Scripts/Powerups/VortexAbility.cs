@@ -1,20 +1,18 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class VortexAbility : MonoBehaviour
 {
     [SerializeField] private GameObject hitBox;
+    [SerializeField] private GameObject[] hitBoxes;
     private bool isActive = false;
     [SerializeField] private float cooldown = 5f;
     public bool vortexOnCooldown = false;
     private bool buttonPressed = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private UpgradeAbility upgradeAbility;
 
     private void Awake()
     {
@@ -25,6 +23,33 @@ public class VortexAbility : MonoBehaviour
         else if (GameObject.FindGameObjectWithTag("IntuitiveSwitching").GetComponent<UIChangeInputIcons>().KeyboardConnected())
         {
             GameObject.FindGameObjectWithTag("TutorialPopUpManager").GetComponent<TutorialPopUpManager>().StartTutorialPopup("Press <sprite=100> to summon a spinning attack.", 6f);
+        }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        upgradeAbility = GetComponent<UpgradeAbility>();
+        Upgrade();
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        var kb = Keyboard.current;
+        var gp = Gamepad.current;
+
+        if (kb != null && kb.qKey.isPressed || gp != null && gp.yButton.isPressed)
+        {
+            startAttack();
+            return;
+        }
+
+        if (upgradeAbility != null && upgradeAbility.upgraded == true)
+        {
+            Upgrade();
+            upgradeAbility.upgraded = false;
         }
     }
 
@@ -70,16 +95,26 @@ public class VortexAbility : MonoBehaviour
         return vortexOnCooldown;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Upgrade() 
     {
-        var kb = Keyboard.current;
-        var gp = Gamepad.current;
-
-        if (kb != null && kb.qKey.isPressed || gp != null && gp.yButton.isPressed)
+        if (upgradeAbility == null)
+        { 
+        }
+        else if (upgradeAbility.level == 0)
         {
-            startAttack();
-            return;
+            hitBoxes[0].SetActive(true);
+        }
+        else if (upgradeAbility.level == 1)
+        {
+            hitBoxes[0].SetActive(true);
+            hitBoxes[1].SetActive(true);
+        }
+        else if (upgradeAbility.level == 2)
+        {
+            hitBoxes[0].SetActive(true);
+            hitBoxes[1].SetActive(true);
+            hitBoxes[2].SetActive(true);
+            hitBoxes[3].SetActive(true);
         }
     }
 }

@@ -5216,6 +5216,7 @@ GameObject:
   - component: {fileID: 490558661627578659}
   - component: {fileID: 2648652334582576740}
   - component: {fileID: 8271608109788875772}
+  - component: {fileID: 1211077043085668756}
   m_Layer: 0
   m_Name: ForwardAbility
   m_TagString: Untagged
@@ -5275,6 +5276,20 @@ MonoBehaviour:
   abilityName: Kinetic Blast
   abilityDesc: At high speed, hit the handbrake to project your momentum.
   icon: {fileID: 0}
+--- !u!114 &1211077043085668756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136298079975930903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bdd4735dd333848a07e42a3b6115df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades: 0
+  level: 0
 --- !u!1 &7963159700290579847
 GameObject:
   m_ObjectHideFlags: 0

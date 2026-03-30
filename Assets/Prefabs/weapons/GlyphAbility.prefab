@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7136664536569453475}
   - component: {fileID: 8242950818744017327}
   - component: {fileID: 5144978842089169208}
+  - component: {fileID: 57489054957159960}
   m_Layer: 0
   m_Name: GlyphAbility
   m_TagString: Untagged
@@ -67,3 +68,17 @@ MonoBehaviour:
   abilityName: Heal Glyph
   abilityDesc: Complete the glyph to summon a healing aura.
   icon: {fileID: 0}
+--- !u!114 &57489054957159960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329318729859575142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bdd4735dd333848a07e42a3b6115df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades: 0
+  level: 0
