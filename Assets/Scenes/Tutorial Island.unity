@@ -620,12 +620,12 @@ MonoBehaviour:
   starFillA: {fileID: 1218514476}
   starFillB: {fileID: 2090084283}
   starFillC: {fileID: 12625281}
-  winScreen: {fileID: 7042396997755989536, guid: 61a5ee9db645d7e45a6930bb9f33177b, type: 3}
+  winScreen: {fileID: 491338507}
   scoreText: {fileID: 2040827494}
-  secondStarThreshold: 1000
+  secondStarThreshold: 3000
   secondStarUnlock: 0
   secondStarUnlockName: 
-  thirdStarThreshold: 3000
+  thirdStarThreshold: 5000
   thirdStarUnlock: 0
   thirdStarUnlockName: 
 --- !u!1001 &308114393
@@ -1061,6 +1061,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2125203443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &491338507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7042396997755989536, guid: 61a5ee9db645d7e45a6930bb9f33177b, type: 3}
+  m_PrefabInstance: {fileID: 5969873614004048497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

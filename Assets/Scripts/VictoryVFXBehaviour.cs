@@ -58,6 +58,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
         {
             // Victory screen
             winScreenManager.ChangeWinScreenVisibility(true);
+
         }
     }
 }
