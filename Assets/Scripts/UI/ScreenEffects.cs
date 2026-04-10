@@ -17,13 +17,17 @@ public class ScreenEffects : MonoBehaviour
     private bool damagePulseActive;
 
     [SerializeField] private GameObject endStateEffect;
+    private bool endStateActive;
 
     [Header("Ability Effects")]
     [SerializeField] private GameObject iceEffect;
+    private bool icePulseActive;
 
     [SerializeField] private GameObject fireEffect;
+    private bool firePulseActive;
 
     [SerializeField] private GameObject kineticEffect;
+    private bool kineticPulseActive;
 
     private GameObject[] effects;
 
@@ -154,6 +158,51 @@ public class ScreenEffects : MonoBehaviour
         healEffect.SetActive(false);
     }
 
+    //ice effect
+    public void TriggerIceEffect()
+    {
+        iceEffect.SetActive(true);
+        icePulseActive = true;
+        Invoke("StopIceEffect", 5f);
+    }
+
+    private void StopIceEffect()
+    {
+        icePulseActive = false;
+        iceEffect.SetActive(false);
+    }
+
+
+    //fire effect
+    public void TriggerFireEffect()
+    {
+        fireEffect.SetActive(true);
+        //firePulseActive = true;
+        Invoke(nameof(StopFireEffect), 5f);
+    }
+
+    public void StopFireEffect()
+    {
+        CancelInvoke(nameof(StopFireEffect));
+        //firePulseActive = false;
+        fireEffect.SetActive(false);
+    }
+
+    //kinetic effect
+    public void TriggerKineticEffect()
+    {
+        kineticEffect.SetActive(true);
+        kineticPulseActive = true;
+        Invoke(nameof(StopKineticEffect), 1f);
+    }
+
+    private void StopKineticEffect()
+    {
+        CancelInvoke(nameof(StopKineticEffect));
+        kineticPulseActive = false;
+        kineticEffect.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -162,6 +211,14 @@ public class ScreenEffects : MonoBehaviour
         if (healPulseActive)
         {
             PulseFade(healEffect, healPulseActive, 0.063f);
+        }
+        if (icePulseActive)
+        {
+            PulseFade(iceEffect, icePulseActive, 0.047f);
+        }
+        if (kineticPulseActive)
+        {
+            PulseFade(kineticEffect, kineticPulseActive, 0.047f);
         }
     }
 }

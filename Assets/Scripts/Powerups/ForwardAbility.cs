@@ -76,6 +76,7 @@ public class ForwardAbility : MonoBehaviour
     void FireProjectile(float damage, Vector3 velocity)
     {
         Camera.main.GetComponent<CameraBehaviour>().Shake(0.7f, 0.2f);
+        GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>().TriggerKineticEffect();
 
         switch (element)
         {

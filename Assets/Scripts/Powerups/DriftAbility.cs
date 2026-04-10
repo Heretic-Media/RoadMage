@@ -36,13 +36,16 @@ public class DriftAbility : MonoBehaviour
     [SerializeField] private float driftProjectileRandomness = 0.3f;
 
     private float timeSinceLastDriftProjectile = 0;
+    private bool fireEffectTriggered = false;
 
     private TopDownCarController carController;
+    private ScreenEffects screenEffects;
 
 
     void Start()
     {
         carController = transform.parent.GetComponent<TopDownCarController>();
+        screenEffects = GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>();
 
         for (int i = 0; i < audioPlayersCount; i++) 
         {
@@ -108,6 +111,7 @@ public class DriftAbility : MonoBehaviour
             if (driftTime >= driftAbilityBurnout)
             {
                 // Debug.Log("drift ability timed out");
+                StopFireEffectIfNeeded();
             }
             else if (driftTime <= driftAbilityDecay)
             {
@@ -129,6 +133,25 @@ public class DriftAbility : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            StopFireEffectIfNeeded();
+        }
+    }
+
+    private void StopFireEffectIfNeeded()
+    {
+        if (!fireEffectTriggered)
+        {
+            return;
+        }
+
+        if (screenEffects != null)
+        {
+            screenEffects.StopFireEffect();
+        }
+
+        fireEffectTriggered = false;
     }
 
     private void StartAudio()
@@ -152,6 +175,12 @@ public class DriftAbility : MonoBehaviour
 
         if (projectile == null)
             return;
+
+        if (!fireEffectTriggered && screenEffects != null)
+        {
+            screenEffects.TriggerFireEffect();
+            fireEffectTriggered = true;
+        }
 
         StartAudio();
 
