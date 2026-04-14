@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\Powerups\TrailAbility.cs" />
     <Compile Include="Assets\Scripts\Enemies\SlimeRandomiser.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
+    <Compile Include="Assets\Scripts\BossSlimeAnimationController.cs" />
     <Compile Include="Assets\Scripts\GarageTextBehaviour.cs" />
     <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
     <Compile Include="Assets\UI\CursorFollow.cs" />
