@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
+        //healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
 
         //currentHealth = maxHealth;
         UpdateAllUI();
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
 
     void UpdateAllUI()
     {
-        UpdateHealthUI();
+        //UpdateHealthUI();
         UpdateXPUI();
         UpdateLevelUI();
         UpdateScoreUI();
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
+        //healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
         //if (healthBarFill != null)
         //{
         //    float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;

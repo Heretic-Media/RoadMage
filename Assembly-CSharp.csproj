@@ -49,6 +49,7 @@
     <Analyzer Include="D:\Unity\6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI\HealthBarSlider.cs" />
     <Compile Include="Assets\Scripts\PortalBehaviour.cs" />
     <Compile Include="Assets\Scripts\RescueNPC.cs" />
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets\Scripts\Powerups\PopUpOnWeapon.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UI\ScreenEffects.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTutorialPopUps.cs" />
     <Compile Include="Assets\Scripts\createRuins.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />

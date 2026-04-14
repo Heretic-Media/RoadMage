@@ -67,6 +67,7 @@ public class HealAbility : MonoBehaviour
                 Cleanse();
             }
             GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().TakeDamage(-healAmount);
+            GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>().TriggerHealEffect();
 
             Instantiate(healArea, transform.position, transform.rotation).SetActive(true);
             StartParticleEffect();
