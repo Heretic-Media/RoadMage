@@ -4,6 +4,7 @@ public class GeneralColourShift : MonoBehaviour
 {
     [SerializeField] private bool changeConstantly = true; // Toggle for constant color shifting
     [SerializeField] private bool synced = true;
+    [SerializeField] private bool randomlyAssignThisObjectsMats = false;
     [SerializeField] private bool randomlyAssignChildMats = false;
     private bool isShifted = false; // Flag to track if color shifting is active
     [SerializeField] private float shiftSpeed = 1f; // Speed of color shifting
@@ -13,6 +14,15 @@ public class GeneralColourShift : MonoBehaviour
 
     private void Start()
     {
+        if (randomlyAssignThisObjectsMats)
+        {
+            Renderer renderer = GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.sharedMaterial = targetMaterials[Random.Range(0, targetMaterials.Length)];
+            }
+        }
+
         if (!randomlyAssignChildMats || targetMaterials == null || targetMaterials.Length == 0)
         {
             return;
