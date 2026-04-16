@@ -15,7 +15,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     [SerializeField] private float strafeDistance = 10f;
 
     [Tooltip("Time in seconds between shots.")]
-    [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private float attackCooldown = 3f;
 
     [Tooltip("Prefab spawned as a bullet toward the player.")]
     [SerializeField] private GameObject bulletPrefab;
@@ -195,7 +195,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
         // Spawn bullet toward player
         if (bulletPrefab != null && bulletSpawnPoint != null)
         {
-            Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().linearVelocity = transform.forward * 10;
         }
 
         attackTimer = attackCooldown;
