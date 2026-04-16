@@ -1,6 +1,6 @@
-﻿<Solution>
-  <Project Path="Adobe.Substance.csproj" />
+<Solution>
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Adobe.Substance.csproj" />
   <Project Path="Adobe.Substance.Runtime.csproj" />
   <Project Path="Adobe.SubstanceEditor.csproj" />
   <Project Path="Pinwheel.Contour.Editor.csproj" />
