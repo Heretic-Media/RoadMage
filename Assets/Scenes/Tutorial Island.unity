@@ -624,10 +624,10 @@ MonoBehaviour:
   scoreText: {fileID: 2040827494}
   secondStarThreshold: 3000
   secondStarUnlock: 0
-  secondStarUnlockName: 
+  secondStarUnlockName: Silver
   thirdStarThreshold: 5000
   thirdStarUnlock: 0
-  thirdStarUnlockName: 
+  thirdStarUnlockName: Gold
 --- !u!1001 &298189986
 PrefabInstance:
   m_ObjectHideFlags: 0

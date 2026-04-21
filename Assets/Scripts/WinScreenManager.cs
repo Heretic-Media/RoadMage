@@ -26,7 +26,7 @@ public class WinScreenManager : MonoBehaviour
 
     public void ChangeWinScreenVisibility(bool visible)
     {
-        winScreen.SetActive(true);
+        winScreen.SetActive(visible);
     }
 
     public void ChangeStarFill(int amount)
