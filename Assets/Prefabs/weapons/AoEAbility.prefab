@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Explosive Ram
   abilityDesc: Ram into enemies to cause a large explosion.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5f7c12dd4370d9946a9fc5e781732ccb, type: 3}
 --- !u!1 &1953289902716181092
 GameObject:
   m_ObjectHideFlags: 0
