@@ -14,19 +14,19 @@ public static class SaveSystem
             highScore = CurrencyManager.highScore,
             currentCharacter = CharacterCustomisation.currentCharacter,
             currentAccessory = CharacterCustomisation.currentAccessory,
-            characterColours = new int[]
-            {
-                CharacterCustomisation.truckColourIndex,
-                CharacterCustomisation.carColourIndex,
-                CharacterCustomisation.vanColourIndex
-            },
-            rewardsPicked = CharacterCustomisation.rewardsPicked,
-            silverCategory = CharacterCustomisation.silverCategory,
-            silverCharacter = CharacterCustomisation.silverCharacter,
-            silverIndex = CharacterCustomisation.silverIndex,
-            goldCategory = CharacterCustomisation.goldCategory,
-            goldCharacter = CharacterCustomisation.goldCharacter,
-            goldIndex = CharacterCustomisation.goldIndex
+            //characterColours = new int[]
+            //{
+            //    CharacterCustomisation.truckColourIndex,
+            //    CharacterCustomisation.carColourIndex,
+            //    CharacterCustomisation.vanColourIndex
+            //},
+            //rewardsPicked = CharacterCustomisation.rewardsPicked,
+            //silverCategory = CharacterCustomisation.silverCategory,
+            //silverCharacter = CharacterCustomisation.silverCharacter,
+            //silverIndex = CharacterCustomisation.silverIndex,
+            //goldCategory = CharacterCustomisation.goldCategory,
+            //goldCharacter = CharacterCustomisation.goldCharacter,
+            //goldIndex = CharacterCustomisation.goldIndex
         };
 
         string json = JsonUtility.ToJson(saveData, true);
