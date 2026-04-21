@@ -35,6 +35,7 @@ public class VortexAbility : MonoBehaviour
             if (!vortexOnCooldown)
             {
                 hitBox.SetActive(true);
+                GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>().TriggerIceEffect();
                 Invoke("endAttack", 5f);
                 isActive = true;
             }

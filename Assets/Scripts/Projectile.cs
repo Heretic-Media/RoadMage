@@ -7,19 +7,28 @@ public class Projectile : MonoBehaviour
     public bool despawnAfterTime = true;
     public int despawnTimer = 60;
 
-    public int timeAlive = 0;
+    public float timeAlive = 0;
+    public float deactivateTimer = -1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (deactivateTimer == -1)
+        {
+            deactivateTimer = despawnTimer;
+        }
     }
 
     private void FixedUpdate()
     {
-        timeAlive++;
+        timeAlive += Time.fixedDeltaTime;
 
-        if (despawnAfterTime && timeAlive >= despawnTimer)
+        if (despawnAfterTime && timeAlive >= (float)deactivateTimer / 60.0)
+        {
+            GetComponentInChildren<SphereCollider>().enabled = false;
+        }
+
+        if (despawnAfterTime && timeAlive >= (float)despawnTimer / 60.0)
         {
             //print("projectile timed out");
             Destroy(this.gameObject);

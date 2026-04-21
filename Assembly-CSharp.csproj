@@ -61,10 +61,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI\HealthBarSlider.cs" />
     <Compile Include="Assets\Scripts\PortalBehaviour.cs" />
     <Compile Include="Assets\Scripts\RescueNPC.cs" />
     <Compile Include="Assets\Scripts\portal effects\PortalEffects.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicFade.cs" />
+    <Compile Include="Assets\Scripts\RangedEnemyBehaviour.cs" />
     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
     <Compile Include="Assets\Scripts\FieryDriftProjectile.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\Scripts\Powerups\PopUpOnWeapon.cs" />
     <Compile Include="Assets\Scripts\AlphaGarage.cs" />
     <Compile Include="Assets\Scripts\DeathCryBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UI\ScreenEffects.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTutorialPopUps.cs" />
     <Compile Include="Assets\Scripts\createRuins.cs" />
     <Compile Include="Assets\Scripts\UIChangeInputIcons.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\Scripts\VictoryVFXBehaviour.cs" />
     <Compile Include="Assets\Scripts\CheckTrigger.cs" />
     <Compile Include="Assets\Scripts\Powerups\vortexCollider.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\brickDespawner.cs" />
     <Compile Include="Assets\Materials\texture files\misc\exit portal\PortalColourShift.cs" />
@@ -136,6 +140,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\UI\Character Customisation\CharacterCustomisation.cs" />
     <Compile Include="Assets\Scripts\Powerups\GlyphTrigger.cs" />
+    <Compile Include="Assets\Scripts\CurrencyManager.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\MagicalFloat.cs" />
     <Compile Include="Assets\UI\MenuCursor.cs" />
     <Compile Include="Assets\Scripts\Powerups\VortexAbility.cs" />
@@ -146,7 +151,9 @@
     <Compile Include="Assets\FullOpaqueWater&amp;Waterfall\Script\VFX_TargetPosition.cs" />
     <Compile Include="Assets\Scripts\Powerups\TrailAbility.cs" />
     <Compile Include="Assets\Scripts\Enemies\SlimeRandomiser.cs" />
+    <Compile Include="Assets\Scripts\GameSaveData.cs" />
     <Compile Include="Assets\Scripts\FleetingSound.cs" />
+    <Compile Include="Assets\Scripts\BossSlimeAnimationController.cs" />
     <Compile Include="Assets\Scripts\GarageTextBehaviour.cs" />
     <Compile Include="Assets\Scripts\Powerups\ForwardAbility.cs" />
     <Compile Include="Assets\UI\CursorFollow.cs" />

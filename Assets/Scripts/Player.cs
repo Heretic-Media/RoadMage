@@ -43,9 +43,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
+        //healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
 
-        //currentHealth = maxHealth;
         UpdateAllUI();
     }
 
@@ -104,15 +103,23 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
         Debug.Log("Player died.");
+
+        GameObject scoreManagerObj = GameObject.FindGameObjectWithTag("ScoreManager");
+        if (scoreManagerObj != null)
+        {
+            int finalScore = scoreManagerObj.GetComponent<ScoreManager>().GetScore();
+            int earnedStars = finalScore / 100;
+            CurrencyManager.AddStars(earnedStars);
+            SaveSystem.SaveGame();
+        }
 
         SceneManager.LoadScene("GameOver");
     }
 
     void UpdateAllUI()
     {
-        UpdateHealthUI();
+        //UpdateHealthUI();
         UpdateXPUI();
         UpdateLevelUI();
         UpdateScoreUI();
@@ -120,7 +127,7 @@ public class Player : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
+        //healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
         //if (healthBarFill != null)
         //{
         //    float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;

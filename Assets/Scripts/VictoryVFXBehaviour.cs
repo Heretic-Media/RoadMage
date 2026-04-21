@@ -7,6 +7,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
 
     private float startTime = 9999999;
     private WinScreenManager winScreenManager;
+    private bool starsAwarded = false;
 
     void Awake()
     {
@@ -21,7 +22,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
     {
         transform.localScale += Vector3.one * Time.fixedDeltaTime * 2f;
         GameObject.FindGameObjectWithTag("Player").transform.position += Vector3.up * Time.fixedDeltaTime;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().health = 100;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().health = 10000;
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             enemy.transform.position = Vector3.up * 999999;
@@ -31,6 +32,15 @@ public class VictoryVFXBehaviour : MonoBehaviour
 
         if (Time.time > 15 + startTime)
         {
+            if (!starsAwarded)
+            {
+                starsAwarded = true;
+                int score = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().GetScore();
+                int earnedStars = score / 100;
+                CurrencyManager.AddStars(earnedStars);
+                SaveSystem.SaveGame();
+            }
+
             // back to menu
             SceneManager.LoadScene("MainMenu");
         }
@@ -58,6 +68,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
         {
             // Victory screen
             winScreenManager.ChangeWinScreenVisibility(true);
+
         }
     }
 }

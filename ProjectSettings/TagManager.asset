@@ -25,6 +25,7 @@ TagManager:
   - UnlockManager
   - Goal
   - ShakeSettingsManager
+  - ScreenEffects
   layers:
   - Default
   - TransparentFX

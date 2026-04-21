@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Re-Fuel
   abilityDesc: Splash a healing potion on the ground.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 56385dc14fcd3e04886d44b1e1b0f7bb, type: 3}
 --- !u!1 &5460576727919199822
 GameObject:
   m_ObjectHideFlags: 0
@@ -10079,3 +10079,4 @@ MonoBehaviour:
   despawnAfterTime: 1
   despawnTimer: 30
   timeAlive: 0
+  deactivateTimer: -1
