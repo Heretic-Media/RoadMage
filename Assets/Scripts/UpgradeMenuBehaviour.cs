@@ -57,7 +57,7 @@ public class UpgradeMenuBehaviour : MonoBehaviour
             {
                 AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
                 TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
-                abilityTexts[0].text = abilityDescription.abilityName;
+                abilityTexts[0].text = "\n" + abilityDescription.abilityName;
                 abilityTexts[1].text = abilityDescription.abilityDesc;
                 icons_slots[i].sprite = abilityDescription.icon;
                 //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
