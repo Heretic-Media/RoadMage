@@ -10,6 +10,7 @@ public class UpgradeMenuBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject[] optionButtons;
     int[] options;
+    [SerializeField] Image[] icons_slots;
     [SerializeField] EventSystem eventSystem;
 
     [SerializeField] GameObject canvas;
@@ -58,6 +59,7 @@ public class UpgradeMenuBehaviour : MonoBehaviour
                 TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
                 abilityTexts[0].text = abilityDescription.abilityName;
                 abilityTexts[1].text = abilityDescription.abilityDesc;
+                icons_slots[i].sprite = abilityDescription.icon;
                 //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                 //    upgradePrefabs[options[i]].GetComponent<AbilityDesc>().abilityName;
             }
