@@ -241,7 +241,7 @@ public class TopDownCarController : MonoBehaviour
         float forwardSpeed = localVel.z;
         float speedAbs = Mathf.Abs(forwardSpeed);
 
-        audioSource.volume = speedAbs / 20;
+        audioSource.volume = speedAbs / 40;
 
         hasThrottle = Mathf.Abs(rawThrottleInput) > 0.05f;
 
@@ -391,5 +391,12 @@ public class TopDownCarController : MonoBehaviour
             rightSparksHitbox.gameObject.SetActive(false);
             leftSparksHitbox.gameObject.SetActive(false);
         }
+    }
+
+
+    public void CeaseSparks()
+    {
+        rightSparks.GetComponent<ParticleSystem>().Stop();
+        leftSparks.GetComponent<ParticleSystem>().Stop();
     }
 }
