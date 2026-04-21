@@ -5274,7 +5274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Kinetic Blast
   abilityDesc: At high speed, hit the handbrake to project your momentum.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cbf4d8c77149a6b4eb5e423747c2ec40, type: 3}
 --- !u!1 &7963159700290579847
 GameObject:
   m_ObjectHideFlags: 0

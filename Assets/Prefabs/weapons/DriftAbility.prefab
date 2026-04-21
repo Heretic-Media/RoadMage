@@ -4985,7 +4985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Fiery Drift
   abilityDesc: Drift to create a wave of fire.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7a16a8643dd3a2a438ef09850c009794, type: 3}
 --- !u!82 &5193058411366945203
 AudioSource:
   m_ObjectHideFlags: 0

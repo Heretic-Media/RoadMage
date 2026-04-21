@@ -9854,7 +9854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Ice Vortex
   abilityDesc: Summon a spinning vortex of ice to knock out enemies.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 44e0bd844f0f9d443a85eb420ff2abd5, type: 3}
 --- !u!1 &4832195502824684592
 GameObject:
   m_ObjectHideFlags: 0

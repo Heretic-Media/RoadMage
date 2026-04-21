@@ -22,7 +22,7 @@ public class VictoryVFXBehaviour : MonoBehaviour
     {
         transform.localScale += Vector3.one * Time.fixedDeltaTime * 2f;
         GameObject.FindGameObjectWithTag("Player").transform.position += Vector3.up * Time.fixedDeltaTime;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().health = 100;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().health = 10000;
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             enemy.transform.position = Vector3.up * 999999;

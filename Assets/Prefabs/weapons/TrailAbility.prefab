@@ -5045,7 +5045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Poison Trail
   abilityDesc: Driving leaves a poisonous trail.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7e24007b0fd4c5d4099b5a9e73ba16bb, type: 3}
 --- !u!114 &-2960108426591201590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14814,3 +14814,4 @@ MonoBehaviour:
   despawnAfterTime: 1
   despawnTimer: 180
   timeAlive: 0
+  deactivateTimer: -1
