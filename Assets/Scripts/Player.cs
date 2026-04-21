@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
     {
         //healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
 
-        //currentHealth = maxHealth;
         UpdateAllUI();
     }
 
@@ -104,8 +103,16 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
         Debug.Log("Player died.");
+
+        GameObject scoreManagerObj = GameObject.FindGameObjectWithTag("ScoreManager");
+        if (scoreManagerObj != null)
+        {
+            int finalScore = scoreManagerObj.GetComponent<ScoreManager>().GetScore();
+            int earnedStars = finalScore / 100;
+            CurrencyManager.AddStars(earnedStars);
+            SaveSystem.SaveGame();
+        }
 
         SceneManager.LoadScene("GameOver");
     }

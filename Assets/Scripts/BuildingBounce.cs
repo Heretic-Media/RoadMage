@@ -24,6 +24,8 @@ public class BuildingBounce : MonoBehaviour
                 Vector3 force = unitCollisionDirection * collisionRB.linearVelocity.magnitude * (1 + bounceMultiplier);
                 Debug.DrawRay(collision.transform.position, force, Color.green, 2f);
                 Debug.Log("BOUNCE: " + force.magnitude.ToString());
+                collision.gameObject.GetComponent<TopDownCarController>().CeaseSparks();
+                
 
                 if (force.magnitude < minBounceForce)
                 {
