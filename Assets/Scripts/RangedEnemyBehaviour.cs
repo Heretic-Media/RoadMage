@@ -5,6 +5,12 @@ public class RangedEnemyBehaviour : MonoBehaviour
     public enum State { Patrolling, Strafing, Shooting }
     private State currentState = State.Patrolling;
 
+    [SerializeField] private GameObject model;
+    private const float attackAnimLength = 1.05f;
+    private float attackTimeStamp = 1000000f;
+    private bool isAttacking = false;
+
+
     [Tooltip("Speed at which the enemy travels.")]
     [SerializeField] private float movementSpeed = 2f;
 
@@ -108,8 +114,25 @@ public class RangedEnemyBehaviour : MonoBehaviour
                     break;
 
                 case State.Shooting:
-                    Shoot();
-                    currentState = State.Strafing;
+                    if (!isAttacking)
+                    {
+                        // Play shooting animation here 
+                        model.GetComponent<Animator>().SetBool("Attacking", true);
+                        
+                        isAttacking = true;
+                        attackTimeStamp = Time.time;
+                    }
+                    else
+                    {
+                        if (Time.time > attackTimeStamp + attackAnimLength)
+                        {
+                            Shoot();
+                            isAttacking = false;
+                            currentState = State.Strafing;
+                        }
+                    }
+                    
+                    
                     break;
             }
         }
@@ -125,6 +148,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
     void Patrol()
     {
+        model.GetComponent<Animator>().SetBool("Attacking", false);
+
         patrolTargetTimeout -= Time.fixedDeltaTime;
         Vector3 direction = randomPatrolTarget - transform.position;
         direction.y = 0;
@@ -149,6 +174,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
     void Strafe()
     {
+        model.GetComponent<Animator>().SetBool("Attacking", false);
+
         Vector3 toPlayer = playerObject.transform.position - transform.position;
         toPlayer.y = 0;
         float distanceToPlayer = toPlayer.magnitude;
@@ -191,6 +218,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
             toPlayer.y = 0;
             transform.forward = toPlayer.normalized;
         }
+
+       
 
         // Spawn bullet toward player
         if (bulletPrefab != null && bulletSpawnPoint != null)
