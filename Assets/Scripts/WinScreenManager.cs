@@ -44,7 +44,7 @@ public class WinScreenManager : MonoBehaviour
             starFillB.enabled = true;
             if (secondStarUnlock)
             {
-                if (GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().checkForUnlock(secondStarUnlockName))
+                if (!GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().checkForUnlock(secondStarUnlockName))
                 {
                     GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlockPopUps>().ShowUnlockPopUp(secondStarUnlockName);
                 }
@@ -58,7 +58,7 @@ public class WinScreenManager : MonoBehaviour
             starFillC.enabled = true;
             if (thirdStarUnlock)
             {
-                if (GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().checkForUnlock(thirdStarUnlockName))
+                if (!GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlocksForLevel>().checkForUnlock(thirdStarUnlockName))
                 {
                     GameObject.FindGameObjectWithTag("UnlockManager").GetComponent<UnlockPopUps>().ShowUnlockPopUp(thirdStarUnlockName);
                 }
