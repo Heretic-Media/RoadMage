@@ -11,6 +11,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     private bool isAttacking = false;
 
     [SerializeField] private AudioSource attackSound;
+    [SerializeField] private AudioSource firingSound;
 
     [Tooltip("Speed at which the enemy travels.")]
     [SerializeField] private float movementSpeed = 2f;
@@ -40,6 +41,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject deathCry;
 
     [SerializeField] private int PointValue = 1;
+
 
     // Patrol area bounds
     [SerializeField] protected Vector3 patrolAreaMin = new Vector3(-20, 0, -20);
@@ -228,6 +230,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().linearVelocity = transform.forward * 10;
+
+            firingSound.Play();
         }
 
         attackTimer = attackCooldown;
