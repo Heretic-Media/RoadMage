@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\GarageBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnlockPopUps.cs" />
+    <Compile Include="Assets\Scripts\FadeOut.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\UIDialBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />

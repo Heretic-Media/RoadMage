@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
     public void StopDamageSound()
     {
-        if (stutterSound.isPlaying && health.health > 500)
+        if (stutterSound.isPlaying && health.health > 800)
         {
             stutterSound.Stop();
         }
@@ -102,6 +102,8 @@ public class Player : MonoBehaviour
         {
             stutterSound.Play();
         }
+
+        print(health.health);
     }
 
     void LevelUp()
