@@ -144,7 +144,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
         {
             currentState = State.Patrolling;
         }
-        else if (!persistent)
+        else if ((transform.position - playerObject.transform.position).sqrMagnitude > 900)
         {
             Destroy(gameObject);
         }

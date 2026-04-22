@@ -92,6 +92,7 @@
     <Compile Include="Assets\UI\DeathBackgroundParts.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
+    <Compile Include="Assets\Scripts\DisableIconsforQuarterSecond.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
     <Compile Include="Assets\Scripts\WaterAudio.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\CameraSway.cs" />

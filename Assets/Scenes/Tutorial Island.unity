@@ -9731,11 +9731,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 265568258568639821, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 265568258568639821, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 265568258568639821, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 273643910767501080, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -9939,11 +9943,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651743728117132219, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1651743728117132219, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651743728117132219, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1675917695308131912, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -9979,11 +9987,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994051910524594665, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1994051910524594665, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994051910524594665, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2034718677794128267, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10239,11 +10251,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4580782598252282017, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4580782598252282017, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580782598252282017, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4620353832238651298, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10283,11 +10299,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4810900766294481907, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4810900766294481907, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810900766294481907, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4961559418544885373, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10431,11 +10451,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5878293822914774728, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5878293822914774728, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878293822914774728, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5896024066310044179, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10509,6 +10533,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6750517302571346857, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6795958543382577001, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -10523,11 +10551,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7039799354823796332, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7039799354823796332, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039799354823796332, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7043488462648138585, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10559,11 +10591,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349187119563177764, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7349187119563177764, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349187119563177764, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7349561866207547787, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10771,11 +10807,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8953038010581758827, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: maxEnemies
-      value: 30
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8953038010581758827, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: spawnDelay
-      value: 0.5
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953038010581758827, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+      propertyPath: spawnRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8981846024311935550, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
       propertyPath: m_Layer
@@ -10844,7 +10884,15 @@ PrefabInstance:
     - {fileID: 5168611520886937564, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
     - {fileID: 8287993854153460908, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
     - {fileID: 9059701101048200522, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 903759163454836374, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 7698972249429173503, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 1533711202482455257, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 3149285341658720833, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 631953800596379614, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 4099585740780861306, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 9195064833025513993, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
+    - {fileID: 8276218846613559387, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6207224229456843276, guid: eee2ec2e556579f498a97d8298cdaf5d, type: 3}

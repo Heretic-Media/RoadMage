@@ -333,7 +333,7 @@ MonoBehaviour:
   PointValue: 1
   patrolAreaMin: {x: -20, y: 0, z: -20}
   patrolAreaMax: {x: 20, y: 0, z: 20}
-  persistent: 1
+  persistent: 0
 --- !u!1 &5432897146094395013
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +708,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 319241797271154935, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1662715611928625307, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
       propertyPath: m_Name
       value: book icon
@@ -771,8 +775,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1662715611928625307, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5964505244249373398}
   m_SourcePrefab: {fileID: 100100000, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
+--- !u!1 &4701249907432380715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1662715611928625307, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
+  m_PrefabInstance: {fileID: 6209644663265614256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5964505244249373398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701249907432380715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1973c10e9b8e3e4c825dd9bfa9bc69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  end_time: 0.25
 --- !u!4 &5278782496082999341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2265053728607003037, guid: 8e9736cbb5798c4429a8582c4d3ff1a5, type: 3}
