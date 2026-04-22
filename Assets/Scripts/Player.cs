@@ -90,6 +90,14 @@ public class Player : MonoBehaviour
         }*/
     }
 
+    public void StopDamageSound()
+    {
+        if (hurtSound.isPlaying && health.health > 500)
+        {
+            hurtSound.Stop();
+        }
+    }
+
     void LevelUp()
     {
         level++;
@@ -170,5 +178,8 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        StopDamageSound();
+    }
 }
