@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\GeneralColourShift.cs" />
     <Compile Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Core URP 6\Scripts\AdvancedEdgeDetection.cs" />
     <Compile Include="Assets\Scripts\Powerups\HealAbility.cs" />
+    <Compile Include="Assets\UI\DeathBackgroundParts.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
