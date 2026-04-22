@@ -38,8 +38,10 @@ public class Player : MonoBehaviour
     public Text scoreText;
 
     [SerializeField] private AudioSource hurtSound;
+    [SerializeField] private AudioSource stutterSound;
 
     private GameObject healthFuelGauge;
+
 
     void Start()
     {
@@ -92,9 +94,13 @@ public class Player : MonoBehaviour
 
     public void StopDamageSound()
     {
-        if (hurtSound.isPlaying && health.health > 500)
+        if (stutterSound.isPlaying && health.health > 500)
         {
-            hurtSound.Stop();
+            stutterSound.Stop();
+        }
+        else if (!stutterSound.isPlaying)
+        {
+            stutterSound.Play();
         }
     }
 
@@ -181,5 +187,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StopDamageSound();
+    }
+
+    public void HitSFX()
+    {
+        hurtSound.pitch = Random.Range(0.7f, 1.3f);
+        hurtSound.Play();
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.1f, 0.2f);
     }
 }
