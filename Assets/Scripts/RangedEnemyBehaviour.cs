@@ -6,7 +6,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     private State currentState = State.Patrolling;
 
     [SerializeField] private GameObject model;
-    private const float attackAnimLength = 1.05f;
+    private const float attackAnimLength = 1.35f;
     private float attackTimeStamp = 1000000f;
     private bool isAttacking = false;
 
