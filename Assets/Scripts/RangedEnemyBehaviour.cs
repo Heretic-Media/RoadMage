@@ -10,6 +10,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     private float attackTimeStamp = 1000000f;
     private bool isAttacking = false;
 
+    [SerializeField] private AudioSource attackSound;
 
     [Tooltip("Speed at which the enemy travels.")]
     [SerializeField] private float movementSpeed = 2f;
@@ -121,6 +122,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
                         
                         isAttacking = true;
                         attackTimeStamp = Time.time;
+                        attackSound.Play();
                     }
                     else
                     {
