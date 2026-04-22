@@ -3946,6 +3946,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071765818499074801, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
+      propertyPath: hurtSound
+      value: 
+      objectReference: {fileID: 2100934500}
     - target: {fileID: 3419283984684824789, guid: b3ed1c1968efbbc42a12695712caa5f4, type: 3}
       propertyPath: target
       value: 
@@ -7677,6 +7681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2100934500 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4480421995457054813, guid: 0fc002604e93f4043a27a566dffe206c, type: 3}
+  m_PrefabInstance: {fileID: 1795479392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2104877606 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4026314349744542916, guid: edbcb7b224683d74bb990105dd5ca17b, type: 3}
