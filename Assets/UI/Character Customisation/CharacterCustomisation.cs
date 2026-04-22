@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,250 +37,123 @@ public class CharacterCustomisation : MonoBehaviour
     [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
     [SerializeField] private GameObject[] vanAccessories;
 
+    
+
     public static int currentCharacter;
     public static Material currentMaterial; // Reference to the currently selected material
     public static int currentAccessory;
-    public static int truckColourIndex;
-    public static int carColourIndex;
-    public static int vanColourIndex;
-    public GameObject[] selectionMenus;
-    public UnityEngine.UI.Text starText; // Reference to star count text in UI
+    private static bool characterCustomisationExists; // Flag to check if an instance of CharacterCustomisation already exists
+    [SerializeField] private GameObject[] selectionMenus;
 
-    public static bool rewardsPicked;
-    public static int silverCategory;
-    public static int silverCharacter;
-    public static int silverIndex;
-    public static int goldCategory;
-    public static int goldCharacter;
-    public static int goldIndex;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //specialMaterialSelected = false;
-
-        // Load saved data
-        GameSaveData data = SaveSystem.LoadGame();
-        if (data != null)
+        if (!characterCustomisationExists)
         {
-            currentCharacter = data.currentCharacter;
-            currentAccessory = data.currentAccessory;
-            truckColourIndex = data.characterColours[0];
-            carColourIndex = data.characterColours[1];
-            vanColourIndex = data.characterColours[2];
-            rewardsPicked = data.rewardsPicked;
-            silverCategory = data.silverCategory;
-            silverCharacter = data.silverCharacter;
-            silverIndex = data.silverIndex;
-            goldCategory = data.goldCategory;
-            goldCharacter = data.goldCharacter;
-            goldIndex = data.goldIndex;
+            currentMaterial = characterMaterials[1]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[2]); //resets the material to the default colour for the car character
+
+            currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
+
+            currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
+
+            currentCharacter = 0; // sets the current character index to 0 for the truck character
+            currentAccessory = 0; // sets the current accessory to be none
+            for (int i = 1; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false); // deactivates all character models except truck at the start
+            }
         }
-        else
+        else if (characterCustomisationExists)
         {
-            currentCharacter = 0;
-            currentAccessory = 0;
-            truckColourIndex = 0;
-            carColourIndex = 2;
-            vanColourIndex = 7;
-            rewardsPicked = false;
-        }
-
-        if (!rewardsPicked)
-        {
-            PickRandomRewards();
-            rewardsPicked = true;
-            SaveSystem.SaveGame();
-        }
-
-        // Apply saved colours to materials
-        currentMaterial = characterMaterials[1];
-        currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[carColourIndex]);
-
-        currentMaterial = characterMaterials[2];
-        currentMaterial.SetTexture("_BaseMap", vanColours[vanColourIndex]);
-
-        currentMaterial = characterMaterials[0];
-        currentMaterial.SetTexture("_BaseMap", truckColours[truckColourIndex]);
-
-        // Set active character model
-        for (int i = 0; i < characterModels.Length; i++)
-        {
-            characterModels[i].SetActive(i == currentCharacter);
-        }
-
-        UpdateStarText();
-    }
-
-    private void PickRandomRewards()
-    {
-        List<Vector3Int> pool = new List<Vector3Int>();
-
-        for (int i = 0; i < truckColours.Length; i++)
-            if (i != 0) pool.Add(new Vector3Int(0, 0, i));
-        for (int i = 0; i < threeWheelCarColours.Length; i++)
-            if (i != 2) pool.Add(new Vector3Int(0, 1, i));
-        for (int i = 0; i < vanColours.Length; i++)
-            if (i != 7) pool.Add(new Vector3Int(0, 2, i));
-
-        for (int i = 0; i < truckSpecialMaterials.Length; i++)
-            pool.Add(new Vector3Int(1, 0, i));
-        for (int i = 0; i < threeWheelCarSpecialMaterials.Length; i++)
-            pool.Add(new Vector3Int(1, 1, i));
-        for (int i = 0; i < vanSpecialMaterials.Length; i++)
-            pool.Add(new Vector3Int(1, 2, i));
-
-        for (int i = 1; i < truckAccessories.Length; i++)
-            pool.Add(new Vector3Int(2, 0, i));
-        for (int i = 1; i < threeWheelCarAccessories.Length; i++)
-            pool.Add(new Vector3Int(2, 1, i));
-        for (int i = 1; i < vanAccessories.Length; i++)
-            pool.Add(new Vector3Int(2, 2, i));
-
-        if (pool.Count >= 2)
-        {
-            int silverPick = Random.Range(0, pool.Count);
-            Vector3Int s = pool[silverPick];
-            silverCategory = s.x;
-            silverCharacter = s.y;
-            silverIndex = s.z;
-
-            pool.RemoveAt(silverPick);
-
-            int goldPick = Random.Range(0, pool.Count);
-            Vector3Int g = pool[goldPick];
-            goldCategory = g.x;
-            goldCharacter = g.y;
-            goldIndex = g.z;
-        }
-        else if (pool.Count == 1)
-        {
-            Vector3Int s = pool[0];
-            silverCategory = s.x;
-            silverCharacter = s.y;
-            silverIndex = s.z;
-            goldCategory = -1;
-            goldCharacter = -1;
-            goldIndex = -1;
-        }
-
-        Debug.Log("Silver reward: category=" + silverCategory + " character=" + silverCharacter + " index=" + silverIndex);
-        Debug.Log("Gold reward: category=" + goldCategory + " character=" + goldCharacter + " index=" + goldIndex);
-    }
-
-    private bool IsUnlocked(int category, int characterIndex, int itemIndex)
-    {
-        if (category == 0)
-        {
-            if (characterIndex == 0 && itemIndex == 0) return true;
-            if (characterIndex == 1 && itemIndex == 2) return true;
-            if (characterIndex == 2 && itemIndex == 7) return true;
-        }
-        if (category == 2 && itemIndex == 0) return true;
-
-        if (CurrencyManager.stars >= 2 &&
-            category == silverCategory && characterIndex == silverCharacter && itemIndex == silverIndex)
-            return true;
-
-        if (CurrencyManager.stars >= 3 &&
-            category == goldCategory && characterIndex == goldCharacter && itemIndex == goldIndex)
-            return true;
-
-        return false;
-    }
-
-    public void UpdateStarText()
-    {
-        if (starText != null)
-        {
-            starText.text = CurrencyManager.stars.ToString();
+            for (int i = 0; i < characterModels.Length; i++)
+            {
+                characterModels[i].SetActive(false);
+            }
+            characterModels[currentCharacter].SetActive(true); // activates the currently selected character model
+            ChangeAccessory(currentAccessory);
         }
     }
+
+
 
     public void ChangeCharacter(int character)
     {
-        currentCharacter = character;
-        currentMaterial = characterMaterials[character];
-        ChangeAccessory(currentAccessory);
+        currentCharacter = character; // sets the current character
+        currentMaterial = characterMaterials[character]; // sets the current material to the default material for the selected character
+        ChangeAccessory(currentAccessory); // updates the accessories to match the new character
+
 
         for (int i = 0; i < characterModels.Length; i++)
         {
             if (i == character)
             {
-                characterModels[i].SetActive(true);
+                characterModels[i].SetActive(true); // activates the selected character model
             }
             else
             {
-                characterModels[i].SetActive(false);
+                characterModels[i].SetActive(false); // deactivates the other character models
             }
         }
-        SaveSystem.SaveGame();
     }
 
     public void ChangeMaterialColour(int colour)
     {
-        if (!IsUnlocked(0, currentCharacter, colour)) return;
-
         currentMaterial = characterMaterials[currentCharacter];
         if (currentCharacter == 0)
         {
-            truckColourIndex = colour;
-            characterBodies[0].GetComponent<Renderer>().material = characterMaterials[0];
-            currentMaterial.SetTexture("_BaseMap", truckColours[colour]);
+            characterBodies[0].GetComponent<Renderer>().material = characterMaterials[0]; // changes the truck character's material to the default material
+            currentMaterial.SetTexture("_BaseMap", truckColours[colour]); // changes the character's material to selected colour
         }
         if (currentCharacter == 1)
         {
-            carColourIndex = colour;
-            characterBodies[1].GetComponent<Renderer>().material = characterMaterials[1];
-            currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[colour]);
+            characterBodies[1].GetComponent<Renderer>().material = characterMaterials[1]; // changes the car character's material to the default material
+            currentMaterial.SetTexture("_BaseMap", threeWheelCarColours[colour]); // changes the character's material to selected colour
         }
         if (currentCharacter == 2)
         {
-            vanColourIndex = colour;
-            characterBodies[2].GetComponent<Renderer>().material = characterMaterials[2];
-            currentMaterial.SetTexture("_BaseMap", vanColours[colour]);
+            characterBodies[2].GetComponent<Renderer>().material = characterMaterials[2]; // changes the van character's material to the default material
+            currentMaterial.SetTexture("_BaseMap", vanColours[colour]); // changes the character's material to selected colour
         }
-        SaveSystem.SaveGame();
     }
 
     public void ChangeSpecialMaterials(int material)
     {
-        if (!IsUnlocked(1, currentCharacter, material)) return;
-
         if (currentCharacter == 0)
         {
-            currentMaterial = truckSpecialMaterials[material];
-            characterBodies[0].GetComponent<Renderer>().material = truckSpecialMaterials[material];
+            currentMaterial = truckSpecialMaterials[material]; // sets the current material to the selected special option
+            characterBodies[0].GetComponent<Renderer>().material = truckSpecialMaterials[material]; // changes the truck character's material to selected special option
         }
         if (currentCharacter == 1)
         {
-            currentMaterial = threeWheelCarSpecialMaterials[material];
-            characterBodies[1].GetComponent<Renderer>().material = threeWheelCarSpecialMaterials[material];
+            currentMaterial = threeWheelCarSpecialMaterials[material]; // sets the current material to the selected special option
+            characterBodies[1].GetComponent<Renderer>().material = threeWheelCarSpecialMaterials[material]; // changes the car character's material to selected special option
         }
         if (currentCharacter == 2)
         {
             currentMaterial = vanSpecialMaterials[material];
-            characterBodies[2].GetComponent<Renderer>().material = vanSpecialMaterials[material];
+            characterBodies[2].GetComponent<Renderer>().material = vanSpecialMaterials[material]; // changes the van character's material to selected special option
         }
-        SaveSystem.SaveGame();
     }
 
     public void ChangeAccessory(int accessory)
     {
-        if (!IsUnlocked(2, currentCharacter, accessory)) return;
-
         currentAccessory = accessory;
 
         for (int i = 1; i < truckAccessories.Length; i++)
         {
-            truckAccessories[i].SetActive(false);
+            truckAccessories[i].SetActive(false); // deactivates all truck accessories
         }
         for (int i = 1; i < threeWheelCarAccessories.Length; i++)
         {
-            threeWheelCarAccessories[i].SetActive(false);
+            threeWheelCarAccessories[i].SetActive(false); // deactivates all car accessories
         }
         for (int i = 1; i < vanAccessories.Length; i++)
         {
-            vanAccessories[i].SetActive(false);
+            vanAccessories[i].SetActive(false); // deactivates all van accessories
         }
 
         if (currentCharacter == 0)
@@ -290,7 +162,7 @@ public class CharacterCustomisation : MonoBehaviour
             {
                 if (i == accessory)
                 {
-                    truckAccessories[i].SetActive(true);
+                    truckAccessories[i].SetActive(true); // activates the selected accessory
                 }
             }
         }
@@ -300,7 +172,7 @@ public class CharacterCustomisation : MonoBehaviour
             {
                 if (i == accessory)
                 {
-                    threeWheelCarAccessories[i].SetActive(true);
+                    threeWheelCarAccessories[i].SetActive(true); // activates the selected accessory
                 }
             }
         }
@@ -310,17 +182,19 @@ public class CharacterCustomisation : MonoBehaviour
             {
                 if (i == accessory)
                 {
-                    vanAccessories[i].SetActive(true);
+                    vanAccessories[i].SetActive(true); // activates the selected accessory
                 }
             }
         }
-        SaveSystem.SaveGame();
     }
 
     public void EnterGame()
     {
-        SceneManager.LoadScene("PortalTransition");
+        characterCustomisationExists = true; // flags character as customised so that the customisation options are not reset when the character customisation scene is reloaded
+        SceneManager.LoadScene("PortalTransition"); // loads the game via transition screen
     }
+
+ 
 
     public void OpenCharacterSelectionMenu()
      {
@@ -328,11 +202,11 @@ public class CharacterCustomisation : MonoBehaviour
         {
             if (i == 0)
             {
-                selectionMenus[i].SetActive(true);
+                selectionMenus[i].SetActive(true); // opens the character selection menu
             }
             else
             {
-                selectionMenus[i].SetActive(false);
+                selectionMenus[i].SetActive(false); // closes the other selection menus
             }
         }
      }
@@ -343,13 +217,14 @@ public class CharacterCustomisation : MonoBehaviour
         {
             if (i == 1)
             {
-                selectionMenus[i].SetActive(true);
+                selectionMenus[i].SetActive(true); // opens the colour selection menu
             }
             else
             {
-                selectionMenus[i].SetActive(false);
+                selectionMenus[i].SetActive(false); // closes the other selection menus
             }
         }
+
     }
 
     public void OpenAccessorySelectionMenu()
@@ -358,11 +233,11 @@ public class CharacterCustomisation : MonoBehaviour
         {
             if (i == 2)
             {
-                selectionMenus[i].SetActive(true);
+                selectionMenus[i].SetActive(true); // opens the accessory selection menu
             }
             else
             {
-                selectionMenus[i].SetActive(false);
+                selectionMenus[i].SetActive(false); // closes the other selection menus
             }
         }
     }
@@ -373,11 +248,11 @@ public class CharacterCustomisation : MonoBehaviour
         {
             if (i == 3)
             {
-                selectionMenus[i].SetActive(true);
+                selectionMenus[i].SetActive(true); // opens the special options menu
             }
             else
             {
-                selectionMenus[i].SetActive(false);
+                selectionMenus[i].SetActive(false); // closes the other selection menus
             }
         }
     }
