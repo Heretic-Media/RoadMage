@@ -29,6 +29,12 @@ public class UI_MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void CharacterCustomisation()
     {
         SceneManager.LoadScene("CharacterCustomisation");
