@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\UIAbilityBar.cs" />
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
+    <Compile Include="Assets\UI\ParticleSpawner.cs" />
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\DeBugMenu.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
