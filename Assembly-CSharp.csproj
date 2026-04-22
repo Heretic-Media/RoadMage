@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\GeneralColourShift.cs" />
     <Compile Include="Assets\INab Studio\Post Processing Assets\Advanced Edge Detection\Core URP 6\Scripts\AdvancedEdgeDetection.cs" />
     <Compile Include="Assets\Scripts\Powerups\HealAbility.cs" />
+    <Compile Include="Assets\UI\DeathBackgroundParts.cs" />
     <Compile Include="Assets\UI\pause menu\AudioSliders.cs" />
     <Compile Include="Assets\Scenes\Menus\Scripts\ButtonBurstTrigger.cs" />
     <Compile Include="Assets\Scripts\TutorialPopUpManager.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Powerups\DriftAbility.cs" />
     <Compile Include="Assets\Scripts\FollowRigidbody.cs" />
+    <Compile Include="Assets\Scenes\Menus\menu sprites\menu sprites\1x\FloatingParticle.cs" />
     <Compile Include="Assets\Scripts\DriftAudio.cs" />
     <Compile Include="Assets\Scripts\Powerups\GlyphAbility.cs" />
     <Compile Include="Assets\Scripts\Enemies\ChestController.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Scripts\FollowTransform.cs" />
     <Compile Include="Assets\Scripts\brickDespawner.cs" />
     <Compile Include="Assets\Materials\texture files\misc\exit portal\PortalColourShift.cs" />
+    <Compile Include="Assets\Scenes\Menus\menu sprites\menu sprites\1x\StarScript.cs" />
     <Compile Include="Assets\UI\Character Customisation\UnlocksBehaviour.cs" />
     <Compile Include="Assets\Scripts\PauseManager.cs" />
     <Compile Include="Assets\Scripts\AudioObject.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\Scripts\KineticBlastProjectile.cs" />
     <Compile Include="Assets\Scripts\UIAbilityBar.cs" />
     <Compile Include="Assets\Scripts\Powerups\AoEAbility.cs" />
+    <Compile Include="Assets\UI\ParticleSpawner.cs" />
     <Compile Include="Assets\Scripts\PreventRotation.cs" />
     <Compile Include="Assets\Scripts\DeBugMenu.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
