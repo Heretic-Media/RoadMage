@@ -102,8 +102,6 @@ public class Player : MonoBehaviour
         {
             stutterSound.Play();
         }
-
-        print(health.health);
     }
 
     void LevelUp()

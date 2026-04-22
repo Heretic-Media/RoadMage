@@ -5023,6 +5023,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liftSpeed: 10
-  flySpeed: 15
+  flySpeed: 150
   dropSpeed: 5
   flightAltitude: 6
