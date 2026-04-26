@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tutorial Island 1.unity
-    guid: c47c3f0c4dc04c847a331b6ec1b45c53
-  - enabled: 1
-    path: Assets/Scenes/Trailer.unity
-    guid: bf843e44a53b4c74aaba336bea2a2b9a
-  - enabled: 1
     path: Assets/Scenes/Menus/Intro Cutscene.unity
     guid: 690a7ac80b8a7814494109df4df229f5
   - enabled: 1
