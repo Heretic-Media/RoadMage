@@ -11,6 +11,7 @@ public class CharacterModelController : MonoBehaviour
     public GameObject[] truckAccessories; // Array to hold different truck accessories
     public GameObject[] threeWheeledCarAccessories; // Array to hold different car accessories
     public GameObject[] vanAccessories; // Array to hold different van accessories
+    public GameObject[] vespaAccessories; // Array to hold different vespa accessories
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +52,14 @@ public class CharacterModelController : MonoBehaviour
                 vanAccessories[i].SetActive(false); // Deactivates all van accessories
             }
             vanAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected van accessory
+        }
+        else if (CharacterCustomisation.currentCharacter == 3) // If the current character is the vespa
+        {
+            for (int i = 1; i < vespaAccessories.Length; i++)
+            {
+                vespaAccessories[i].SetActive(false); // Deactivates all vespa accessories
+            }
+            vespaAccessories[CharacterCustomisation.currentAccessory].SetActive(true); // Activates the currently selected vespa accessory
         }
     }
 }

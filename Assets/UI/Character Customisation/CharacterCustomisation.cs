@@ -20,6 +20,8 @@ public class CharacterCustomisation : MonoBehaviour
     [SerializeField] private Texture[] threeWheelCarColours; // Array to hold different car colours
     [Tooltip("Add the colour variations for each car here")]
     [SerializeField] private Texture[] vanColours;
+    [Tooltip("Add the colour variations for each car here")]
+    [SerializeField] private Texture[] vespaColours; // Array to hold different vespa colours
 
     [Header("Unlocked Options")]
     [Tooltip("Add the material variations for each car here")]
@@ -28,6 +30,8 @@ public class CharacterCustomisation : MonoBehaviour
     [SerializeField] private Material[] threeWheelCarSpecialMaterials; // Array to hold different special options for car character
     [Tooltip("Add the material variations for each car here")]
     [SerializeField] private Material[] vanSpecialMaterials; // Array to hold different special options for van character
+    [Tooltip("Add the material variations for each car here")]
+    [SerializeField] private Material[] vespaSpecialMaterials; // Array to hold different special options for vespa character
 
     [Header("Accessories")]
     [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
@@ -36,8 +40,10 @@ public class CharacterCustomisation : MonoBehaviour
     [SerializeField] private GameObject[] threeWheelCarAccessories; // Array to hold different accessories
     [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
     [SerializeField] private GameObject[] vanAccessories;
+    [Tooltip("Add the accessory variations for each car here (first in the array should always be none")]
+    [SerializeField] private GameObject[] vespaAccessories;
 
-    
+
 
     public static int currentCharacter;
     public static Material currentMaterial; // Reference to the currently selected material
@@ -56,6 +62,9 @@ public class CharacterCustomisation : MonoBehaviour
 
             currentMaterial = characterMaterials[2]; // sets the current material to the first material in the array
             currentMaterial.SetTexture("_BaseMap", vanColours[7]); //resets the material to the default colour for the van character
+
+            currentMaterial = characterMaterials[3]; // sets the current material to the first material in the array
+            currentMaterial.SetTexture("_BaseMap", vespaColours[4]); //resets the material to the default colour for the vespa character
 
             currentMaterial = characterMaterials[0]; // sets the current material to the first material in the array
             currentMaterial.SetTexture("_BaseMap", truckColours[0]); //resets the material to the default colour for the truck character
@@ -118,6 +127,11 @@ public class CharacterCustomisation : MonoBehaviour
             characterBodies[2].GetComponent<Renderer>().material = characterMaterials[2]; // changes the van character's material to the default material
             currentMaterial.SetTexture("_BaseMap", vanColours[colour]); // changes the character's material to selected colour
         }
+        if (currentCharacter == 3)
+        {
+            characterBodies[3].GetComponent<Renderer>().material = characterMaterials[3]; // changes the vespa character's material to the default material
+            currentMaterial.SetTexture("_BaseMap", vespaColours[colour]); // changes the character's material to selected colour
+        }
     }
 
     public void ChangeSpecialMaterials(int material)
@@ -137,6 +151,11 @@ public class CharacterCustomisation : MonoBehaviour
             currentMaterial = vanSpecialMaterials[material];
             characterBodies[2].GetComponent<Renderer>().material = vanSpecialMaterials[material]; // changes the van character's material to selected special option
         }
+        if (currentCharacter == 3)
+        {
+            currentMaterial = vespaSpecialMaterials[material];
+            characterBodies[3].GetComponent<Renderer>().material = vespaSpecialMaterials[material]; // changes the vespa character's material to selected special option
+        }
     }
 
     public void ChangeAccessory(int accessory)
@@ -154,6 +173,10 @@ public class CharacterCustomisation : MonoBehaviour
         for (int i = 1; i < vanAccessories.Length; i++)
         {
             vanAccessories[i].SetActive(false); // deactivates all van accessories
+        }
+        for (int i = 1; i < vespaAccessories.Length; i++)
+        {
+            vespaAccessories[i].SetActive(false); // deactivates all vespa accessories
         }
 
         if (currentCharacter == 0)
@@ -183,6 +206,17 @@ public class CharacterCustomisation : MonoBehaviour
                 if (i == accessory)
                 {
                     vanAccessories[i].SetActive(true); // activates the selected accessory
+                }
+            }
+        }
+
+        if (currentCharacter == 3)
+        {
+            for (int i = 1; i < vespaAccessories.Length; i++)
+            {
+                if (i == accessory)
+                {
+                    vespaAccessories[i].SetActive(true); // activates the selected accessory
                 }
             }
         }
