@@ -6,6 +6,7 @@ public class VortexAbility : MonoBehaviour
 {
     [SerializeField] private GameObject hitBox;
     private bool isActive = false;
+    [SerializeField] private float cooldown = 5f;
     public bool vortexOnCooldown = false;
     private bool buttonPressed = false;
 
@@ -34,6 +35,7 @@ public class VortexAbility : MonoBehaviour
             if (!vortexOnCooldown)
             {
                 hitBox.SetActive(true);
+                GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>().TriggerIceEffect();
                 Invoke("endAttack", 5f);
                 isActive = true;
             }
@@ -51,7 +53,7 @@ public class VortexAbility : MonoBehaviour
             hitBox.SetActive(false);
             isActive = false;
             vortexOnCooldown = true;
-            Invoke("endCooldown", 5f);
+            Invoke("endCooldown", cooldown);
         }
         else
         {

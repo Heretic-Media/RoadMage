@@ -10,6 +10,7 @@ public class UpgradeMenuBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject[] optionButtons;
     int[] options;
+    [SerializeField] Image[] icons_slots;
     [SerializeField] EventSystem eventSystem;
 
     [SerializeField] GameObject canvas;
@@ -29,14 +30,14 @@ public class UpgradeMenuBehaviour : MonoBehaviour
     public void Unpause(int buttonIndex)
     {
         Init();
-        Time.timeScale = 1.0f;
+        GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>().UpgradeMenuPause(false);
         UpgradePlayer(options[buttonIndex]);
         canvas.SetActive(false);
     }
 
     public void Pause()
     {
-        Time.timeScale = 0.0f;
+        GameObject.FindGameObjectWithTag("PauseManager").GetComponent<PauseManager>().UpgradeMenuPause(true);
         List<int> selectedupgrades = new List<int>();
         for (int i = 0; i < optionButtons.Length; i++)
         {
@@ -56,8 +57,9 @@ public class UpgradeMenuBehaviour : MonoBehaviour
             {
                 AbilityDesc abilityDescription = upgradePrefabs[options[i]].GetComponent<AbilityDesc>();
                 TextMeshProUGUI[] abilityTexts = optionButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
-                abilityTexts[0].text = abilityDescription.abilityName;
+                abilityTexts[0].text = "\n" + abilityDescription.abilityName;
                 abilityTexts[1].text = abilityDescription.abilityDesc;
+                icons_slots[i].sprite = abilityDescription.icon;
                 //optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = 
                 //    upgradePrefabs[options[i]].GetComponent<AbilityDesc>().abilityName;
             }

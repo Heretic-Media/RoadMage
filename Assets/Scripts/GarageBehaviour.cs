@@ -18,6 +18,8 @@ public class GarageBehaviour : MonoBehaviour
     private bool exploding = false;
     private float explodingTimer = 1f;
 
+    private Material material;
+
     int GetEnemies()
     {
         return enemiesObject.transform.childCount;
@@ -30,12 +32,18 @@ public class GarageBehaviour : MonoBehaviour
         enemiesNum = enemiesObject.transform.childCount;
     }
 
+    void Start()
+    {
+        material = GetComponent<MeshRenderer>().material;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (exploding)
         {
             explodingTimer -= Time.fixedDeltaTime;
+            material.SetFloat("_Progress", 1 - explodingTimer);
             if (explodingTimer <= 0)
             {
                 Destroy(transform.parent.gameObject);
@@ -81,18 +89,12 @@ public class GarageBehaviour : MonoBehaviour
         GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().AddScore(200);
         GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().AddGarageScore();
 
-        if (GameObject.FindGameObjectWithTag("GaragesText").GetComponent<GarageTextBehaviour>().GetGaragesDone() == 4)
-        {
-            GameObject victoryVFX = Instantiate(victoryPrefab);
-            victoryVFX.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-        }
-        else
-        {
-            upgradeMenu.Pause();
-        }
+
+        upgradeMenu.Pause();
 
         exploding = true;
         trigger.enabled = false;
+
     }
 
     private void AccessUpgradeMenu()

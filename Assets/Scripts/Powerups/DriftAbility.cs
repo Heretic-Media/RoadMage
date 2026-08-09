@@ -1,8 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DriftAbility : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject fireAudio;
+
+    [SerializeField] private int audioPlayersCount = 5;
+    private List<GameObject> fireSounds = new List<GameObject>();
+    private int audioIndex = 0;
+
+    
 
     [Tooltip("Toggle the ability on or off")]
     public bool enableDriftProjectiles = true;
@@ -28,13 +36,21 @@ public class DriftAbility : MonoBehaviour
     [SerializeField] private float driftProjectileRandomness = 0.3f;
 
     private float timeSinceLastDriftProjectile = 0;
+    private bool fireEffectTriggered = false;
 
     private TopDownCarController carController;
+    private ScreenEffects screenEffects;
 
 
     void Start()
     {
         carController = transform.parent.GetComponent<TopDownCarController>();
+        screenEffects = GameObject.FindGameObjectWithTag("ScreenEffects").GetComponent<ScreenEffects>();
+
+        for (int i = 0; i < audioPlayersCount; i++) 
+        {
+            fireSounds.Add(Instantiate(fireAudio, Vector3.zero, Quaternion.identity));
+        }
     }
 
     private void Awake()
@@ -95,6 +111,7 @@ public class DriftAbility : MonoBehaviour
             if (driftTime >= driftAbilityBurnout)
             {
                 // Debug.Log("drift ability timed out");
+                StopFireEffectIfNeeded();
             }
             else if (driftTime <= driftAbilityDecay)
             {
@@ -116,6 +133,40 @@ public class DriftAbility : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            StopFireEffectIfNeeded();
+        }
+    }
+
+    private void StopFireEffectIfNeeded()
+    {
+        if (!fireEffectTriggered)
+        {
+            return;
+        }
+
+        if (screenEffects != null)
+        {
+            screenEffects.StopFireEffect();
+        }
+
+        fireEffectTriggered = false;
+    }
+
+    private void StartAudio()
+    {
+        if (fireSounds[audioIndex].GetComponentInChildren<AudioSource>().isPlaying == false) 
+        {
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Play();
+        }
+        else 
+        {
+            audioIndex++;
+            audioIndex = audioIndex % audioPlayersCount;
+            fireSounds[audioIndex].GetComponentInChildren<AudioSource>().Stop();
+            StartAudio();
+        }
     }
 
     private void SpawnProjectile(float projectileSpeed)
@@ -124,6 +175,14 @@ public class DriftAbility : MonoBehaviour
 
         if (projectile == null)
             return;
+
+        if (!fireEffectTriggered && screenEffects != null)
+        {
+            screenEffects.TriggerFireEffect();
+            fireEffectTriggered = true;
+        }
+
+        StartAudio();
 
         Vector3 spawnPos = transform.position - transform.forward * 0.6f + Vector3.up * 0.2f;
         GameObject proj = Instantiate(projectile, spawnPos, Quaternion.identity);

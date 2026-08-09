@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fc0bca97340ef6646b5c4816358824eb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262863
+  packageName: Advanced Edge Detection
+  packageVersion: 3.0
+  assetPath: Assets/INab Studio/Post Processing Assets/Advanced Edge Detection/Core
+    URP 6/Settings/INab Studio Advanced Edge Detection.asset
+  uploadId: 859168

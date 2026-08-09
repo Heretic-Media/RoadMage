@@ -2,12 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour
 {
+    public Text starText; // Reference to star count text in UI
+
+    void Start()
+    {
+        CurrencyManager.LoadFromSave();
+        if (starText != null)
+        {
+            starText.text = CurrencyManager.stars.ToString();
+        }
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene("ALPHA with assets");
+        SceneManager.LoadScene("Tutorial Island");
     }
 
     public void QuitGame()
@@ -15,6 +27,12 @@ public class UI_MainMenu : MonoBehaviour
         Debug.Log("QUIT!");
 
         Application.Quit();
+    }
+
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void CharacterCustomisation()
@@ -25,10 +43,5 @@ public class UI_MainMenu : MonoBehaviour
     public void Transition()
     {
         SceneManager.LoadScene("PortalTransition");
-    }
-
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

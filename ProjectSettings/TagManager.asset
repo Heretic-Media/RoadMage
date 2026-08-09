@@ -18,6 +18,15 @@ TagManager:
   - IntuitiveSwitching
   - Building
   - Water
+  - PauseManager
+  - WinScreenManager
+  - DeBuff
+  - EnemyPopUpManager
+  - UnlockManager
+  - Goal
+  - ShakeSettingsManager
+  - ScreenEffects
+  - volumeLevels
   layers:
   - Default
   - TransparentFX

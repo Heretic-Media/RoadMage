@@ -38,14 +38,15 @@ public class Player : MonoBehaviour
     public Text scoreText;
 
     [SerializeField] private AudioSource hurtSound;
+    [SerializeField] private AudioSource stutterSound;
 
     private GameObject healthFuelGauge;
 
+
     void Start()
     {
-        healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
+        //healthFuelGauge = GameObject.FindGameObjectWithTag("HealthFuelGauge");
 
-        //currentHealth = maxHealth;
         UpdateAllUI();
     }
 
@@ -91,10 +92,16 @@ public class Player : MonoBehaviour
         }*/
     }
 
-    // may be unneccesary function?
-    public void Heal(int amount)
+    public void StopDamageSound()
     {
-        health.TakeDamage(-amount);
+        if (stutterSound.isPlaying && health.health > 800)
+        {
+            stutterSound.Stop();
+        }
+        else if (!stutterSound.isPlaying)
+        {
+            stutterSound.Play();
+        }
     }
 
     void LevelUp()
@@ -110,15 +117,23 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-
         Debug.Log("Player died.");
+
+        GameObject scoreManagerObj = GameObject.FindGameObjectWithTag("ScoreManager");
+        if (scoreManagerObj != null)
+        {
+            int finalScore = scoreManagerObj.GetComponent<ScoreManager>().GetScore();
+            int earnedStars = finalScore / 100;
+            CurrencyManager.AddStars(earnedStars);
+            SaveSystem.SaveGame();
+        }
 
         SceneManager.LoadScene("GameOver");
     }
 
     void UpdateAllUI()
     {
-        UpdateHealthUI();
+        //UpdateHealthUI();
         UpdateXPUI();
         UpdateLevelUI();
         UpdateScoreUI();
@@ -126,7 +141,7 @@ public class Player : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
+        //healthFuelGauge.GetComponent<UIDialBehaviour>().UpdateGauge((float)health.health / (float)health.maxHealth);
         //if (healthBarFill != null)
         //{
         //    float t = (maxHealth > 0f) ? currentHealth / maxHealth : 0f;
@@ -169,5 +184,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        StopDamageSound();
+    }
 
+    public void HitSFX()
+    {
+        hurtSound.pitch = Random.Range(0.7f, 1.3f);
+        hurtSound.Play();
+        Camera.main.GetComponent<CameraBehaviour>().Shake(0.1f, 0.2f);
+    }
 }
